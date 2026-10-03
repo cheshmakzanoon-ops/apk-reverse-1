@@ -114,6 +114,26 @@ else
   fi
 fi
 
+# A tracked file whose bytes git would rewrite on `git add` is a landmine: the
+# blob in the repository is the correct one today, but the next person who adds
+# it commits something else. `.gitattributes` is what decides this, and a
+# mis-scoped rule is silent - an earlier version marked the vendored unluac.jar
+# as text via `/tools/**`, which would have stripped its CR bytes.
+#
+# Scoped to generated files, because this script is also run by hand: a
+# developer part-way through editing ci-checks.sh should not see it go red.
+# --really-refresh defeats git's stat cache so this compares content.
+if [ -d source-app ]; then
+  git update-index --really-refresh -q >/dev/null 2>&1 || :
+  drifted="$(git diff-files --name-only -- source-app tools/unluac-batch/unluac.jar | head -5)"
+  if [ -z "$drifted" ]; then
+    ok "payload matches its stored blobs byte for byte"
+  else
+    bad "generated file(s) differ from their stored blob - check .gitattributes"
+    printf '%s\n' "$drifted" | sed 's/^/        /' >&2
+  fi
+fi
+
 # A tracked file that also matches an ignore rule is always a mistake: git stops
 # tracking it on the next `git add`, so it silently vanishes from the repository.
 # This is not hypothetical - an unanchored `input/` rule hid 269 recovered files
@@ -128,6 +148,21 @@ else
   bad "$swallowed tracked file(s) are also ignored - anchor the rule or untrack the path"
   git ls-files -z | git check-ignore --stdin -z --no-index 2>/dev/null \
     | tr '\0' '\n' | head -5 | sed 's/^/        /' >&2
+fi
+
+# Rules that reach the recovered payload are just as dangerous as rules that miss
+# it: normalising 1,270 config tables or 7,390 Unity JSON dumps would corrupt the
+# very files this repository exists to preserve.
+if [ -d source-app ]; then
+  # grep exits 1 when it matches nothing, which under `set -e` + pipefail would
+  # kill the script before it could report success - hence the `|| true`.
+  leaks="$(git ls-files source-app | grep -E '\.(sh|py|md|yml)$' | head -3 || true)"
+  if [ -z "$leaks" ]; then
+    ok "no payload file matches the toolchain's text rules"
+  else
+    bad "payload file(s) matched by a text rule in .gitattributes"
+    printf '%s\n' "$leaks" | sed 's/^/        /' >&2
+  fi
 fi
 
 # The recovered payload is only useful if it is what the README claims. Counts

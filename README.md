@@ -100,12 +100,16 @@ nothing. Two details make the tracked payload trustworthy:
 
 - `.gitattributes` marks generated content `-text`, so no checkout or clone can
   rewrite line endings or re-encode a file the pipeline produced. The
-  hand-written toolchain is explicitly LF (`/tools/**`, `*.sh`, `/*.md`).
+  hand-written toolchain is explicitly LF (`.sh`, `.py`, `.md`, `.yml`), and the
+  vendored `unluac.jar` is pinned `binary` — a path glob like `/tools/**` would
+  have marked that zip as text and stripped its CR bytes on the next `git add`.
 - Ignore rules that exclude a path are anchored (`/input/`, `/decompiled/`). An
   unanchored `input/` silently swallowed 269 recovered files under
-  `androidx/compose/**/input/` before this was caught; checks in
-  `tools/ci-checks.sh` now fail the build if any tracked file matches an ignore
-  rule, or if any tracked file exceeds GitHub's 100 MB limit.
+  `androidx/compose/**/input/` before this was caught.
+- `tools/ci-checks.sh` now guards all of it: no tracked file over 100 MB, no
+  tracked file matching an ignore rule, no payload file reachable by a text
+  rule, every payload blob matching its bytes on disk, and README's file counts
+  matching the tracked tree.
 
 `unity-project/Assets/*` are symlinks into the payload. Three of the five
 (`LuaScripts`, `DataTable`, `CSharp`) now resolve straight from a fresh clone;

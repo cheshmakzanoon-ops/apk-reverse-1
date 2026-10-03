@@ -1,17 +1,24 @@
 # Recovered payloads must round-trip byte-for-byte.
 #
-# The Lua, C#, Java and config-table trees are machine-generated decompiler
-# output, not hand-written text. Letting git apply its text/eol heuristics
-# (CRLF<->LF normalisation) could rewrite line endings - or mishandle a file
-# whose bytes git misjudges - which would silently diverge from the APK the
-# tree was decoded from. `-text` disables that class of corruption everywhere.
+# The Lua, C#, Java, config-table and Unity trees are machine-generated
+# decompiler output, not hand-written text. Letting git apply its text/eol
+# heuristics could rewrite line endings - or strip CR bytes out of a file whose
+# bytes git misjudges - which would silently diverge from the APK the tree was
+# decoded from. `-text` disables that class of corruption for every path.
 * -text
 
-# The hand-written toolchain is the opposite case: real text, real diffs, and LF
-# endings wanted on every platform. These paths are scoped rather than matched
-# by extension on purpose - a global `*.json text` rule would also rewrite the
-# 7,390 recovered Unity JSON files under source-app/unity-assets.
-*.sh          text eol=lf
-/tools/**     text eol=lf
-/.github/**   text eol=lf
-/*.md         text eol=lf
+# The vendored Lua bytecode decompiler is a binary zip, and a zip's integrity
+# depends on byte offsets, so it must never be text-normalised. This is spelled
+# out rather than left to a path glob: an earlier version of this file used
+# `/tools/** text eol=lf`, which silently marked this jar as text and would have
+# stripped its 4,293 CR bytes the next time anybody ran `git add` on it.
+tools/unluac-batch/unluac.jar binary
+
+# The hand-written toolchain is the opposite case: real text that wants LF on
+# every platform. These four extensions do not occur anywhere under
+# source-app/, so none of these rules can reach the recovered payload -
+# tools/ci-checks.sh asserts that.
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
