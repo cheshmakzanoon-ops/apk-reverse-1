@@ -151,16 +151,23 @@ else
 fi
 
 # Rules that reach the recovered payload are just as dangerous as rules that miss
-# it: normalising 1,270 config tables or 7,390 Unity JSON dumps would corrupt the
-# very files this repository exists to preserve.
+# it: normalising 19,572 Lua modules or 7,390 Unity JSON dumps would corrupt the
+# very files this repository exists to preserve. Asked of git rather than of a
+# hardcoded extension list, so this catches any rule - present or future - that
+# marks payload content as text.
 if [ -d source-app ]; then
-  # grep exits 1 when it matches nothing, which under `set -e` + pipefail would
-  # kill the script before it could report success - hence the `|| true`.
-  leaks="$(git ls-files source-app | grep -E '\.(sh|py|md|yml)$' | head -3 || true)"
-  if [ -z "$leaks" ]; then
-    ok "no payload file matches the toolchain's text rules"
+  # check-attr emits path/attr/value NUL triples; `paste` folds them into rows so
+  # awk can pick out the ones where `text` is set.
+  leaks="$(git ls-files -z source-app | git check-attr --stdin -z text 2>/dev/null \
+            | tr '\0' '\n' | paste -d'|' - - - \
+            | awk -F'|' '$2 == "text" && $3 == "set"' | head -3 || true)"
+  leaked_n="$(git ls-files -z source-app | git check-attr --stdin -z text 2>/dev/null \
+              | tr '\0' '\n' | paste -d'|' - - - \
+              | awk -F'|' '$2 == "text" && $3 == "set"' | wc -l | tr -d ' ')"
+  if [ "${leaked_n:-0}" -eq 0 ]; then
+    ok "no payload file is marked text by .gitattributes"
   else
-    bad "payload file(s) matched by a text rule in .gitattributes"
+    bad "$leaked_n payload file(s) marked text - they would be normalised on add"
     printf '%s\n' "$leaks" | sed 's/^/        /' >&2
   fi
 fi
