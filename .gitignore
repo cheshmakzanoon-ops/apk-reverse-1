@@ -20,8 +20,8 @@
 # also matches any directory named "input" at any depth, which silently
 # excluded 269 recovered files under
 # source-app/src/sources/androidx/compose/**/input/ (the AndroidX Compose UI
-# input-handling package) - check 22 in tools/ci-checks.sh guards against a
-# tracked file ever matching an ignore rule again.
+# input-handling package). tools/ci-checks.sh now fails the build if any
+# tracked file ever matches an ignore rule again.
 /input/
 
 /decompiled/
