@@ -1,0 +1,38 @@
+# Recovered payloads are generated, not authored.
+#
+# The working tree is ~4.2 GB, and three files (the 775 MB APK and two 498 MB
+# copies of BundleFragment0.bytes) exceed GitHub's 100 MB per-file hard limit,
+# so they cannot be pushed at all. Every one of these paths is reproduced
+# deterministically by the committed pipeline from input/app.apk - see the
+# "Reproducing" section of README.md.
+#
+# Verify that claim rather than trusting it: the pipeline is idempotent and its
+# step guards fail loudly, so a rerun either reproduces the same file counts or
+# exits non-zero.
+
+# the APK under analysis, plus any other input
+input/
+
+# raw extraction: DEX, native .so, decoded resources, Unity asset payload
+decompiled/
+
+# decompiler output: Java, C#, Lua, config tables, extracted assets
+source-app/
+
+# build output of the Lua decompiler driver (rebuilt by tools/decompile.sh)
+tools/unluac-batch/classes/
+
+# .NET build output for the PE probe helper (rebuilt by `dotnet run`)
+tools/peprobe/bin/
+tools/peprobe/obj/
+
+# per-run diagnostics; regenerated on each decompile run
+unluac-failures.tsv
+unluac-failures-tables.tsv
+
+# Python bytecode from the CI syntax check
+__pycache__/
+*.pyc
+
+# OS noise
+.DS_Store
