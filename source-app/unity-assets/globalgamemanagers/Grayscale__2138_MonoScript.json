@@ -1,0 +1,25 @@
+{
+ "m_Name": "Grayscale",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 209,
+  "bytes[1]": 195,
+  "bytes[2]": 18,
+  "bytes[3]": 125,
+  "bytes[4]": 5,
+  "bytes[5]": 239,
+  "bytes[6]": 32,
+  "bytes[7]": 13,
+  "bytes[8]": 178,
+  "bytes[9]": 121,
+  "bytes[10]": 159,
+  "bytes[11]": 113,
+  "bytes[12]": 26,
+  "bytes[13]": 253,
+  "bytes[14]": 63,
+  "bytes[15]": 151
+ },
+ "m_ClassName": "Grayscale",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

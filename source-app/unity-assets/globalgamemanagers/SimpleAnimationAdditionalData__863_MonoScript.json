@@ -1,0 +1,25 @@
+{
+ "m_Name": "SimpleAnimationAdditionalData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 122,
+  "bytes[1]": 151,
+  "bytes[2]": 8,
+  "bytes[3]": 157,
+  "bytes[4]": 105,
+  "bytes[5]": 115,
+  "bytes[6]": 239,
+  "bytes[7]": 250,
+  "bytes[8]": 62,
+  "bytes[9]": 6,
+  "bytes[10]": 194,
+  "bytes[11]": 165,
+  "bytes[12]": 79,
+  "bytes[13]": 69,
+  "bytes[14]": 108,
+  "bytes[15]": 149
+ },
+ "m_ClassName": "SimpleAnimationAdditionalData",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

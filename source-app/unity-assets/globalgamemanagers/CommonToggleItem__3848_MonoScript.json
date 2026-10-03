@@ -1,0 +1,25 @@
+{
+ "m_Name": "CommonToggleItem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 105,
+  "bytes[1]": 159,
+  "bytes[2]": 104,
+  "bytes[3]": 226,
+  "bytes[4]": 118,
+  "bytes[5]": 46,
+  "bytes[6]": 60,
+  "bytes[7]": 201,
+  "bytes[8]": 214,
+  "bytes[9]": 153,
+  "bytes[10]": 145,
+  "bytes[11]": 61,
+  "bytes[12]": 180,
+  "bytes[13]": 8,
+  "bytes[14]": 180,
+  "bytes[15]": 100
+ },
+ "m_ClassName": "CommonToggleItem",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

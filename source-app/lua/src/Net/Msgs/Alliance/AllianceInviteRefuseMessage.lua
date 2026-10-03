@@ -1,0 +1,25 @@
+local AllianceInviteRefuseMessage = BaseClass("AllianceInviteRefuseMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, mailUuid)
+  base.OnCreate(self)
+  self.sfsObj:PutUtfString("mailId", mailUuid)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    local mailId = t.mailId
+    local strKey = "MailInviteDeal_" .. mailId
+    CS.GameEntry.Setting:SetInt(strKey, 3)
+    EventManager:GetInstance():Broadcast(EventId.AllianceInviteStatusChange)
+  end
+end
+
+AllianceInviteRefuseMessage.OnCreate = OnCreate
+AllianceInviteRefuseMessage.HandleMessage = HandleMessage
+return AllianceInviteRefuseMessage

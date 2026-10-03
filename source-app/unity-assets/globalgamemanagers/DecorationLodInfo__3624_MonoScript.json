@@ -1,0 +1,25 @@
+{
+ "m_Name": "DecorationLodInfo",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 140,
+  "bytes[1]": 2,
+  "bytes[2]": 172,
+  "bytes[3]": 221,
+  "bytes[4]": 69,
+  "bytes[5]": 234,
+  "bytes[6]": 9,
+  "bytes[7]": 177,
+  "bytes[8]": 110,
+  "bytes[9]": 13,
+  "bytes[10]": 48,
+  "bytes[11]": 136,
+  "bytes[12]": 2,
+  "bytes[13]": 175,
+  "bytes[14]": 102,
+  "bytes[15]": 146
+ },
+ "m_ClassName": "DecorationLodInfo",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

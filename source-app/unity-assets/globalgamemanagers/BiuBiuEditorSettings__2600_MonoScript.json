@@ -1,0 +1,25 @@
+{
+ "m_Name": "BiuBiuEditorSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 219,
+  "bytes[1]": 0,
+  "bytes[2]": 97,
+  "bytes[3]": 135,
+  "bytes[4]": 184,
+  "bytes[5]": 116,
+  "bytes[6]": 232,
+  "bytes[7]": 144,
+  "bytes[8]": 229,
+  "bytes[9]": 127,
+  "bytes[10]": 110,
+  "bytes[11]": 43,
+  "bytes[12]": 6,
+  "bytes[13]": 203,
+  "bytes[14]": 204,
+  "bytes[15]": 154
+ },
+ "m_ClassName": "BiuBiuEditorSettings",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

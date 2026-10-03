@@ -1,0 +1,25 @@
+{
+ "m_Name": "NonDrawingGraphic",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 191,
+  "bytes[1]": 252,
+  "bytes[2]": 173,
+  "bytes[3]": 185,
+  "bytes[4]": 121,
+  "bytes[5]": 125,
+  "bytes[6]": 139,
+  "bytes[7]": 227,
+  "bytes[8]": 99,
+  "bytes[9]": 248,
+  "bytes[10]": 2,
+  "bytes[11]": 196,
+  "bytes[12]": 40,
+  "bytes[13]": 65,
+  "bytes[14]": 217,
+  "bytes[15]": 167
+ },
+ "m_ClassName": "NonDrawingGraphic",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

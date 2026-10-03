@@ -1,0 +1,32 @@
+package net.aihelp.core.p004ui.glide.request.animation;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.view.animation.Animation;
+
+public class BitmapCrossFadeFactory extends BitmapContainerCrossFadeFactory<Bitmap> {
+    @Override
+    public Bitmap getBitmap(Bitmap bitmap) {
+        return bitmap;
+    }
+
+    public BitmapCrossFadeFactory() {
+    }
+
+    public BitmapCrossFadeFactory(int i) {
+        super(i);
+    }
+
+    public BitmapCrossFadeFactory(Context context, int i, int i2) {
+        super(context, i, i2);
+    }
+
+    public BitmapCrossFadeFactory(Animation animation, int i) {
+        super(animation, i);
+    }
+
+    public BitmapCrossFadeFactory(GlideAnimationFactory<Drawable> glideAnimationFactory) {
+        super(glideAnimationFactory);
+    }
+}

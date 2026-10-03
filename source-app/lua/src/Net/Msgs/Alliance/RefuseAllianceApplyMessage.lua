@@ -1,0 +1,25 @@
+local RefuseAllianceApplyMessage = BaseClass("RefuseAllianceApplyMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, playerId)
+  base.OnCreate(self)
+  self.sfsObj:PutUtfString("playerId", playerId)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    if t.playerId ~= nil then
+      DataCenter.AllianceMemberDataManager:UpdateOneAllianceApply(t.playerId, false)
+    end
+    EventManager:GetInstance():Broadcast(EventId.AllianceMemberRedPoint)
+  end
+end
+
+RefuseAllianceApplyMessage.OnCreate = OnCreate
+RefuseAllianceApplyMessage.HandleMessage = HandleMessage
+return RefuseAllianceApplyMessage

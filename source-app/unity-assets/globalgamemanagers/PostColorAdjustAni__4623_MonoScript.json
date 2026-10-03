@@ -1,0 +1,25 @@
+{
+ "m_Name": "PostColorAdjustAni",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 151,
+  "bytes[1]": 173,
+  "bytes[2]": 116,
+  "bytes[3]": 168,
+  "bytes[4]": 135,
+  "bytes[5]": 164,
+  "bytes[6]": 42,
+  "bytes[7]": 241,
+  "bytes[8]": 53,
+  "bytes[9]": 125,
+  "bytes[10]": 211,
+  "bytes[11]": 26,
+  "bytes[12]": 129,
+  "bytes[13]": 1,
+  "bytes[14]": 51,
+  "bytes[15]": 160
+ },
+ "m_ClassName": "PostColorAdjustAni",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

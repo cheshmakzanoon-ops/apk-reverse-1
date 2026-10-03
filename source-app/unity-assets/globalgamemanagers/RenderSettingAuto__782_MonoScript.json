@@ -1,0 +1,25 @@
+{
+ "m_Name": "RenderSettingAuto",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 231,
+  "bytes[1]": 3,
+  "bytes[2]": 163,
+  "bytes[3]": 5,
+  "bytes[4]": 180,
+  "bytes[5]": 86,
+  "bytes[6]": 211,
+  "bytes[7]": 5,
+  "bytes[8]": 250,
+  "bytes[9]": 89,
+  "bytes[10]": 138,
+  "bytes[11]": 92,
+  "bytes[12]": 23,
+  "bytes[13]": 230,
+  "bytes[14]": 87,
+  "bytes[15]": 235
+ },
+ "m_ClassName": "RenderSettingAuto",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CircleText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 45,
+  "bytes[1]": 201,
+  "bytes[2]": 159,
+  "bytes[3]": 73,
+  "bytes[4]": 183,
+  "bytes[5]": 84,
+  "bytes[6]": 68,
+  "bytes[7]": 241,
+  "bytes[8]": 143,
+  "bytes[9]": 24,
+  "bytes[10]": 133,
+  "bytes[11]": 18,
+  "bytes[12]": 45,
+  "bytes[13]": 17,
+  "bytes[14]": 140,
+  "bytes[15]": 38
+ },
+ "m_ClassName": "CircleText",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

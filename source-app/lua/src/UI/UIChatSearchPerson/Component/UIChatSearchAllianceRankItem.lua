@@ -1,0 +1,125 @@
+local ChatUserItem = require("UI.UIChatSearchPerson.Component.UIChatSearchUserItem")
+local UIChatSearchAllianceRankItem = BaseClass("UIChatSearchAllianceRankItem", UIBaseContainer)
+local base = UIBaseContainer
+local Localization = CS.GameEntry.Localization
+local name_path = "mainContent/nameTxt"
+local num_path = "mainContent/people"
+local show_btn_path = "mainContent/showButton"
+local close_img_path = "mainContent/ImgArrowNormal"
+local open_img_path = "mainContent/ImgArrowSelect"
+local content_path = "armyContent"
+
+function UIChatSearchAllianceRankItem:OnCreate()
+  base.OnCreate(self)
+  self.name = self:AddComponent(UIText, name_path)
+  self.num = self:AddComponent(UIText, num_path)
+  self.close_img = self:AddComponent(UIImage, close_img_path)
+  self.open_img = self:AddComponent(UIImage, open_img_path)
+  self.show_btn = self:AddComponent(UIButton, show_btn_path)
+  self.show_btn:SetOnClick(function()
+    self:OnShowClick()
+  end)
+  self.content = self:AddComponent(UIBaseContainer, content_path)
+  self.showMember = true
+end
+
+function UIChatSearchAllianceRankItem:OnDestroy()
+  self.name = nil
+  self.num = nil
+  self.close_img = nil
+  self.open_img = nil
+  self.show_btn = nil
+  self.content = nil
+  self.showMember = nil
+  base.OnDestroy(self)
+end
+
+function UIChatSearchAllianceRankItem:RefreshData(rank)
+  self.data = self.view.ctrl:GetRankData(rank)
+  self.num:SetText(self.data.rankNum)
+  if self.showMember then
+    self:RefreshMemberList()
+  end
+end
+
+function UIChatSearchAllianceRankItem:OnEnable()
+  base.OnEnable(self)
+  self.cellList = {}
+end
+
+function UIChatSearchAllianceRankItem:OnDisable()
+  base.OnDisable(self)
+end
+
+function UIChatSearchAllianceRankItem:OnShowClick()
+  if self.showMember then
+    if self.data.rank == 4 then
+      self:SetAllCellDestroy()
+    else
+      self:SetAllCellDestroy()
+    end
+    self.open_img:SetActive(true)
+    self.close_img:SetActive(false)
+    self.showMember = false
+  else
+    self.open_img:SetActive(false)
+    self.close_img:SetActive(true)
+    self.showMember = true
+    self:RefreshMemberList()
+  end
+end
+
+function UIChatSearchAllianceRankItem:RefreshMemberList()
+  self:SetAllCellDestroy()
+  local list = self.view.ctrl:GetMemberListByRank(self.data.rank)
+  self.modelCount = 0
+  for i = 1, table.length(list) do
+    self.modelCount = self.modelCount + 1
+    self.model[self.modelCount] = self:GameObjectInstantiateAsync(UIAssets.UIChatSearchPersonItem, function(request)
+      if request.isError then
+        return
+      end
+      local go = request.gameObject
+      go.gameObject:SetActive(true)
+      go.transform:SetParent(self.content.transform)
+      go.transform:Set_localScale(ResetScale.x, ResetScale.y, ResetScale.z)
+      local nameStr = tostring(NameCount)
+      go.name = nameStr
+      NameCount = NameCount + 1
+      local cell = self.content:AddComponent(ChatUserItem, nameStr)
+      cell:SetData(list[i])
+      if self.view.ctrl:IsUserInChatRoom(list[i].uid) then
+        cell:SetInChatRoom(true)
+      else
+        cell:SetInChatRoom(false)
+      end
+      table.insert(self.cellList, cell)
+    end)
+  end
+end
+
+function UIChatSearchAllianceRankItem:GetUserInfoList()
+  local userInfoList = {}
+  for _, userItem in pairs(self.cellList) do
+    local userinfo = userItem:GetUserData()
+    if userItem:GetToggle() and not self.view.ctrl:IsUserInChatRoom(userinfo.uid) then
+      userInfoList[#userInfoList + 1] = userinfo
+    end
+  end
+  return userInfoList
+end
+
+function UIChatSearchAllianceRankItem:SetAllCellDestroy()
+  self.content:RemoveComponents(ChatUserItem)
+  if self.model ~= nil then
+    for k, v in pairs(self.model) do
+      if v ~= nil then
+        self:GameObjectDestroy(v)
+      end
+    end
+  end
+  self.model = {}
+  self.cellList = {}
+end
+
+return UIChatSearchAllianceRankItem

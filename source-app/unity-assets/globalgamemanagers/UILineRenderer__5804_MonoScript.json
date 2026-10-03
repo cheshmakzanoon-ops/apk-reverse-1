@@ -1,0 +1,25 @@
+{
+ "m_Name": "UILineRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 125,
+  "bytes[1]": 3,
+  "bytes[2]": 177,
+  "bytes[3]": 25,
+  "bytes[4]": 161,
+  "bytes[5]": 18,
+  "bytes[6]": 141,
+  "bytes[7]": 122,
+  "bytes[8]": 15,
+  "bytes[9]": 39,
+  "bytes[10]": 161,
+  "bytes[11]": 50,
+  "bytes[12]": 128,
+  "bytes[13]": 123,
+  "bytes[14]": 61,
+  "bytes[15]": 190
+ },
+ "m_ClassName": "UILineRenderer",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

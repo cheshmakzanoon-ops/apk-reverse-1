@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScriptViewSkin",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 142,
+  "bytes[1]": 206,
+  "bytes[2]": 91,
+  "bytes[3]": 121,
+  "bytes[4]": 28,
+  "bytes[5]": 48,
+  "bytes[6]": 230,
+  "bytes[7]": 208,
+  "bytes[8]": 212,
+  "bytes[9]": 25,
+  "bytes[10]": 117,
+  "bytes[11]": 166,
+  "bytes[12]": 11,
+  "bytes[13]": 61,
+  "bytes[14]": 156,
+  "bytes[15]": 64
+ },
+ "m_ClassName": "ScriptViewSkin",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

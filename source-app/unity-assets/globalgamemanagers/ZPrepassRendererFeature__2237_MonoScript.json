@@ -1,0 +1,25 @@
+{
+ "m_Name": "ZPrepassRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 254,
+  "bytes[1]": 168,
+  "bytes[2]": 91,
+  "bytes[3]": 72,
+  "bytes[4]": 160,
+  "bytes[5]": 140,
+  "bytes[6]": 106,
+  "bytes[7]": 255,
+  "bytes[8]": 120,
+  "bytes[9]": 55,
+  "bytes[10]": 248,
+  "bytes[11]": 7,
+  "bytes[12]": 206,
+  "bytes[13]": 112,
+  "bytes[14]": 186,
+  "bytes[15]": 114
+ },
+ "m_ClassName": "ZPrepassRendererFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

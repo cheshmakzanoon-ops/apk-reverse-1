@@ -1,0 +1,25 @@
+{
+ "m_Name": "DOTweenAnimation",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 236,
+  "bytes[1]": 95,
+  "bytes[2]": 39,
+  "bytes[3]": 254,
+  "bytes[4]": 156,
+  "bytes[5]": 27,
+  "bytes[6]": 149,
+  "bytes[7]": 31,
+  "bytes[8]": 243,
+  "bytes[9]": 56,
+  "bytes[10]": 24,
+  "bytes[11]": 12,
+  "bytes[12]": 73,
+  "bytes[13]": 153,
+  "bytes[14]": 212,
+  "bytes[15]": 213
+ },
+ "m_ClassName": "DOTweenAnimation",
+ "m_Namespace": "DG.Tweening",
+ "m_AssemblyName": "Assembly-CSharp-firstpass.dll"
+}

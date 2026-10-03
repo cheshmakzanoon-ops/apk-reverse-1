@@ -1,0 +1,25 @@
+{
+ "m_Name": "AutoDestroy",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 113,
+  "bytes[1]": 33,
+  "bytes[2]": 3,
+  "bytes[3]": 169,
+  "bytes[4]": 234,
+  "bytes[5]": 198,
+  "bytes[6]": 188,
+  "bytes[7]": 219,
+  "bytes[8]": 48,
+  "bytes[9]": 35,
+  "bytes[10]": 103,
+  "bytes[11]": 68,
+  "bytes[12]": 89,
+  "bytes[13]": 67,
+  "bytes[14]": 51,
+  "bytes[15]": 135
+ },
+ "m_ClassName": "AutoDestroy",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

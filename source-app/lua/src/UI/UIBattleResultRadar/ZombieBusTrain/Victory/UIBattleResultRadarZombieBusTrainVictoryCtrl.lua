@@ -1,0 +1,7 @@
+local UIBattleResultRadarZombieBusTrainVictoryCtrl = BaseClass("UIBattleResultRadarZombieBusTrainVictoryCtrl", UIBaseCtrl)
+
+function UIBattleResultRadarZombieBusTrainVictoryCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBattleResultRadarZombieBusTrainVictory)
+end
+
+return UIBattleResultRadarZombieBusTrainVictoryCtrl

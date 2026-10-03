@@ -1,0 +1,44 @@
+local HorizontalInfinityScrollView = BaseClass("HorizontalInfinityScrollView", UIBaseComponent)
+local base = UIBaseComponent
+local UnityScrollView = typeof(CS.HorizontalInfinityScrollView)
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self.content = self.gameObject:GetComponent(UnityScrollView)
+end
+
+local function OnDestroy(self)
+  self.content:Dispose()
+  self.content = nil
+  base.OnDestroy(self)
+end
+
+local function Init(self, action1, action2, action3, obj)
+  self.content:Init(action1, action2, action3, obj)
+end
+
+local function SetItemCount(self, itemCount_)
+  self.content:SetItemCount(itemCount_)
+  self.content:ForceUpdate()
+end
+
+local function ForceUpdate(self)
+  self.content:ForceUpdate()
+end
+
+local function MoveItemByIndex(self, index, delay)
+  self.content:MoveItemByIndex(index, delay)
+end
+
+local function FocusItemByIndex(self, index)
+  self.content:FocusItemByIndex(index)
+end
+
+HorizontalInfinityScrollView.OnCreate = OnCreate
+HorizontalInfinityScrollView.OnDestroy = OnDestroy
+HorizontalInfinityScrollView.Init = Init
+HorizontalInfinityScrollView.SetItemCount = SetItemCount
+HorizontalInfinityScrollView.ForceUpdate = ForceUpdate
+HorizontalInfinityScrollView.MoveItemByIndex = MoveItemByIndex
+HorizontalInfinityScrollView.FocusItemByIndex = FocusItemByIndex
+return HorizontalInfinityScrollView

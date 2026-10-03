@@ -1,0 +1,25 @@
+{
+ "m_Name": "iTweenPositionTo",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 130,
+  "bytes[1]": 239,
+  "bytes[2]": 88,
+  "bytes[3]": 165,
+  "bytes[4]": 231,
+  "bytes[5]": 202,
+  "bytes[6]": 128,
+  "bytes[7]": 229,
+  "bytes[8]": 240,
+  "bytes[9]": 92,
+  "bytes[10]": 182,
+  "bytes[11]": 93,
+  "bytes[12]": 68,
+  "bytes[13]": 104,
+  "bytes[14]": 208,
+  "bytes[15]": 23
+ },
+ "m_ClassName": "iTweenPositionTo",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "Scrollbar",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 73,
+  "bytes[1]": 159,
+  "bytes[2]": 210,
+  "bytes[3]": 52,
+  "bytes[4]": 51,
+  "bytes[5]": 230,
+  "bytes[6]": 142,
+  "bytes[7]": 38,
+  "bytes[8]": 93,
+  "bytes[9]": 21,
+  "bytes[10]": 58,
+  "bytes[11]": 166,
+  "bytes[12]": 185,
+  "bytes[13]": 93,
+  "bytes[14]": 0,
+  "bytes[15]": 71
+ },
+ "m_ClassName": "Scrollbar",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

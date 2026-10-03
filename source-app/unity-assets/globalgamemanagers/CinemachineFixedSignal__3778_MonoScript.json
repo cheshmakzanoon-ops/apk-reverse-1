@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineFixedSignal",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 210,
+  "bytes[1]": 39,
+  "bytes[2]": 152,
+  "bytes[3]": 114,
+  "bytes[4]": 67,
+  "bytes[5]": 89,
+  "bytes[6]": 59,
+  "bytes[7]": 50,
+  "bytes[8]": 174,
+  "bytes[9]": 87,
+  "bytes[10]": 57,
+  "bytes[11]": 77,
+  "bytes[12]": 6,
+  "bytes[13]": 1,
+  "bytes[14]": 134,
+  "bytes[15]": 67
+ },
+ "m_ClassName": "CinemachineFixedSignal",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

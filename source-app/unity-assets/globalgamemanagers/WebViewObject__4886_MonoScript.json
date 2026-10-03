@@ -1,0 +1,25 @@
+{
+ "m_Name": "WebViewObject",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 39,
+  "bytes[1]": 21,
+  "bytes[2]": 161,
+  "bytes[3]": 232,
+  "bytes[4]": 73,
+  "bytes[5]": 71,
+  "bytes[6]": 108,
+  "bytes[7]": 248,
+  "bytes[8]": 237,
+  "bytes[9]": 127,
+  "bytes[10]": 57,
+  "bytes[11]": 86,
+  "bytes[12]": 248,
+  "bytes[13]": 76,
+  "bytes[14]": 41,
+  "bytes[15]": 102
+ },
+ "m_ClassName": "WebViewObject",
+ "m_Namespace": "",
+ "m_AssemblyName": "unity-webview.dll"
+}

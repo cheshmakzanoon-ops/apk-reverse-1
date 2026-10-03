@@ -1,0 +1,26 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 269
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 186
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 447
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "Checkmark",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "WebmVideoPlayerManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 81,
+  "bytes[1]": 203,
+  "bytes[2]": 131,
+  "bytes[3]": 54,
+  "bytes[4]": 119,
+  "bytes[5]": 110,
+  "bytes[6]": 242,
+  "bytes[7]": 78,
+  "bytes[8]": 248,
+  "bytes[9]": 160,
+  "bytes[10]": 217,
+  "bytes[11]": 207,
+  "bytes[12]": 187,
+  "bytes[13]": 108,
+  "bytes[14]": 143,
+  "bytes[15]": 166
+ },
+ "m_ClassName": "WebmVideoPlayerManager",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

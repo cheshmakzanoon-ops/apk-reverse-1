@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpineAnimationStateGraphicTrack",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 96,
+  "bytes[1]": 102,
+  "bytes[2]": 109,
+  "bytes[3]": 118,
+  "bytes[4]": 39,
+  "bytes[5]": 122,
+  "bytes[6]": 233,
+  "bytes[7]": 254,
+  "bytes[8]": 140,
+  "bytes[9]": 122,
+  "bytes[10]": 244,
+  "bytes[11]": 127,
+  "bytes[12]": 22,
+  "bytes[13]": 70,
+  "bytes[14]": 58,
+  "bytes[15]": 164
+ },
+ "m_ClassName": "SpineAnimationStateGraphicTrack",
+ "m_Namespace": "Spine.Unity.Playables",
+ "m_AssemblyName": "spine-timeline.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "BasementDome",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 122,
+  "bytes[1]": 159,
+  "bytes[2]": 187,
+  "bytes[3]": 157,
+  "bytes[4]": 15,
+  "bytes[5]": 143,
+  "bytes[6]": 94,
+  "bytes[7]": 189,
+  "bytes[8]": 83,
+  "bytes[9]": 5,
+  "bytes[10]": 221,
+  "bytes[11]": 101,
+  "bytes[12]": 190,
+  "bytes[13]": 122,
+  "bytes[14]": 189,
+  "bytes[15]": 134
+ },
+ "m_ClassName": "BasementDome",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

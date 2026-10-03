@@ -1,0 +1,80 @@
+package kotlinx.coroutines.flow;
+
+import kotlin.Metadata;
+import kotlin.ResultKt;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
+import kotlin.coroutines.intrinsics.IntrinsicsKt;
+import kotlin.jvm.functions.Function3;
+import kotlin.jvm.internal.Ref;
+
+@Metadata(m19k = 3, m20mv = {2, 0, 0}, m22xi = 48)
+final class FlowKt__TransformKt$runningFold$1$1<T> implements FlowCollector {
+    final Ref.ObjectRef<R> $accumulator;
+    final Function3<R, T, Continuation<? super R>, Object> $operation;
+    final FlowCollector<R> $this_flow;
+
+    FlowKt__TransformKt$runningFold$1$1(Ref.ObjectRef<R> objectRef, Function3<? super R, ? super T, ? super Continuation<? super R>, ? extends Object> function3, FlowCollector<? super R> flowCollector) {
+        this.$accumulator = objectRef;
+        this.$operation = function3;
+        this.$this_flow = flowCollector;
+    }
+
+    @Override
+    public final Object emit(T t, Continuation<? super Unit> continuation) throws Throwable {
+        FlowKt__TransformKt$runningFold$1$1$emit$1 flowKt__TransformKt$runningFold$1$1$emit$1;
+        FlowKt__TransformKt$runningFold$1$1<T> flowKt__TransformKt$runningFold$1$1;
+        Ref.ObjectRef objectRef;
+        if (continuation instanceof FlowKt__TransformKt$runningFold$1$1$emit$1) {
+            flowKt__TransformKt$runningFold$1$1$emit$1 = (FlowKt__TransformKt$runningFold$1$1$emit$1) continuation;
+            if ((flowKt__TransformKt$runningFold$1$1$emit$1.label & Integer.MIN_VALUE) != 0) {
+                flowKt__TransformKt$runningFold$1$1$emit$1.label -= Integer.MIN_VALUE;
+            } else {
+                flowKt__TransformKt$runningFold$1$1$emit$1 = new FlowKt__TransformKt$runningFold$1$1$emit$1(this, continuation);
+            }
+        } else {
+            flowKt__TransformKt$runningFold$1$1$emit$1 = new FlowKt__TransformKt$runningFold$1$1$emit$1(this, continuation);
+        }
+        Object obj = flowKt__TransformKt$runningFold$1$1$emit$1.result;
+        Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        int i = flowKt__TransformKt$runningFold$1$1$emit$1.label;
+        if (i == 0) {
+            ResultKt.throwOnFailure(obj);
+            Ref.ObjectRef objectRef2 = this.$accumulator;
+            Function3<R, T, Continuation<? super R>, Object> function3 = this.$operation;
+            T t2 = objectRef2.element;
+            flowKt__TransformKt$runningFold$1$1$emit$1.L$0 = this;
+            flowKt__TransformKt$runningFold$1$1$emit$1.L$1 = objectRef2;
+            flowKt__TransformKt$runningFold$1$1$emit$1.label = 1;
+            Object objInvoke = function3.invoke((R) t2, t, flowKt__TransformKt$runningFold$1$1$emit$1);
+            if (objInvoke == coroutine_suspended) {
+                return coroutine_suspended;
+            }
+            flowKt__TransformKt$runningFold$1$1 = this;
+            obj = (T) objInvoke;
+            objectRef = objectRef2;
+        } else {
+            if (i == 1) {
+                objectRef = (Ref.ObjectRef) flowKt__TransformKt$runningFold$1$1$emit$1.L$1;
+                flowKt__TransformKt$runningFold$1$1 = (FlowKt__TransformKt$runningFold$1$1) flowKt__TransformKt$runningFold$1$1$emit$1.L$0;
+                ResultKt.throwOnFailure(obj);
+            } else {
+                if (i != 2) {
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+                ResultKt.throwOnFailure(obj);
+            }
+            return Unit.INSTANCE;
+        }
+        objectRef.element = (T) obj;
+        FlowCollector<R> flowCollector = flowKt__TransformKt$runningFold$1$1.$this_flow;
+        T t3 = flowKt__TransformKt$runningFold$1$1.$accumulator.element;
+        flowKt__TransformKt$runningFold$1$1$emit$1.L$0 = null;
+        flowKt__TransformKt$runningFold$1$1$emit$1.L$1 = null;
+        flowKt__TransformKt$runningFold$1$1$emit$1.label = 2;
+        if (flowCollector.emit((R) t3, flowKt__TransformKt$runningFold$1$1$emit$1) == coroutine_suspended) {
+            return coroutine_suspended;
+        }
+        return Unit.INSTANCE;
+    }
+}

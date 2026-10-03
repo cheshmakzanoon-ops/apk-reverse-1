@@ -1,0 +1,88 @@
+local UIHeroInfoStory = BaseClass("UIHeroInfoStory", UIBaseContainer)
+local base = UIBaseContainer
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  base.OnDestroy(self)
+end
+
+local function OnEnable(self)
+  base.OnEnable(self)
+end
+
+local function OnDisable(self)
+  base.OnDisable(self)
+end
+
+local function OnAddListener(self)
+  base.OnAddListener(self)
+end
+
+local function OnRemoveListener(self)
+  base.OnRemoveListener(self)
+end
+
+local function ComponentDefine(self)
+  self.textTitle = self:AddComponent(UIText, "TextTitle")
+  self.textTitleQuality = self:AddComponent(UIText, "TextTitleQuality")
+  self.textValueQuality = self:AddComponent(UIText, "TextValueQuality")
+  self.textTitleDate = self:AddComponent(UIText, "TextTitleDate")
+  self.textValueDate = self:AddComponent(UIText, "TextValueDate")
+  self.textTitleStory = self:AddComponent(UIText, "TextTitleStory")
+  self.textValueStory = self:AddComponent(UIText, "ScrollView/Viewport/Content/TextValueStory")
+  self.svContent = self:AddComponent(UIBaseContainer, "ScrollView/Viewport/Content")
+  self.textTitle:SetLocalText(150108)
+  self.textTitleStory:SetLocalText(150112)
+  self.textTitleQuality:SetLocalText(150110)
+  self.textTitleDate:SetLocalText(150111)
+end
+
+local function ComponentDestroy(self)
+  self.textValueRarity = nil
+  self.textTitleQuality = nil
+  self.textValueQuality = nil
+  self.textTitleDate = nil
+  self.textValueDate = nil
+  self.textTitleStory = nil
+  self.textValueStory = nil
+  self.svContent = nil
+end
+
+local function InitData(self, param, fromType)
+  local UIHeroInfoView = require("UI.UIHero2.UIHeroInfo.View.UIHeroInfoView")
+  fromType = fromType or UIHeroInfoView.FromType.HeroList
+  local quality, config
+  if fromType == UIHeroInfoView.FromType.HeroList then
+    local heroData = DataCenter.HeroDataManager:GetHeroByUuid(param)
+    quality = heroData.quality
+    config = heroData.config
+    self.textValueDate:SetText(heroData:GetBornDateStr())
+    self.textTitleDate:SetActive(true)
+  elseif fromType == UIHeroInfoView.FromType.HeroMap or fromType == UIHeroInfoView.FromType.SingleHeroId then
+    config = LocalController:instance():getLine(HeroUtils.GetHeroXmlName(), param)
+    quality = config.max_quality_level
+    self.textTitleDate:SetActive(false)
+    self.textValueDate:SetText("")
+  end
+  self.textValueQuality:SetText(HeroUtils.GetQualityName(quality))
+  self.textValueStory:SetLocalText(config.lore_desc)
+  self.svContent.rectTransform:Set_sizeDelta(self.svContent.rectTransform.sizeDelta.x, self.textValueStory:GetHeight() + 50)
+  self.svContent.rectTransform:Set_localPosition(self.svContent.rectTransform.localPosition.x, 0, 0)
+end
+
+UIHeroInfoStory.OnCreate = OnCreate
+UIHeroInfoStory.OnDestroy = OnDestroy
+UIHeroInfoStory.OnEnable = OnEnable
+UIHeroInfoStory.OnDisable = OnDisable
+UIHeroInfoStory.ComponentDefine = ComponentDefine
+UIHeroInfoStory.ComponentDestroy = ComponentDestroy
+UIHeroInfoStory.OnAddListener = OnAddListener
+UIHeroInfoStory.OnRemoveListener = OnRemoveListener
+UIHeroInfoStory.InitData = InitData
+return UIHeroInfoStory

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonMecanimRootMotion",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 76,
+  "bytes[1]": 53,
+  "bytes[2]": 5,
+  "bytes[3]": 145,
+  "bytes[4]": 240,
+  "bytes[5]": 90,
+  "bytes[6]": 240,
+  "bytes[7]": 82,
+  "bytes[8]": 61,
+  "bytes[9]": 183,
+  "bytes[10]": 129,
+  "bytes[11]": 194,
+  "bytes[12]": 78,
+  "bytes[13]": 82,
+  "bytes[14]": 68,
+  "bytes[15]": 175
+ },
+ "m_ClassName": "SkeletonMecanimRootMotion",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

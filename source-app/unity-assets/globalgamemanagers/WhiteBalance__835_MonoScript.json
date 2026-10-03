@@ -1,0 +1,25 @@
+{
+ "m_Name": "WhiteBalance",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 139,
+  "bytes[1]": 139,
+  "bytes[2]": 24,
+  "bytes[3]": 206,
+  "bytes[4]": 92,
+  "bytes[5]": 228,
+  "bytes[6]": 102,
+  "bytes[7]": 69,
+  "bytes[8]": 7,
+  "bytes[9]": 16,
+  "bytes[10]": 73,
+  "bytes[11]": 75,
+  "bytes[12]": 56,
+  "bytes[13]": 219,
+  "bytes[14]": 65,
+  "bytes[15]": 229
+ },
+ "m_ClassName": "WhiteBalance",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

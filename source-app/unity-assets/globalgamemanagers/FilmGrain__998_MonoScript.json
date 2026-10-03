@@ -1,0 +1,25 @@
+{
+ "m_Name": "FilmGrain",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 219,
+  "bytes[1]": 234,
+  "bytes[2]": 177,
+  "bytes[3]": 156,
+  "bytes[4]": 131,
+  "bytes[5]": 107,
+  "bytes[6]": 213,
+  "bytes[7]": 12,
+  "bytes[8]": 10,
+  "bytes[9]": 14,
+  "bytes[10]": 55,
+  "bytes[11]": 22,
+  "bytes[12]": 21,
+  "bytes[13]": 68,
+  "bytes[14]": 91,
+  "bytes[15]": 100
+ },
+ "m_ClassName": "FilmGrain",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

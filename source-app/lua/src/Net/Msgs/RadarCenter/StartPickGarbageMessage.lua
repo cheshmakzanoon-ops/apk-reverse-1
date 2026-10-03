@@ -1,0 +1,19 @@
+local StartPickGarbageMessage = BaseClass("StartDetectEventPveMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self, uuid)
+  base.OnCreate(self)
+  self.sfsObj:PutLong("uuid", uuid)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  if message.resource ~= nil then
+    LuaEntry.Resource:UpdateResource(message.resource)
+    EventManager:GetInstance():Broadcast(EventId.ResourceUpdated)
+  end
+end
+
+StartPickGarbageMessage.OnCreate = OnCreate
+StartPickGarbageMessage.HandleMessage = HandleMessage
+return StartPickGarbageMessage

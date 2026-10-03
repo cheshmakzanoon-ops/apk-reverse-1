@@ -1,0 +1,25 @@
+{
+ "m_Name": "GridViewDeleteItemDemoScript",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 226,
+  "bytes[1]": 246,
+  "bytes[2]": 230,
+  "bytes[3]": 45,
+  "bytes[4]": 183,
+  "bytes[5]": 86,
+  "bytes[6]": 47,
+  "bytes[7]": 94,
+  "bytes[8]": 204,
+  "bytes[9]": 64,
+  "bytes[10]": 163,
+  "bytes[11]": 68,
+  "bytes[12]": 151,
+  "bytes[13]": 48,
+  "bytes[14]": 210,
+  "bytes[15]": 26
+ },
+ "m_ClassName": "GridViewDeleteItemDemoScript",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

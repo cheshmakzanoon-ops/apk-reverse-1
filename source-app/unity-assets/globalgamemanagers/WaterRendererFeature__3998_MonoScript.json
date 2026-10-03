@@ -1,0 +1,25 @@
+{
+ "m_Name": "WaterRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 236,
+  "bytes[1]": 150,
+  "bytes[2]": 25,
+  "bytes[3]": 151,
+  "bytes[4]": 209,
+  "bytes[5]": 113,
+  "bytes[6]": 108,
+  "bytes[7]": 237,
+  "bytes[8]": 235,
+  "bytes[9]": 128,
+  "bytes[10]": 107,
+  "bytes[11]": 45,
+  "bytes[12]": 244,
+  "bytes[13]": 161,
+  "bytes[14]": 237,
+  "bytes[15]": 234
+ },
+ "m_ClassName": "WaterRendererFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

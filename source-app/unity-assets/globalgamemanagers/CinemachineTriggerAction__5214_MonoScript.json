@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineTriggerAction",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 124,
+  "bytes[1]": 167,
+  "bytes[2]": 101,
+  "bytes[3]": 173,
+  "bytes[4]": 121,
+  "bytes[5]": 105,
+  "bytes[6]": 170,
+  "bytes[7]": 233,
+  "bytes[8]": 94,
+  "bytes[9]": 128,
+  "bytes[10]": 17,
+  "bytes[11]": 38,
+  "bytes[12]": 75,
+  "bytes[13]": 156,
+  "bytes[14]": 64,
+  "bytes[15]": 70
+ },
+ "m_ClassName": "CinemachineTriggerAction",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

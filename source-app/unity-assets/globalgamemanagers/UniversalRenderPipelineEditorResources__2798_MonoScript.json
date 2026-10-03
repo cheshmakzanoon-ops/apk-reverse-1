@@ -1,0 +1,25 @@
+{
+ "m_Name": "UniversalRenderPipelineEditorResources",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 35,
+  "bytes[1]": 184,
+  "bytes[2]": 29,
+  "bytes[3]": 5,
+  "bytes[4]": 160,
+  "bytes[5]": 173,
+  "bytes[6]": 4,
+  "bytes[7]": 153,
+  "bytes[8]": 97,
+  "bytes[9]": 63,
+  "bytes[10]": 195,
+  "bytes[11]": 225,
+  "bytes[12]": 164,
+  "bytes[13]": 160,
+  "bytes[14]": 80,
+  "bytes[15]": 27
+ },
+ "m_ClassName": "UniversalRenderPipelineEditorResources",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

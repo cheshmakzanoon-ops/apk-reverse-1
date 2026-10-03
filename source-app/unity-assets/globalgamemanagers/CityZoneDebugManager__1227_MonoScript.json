@@ -1,0 +1,25 @@
+{
+ "m_Name": "CityZoneDebugManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 18,
+  "bytes[1]": 118,
+  "bytes[2]": 86,
+  "bytes[3]": 108,
+  "bytes[4]": 189,
+  "bytes[5]": 115,
+  "bytes[6]": 213,
+  "bytes[7]": 146,
+  "bytes[8]": 36,
+  "bytes[9]": 13,
+  "bytes[10]": 113,
+  "bytes[11]": 93,
+  "bytes[12]": 30,
+  "bytes[13]": 35,
+  "bytes[14]": 150,
+  "bytes[15]": 241
+ },
+ "m_ClassName": "CityZoneDebugManager",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

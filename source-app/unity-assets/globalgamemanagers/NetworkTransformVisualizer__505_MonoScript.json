@@ -1,0 +1,25 @@
+{
+ "m_Name": "NetworkTransformVisualizer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 88,
+  "bytes[1]": 135,
+  "bytes[2]": 239,
+  "bytes[3]": 27,
+  "bytes[4]": 199,
+  "bytes[5]": 6,
+  "bytes[6]": 178,
+  "bytes[7]": 43,
+  "bytes[8]": 119,
+  "bytes[9]": 61,
+  "bytes[10]": 37,
+  "bytes[11]": 63,
+  "bytes[12]": 212,
+  "bytes[13]": 67,
+  "bytes[14]": 206,
+  "bytes[15]": 239
+ },
+ "m_ClassName": "NetworkTransformVisualizer",
+ "m_Namespace": "UnityEngine.Networking",
+ "m_AssemblyName": "com.unity.multiplayer-hlapi.Runtime.dll"
+}

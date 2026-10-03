@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldTroopTimer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 208,
+  "bytes[1]": 2,
+  "bytes[2]": 171,
+  "bytes[3]": 150,
+  "bytes[4]": 57,
+  "bytes[5]": 24,
+  "bytes[6]": 32,
+  "bytes[7]": 167,
+  "bytes[8]": 249,
+  "bytes[9]": 13,
+  "bytes[10]": 1,
+  "bytes[11]": 221,
+  "bytes[12]": 202,
+  "bytes[13]": 182,
+  "bytes[14]": 145,
+  "bytes[15]": 147
+ },
+ "m_ClassName": "WorldTroopTimer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

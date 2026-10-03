@@ -1,0 +1,25 @@
+{
+ "m_Name": "CircleImage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 47,
+  "bytes[1]": 143,
+  "bytes[2]": 147,
+  "bytes[3]": 13,
+  "bytes[4]": 18,
+  "bytes[5]": 111,
+  "bytes[6]": 241,
+  "bytes[7]": 67,
+  "bytes[8]": 179,
+  "bytes[9]": 139,
+  "bytes[10]": 44,
+  "bytes[11]": 222,
+  "bytes[12]": 59,
+  "bytes[13]": 112,
+  "bytes[14]": 1,
+  "bytes[15]": 170
+ },
+ "m_ClassName": "CircleImage",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

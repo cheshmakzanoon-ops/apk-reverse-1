@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMFPSCounter",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 141,
+  "bytes[1]": 69,
+  "bytes[2]": 243,
+  "bytes[3]": 210,
+  "bytes[4]": 132,
+  "bytes[5]": 44,
+  "bytes[6]": 70,
+  "bytes[7]": 3,
+  "bytes[8]": 122,
+  "bytes[9]": 146,
+  "bytes[10]": 41,
+  "bytes[11]": 109,
+  "bytes[12]": 11,
+  "bytes[13]": 0,
+  "bytes[14]": 79,
+  "bytes[15]": 126
+ },
+ "m_ClassName": "MMFPSCounter",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

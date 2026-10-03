@@ -1,0 +1,59 @@
+{
+ "m_Name": "Canopus Ground",
+ "m_ForcedFallbackFormat": 4,
+ "m_DownscaleFallback": false,
+ "m_Width": 128,
+ "m_Height": 128,
+ "m_CompleteImageSize": 10512,
+ "m_TextureFormat": 50,
+ "m_MipCount": 8,
+ "m_IsReadable": false,
+ "m_IgnoreMasterTextureLimit": false,
+ "m_IsPreProcessed": false,
+ "m_StreamingMipmaps": false,
+ "m_StreamingMipmapsPriority": 0,
+ "m_ImageCount": 6,
+ "m_TextureDimension": 2,
+ "m_TextureSettings": {
+  "m_FilterMode": 2,
+  "m_Aniso": 1,
+  "m_MipBias": 0.0,
+  "m_WrapU": 1,
+  "m_WrapV": 1,
+  "m_WrapW": 1
+ },
+ "m_LightmapFormat": 7,
+ "m_ColorSpace": 1,
+ "image data": "<63072 bytes>",
+ "m_StreamData": {
+  "offset": 0,
+  "size": 0,
+  "path": ""
+ },
+ "m_SourceTextures": [
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  {
+   "m_FileID": 0,
+   "m_PathID": 0
+  }
+ ]
+}

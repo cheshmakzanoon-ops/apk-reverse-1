@@ -1,0 +1,25 @@
+{
+ "m_Name": "VolumetricFog",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 53,
+  "bytes[1]": 116,
+  "bytes[2]": 209,
+  "bytes[3]": 73,
+  "bytes[4]": 235,
+  "bytes[5]": 114,
+  "bytes[6]": 160,
+  "bytes[7]": 95,
+  "bytes[8]": 100,
+  "bytes[9]": 232,
+  "bytes[10]": 208,
+  "bytes[11]": 198,
+  "bytes[12]": 218,
+  "bytes[13]": 230,
+  "bytes[14]": 196,
+  "bytes[15]": 27
+ },
+ "m_ClassName": "VolumetricFog",
+ "m_Namespace": "VolumetricFogAndMist2",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

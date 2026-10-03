@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGoCacheableSpine",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 75,
+  "bytes[1]": 50,
+  "bytes[2]": 120,
+  "bytes[3]": 92,
+  "bytes[4]": 122,
+  "bytes[5]": 180,
+  "bytes[6]": 159,
+  "bytes[7]": 208,
+  "bytes[8]": 110,
+  "bytes[9]": 222,
+  "bytes[10]": 60,
+  "bytes[11]": 160,
+  "bytes[12]": 130,
+  "bytes[13]": 190,
+  "bytes[14]": 112,
+  "bytes[15]": 63
+ },
+ "m_ClassName": "GGGoCacheableSpine",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

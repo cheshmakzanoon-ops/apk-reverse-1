@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldAllianceBuilding",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 87,
+  "bytes[1]": 168,
+  "bytes[2]": 31,
+  "bytes[3]": 71,
+  "bytes[4]": 198,
+  "bytes[5]": 106,
+  "bytes[6]": 188,
+  "bytes[7]": 212,
+  "bytes[8]": 196,
+  "bytes[9]": 82,
+  "bytes[10]": 189,
+  "bytes[11]": 216,
+  "bytes[12]": 231,
+  "bytes[13]": 228,
+  "bytes[14]": 209,
+  "bytes[15]": 12
+ },
+ "m_ClassName": "WorldAllianceBuilding",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildingLabel",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 138,
+  "bytes[1]": 56,
+  "bytes[2]": 70,
+  "bytes[3]": 228,
+  "bytes[4]": 226,
+  "bytes[5]": 176,
+  "bytes[6]": 141,
+  "bytes[7]": 114,
+  "bytes[8]": 24,
+  "bytes[9]": 98,
+  "bytes[10]": 235,
+  "bytes[11]": 1,
+  "bytes[12]": 20,
+  "bytes[13]": 77,
+  "bytes[14]": 15,
+  "bytes[15]": 20
+ },
+ "m_ClassName": "BuildingLabel",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

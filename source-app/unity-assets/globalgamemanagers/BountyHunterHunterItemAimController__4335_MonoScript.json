@@ -1,0 +1,25 @@
+{
+ "m_Name": "BountyHunterHunterItemAimController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 206,
+  "bytes[1]": 230,
+  "bytes[2]": 255,
+  "bytes[3]": 113,
+  "bytes[4]": 57,
+  "bytes[5]": 1,
+  "bytes[6]": 153,
+  "bytes[7]": 108,
+  "bytes[8]": 248,
+  "bytes[9]": 137,
+  "bytes[10]": 38,
+  "bytes[11]": 5,
+  "bytes[12]": 218,
+  "bytes[13]": 196,
+  "bytes[14]": 90,
+  "bytes[15]": 48
+ },
+ "m_ClassName": "BountyHunterHunterItemAimController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

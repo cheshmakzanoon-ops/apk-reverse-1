@@ -1,0 +1,25 @@
+{
+ "m_Name": "PlaymodeTestsController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 78,
+  "bytes[1]": 90,
+  "bytes[2]": 99,
+  "bytes[3]": 206,
+  "bytes[4]": 8,
+  "bytes[5]": 64,
+  "bytes[6]": 131,
+  "bytes[7]": 54,
+  "bytes[8]": 55,
+  "bytes[9]": 239,
+  "bytes[10]": 92,
+  "bytes[11]": 203,
+  "bytes[12]": 221,
+  "bytes[13]": 209,
+  "bytes[14]": 217,
+  "bytes[15]": 99
+ },
+ "m_ClassName": "PlaymodeTestsController",
+ "m_Namespace": "UnityEngine.TestTools.TestRunner",
+ "m_AssemblyName": "UnityEngine.TestRunner.dll"
+}

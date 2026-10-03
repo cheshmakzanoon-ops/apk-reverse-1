@@ -1,0 +1,25 @@
+{
+ "m_Name": "SceneProductLineFlyTextAni",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 60,
+  "bytes[1]": 82,
+  "bytes[2]": 55,
+  "bytes[3]": 120,
+  "bytes[4]": 154,
+  "bytes[5]": 8,
+  "bytes[6]": 97,
+  "bytes[7]": 183,
+  "bytes[8]": 35,
+  "bytes[9]": 198,
+  "bytes[10]": 217,
+  "bytes[11]": 175,
+  "bytes[12]": 13,
+  "bytes[13]": 75,
+  "bytes[14]": 141,
+  "bytes[15]": 236
+ },
+ "m_ClassName": "SceneProductLineFlyTextAni",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineShot",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 196,
+  "bytes[1]": 17,
+  "bytes[2]": 124,
+  "bytes[3]": 243,
+  "bytes[4]": 45,
+  "bytes[5]": 46,
+  "bytes[6]": 119,
+  "bytes[7]": 151,
+  "bytes[8]": 233,
+  "bytes[9]": 224,
+  "bytes[10]": 82,
+  "bytes[11]": 114,
+  "bytes[12]": 164,
+  "bytes[13]": 25,
+  "bytes[14]": 205,
+  "bytes[15]": 110
+ },
+ "m_ClassName": "CinemachineShot",
+ "m_Namespace": "",
+ "m_AssemblyName": "Cinemachine.dll"
+}

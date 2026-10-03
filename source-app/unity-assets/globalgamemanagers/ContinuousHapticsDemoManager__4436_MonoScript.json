@@ -1,0 +1,25 @@
+{
+ "m_Name": "ContinuousHapticsDemoManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 216,
+  "bytes[1]": 67,
+  "bytes[2]": 156,
+  "bytes[3]": 69,
+  "bytes[4]": 26,
+  "bytes[5]": 151,
+  "bytes[6]": 64,
+  "bytes[7]": 59,
+  "bytes[8]": 254,
+  "bytes[9]": 198,
+  "bytes[10]": 105,
+  "bytes[11]": 153,
+  "bytes[12]": 233,
+  "bytes[13]": 62,
+  "bytes[14]": 34,
+  "bytes[15]": 104
+ },
+ "m_ClassName": "ContinuousHapticsDemoManager",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

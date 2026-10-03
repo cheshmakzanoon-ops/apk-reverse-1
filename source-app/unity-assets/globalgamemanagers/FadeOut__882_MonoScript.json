@@ -1,0 +1,25 @@
+{
+ "m_Name": "FadeOut",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 155,
+  "bytes[1]": 14,
+  "bytes[2]": 224,
+  "bytes[3]": 104,
+  "bytes[4]": 245,
+  "bytes[5]": 215,
+  "bytes[6]": 75,
+  "bytes[7]": 51,
+  "bytes[8]": 129,
+  "bytes[9]": 165,
+  "bytes[10]": 183,
+  "bytes[11]": 192,
+  "bytes[12]": 119,
+  "bytes[13]": 55,
+  "bytes[14]": 48,
+  "bytes[15]": 63
+ },
+ "m_ClassName": "FadeOut",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

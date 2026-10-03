@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineFollowZoom",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 162,
+  "bytes[1]": 17,
+  "bytes[2]": 56,
+  "bytes[3]": 49,
+  "bytes[4]": 211,
+  "bytes[5]": 50,
+  "bytes[6]": 63,
+  "bytes[7]": 147,
+  "bytes[8]": 16,
+  "bytes[9]": 7,
+  "bytes[10]": 225,
+  "bytes[11]": 179,
+  "bytes[12]": 129,
+  "bytes[13]": 45,
+  "bytes[14]": 200,
+  "bytes[15]": 20
+ },
+ "m_ClassName": "CinemachineFollowZoom",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

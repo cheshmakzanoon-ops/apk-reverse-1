@@ -1,0 +1,25 @@
+{
+ "m_Name": "DepthOfField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 197,
+  "bytes[1]": 191,
+  "bytes[2]": 208,
+  "bytes[3]": 246,
+  "bytes[4]": 244,
+  "bytes[5]": 102,
+  "bytes[6]": 67,
+  "bytes[7]": 24,
+  "bytes[8]": 184,
+  "bytes[9]": 185,
+  "bytes[10]": 245,
+  "bytes[11]": 13,
+  "bytes[12]": 136,
+  "bytes[13]": 64,
+  "bytes[14]": 132,
+  "bytes[15]": 33
+ },
+ "m_ClassName": "DepthOfField",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

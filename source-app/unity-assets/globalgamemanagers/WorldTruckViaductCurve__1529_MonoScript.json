@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldTruckViaductCurve",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 16,
+  "bytes[1]": 163,
+  "bytes[2]": 116,
+  "bytes[3]": 192,
+  "bytes[4]": 20,
+  "bytes[5]": 127,
+  "bytes[6]": 144,
+  "bytes[7]": 118,
+  "bytes[8]": 193,
+  "bytes[9]": 12,
+  "bytes[10]": 141,
+  "bytes[11]": 27,
+  "bytes[12]": 188,
+  "bytes[13]": 84,
+  "bytes[14]": 184,
+  "bytes[15]": 182
+ },
+ "m_ClassName": "WorldTruckViaductCurve",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

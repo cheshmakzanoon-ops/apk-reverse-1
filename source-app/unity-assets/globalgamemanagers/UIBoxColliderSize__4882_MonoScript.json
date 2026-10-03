@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIBoxColliderSize",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 73,
+  "bytes[1]": 58,
+  "bytes[2]": 199,
+  "bytes[3]": 46,
+  "bytes[4]": 222,
+  "bytes[5]": 122,
+  "bytes[6]": 164,
+  "bytes[7]": 47,
+  "bytes[8]": 130,
+  "bytes[9]": 184,
+  "bytes[10]": 57,
+  "bytes[11]": 184,
+  "bytes[12]": 65,
+  "bytes[13]": 76,
+  "bytes[14]": 122,
+  "bytes[15]": 28
+ },
+ "m_ClassName": "UIBoxColliderSize",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

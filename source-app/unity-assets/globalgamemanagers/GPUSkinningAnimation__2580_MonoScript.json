@@ -1,0 +1,25 @@
+{
+ "m_Name": "GPUSkinningAnimation",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 37,
+  "bytes[1]": 14,
+  "bytes[2]": 207,
+  "bytes[3]": 153,
+  "bytes[4]": 126,
+  "bytes[5]": 29,
+  "bytes[6]": 29,
+  "bytes[7]": 157,
+  "bytes[8]": 54,
+  "bytes[9]": 245,
+  "bytes[10]": 138,
+  "bytes[11]": 200,
+  "bytes[12]": 203,
+  "bytes[13]": 234,
+  "bytes[14]": 123,
+  "bytes[15]": 31
+ },
+ "m_ClassName": "GPUSkinningAnimation",
+ "m_Namespace": "",
+ "m_AssemblyName": "GPUSkinning.dll"
+}

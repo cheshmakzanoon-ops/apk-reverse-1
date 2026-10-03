@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIButton",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 212,
+  "bytes[1]": 166,
+  "bytes[2]": 172,
+  "bytes[3]": 161,
+  "bytes[4]": 144,
+  "bytes[5]": 234,
+  "bytes[6]": 216,
+  "bytes[7]": 217,
+  "bytes[8]": 58,
+  "bytes[9]": 7,
+  "bytes[10]": 74,
+  "bytes[11]": 2,
+  "bytes[12]": 96,
+  "bytes[13]": 88,
+  "bytes[14]": 178,
+  "bytes[15]": 171
+ },
+ "m_ClassName": "UIButton",
+ "m_Namespace": "LS.UnityEngine.UI",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

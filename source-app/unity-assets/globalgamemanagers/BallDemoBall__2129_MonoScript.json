@@ -1,0 +1,25 @@
+{
+ "m_Name": "BallDemoBall",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 180,
+  "bytes[1]": 40,
+  "bytes[2]": 247,
+  "bytes[3]": 199,
+  "bytes[4]": 83,
+  "bytes[5]": 64,
+  "bytes[6]": 203,
+  "bytes[7]": 193,
+  "bytes[8]": 204,
+  "bytes[9]": 211,
+  "bytes[10]": 248,
+  "bytes[11]": 220,
+  "bytes[12]": 53,
+  "bytes[13]": 150,
+  "bytes[14]": 150,
+  "bytes[15]": 53
+ },
+ "m_ClassName": "BallDemoBall",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

@@ -1,0 +1,105 @@
+local MineCaveTemplate = BaseClass("MineCaveTemplate")
+
+local function __init(self)
+  self.id = 0
+  self.level = 0
+  self.monsterId = 0
+  self.occupyTime = 0
+  self.name = ""
+  self.icon = ""
+  self.picture = ""
+  self.rewardType = 0
+  self.rewardId = ""
+  self.func = 1
+  self.correspond_output = {}
+  self.output = {}
+  self.extraRewards = {}
+  self.caveShow = {}
+end
+
+local function __delete(self)
+  self.id = nil
+  self.level = nil
+  self.monsterId = nil
+  self.occupyTime = nil
+  self.name = nil
+  self.icon = nil
+  self.picture = nil
+  self.rewardType = nil
+  self.rewardId = nil
+  self.func = nil
+  self.correspond_output = nil
+  self.output = nil
+  self.extraRewards = nil
+  self.caveShow = nil
+end
+
+local function InitData(self, row)
+  if row == nil then
+    return
+  end
+  self.id = row:getValue("id")
+  self.level = row:getValue("level")
+  self.monsterId = row:getValue("monster")
+  self.occupyTime = row:getValue("time")
+  self.name = row:getValue("name")
+  self.icon = row:getValue("icon")
+  self.picture = row:getValue("picture")
+  self.rewardType = row:getValue("reward_type")
+  self.rewardId = row:getValue("reward_id")
+  self.func = tonumber(row:getValue("function"))
+  self.correspond_output = {}
+  self.output = {}
+  local strInterval = row:getValue("correspond_output")
+  local strOutput = row:getValue("output")
+  local intervalArr = string.split(strInterval, "|")
+  local outputArr = string.split(strOutput, "|")
+  for i, v in ipairs(intervalArr) do
+    local numOutput = tonumber(outputArr[i])
+    table.insert(self.output, numOutput)
+    local temp = string.split(v, ";")
+    local numIntervalMin = tonumber(temp[1])
+    table.insert(self.correspond_output, numIntervalMin)
+  end
+  local strExtraReward = row:getValue("excess_reward_show")
+  if not string.IsNullOrEmpty(strExtraReward) then
+    local extraRewardArr = string.split(strExtraReward, "|")
+    for i, v in ipairs(extraRewardArr) do
+      local extraReward = {}
+      local temp = string.split(v, ";")
+      if #temp == 1 then
+        extraReward.rewardType = RewardType.GOODS
+        extraReward.itemId = temp[1]
+      else
+        extraReward.rewardType = tonumber(temp[1])
+        extraReward.itemId = temp[2]
+      end
+      table.insert(self.extraRewards, extraReward)
+    end
+  end
+  local caveShow = row:getValue("cave_show")
+  if string.IsNullOrEmpty(caveShow) then
+    caveShow = "0;" .. IntMaxValue
+  end
+  local strCaveShow = string.split(caveShow, ";")
+  self.caveShow[1] = tonumber(strCaveShow[1])
+  self.caveShow[2] = tonumber(strCaveShow[2])
+  if self.caveShow[2] == -1 then
+    self.caveShow[2] = LongMaxValue
+  end
+end
+
+local function GetResSpeed(self, mainLv)
+  for i, v in ipairs(self.correspond_output) do
+    if v <= mainLv then
+      return self.output[i]
+    end
+  end
+  return 0
+end
+
+MineCaveTemplate.__init = __init
+MineCaveTemplate.__delete = __delete
+MineCaveTemplate.InitData = InitData
+MineCaveTemplate.GetResSpeed = GetResSpeed
+return MineCaveTemplate

@@ -1,0 +1,4394 @@
+.version	5.3
+
+.format	0
+.int_size	4
+.size_t_size	4
+.instruction_size	4
+.integer_format	8
+.float_format	8
+.endianness	LITTLE
+
+.function	main
+
+.source	"@/Users/mac/Git-Android-release/aps_client/Tools/../Assets/Main/LuaScripts/DataCenter/GiftPackageData/GiftPackInfoBase.lua"
+.linedefined	0
+.lastlinedefined	0
+.numparams	0
+.is_vararg	1
+.maxstacksize	7
+
+.local	"GiftPackInfoBase"	3	225
+.local	"M"	4	225
+.local	"Timer"	7	225
+.local	"Setting"	10	225
+.local	"Localization"	13	225
+.local	"CommonUtils"	15	225
+
+.upvalue	"_ENV"	0	true
+
+.constant	k0	"BaseClass"
+.constant	k1	"GiftPackInfoBase"
+.constant	k2	"CS"
+.constant	k3	"GameEntry"
+.constant	k4	"Timer"
+.constant	k5	"Setting"
+.constant	k6	"Localization"
+.constant	k7	"CommonUtils"
+.constant	k8	"__init"
+.constant	k9	"UpdateWithLocalData"
+.constant	k10	"update"
+.constant	k11	"getID"
+.constant	k12	"getType"
+.constant	k13	"getName"
+.constant	k14	"getSubName"
+.constant	k15	"GetSubNameTxt"
+.constant	k16	"hasSubName"
+.constant	k17	"getNameText"
+.constant	k18	"getDescription"
+.constant	k19	"getPopupImageMini"
+.constant	k20	"GetPopupImageMiniBand"
+.constant	k21	"GetDiscountTips"
+.constant	k22	"getPopupImageB"
+.constant	k23	"getPrefabName"
+.constant	k24	"getLackPic"
+.constant	k25	"getPopupImageH"
+.constant	k26	"getDescText"
+.constant	k27	"tryParseCombDesc"
+.constant	k28	"getUIKey"
+.constant	k29	"getQuality"
+.constant	k30	"getMD5"
+.constant	k31	"getTimeType"
+.constant	k32	"getStartTime"
+.constant	k33	"getEndTime"
+.constant	k34	"getCountdown"
+.constant	k35	"getParaTime"
+.constant	k36	"isTimeValid"
+.constant	k37	"isServerTimeValid"
+.constant	k38	"getConditionPopup"
+.constant	k39	"getPopup"
+.constant	k40	"getWeekPopup"
+.constant	k41	"hasWeekPopup"
+.constant	k42	"tryParseWeekPopup"
+.constant	k43	"onParseWeekPopupItem"
+.constant	k44	"isBought"
+.constant	k45	"getBuyTimes"
+.constant	k46	"getDiamond"
+.constant	k47	"getGoldBrick"
+.constant	k48	"getCredit"
+.constant	k49	"getPrice"
+.constant	k50	"getPriceText"
+.constant	k51	"getOriginalPrice"
+.constant	k52	"getOriginalPriceText"
+.constant	k53	"getPercent"
+.constant	k54	"hasPercent"
+.constant	k55	"getIsShow"
+.constant	k56	"isPremiumPack"
+.constant	k57	"isStorePack"
+.constant	k58	"IsWeeklyPackage"
+.constant	k59	"IsWeeklyPackageNew"
+.constant	k60	"IsHeroMedalPackage"
+.constant	k61	"isRobotPack"
+.constant	k62	"isPiggyBankPack"
+.constant	k63	"isEnergyBankPack"
+.constant	k64	"isGrowthPlanPack"
+.constant	k65	"isScrollPack"
+.constant	k66	"isPvePack"
+.constant	k67	"isFirstChargePack"
+.constant	k68	"isCreditPack"
+.constant	k69	"isRechargeId"
+.constant	k70	"isHeroMonthCardPack"
+.constant	k71	"isLWQueueWeekCardPack"
+.constant	k72	"isSpecialPackCanInPop"
+.constant	k73	"setWillInPop"
+.constant	k74	"getInPop"
+.constant	k75	"isPremiumPackCanInPop"
+.constant	k76	"getProductID"
+.constant	k77	"isFree"
+.constant	k78	"canGet"
+.constant	k79	"getHasGetCount"
+.constant	k80	"getGroup"
+.constant	k81	"getGiftData"
+.constant	k82	"isContainShowType"
+.constant	k83	"tryParseShowType"
+.constant	k84	"onParseShowTypeItem"
+.constant	k85	"getShowType"
+.constant	k86	"setTagID"
+.constant	k87	"getTagID"
+.constant	k88	"getItemsStr"
+.constant	k89	"getItem2Str"
+.constant	k90	"getHeroesStr"
+.constant	k91	"getItemUse"
+.constant	k92	"getResourceStr"
+.constant	k93	"getAllianceGift"
+.constant	k94	"IsBestBuy"
+.constant	k95	"GetBuyType"
+.constant	k96	"GetResourceBuyCostTypeAndNum"
+.constant	k97	"setChooseIndex"
+.constant	k98	"getChooseIndex"
+.constant	k99	"getRechargePoint"
+.constant	k100	"saveChooseInfo"
+.constant	k101	"tryGetChooseIndexFromLocal"
+.constant	k102	"dispose"
+.constant	k103	"toJson"
+.constant	k104	"toJsonForGiftBar"
+.constant	k105	"getRechargeLineData"
+.constant	k106	"getGoldBrickId"
+.constant	k107	"getCostGoldBrick"
+.constant	k108	"getBuyCondition"
+.constant	k109	"getAlertCondition"
+.constant	k110	"getCanRefund"
+.constant	k111	"getRewardChangeGroup"
+
+.line	7	gettabup      r0    u0    k0 ; k0 = "BaseClass"
+.line	7	loadk         r1    k1 ; k1 = "GiftPackInfoBase"
+.line	7	call          r0     2     2
+.line	8	move          r1    r0
+.line	9	gettabup      r2    u0    k2 ; k2 = "CS"
+.line	9	gettable      r2    r2    k3 ; k3 = "GameEntry"
+.line	9	gettable      r2    r2    k4 ; k4 = "Timer"
+.line	10	gettabup      r3    u0    k2 ; k2 = "CS"
+.line	10	gettable      r3    r3    k3 ; k3 = "GameEntry"
+.line	10	gettable      r3    r3    k5 ; k5 = "Setting"
+.line	11	gettabup      r4    u0    k2 ; k2 = "CS"
+.line	11	gettable      r4    r4    k3 ; k3 = "GameEntry"
+.line	11	gettable      r4    r4    k6 ; k6 = "Localization"
+.line	12	gettabup      r5    u0    k2 ; k2 = "CS"
+.line	12	gettable      r5    r5    k7 ; k7 = "CommonUtils"
+.line	24	closure       r6    f0
+.line	14	settable      r1    k8    r6 ; k8 = "__init"
+.line	33	closure       r6    f1
+.line	26	settable      r1    k9    r6 ; k9 = "UpdateWithLocalData"
+.line	56	closure       r6    f2
+.line	37	settable      r1   k10    r6 ; k10 = "update"
+.line	61	closure       r6    f3
+.line	59	settable      r1   k11    r6 ; k11 = "getID"
+.line	72	closure       r6    f4
+.line	65	settable      r1   k12    r6 ; k12 = "getType"
+.line	77	closure       r6    f5
+.line	75	settable      r1   k13    r6 ; k13 = "getName"
+.line	81	closure       r6    f6
+.line	79	settable      r1   k14    r6 ; k14 = "getSubName"
+.line	100	closure       r6    f7
+.line	83	settable      r1   k15    r6 ; k15 = "GetSubNameTxt"
+.line	104	closure       r6    f8
+.line	102	settable      r1   k16    r6 ; k16 = "hasSubName"
+.line	115	closure       r6    f9
+.line	107	settable      r1   k17    r6 ; k17 = "getNameText"
+.line	120	closure       r6   f10
+.line	118	settable      r1   k18    r6 ; k18 = "getDescription"
+.line	125	closure       r6   f11
+.line	123	settable      r1   k19    r6 ; k19 = "getPopupImageMini"
+.line	129	closure       r6   f12
+.line	127	settable      r1   k20    r6 ; k20 = "GetPopupImageMiniBan" (truncated)
+.line	167	closure       r6   f13
+.line	131	settable      r1   k21    r6 ; k21 = "GetDiscountTips"
+.line	172	closure       r6   f14
+.line	170	settable      r1   k22    r6 ; k22 = "getPopupImageB"
+.line	176	closure       r6   f15
+.line	174	settable      r1   k23    r6 ; k23 = "getPrefabName"
+.line	180	closure       r6   f16
+.line	178	settable      r1   k24    r6 ; k24 = "getLackPic"
+.line	187	closure       r6   f17
+.line	185	settable      r1   k25    r6 ; k25 = "getPopupImageH"
+.line	212	closure       r6   f18
+.line	189	settable      r1   k26    r6 ; k26 = "getDescText"
+.line	227	closure       r6   f19
+.line	214	settable      r1   k27    r6 ; k27 = "tryParseCombDesc"
+.line	233	closure       r6   f20
+.line	231	settable      r1   k28    r6 ; k28 = "getUIKey"
+.line	237	closure       r6   f21
+.line	235	settable      r1   k29    r6 ; k29 = "getQuality"
+.line	242	closure       r6   f22
+.line	240	settable      r1   k30    r6 ; k30 = "getMD5"
+.line	246	closure       r6   f23
+.line	244	settable      r1   k31    r6 ; k31 = "getTimeType"
+.line	251	closure       r6   f24
+.line	249	settable      r1   k32    r6 ; k32 = "getStartTime"
+.line	256	closure       r6   f25
+.line	254	settable      r1   k33    r6 ; k33 = "getEndTime"
+.line	310	closure       r6   f26
+.line	259	settable      r1   k34    r6 ; k34 = "getCountdown"
+.line	316	closure       r6   f27
+.line	314	settable      r1   k35    r6 ; k35 = "getParaTime"
+.line	322	closure       r6   f28
+.line	319	settable      r1   k36    r6 ; k36 = "isTimeValid"
+.line	327	closure       r6   f29
+.line	324	settable      r1   k37    r6 ; k37 = "isServerTimeValid"
+.line	332	closure       r6   f30
+.line	330	settable      r1   k38    r6 ; k38 = "getConditionPopup"
+.line	352	closure       r6   f31
+.line	335	settable      r1   k39    r6 ; k39 = "getPopup"
+.line	364	closure       r6   f32
+.line	356	settable      r1   k40    r6 ; k40 = "getWeekPopup"
+.line	374	closure       r6   f33
+.line	366	settable      r1   k41    r6 ; k41 = "hasWeekPopup"
+.line	398	closure       r6   f34
+.line	376	settable      r1   k42    r6 ; k42 = "tryParseWeekPopup"
+.line	402	closure       r6   f35
+.line	400	settable      r1   k43    r6 ; k43 = "onParseWeekPopupItem"
+.line	407	closure       r6   f36
+.line	405	settable      r1   k44    r6 ; k44 = "isBought"
+.line	412	closure       r6   f37
+.line	410	settable      r1   k45    r6 ; k45 = "getBuyTimes"
+.line	417	closure       r6   f38
+.line	415	settable      r1   k46    r6 ; k46 = "getDiamond"
+.line	422	closure       r6   f39
+.line	420	settable      r1   k47    r6 ; k47 = "getGoldBrick"
+.line	426	closure       r6   f40
+.line	424	settable      r1   k48    r6 ; k48 = "getCredit"
+.line	431	closure       r6   f41
+.line	429	settable      r1   k49    r6 ; k49 = "getPrice"
+.line	451	closure       r6   f42
+.line	434	settable      r1   k50    r6 ; k50 = "getPriceText"
+.line	456	closure       r6   f43
+.line	454	settable      r1   k51    r6 ; k51 = "getOriginalPrice"
+.line	466	closure       r6   f44
+.line	459	settable      r1   k52    r6 ; k52 = "getOriginalPriceText"
+.line	471	closure       r6   f45
+.line	469	settable      r1   k53    r6 ; k53 = "getPercent"
+.line	476	closure       r6   f46
+.line	474	settable      r1   k54    r6 ; k54 = "hasPercent"
+.line	480	closure       r6   f47
+.line	478	settable      r1   k55    r6 ; k55 = "getIsShow"
+.line	485	closure       r6   f48
+.line	483	settable      r1   k56    r6 ; k56 = "isPremiumPack"
+.line	490	closure       r6   f49
+.line	488	settable      r1   k57    r6 ; k57 = "isStorePack"
+.line	495	closure       r6   f50
+.line	492	settable      r1   k58    r6 ; k58 = "IsWeeklyPackage"
+.line	500	closure       r6   f51
+.line	497	settable      r1   k59    r6 ; k59 = "IsWeeklyPackageNew"
+.line	504	closure       r6   f52
+.line	502	settable      r1   k60    r6 ; k60 = "IsHeroMedalPackage"
+.line	510	closure       r6   f53
+.line	507	settable      r1   k61    r6 ; k61 = "isRobotPack"
+.line	516	closure       r6   f54
+.line	513	settable      r1   k62    r6 ; k62 = "isPiggyBankPack"
+.line	522	closure       r6   f55
+.line	519	settable      r1   k63    r6 ; k63 = "isEnergyBankPack"
+.line	528	closure       r6   f56
+.line	525	settable      r1   k64    r6 ; k64 = "isGrowthPlanPack"
+.line	534	closure       r6   f57
+.line	531	settable      r1   k65    r6 ; k65 = "isScrollPack"
+.line	540	closure       r6   f58
+.line	537	settable      r1   k66    r6 ; k66 = "isPvePack"
+.line	545	closure       r6   f59
+.line	542	settable      r1   k67    r6 ; k67 = "isFirstChargePack"
+.line	550	closure       r6   f60
+.line	547	settable      r1   k68    r6 ; k68 = "isCreditPack"
+.line	560	closure       r6   f61
+.line	553	settable      r1   k69    r6 ; k69 = "isRechargeId"
+.line	565	closure       r6   f62
+.line	562	settable      r1   k70    r6 ; k70 = "isHeroMonthCardPack"
+.line	570	closure       r6   f63
+.line	567	settable      r1   k71    r6 ; k71 = "isLWQueueWeekCardPac" (truncated)
+.line	583	closure       r6   f64
+.line	575	settable      r1   k72    r6 ; k72 = "isSpecialPackCanInPo" (truncated)
+.line	590	closure       r6   f65
+.line	588	settable      r1   k73    r6 ; k73 = "setWillInPop"
+.line	594	closure       r6   f66
+.line	592	settable      r1   k74    r6 ; k74 = "getInPop"
+.line	600	closure       r6   f67
+.line	598	settable      r1   k75    r6 ; k75 = "isPremiumPackCanInPo" (truncated)
+.line	608	closure       r6   f68
+.line	602	settable      r1   k76    r6 ; k76 = "getProductID"
+.line	612	closure       r6   f69
+.line	610	settable      r1   k77    r6 ; k77 = "isFree"
+.line	616	closure       r6   f70
+.line	614	settable      r1   k78    r6 ; k78 = "canGet"
+.line	621	closure       r6   f71
+.line	619	settable      r1   k79    r6 ; k79 = "getHasGetCount"
+.line	625	closure       r6   f72
+.line	623	settable      r1   k80    r6 ; k80 = "getGroup"
+.line	629	closure       r6   f73
+.line	627	settable      r1   k81    r6 ; k81 = "getGiftData"
+.line	662	closure       r6   f74
+.line	638	settable      r1   k82    r6 ; k82 = "isContainShowType"
+.line	688	closure       r6   f75
+.line	665	settable      r1   k83    r6 ; k83 = "tryParseShowType"
+.line	694	closure       r6   f76
+.line	692	settable      r1   k84    r6 ; k84 = "onParseShowTypeItem"
+.line	711	closure       r6   f77
+.line	698	settable      r1   k85    r6 ; k85 = "getShowType"
+.line	715	closure       r6   f78
+.line	713	settable      r1   k86    r6 ; k86 = "setTagID"
+.line	719	closure       r6   f79
+.line	717	settable      r1   k87    r6 ; k87 = "getTagID"
+.line	723	closure       r6   f80
+.line	721	settable      r1   k88    r6 ; k88 = "getItemsStr"
+.line	727	closure       r6   f81
+.line	725	settable      r1   k89    r6 ; k89 = "getItem2Str"
+.line	731	closure       r6   f82
+.line	729	settable      r1   k90    r6 ; k90 = "getHeroesStr"
+.line	735	closure       r6   f83
+.line	733	settable      r1   k91    r6 ; k91 = "getItemUse"
+.line	739	closure       r6   f84
+.line	737	settable      r1   k92    r6 ; k92 = "getResourceStr"
+.line	744	closure       r6   f85
+.line	742	settable      r1   k93    r6 ; k93 = "getAllianceGift"
+.line	751	closure       r6   f86
+.line	746	settable      r1   k94    r6 ; k94 = "IsBestBuy"
+.line	757	closure       r6   f87
+.line	753	settable      r1   k95    r6 ; k95 = "GetBuyType"
+.line	768	closure       r6   f88
+.line	759	settable      r1   k96    r6 ; k96 = "GetResourceBuyCostTy" (truncated)
+.line	775	closure       r6   f89
+.line	773	settable      r1   k97    r6 ; k97 = "setChooseIndex"
+.line	781	closure       r6   f90
+.line	778	settable      r1   k98    r6 ; k98 = "getChooseIndex"
+.line	791	closure       r6   f91
+.line	784	settable      r1   k99    r6 ; k99 = "getRechargePoint"
+.line	797	closure       r6   f92
+.line	794	settable      r1  k100    r6 ; k100 = "saveChooseInfo"
+.line	814	closure       r6   f93
+.line	802	settable      r1  k101    r6 ; k101 = "tryGetChooseIndexFro" (truncated)
+.line	828	closure       r6   f94
+.line	816	settable      r1  k102    r6 ; k102 = "dispose"
+.line	851	closure       r6   f95
+.line	830	settable      r1  k103    r6 ; k103 = "toJson"
+.line	866	closure       r6   f96
+.line	853	settable      r1  k104    r6 ; k104 = "toJsonForGiftBar"
+.line	873	closure       r6   f97
+.line	869	settable      r1  k105    r6 ; k105 = "getRechargeLineData"
+.line	878	closure       r6   f98
+.line	876	settable      r1  k106    r6 ; k106 = "getGoldBrickId"
+.line	887	closure       r6   f99
+.line	881	settable      r1  k107    r6 ; k107 = "getCostGoldBrick"
+.line	894	closure       r6  f100
+.line	889	settable      r1  k108    r6 ; k108 = "getBuyCondition"
+.line	901	closure       r6  f101
+.line	896	settable      r1  k109    r6 ; k109 = "getAlertCondition"
+.line	909	closure       r6  f102
+.line	904	settable      r1  k110    r6 ; k110 = "getCanRefund"
+.line	915	closure       r6  f103
+.line	911	settable      r1  k111    r6 ; k111 = "getRewardChangeGroup"
+.line	917	return        r1     2
+.line	917	return        r0     1
+
+.function	main/f0
+
+.source	null
+.linedefined	14
+.lastlinedefined	24
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	11
+
+.constant	k0	"_serverData"
+.constant	k1	nil
+.constant	k2	"_showTypeParsed"
+.constant	k3	false
+.constant	k4	"_weekPopupParsed"
+.constant	k5	"_chooseIndexParsed"
+.constant	k6	"_combDescParsed"
+.constant	k7	"_combDescs"
+.constant	k8	"_packageDiscountTips"
+.constant	k9	"_chooseIndex"
+.constant	k10	-1
+.constant	k11	"_tableData"
+
+.line	15	settable      r0    k0    k1 ; k1 = nil
+.line	16	settable      r0    k2    k3 ; k3 = false
+.line	17	settable      r0    k4    k3 ; k3 = false
+.line	18	settable      r0    k5    k3 ; k3 = false
+.line	19	settable      r0    k6    k3 ; k3 = false
+.line	20	settable      r0    k7    k1 ; k1 = nil
+.line	21	newtable      r1     0     0
+.line	21	settable      r0    k8    r1 ; k8 = "_packageDiscountTips"
+.line	22	settable      r0    k9   k10 ; k10 = -1
+.line	23	settable      r0   k11    k1 ; k1 = nil
+.line	24	return        r0     1
+
+.function	main/f1
+
+.source	null
+.linedefined	26
+.lastlinedefined	33
+.numparams	2
+.is_vararg	0
+.maxstacksize	5
+
+.local	"self"	0	13
+.local	"giftPackId"	0	13
+.local	"giftPackTemplate"	5	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"DataCenter"
+.constant	k1	"GiftPackTemplateManager"
+.constant	k2	"GetGiftPackInfo"
+.constant	k3	"_tableData"
+
+.line	27	gettabup      r2    u0    k0 ; k0 = "DataCenter"
+.line	27	gettable      r2    r2    k1 ; k1 = "GiftPackTemplateMana" (truncated)
+.line	27	self          r2    r2    k2 ; k2 = "GetGiftPackInfo"
+.line	27	move          r4    r1
+.line	27	call          r2     3     2
+.line	28	test          r2     0
+.line	28	jmp            0   l11
+.line	29	settable      r0    k3    r2 ; k3 = "_tableData"
+.line	30	loadbool      r3     1     0
+.line	30	return        r3     2
+.label	l11
+.line	32	loadbool      r3     0     0
+.line	32	return        r3     2
+.line	33	return        r0     1
+
+.function	main/f2
+
+.source	null
+.linedefined	37
+.lastlinedefined	56
+.numparams	2
+.is_vararg	0
+.maxstacksize	6
+
+.local	"self"	0	36
+.local	"data"	0	36
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	nil
+.constant	k1	"logErrorWithTag"
+.constant	k2	"GiftPackInfoBase"
+.constant	k3	"Server data null"
+.constant	k4	"_serverData"
+.constant	k5	"isWeeklyFreePackage"
+.constant	k6	false
+.constant	k7	"simple"
+.constant	k8	true
+.constant	k9	"UpdateWithLocalData"
+.constant	k10	"getID"
+.constant	k11	"_tableData"
+.constant	k12	"_showTypeParsed"
+.constant	k13	"_weekPopupParsed"
+.constant	k14	"_chooseIndexParsed"
+.constant	k15	"_packageDiscountTips"
+.constant	k16	"_combDescParsed"
+.constant	k17	"_combDescs"
+.constant	k18	"_chooseIndex"
+.constant	k19	-1
+
+.line	38	eq             0    r1    k0 ; k0 = nil
+.line	38	jmp            0    l7
+.line	39	gettabup      r2    u0    k1 ; k1 = "logErrorWithTag"
+.line	39	loadk         r3    k2 ; k2 = "GiftPackInfoBase"
+.line	39	loadk         r4    k3 ; k3 = "Server data null"
+.line	39	call          r2     3     1
+.label	l7
+.line	41	settable      r0    k4    r1 ; k4 = "_serverData"
+.line	42	gettable      r2    r1    k5 ; k5 = "isWeeklyFreePackage"
+.line	42	eq             1    r2    k0 ; k0 = nil
+.line	42	jmp            0   l14
+.line	42	gettable      r2    r1    k5 ; k5 = "isWeeklyFreePackage"
+.line	42	eq             0    r2    k6 ; k6 = false
+.line	42	jmp            0   l28
+.label	l14
+.line	42	gettable      r2    r1    k7 ; k7 = "simple"
+.line	42	eq             1    r2    k0 ; k0 = nil
+.line	42	jmp            0   l28
+.line	42	gettable      r2    r1    k7 ; k7 = "simple"
+.line	42	eq             0    r2    k8 ; k8 = true
+.line	42	jmp            0   l28
+.line	43	self          r2    r0    k9 ; k9 = "UpdateWithLocalData"
+.line	43	self          r4    r0   k10 ; k10 = "getID"
+.line	43	call          r4     2     0
+.line	43	call          r2     0     2
+.line	43	test          r2     1
+.line	43	jmp            0   l29
+.line	44	settable      r0   k11    r1 ; k11 = "_tableData"
+.line	45	jmp            0   l29
+.label	l28
+.line	47	settable      r0   k11    r1 ; k11 = "_tableData"
+.label	l29
+.line	49	settable      r0   k12    k6 ; k6 = false
+.line	50	settable      r0   k13    k6 ; k6 = false
+.line	51	settable      r0   k14    k6 ; k6 = false
+.line	52	settable      r0   k15    k0 ; k0 = nil
+.line	53	settable      r0   k16    k6 ; k6 = false
+.line	54	settable      r0   k17    k0 ; k0 = nil
+.line	55	settable      r0   k18   k19 ; k19 = -1
+.line	56	return        r0     1
+
+.function	main/f3
+
+.source	null
+.linedefined	59
+.lastlinedefined	61
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"id"
+.constant	k2	"-1"
+
+.line	60	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	60	test          r1     0
+.line	60	jmp            0    l8
+.line	60	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	60	gettable      r1    r1    k1 ; k1 = "id"
+.line	60	test          r1     1
+.line	60	jmp            0    l9
+.label	l8
+.line	60	loadk         r1    k2 ; k2 = "-1"
+.label	l9
+.line	60	return        r1     2
+.line	61	return        r0     1
+
+.function	main/f4
+
+.source	null
+.linedefined	65
+.lastlinedefined	72
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	18
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_type"
+.constant	k1	nil
+.constant	k2	"_tableData"
+.constant	k3	"tonumber"
+.constant	k4	"type"
+.constant	k5	"GiftPackType"
+.constant	k6	"Unknown"
+
+.line	67	gettable      r1    r0    k0 ; k0 = "_type"
+.line	67	eq             0    r1    k1 ; k1 = nil
+.line	67	jmp            0   l16
+.line	68	gettable      r1    r0    k2 ; k2 = "_tableData"
+.line	68	test          r1     0
+.line	68	jmp            0   l13
+.line	68	gettabup      r1    u0    k3 ; k3 = "tonumber"
+.line	68	gettable      r2    r0    k2 ; k2 = "_tableData"
+.line	68	gettable      r2    r2    k4 ; k4 = "type"
+.line	68	call          r1     2     2
+.line	68	test          r1     1
+.line	68	jmp            0   l15
+.label	l13
+.line	68	gettabup      r1    u0    k5 ; k5 = "GiftPackType"
+.line	68	gettable      r1    r1    k6 ; k6 = "Unknown"
+.label	l15
+.line	68	settable      r0    k0    r1 ; k0 = "_type"
+.label	l16
+.line	71	gettable      r1    r0    k0 ; k0 = "_type"
+.line	71	return        r1     2
+.line	72	return        r0     1
+
+.function	main/f5
+
+.source	null
+.linedefined	75
+.lastlinedefined	77
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"name"
+.constant	k2	""
+
+.line	76	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	76	test          r1     0
+.line	76	jmp            0    l8
+.line	76	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	76	gettable      r1    r1    k1 ; k1 = "name"
+.line	76	test          r1     1
+.line	76	jmp            0    l9
+.label	l8
+.line	76	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	76	return        r1     2
+.line	77	return        r0     1
+
+.function	main/f6
+
+.source	null
+.linedefined	79
+.lastlinedefined	81
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"sub_name"
+.constant	k2	""
+
+.line	80	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	80	test          r1     0
+.line	80	jmp            0    l8
+.line	80	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	80	gettable      r1    r1    k1 ; k1 = "sub_name"
+.line	80	test          r1     1
+.line	80	jmp            0    l9
+.label	l8
+.line	80	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	80	return        r1     2
+.line	81	return        r0     1
+
+.function	main/f7
+
+.source	null
+.linedefined	83
+.lastlinedefined	100
+.numparams	1
+.is_vararg	0
+.maxstacksize	17
+
+.local	"self"	0	67
+.local	"desc"	2	67
+.local	"arr"	14	60
+.local	"paramArray"	19	60
+.local	"args"	20	60
+.local	"(for generator)"	23	51
+.local	"(for state)"	23	51
+.local	"(for control)"	23	51
+.local	"_"	24	49
+.local	"p"	24	49
+
+.upvalue	"_ENV"	0	false
+.upvalue	"Localization"	4	true
+
+.constant	k0	"getSubName"
+.constant	k1	"string"
+.constant	k2	"contains"
+.constant	k3	"|"
+.constant	k4	"split"
+.constant	k5	2
+.constant	k6	"#"
+.constant	k7	"ipairs"
+.constant	k8	"startswith"
+.constant	k9	"$"
+.constant	k10	"table"
+.constant	k11	"insert"
+.constant	k12	"GetString"
+.constant	k13	"sub"
+.constant	k14	1
+.constant	k15	"unpack"
+
+.line	84	self          r1    r0    k0 ; k0 = "getSubName"
+.line	84	call          r1     2     2
+.line	85	gettabup      r2    u0    k1 ; k1 = "string"
+.line	85	gettable      r2    r2    k2 ; k2 = "contains"
+.line	85	move          r3    r1
+.line	85	loadk         r4    k3 ; k3 = "|"
+.line	85	call          r2     3     2
+.line	85	test          r2     0
+.line	85	jmp            0   l62
+.line	86	gettabup      r2    u0    k1 ; k1 = "string"
+.line	86	gettable      r2    r2    k4 ; k4 = "split"
+.line	86	move          r3    r1
+.line	86	loadk         r4    k3 ; k3 = "|"
+.line	86	call          r2     3     2
+.line	87	gettabup      r3    u0    k1 ; k1 = "string"
+.line	87	gettable      r3    r3    k4 ; k4 = "split"
+.line	87	gettable      r4    r2    k5 ; k5 = 2
+.line	87	loadk         r5    k6 ; k6 = "#"
+.line	87	call          r3     3     2
+.line	88	newtable      r4     0     0
+.line	89	gettabup      r5    u0    k7 ; k7 = "ipairs"
+.line	89	move          r6    r3
+.line	89	call          r5     2     4
+.line	89	jmp            0   l50
+.label	l25
+.line	90	gettabup     r10    u0    k1 ; k1 = "string"
+.line	90	gettable     r10   r10    k8 ; k8 = "startswith"
+.line	90	move         r11    r9
+.line	90	loadk        r12    k9 ; k9 = "$"
+.line	90	call         r10     3     2
+.line	90	test         r10     0
+.line	90	jmp            0   l45
+.line	91	gettabup     r10    u0   k10 ; k10 = "table"
+.line	91	gettable     r10   r10   k11 ; k11 = "insert"
+.line	91	move         r11    r4
+.line	91	getupval     r12    u1
+.line	91	self         r12   r12   k12 ; k12 = "GetString"
+.line	91	gettabup     r14    u0    k1 ; k1 = "string"
+.line	91	gettable     r14   r14   k13 ; k13 = "sub"
+.line	91	move         r15    r9
+.line	91	loadk        r16    k5 ; k5 = 2
+.line	91	call         r14     3     0
+.line	91	call         r12     0     0
+.line	91	call         r10     0     1
+.line	91	jmp            0   l50
+.label	l45
+.line	93	gettabup     r10    u0   k10 ; k10 = "table"
+.line	93	gettable     r10   r10   k11 ; k11 = "insert"
+.line	93	move         r11    r4
+.line	93	move         r12    r9
+.line	93	call         r10     3     1
+.label	l50
+.line	89	tforcall      r5     2
+.line	89	tforloop      r7   l25
+.line	96	getupval      r5    u1
+.line	96	self          r5    r5   k12 ; k12 = "GetString"
+.line	96	gettable      r7    r2   k14 ; k14 = 1
+.line	96	gettabup      r8    u0   k10 ; k10 = "table"
+.line	96	gettable      r8    r8   k15 ; k15 = "unpack"
+.line	96	move          r9    r4
+.line	96	call          r8     2     0
+.line	96	tailcall      r5     0
+.line	96	return        r5     0
+.line	96	jmp            0   l67
+.label	l62
+.line	98	getupval      r2    u1
+.line	98	self          r2    r2   k12 ; k12 = "GetString"
+.line	98	move          r4    r1
+.line	98	tailcall      r2     3
+.line	98	return        r2     0
+.label	l67
+.line	100	return        r0     1
+
+.function	main/f8
+
+.source	null
+.linedefined	102
+.lastlinedefined	104
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	8
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"string"
+.constant	k1	"IsNullOrEmpty"
+.constant	k2	"getSubName"
+
+.line	103	gettabup      r1    u0    k0 ; k0 = "string"
+.line	103	gettable      r1    r1    k1 ; k1 = "IsNullOrEmpty"
+.line	103	self          r2    r0    k2 ; k2 = "getSubName"
+.line	103	call          r2     2     0
+.line	103	call          r1     0     2
+.line	103	not           r1    r1
+.line	103	return        r1     2
+.line	104	return        r0     1
+
+.function	main/f9
+
+.source	null
+.linedefined	107
+.lastlinedefined	115
+.numparams	1
+.is_vararg	0
+.maxstacksize	7
+
+.local	"self"	0	27
+.local	"name"	2	27
+.local	"arr"	14	20
+
+.upvalue	"_ENV"	0	false
+.upvalue	"Localization"	4	true
+
+.constant	k0	"getName"
+.constant	k1	"string"
+.constant	k2	"contains"
+.constant	k3	"|"
+.constant	k4	"split"
+.constant	k5	"GetString"
+.constant	k6	1
+.constant	k7	2
+
+.line	108	self          r1    r0    k0 ; k0 = "getName"
+.line	108	call          r1     2     2
+.line	109	gettabup      r2    u0    k1 ; k1 = "string"
+.line	109	gettable      r2    r2    k2 ; k2 = "contains"
+.line	109	move          r3    r1
+.line	109	loadk         r4    k3 ; k3 = "|"
+.line	109	call          r2     3     2
+.line	109	test          r2     0
+.line	109	jmp            0   l22
+.line	110	gettabup      r2    u0    k1 ; k1 = "string"
+.line	110	gettable      r2    r2    k4 ; k4 = "split"
+.line	110	move          r3    r1
+.line	110	loadk         r4    k3 ; k3 = "|"
+.line	110	call          r2     3     2
+.line	111	getupval      r3    u1
+.line	111	self          r3    r3    k5 ; k5 = "GetString"
+.line	111	gettable      r5    r2    k6 ; k6 = 1
+.line	111	gettable      r6    r2    k7 ; k7 = 2
+.line	111	tailcall      r3     4
+.line	111	return        r3     0
+.line	111	jmp            0   l27
+.label	l22
+.line	113	getupval      r2    u1
+.line	113	self          r2    r2    k5 ; k5 = "GetString"
+.line	113	move          r4    r1
+.line	113	tailcall      r2     3
+.line	113	return        r2     0
+.label	l27
+.line	115	return        r0     1
+
+.function	main/f10
+
+.source	null
+.linedefined	118
+.lastlinedefined	120
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"description"
+.constant	k2	""
+
+.line	119	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	119	test          r1     0
+.line	119	jmp            0    l8
+.line	119	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	119	gettable      r1    r1    k1 ; k1 = "description"
+.line	119	test          r1     1
+.line	119	jmp            0    l9
+.label	l8
+.line	119	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	119	return        r1     2
+.line	120	return        r0     1
+
+.function	main/f11
+
+.source	null
+.linedefined	123
+.lastlinedefined	125
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"popup_image_mini"
+.constant	k2	""
+
+.line	124	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	124	test          r1     0
+.line	124	jmp            0    l8
+.line	124	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	124	gettable      r1    r1    k1 ; k1 = "popup_image_mini"
+.line	124	test          r1     1
+.line	124	jmp            0    l9
+.label	l8
+.line	124	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	124	return        r1     2
+.line	125	return        r0     1
+
+.function	main/f12
+
+.source	null
+.linedefined	127
+.lastlinedefined	129
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"popup_image_mini_band"
+.constant	k2	""
+
+.line	128	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	128	test          r1     0
+.line	128	jmp            0    l8
+.line	128	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	128	gettable      r1    r1    k1 ; k1 = "popup_image_mini_ban" (truncated)
+.line	128	test          r1     1
+.line	128	jmp            0    l9
+.label	l8
+.line	128	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	128	return        r1     2
+.line	129	return        r0     1
+
+.function	main/f13
+
+.source	null
+.linedefined	131
+.lastlinedefined	167
+.numparams	1
+.is_vararg	0
+.maxstacksize	21
+
+.local	"self"	0	95
+.local	"discountTb"	13	94
+.local	"retTb"	14	94
+.local	"(for generator)"	17	93
+.local	"(for state)"	17	93
+.local	"(for control)"	17	93
+.local	"i"	18	91
+.local	"v"	18	91
+.local	"type_dialog"	23	91
+.local	"tempK"	26	91
+.local	"arrParams"	33	58
+.local	"arrItems"	34	58
+.local	"(for generator)"	37	57
+.local	"(for state)"	37	57
+.local	"(for control)"	37	57
+.local	"m"	38	55
+.local	"n"	38	55
+.local	"itemParam"	43	55
+.local	"pos"	46	55
+.local	"temp"	47	55
+.local	"dialog_param"	68	91
+.local	"params"	76	85
+
+.upvalue	"_ENV"	0	false
+.upvalue	"Localization"	4	true
+
+.constant	k0	"_tableData"
+.constant	k1	"image_show"
+.constant	k2	"string"
+.constant	k3	"split"
+.constant	k4	"|"
+.constant	k5	"ipairs"
+.constant	k6	";"
+.constant	k7	"tonumber"
+.constant	k8	1
+.constant	k9	4
+.constant	k10	2
+.constant	k11	"@"
+.constant	k12	"_"
+.constant	k13	"itemId"
+.constant	k14	"count"
+.constant	k15	3
+.constant	k16	"rewardType"
+.constant	k17	"RewardType"
+.constant	k18	"GOODS"
+.constant	k19	""
+.constant	k20	"GetString"
+.constant	k21	"table"
+.constant	k22	"unpack"
+
+.line	133	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	133	test          r1     0
+.line	133	jmp            0   l95
+.line	133	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	133	gettable      r1    r1    k1 ; k1 = "image_show"
+.line	133	test          r1     0
+.line	133	jmp            0   l95
+.line	134	gettabup      r1    u0    k2 ; k2 = "string"
+.line	134	gettable      r1    r1    k3 ; k3 = "split"
+.line	134	gettable      r2    r0    k0 ; k0 = "_tableData"
+.line	134	gettable      r2    r2    k1 ; k1 = "image_show"
+.line	134	loadk         r3    k4 ; k4 = "|"
+.line	134	call          r1     3     2
+.line	135	newtable      r2     0     0
+.line	136	gettabup      r3    u0    k5 ; k5 = "ipairs"
+.line	136	move          r4    r1
+.line	136	call          r3     2     4
+.line	136	jmp            0   l92
+.label	l19
+.line	137	gettabup      r8    u0    k2 ; k2 = "string"
+.line	137	gettable      r8    r8    k3 ; k3 = "split"
+.line	137	move          r9    r7
+.line	137	loadk        r10    k6 ; k6 = ";"
+.line	137	call          r8     3     2
+.line	138	gettabup      r9    u0    k7 ; k7 = "tonumber"
+.line	138	gettable     r10    r8    k8 ; k8 = 1
+.line	138	call          r9     2     2
+.line	139	eq             0    r9    k9 ; k9 = 4
+.line	139	jmp            0   l60
+.line	140	gettabup     r10    u0    k2 ; k2 = "string"
+.line	140	gettable     r10   r10    k3 ; k3 = "split"
+.line	140	gettable     r11    r8   k10 ; k10 = 2
+.line	140	loadk        r12   k11 ; k11 = "@"
+.line	140	call         r10     3     2
+.line	141	newtable     r11     0     0
+.line	142	gettabup     r12    u0    k5 ; k5 = "ipairs"
+.line	142	move         r13   r10
+.line	142	call         r12     2     4
+.line	142	jmp            0   l56
+.label	l39
+.line	143	gettabup     r17    u0    k2 ; k2 = "string"
+.line	143	gettable     r17   r17    k3 ; k3 = "split"
+.line	143	move         r18   r16
+.line	143	loadk        r19   k12 ; k12 = "_"
+.line	143	call         r17     3     2
+.line	144	gettabup     r18    u0    k7 ; k7 = "tonumber"
+.line	144	gettable     r19   r17    k8 ; k8 = 1
+.line	144	call         r18     2     2
+.line	145	newtable     r19     0     0
+.line	146	gettable     r20   r17   k10 ; k10 = 2
+.line	146	settable     r19   k13   r20 ; k13 = "itemId"
+.line	147	gettable     r20   r17   k15 ; k15 = 3
+.line	147	settable     r19   k14   r20 ; k14 = "count"
+.line	148	gettabup     r20    u0   k17 ; k17 = "RewardType"
+.line	148	gettable     r20   r20   k18 ; k18 = "GOODS"
+.line	148	settable     r19   k16   r20 ; k16 = "rewardType"
+.line	149	settable     r11   r18   r19
+.label	l56
+.line	142	tforcall     r12     2
+.line	142	tforloop     r14   l39
+.line	151	settable      r2    r9   r11
+.line	151	jmp            0   l92
+.label	l60
+.line	153	settable      r2    r9   k19 ; k19 = ""
+.line	154	len          r10    r8
+.line	154	eq             0   r10   k10 ; k10 = 2
+.line	154	jmp            0   l92
+.line	155	gettabup     r10    u0    k2 ; k2 = "string"
+.line	155	gettable     r10   r10    k3 ; k3 = "split"
+.line	155	gettable     r11    r8   k10 ; k10 = 2
+.line	155	loadk        r12   k11 ; k11 = "@"
+.line	155	call         r10     3     2
+.line	156	len          r11   r10
+.line	156	eq             0   r11   k10 ; k10 = 2
+.line	156	jmp            0   l87
+.line	157	gettabup     r11    u0    k2 ; k2 = "string"
+.line	157	gettable     r11   r11    k3 ; k3 = "split"
+.line	157	gettable     r12   r10   k10 ; k10 = 2
+.line	157	loadk        r13   k12 ; k12 = "_"
+.line	157	call         r11     3     2
+.line	158	getupval     r12    u1
+.line	158	self         r12   r12   k20 ; k20 = "GetString"
+.line	158	gettable     r14   r10    k8 ; k8 = 1
+.line	158	gettabup     r15    u0   k21 ; k21 = "table"
+.line	158	gettable     r15   r15   k22 ; k22 = "unpack"
+.line	158	move         r16   r11
+.line	158	call         r15     2     0
+.line	158	call         r12     0     2
+.line	158	settable      r2    r9   r12
+.line	158	jmp            0   l92
+.label	l87
+.line	160	getupval     r11    u1
+.line	160	self         r11   r11   k20 ; k20 = "GetString"
+.line	160	gettable     r13   r10    k8 ; k8 = 1
+.line	160	call         r11     3     2
+.line	160	settable      r2    r9   r11
+.label	l92
+.line	136	tforcall      r3     2
+.line	136	tforloop      r5   l19
+.line	165	return        r2     2
+.label	l95
+.line	167	return        r0     1
+
+.function	main/f14
+
+.source	null
+.linedefined	170
+.lastlinedefined	172
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"popup_image_b"
+.constant	k2	""
+
+.line	171	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	171	test          r1     0
+.line	171	jmp            0    l8
+.line	171	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	171	gettable      r1    r1    k1 ; k1 = "popup_image_b"
+.line	171	test          r1     1
+.line	171	jmp            0    l9
+.label	l8
+.line	171	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	171	return        r1     2
+.line	172	return        r0     1
+
+.function	main/f15
+
+.source	null
+.linedefined	174
+.lastlinedefined	176
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"prefab_name"
+.constant	k2	""
+
+.line	175	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	175	test          r1     0
+.line	175	jmp            0    l8
+.line	175	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	175	gettable      r1    r1    k1 ; k1 = "prefab_name"
+.line	175	test          r1     1
+.line	175	jmp            0    l9
+.label	l8
+.line	175	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	175	return        r1     2
+.line	176	return        r0     1
+
+.function	main/f16
+
+.source	null
+.linedefined	178
+.lastlinedefined	180
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"lack_pic"
+.constant	k2	""
+
+.line	179	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	179	test          r1     0
+.line	179	jmp            0    l8
+.line	179	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	179	gettable      r1    r1    k1 ; k1 = "lack_pic"
+.line	179	test          r1     1
+.line	179	jmp            0    l9
+.label	l8
+.line	179	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	179	return        r1     2
+.line	180	return        r0     1
+
+.function	main/f17
+
+.source	null
+.linedefined	185
+.lastlinedefined	187
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"popup_image_h"
+.constant	k2	""
+
+.line	186	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	186	test          r1     0
+.line	186	jmp            0    l8
+.line	186	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	186	gettable      r1    r1    k1 ; k1 = "popup_image_h"
+.line	186	test          r1     1
+.line	186	jmp            0    l9
+.label	l8
+.line	186	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	186	return        r1     2
+.line	187	return        r0     1
+
+.function	main/f18
+
+.source	null
+.linedefined	189
+.lastlinedefined	212
+.numparams	1
+.is_vararg	0
+.maxstacksize	18
+
+.local	"self"	0	76
+.local	"index"	4	76
+.local	"desc"	11	76
+.local	"arr"	23	69
+.local	"paramArray"	28	69
+.local	"args"	29	69
+.local	"(for generator)"	32	60
+.local	"(for state)"	32	60
+.local	"(for control)"	32	60
+.local	"_"	33	58
+.local	"p"	33	58
+
+.upvalue	"_ENV"	0	false
+.upvalue	"Localization"	4	true
+
+.constant	k0	"tryParseCombDesc"
+.constant	k1	"getChooseIndex"
+.constant	k2	"_combDescs"
+.constant	k3	1
+.constant	k4	"string"
+.constant	k5	"contains"
+.constant	k6	"|"
+.constant	k7	"split"
+.constant	k8	2
+.constant	k9	"#"
+.constant	k10	"ipairs"
+.constant	k11	"startswith"
+.constant	k12	"$"
+.constant	k13	"table"
+.constant	k14	"insert"
+.constant	k15	"GetString"
+.constant	k16	"sub"
+.constant	k17	"unpack"
+
+.line	190	self          r1    r0    k0 ; k0 = "tryParseCombDesc"
+.line	190	call          r1     2     1
+.line	192	self          r1    r0    k1 ; k1 = "getChooseIndex"
+.line	192	call          r1     2     2
+.line	193	gettable      r2    r0    k2 ; k2 = "_combDescs"
+.line	193	len           r2    r2
+.line	193	lt             0    r2    r1
+.line	193	jmp            0   l10
+.line	194	loadk         r1    k3 ; k3 = 1
+.label	l10
+.line	196	gettable      r2    r0    k2 ; k2 = "_combDescs"
+.line	196	gettable      r2    r2    r1
+.line	197	gettabup      r3    u0    k4 ; k4 = "string"
+.line	197	gettable      r3    r3    k5 ; k5 = "contains"
+.line	197	move          r4    r2
+.line	197	loadk         r5    k6 ; k6 = "|"
+.line	197	call          r3     3     2
+.line	197	test          r3     0
+.line	197	jmp            0   l71
+.line	198	gettabup      r3    u0    k4 ; k4 = "string"
+.line	198	gettable      r3    r3    k7 ; k7 = "split"
+.line	198	move          r4    r2
+.line	198	loadk         r5    k6 ; k6 = "|"
+.line	198	call          r3     3     2
+.line	199	gettabup      r4    u0    k4 ; k4 = "string"
+.line	199	gettable      r4    r4    k7 ; k7 = "split"
+.line	199	gettable      r5    r3    k8 ; k8 = 2
+.line	199	loadk         r6    k9 ; k9 = "#"
+.line	199	call          r4     3     2
+.line	200	newtable      r5     0     0
+.line	201	gettabup      r6    u0   k10 ; k10 = "ipairs"
+.line	201	move          r7    r4
+.line	201	call          r6     2     4
+.line	201	jmp            0   l59
+.label	l34
+.line	202	gettabup     r11    u0    k4 ; k4 = "string"
+.line	202	gettable     r11   r11   k11 ; k11 = "startswith"
+.line	202	move         r12   r10
+.line	202	loadk        r13   k12 ; k12 = "$"
+.line	202	call         r11     3     2
+.line	202	test         r11     0
+.line	202	jmp            0   l54
+.line	203	gettabup     r11    u0   k13 ; k13 = "table"
+.line	203	gettable     r11   r11   k14 ; k14 = "insert"
+.line	203	move         r12    r5
+.line	203	getupval     r13    u1
+.line	203	self         r13   r13   k15 ; k15 = "GetString"
+.line	203	gettabup     r15    u0    k4 ; k4 = "string"
+.line	203	gettable     r15   r15   k16 ; k16 = "sub"
+.line	203	move         r16   r10
+.line	203	loadk        r17    k8 ; k8 = 2
+.line	203	call         r15     3     0
+.line	203	call         r13     0     0
+.line	203	call         r11     0     1
+.line	203	jmp            0   l59
+.label	l54
+.line	205	gettabup     r11    u0   k13 ; k13 = "table"
+.line	205	gettable     r11   r11   k14 ; k14 = "insert"
+.line	205	move         r12    r5
+.line	205	move         r13   r10
+.line	205	call         r11     3     1
+.label	l59
+.line	201	tforcall      r6     2
+.line	201	tforloop      r8   l34
+.line	208	getupval      r6    u1
+.line	208	self          r6    r6   k15 ; k15 = "GetString"
+.line	208	gettable      r8    r3    k3 ; k3 = 1
+.line	208	gettabup      r9    u0   k13 ; k13 = "table"
+.line	208	gettable      r9    r9   k17 ; k17 = "unpack"
+.line	208	move         r10    r5
+.line	208	call          r9     2     0
+.line	208	tailcall      r6     0
+.line	208	return        r6     0
+.line	208	jmp            0   l76
+.label	l71
+.line	210	getupval      r3    u1
+.line	210	self          r3    r3   k15 ; k15 = "GetString"
+.line	210	move          r5    r2
+.line	210	tailcall      r3     3
+.line	210	return        r3     0
+.label	l76
+.line	212	return        r0     1
+
+.function	main/f19
+
+.source	null
+.linedefined	214
+.lastlinedefined	227
+.numparams	1
+.is_vararg	0
+.maxstacksize	11
+
+.local	"self"	0	26
+.local	"desc"	7	26
+.local	"arr"	12	26
+.local	"(for generator)"	17	25
+.local	"(for state)"	17	25
+.local	"(for control)"	17	25
+.local	"_"	18	23
+.local	"v"	18	23
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_combDescParsed"
+.constant	k1	true
+.constant	k2	"getDescription"
+.constant	k3	"string"
+.constant	k4	"split"
+.constant	k5	"@"
+.constant	k6	"_combDescs"
+.constant	k7	"ipairs"
+.constant	k8	"table"
+.constant	k9	"insert"
+
+.line	215	gettable      r1    r0    k0 ; k0 = "_combDescParsed"
+.line	215	test          r1     0
+.line	215	jmp            0    l5
+.line	216	return        r0     1
+.label	l5
+.line	219	settable      r0    k0    k1 ; k1 = true
+.line	221	self          r1    r0    k2 ; k2 = "getDescription"
+.line	221	call          r1     2     2
+.line	222	gettabup      r2    u0    k3 ; k3 = "string"
+.line	222	gettable      r2    r2    k4 ; k4 = "split"
+.line	222	move          r3    r1
+.line	222	loadk         r4    k5 ; k5 = "@"
+.line	222	call          r2     3     2
+.line	223	newtable      r3     0     0
+.line	223	settable      r0    k6    r3 ; k6 = "_combDescs"
+.line	224	gettabup      r3    u0    k7 ; k7 = "ipairs"
+.line	224	move          r4    r2
+.line	224	call          r3     2     4
+.line	224	jmp            0   l24
+.label	l19
+.line	225	gettabup      r8    u0    k8 ; k8 = "table"
+.line	225	gettable      r8    r8    k9 ; k9 = "insert"
+.line	225	gettable      r9    r0    k6 ; k6 = "_combDescs"
+.line	225	move         r10    r7
+.line	225	call          r8     3     1
+.label	l24
+.line	224	tforcall      r3     2
+.line	224	tforloop      r5   l19
+.line	227	return        r0     1
+
+.function	main/f20
+
+.source	null
+.linedefined	231
+.lastlinedefined	233
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"popup_image"
+.constant	k2	""
+
+.line	232	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	232	test          r1     0
+.line	232	jmp            0    l8
+.line	232	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	232	gettable      r1    r1    k1 ; k1 = "popup_image"
+.line	232	test          r1     1
+.line	232	jmp            0    l9
+.label	l8
+.line	232	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	232	return        r1     2
+.line	233	return        r0     1
+
+.function	main/f21
+
+.source	null
+.linedefined	235
+.lastlinedefined	237
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"image_mini_quality"
+.constant	k2	0
+
+.line	236	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	236	test          r1     0
+.line	236	jmp            0    l8
+.line	236	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	236	gettable      r1    r1    k1 ; k1 = "image_mini_quality"
+.line	236	test          r1     1
+.line	236	jmp            0    l9
+.label	l8
+.line	236	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	236	return        r1     2
+.line	237	return        r0     1
+
+.function	main/f22
+
+.source	null
+.linedefined	240
+.lastlinedefined	242
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"md5_v3"
+.constant	k2	""
+
+.line	241	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	241	test          r1     0
+.line	241	jmp            0    l8
+.line	241	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	241	gettable      r1    r1    k1 ; k1 = "md5_v3"
+.line	241	test          r1     1
+.line	241	jmp            0    l9
+.label	l8
+.line	241	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	241	return        r1     2
+.line	242	return        r0     1
+
+.function	main/f23
+
+.source	null
+.linedefined	244
+.lastlinedefined	246
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"time_type"
+.constant	k2	-1
+
+.line	245	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	245	test          r1     0
+.line	245	jmp            0    l8
+.line	245	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	245	gettable      r1    r1    k1 ; k1 = "time_type"
+.line	245	test          r1     1
+.line	245	jmp            0    l9
+.label	l8
+.line	245	loadk         r1    k2 ; k2 = -1
+.label	l9
+.line	245	return        r1     2
+.line	246	return        r0     1
+
+.function	main/f24
+
+.source	null
+.linedefined	249
+.lastlinedefined	251
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"start"
+.constant	k2	-1
+
+.line	250	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	250	test          r1     0
+.line	250	jmp            0    l8
+.line	250	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	250	gettable      r1    r1    k1 ; k1 = "start"
+.line	250	test          r1     1
+.line	250	jmp            0    l9
+.label	l8
+.line	250	loadk         r1    k2 ; k2 = -1
+.label	l9
+.line	250	return        r1     2
+.line	251	return        r0     1
+
+.function	main/f25
+
+.source	null
+.linedefined	254
+.lastlinedefined	256
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"end"
+.constant	k2	-1
+
+.line	255	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	255	test          r1     0
+.line	255	jmp            0    l8
+.line	255	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	255	gettable      r1    r1    k1 ; k1 = "end"
+.line	255	test          r1     1
+.line	255	jmp            0    l9
+.label	l8
+.line	255	loadk         r1    k2 ; k2 = -1
+.label	l9
+.line	255	return        r1     2
+.line	256	return        r0     1
+
+.function	main/f26
+
+.source	null
+.linedefined	259
+.lastlinedefined	310
+.numparams	1
+.is_vararg	0
+.maxstacksize	9
+
+.local	"self"	0	61
+.local	"serverTime"	5	61
+.local	"startTime"	7	61
+.local	"endTime"	9	61
+.local	"timeType"	11	61
+.local	"duration"	29	47
+.local	"i"	34	47
+.local	"tEndTime"	36	46
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"UITimeManager"
+.constant	k1	"GetInstance"
+.constant	k2	"GetServerTime"
+.constant	k3	"getStartTime"
+.constant	k4	"getEndTime"
+.constant	k5	"getTimeType"
+.constant	k6	1
+.constant	k7	2
+.constant	k8	6
+.constant	k9	-1
+.constant	k10	"getParaTime"
+.constant	k11	1000
+.constant	k12	0
+.constant	k13	100000
+.constant	k14	3
+.constant	k15	7
+
+.line	261	gettabup      r1    u0    k0 ; k0 = "UITimeManager"
+.line	261	self          r1    r1    k1 ; k1 = "GetInstance"
+.line	261	call          r1     2     2
+.line	261	self          r1    r1    k2 ; k2 = "GetServerTime"
+.line	261	call          r1     2     2
+.line	262	self          r2    r0    k3 ; k3 = "getStartTime"
+.line	262	call          r2     2     2
+.line	263	self          r3    r0    k4 ; k4 = "getEndTime"
+.line	263	call          r3     2     2
+.line	264	self          r4    r0    k5 ; k5 = "getTimeType"
+.line	264	call          r4     2     2
+.line	266	eq             0    r4    k6 ; k6 = 1
+.line	266	jmp            0   l17
+.line	268	sub           r5    r3    r1
+.line	268	return        r5     2
+.line	268	jmp            0   l61
+.label	l17
+.line	269	eq             1    r4    k7 ; k7 = 2
+.line	269	jmp            0   l21
+.line	269	eq             0    r4    k8 ; k8 = 6
+.line	269	jmp            0   l49
+.label	l21
+.line	274	lt             1    r3    r1
+.line	274	jmp            0   l25
+.line	274	lt             0    r1    r2
+.line	274	jmp            0   l27
+.label	l25
+.line	275	loadk         r5    k9 ; k9 = -1
+.line	275	return        r5     2
+.label	l27
+.line	278	self          r5    r0   k10 ; k10 = "getParaTime"
+.line	278	call          r5     2     2
+.line	278	mul           r5    r5   k11 ; k11 = 1000
+.line	279	le             0    r5   k12 ; k12 = 0
+.line	279	jmp            0   l34
+.line	280	loadk         r6    k9 ; k9 = -1
+.line	280	return        r6     2
+.label	l34
+.line	283	loadk         r6    k6 ; k6 = 1
+.label	l35
+.line	285	mul           r7    r6    r5
+.line	285	add           r7    r2    r7
+.line	286	lt             0    r1    r7
+.line	286	jmp            0   l44
+.line	287	lt             0    r3    r7
+.line	287	jmp            0   l42
+.line	288	move          r7    r3
+.label	l42
+.line	290	sub           r8    r7    r1
+.line	290	return        r8     2
+.label	l44
+.line	292	add           r6    r6    k6 ; k6 = 1
+.line	294	lt             1   k13    r6 ; k13 = 100000
+.line	294	jmp            0   l61
+.line	297	jmp            0   l35
+.line	298	jmp            0   l61
+.label	l49
+.line	300	eq             0    r4   k14 ; k14 = 3
+.line	300	jmp            0   l54
+.line	304	sub           r5    r3    r1
+.line	304	return        r5     2
+.line	304	jmp            0   l61
+.label	l54
+.line	305	eq             0    r4   k15 ; k15 = 7
+.line	305	jmp            0   l59
+.line	306	sub           r5    r3    r1
+.line	306	return        r5     2
+.line	306	jmp            0   l61
+.label	l59
+.line	308	sub           r5    r3    r1
+.line	308	return        r5     2
+.label	l61
+.line	310	return        r0     1
+
+.function	main/f27
+
+.source	null
+.linedefined	314
+.lastlinedefined	316
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"time"
+.constant	k2	0
+
+.line	315	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	315	test          r1     0
+.line	315	jmp            0    l8
+.line	315	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	315	gettable      r1    r1    k1 ; k1 = "time"
+.line	315	test          r1     1
+.line	315	jmp            0    l9
+.label	l8
+.line	315	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	315	return        r1     2
+.line	316	return        r0     1
+
+.function	main/f28
+
+.source	null
+.linedefined	319
+.lastlinedefined	322
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	21
+.local	"serverTime"	5	21
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"UITimeManager"
+.constant	k1	"GetInstance"
+.constant	k2	"GetServerTime"
+.constant	k3	"getStartTime"
+.constant	k4	"getEndTime"
+.constant	k5	"getCountdown"
+.constant	k6	0
+
+.line	320	gettabup      r1    u0    k0 ; k0 = "UITimeManager"
+.line	320	self          r1    r1    k1 ; k1 = "GetInstance"
+.line	320	call          r1     2     2
+.line	320	self          r1    r1    k2 ; k2 = "GetServerTime"
+.line	320	call          r1     2     2
+.line	321	self          r2    r0    k3 ; k3 = "getStartTime"
+.line	321	call          r2     2     2
+.line	321	le             0    r2    r1
+.line	321	jmp            0   l18
+.line	321	self          r2    r0    k4 ; k4 = "getEndTime"
+.line	321	call          r2     2     2
+.line	321	le             0    r1    r2
+.line	321	jmp            0   l18
+.line	321	self          r2    r0    k5 ; k5 = "getCountdown"
+.line	321	call          r2     2     2
+.line	321	lt             1    k6    r2 ; k6 = 0
+.line	321	jmp            0   l19
+.label	l18
+.line	321	loadbool      r2     0     1
+.label	l19
+.line	321	loadbool      r2     1     0
+.line	321	return        r2     2
+.line	322	return        r0     1
+
+.function	main/f29
+
+.source	null
+.linedefined	324
+.lastlinedefined	327
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	17
+.local	"serverTime"	5	17
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"UITimeManager"
+.constant	k1	"GetInstance"
+.constant	k2	"GetServerTime"
+.constant	k3	"getStartTime"
+.constant	k4	"getEndTime"
+
+.line	325	gettabup      r1    u0    k0 ; k0 = "UITimeManager"
+.line	325	self          r1    r1    k1 ; k1 = "GetInstance"
+.line	325	call          r1     2     2
+.line	325	self          r1    r1    k2 ; k2 = "GetServerTime"
+.line	325	call          r1     2     2
+.line	326	self          r2    r0    k3 ; k3 = "getStartTime"
+.line	326	call          r2     2     2
+.line	326	le             0    r2    r1
+.line	326	jmp            0   l14
+.line	326	self          r2    r0    k4 ; k4 = "getEndTime"
+.line	326	call          r2     2     2
+.line	326	le             1    r1    r2
+.line	326	jmp            0   l15
+.label	l14
+.line	326	loadbool      r2     0     1
+.label	l15
+.line	326	loadbool      r2     1     0
+.line	326	return        r2     2
+.line	327	return        r0     1
+
+.function	main/f30
+
+.source	null
+.linedefined	330
+.lastlinedefined	332
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"condition-popup"
+.constant	k2	0
+
+.line	331	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	331	test          r1     0
+.line	331	jmp            0    l8
+.line	331	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	331	gettable      r1    r1    k1 ; k1 = "condition-popup"
+.line	331	test          r1     1
+.line	331	jmp            0    l9
+.label	l8
+.line	331	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	331	return        r1     2
+.line	332	return        r0     1
+
+.function	main/f31
+
+.source	null
+.linedefined	335
+.lastlinedefined	352
+.numparams	1
+.is_vararg	0
+.maxstacksize	6
+
+.local	"self"	0	31
+.local	"weekDay"	3	31
+.local	"result"	4	31
+
+.upvalue	"Timer"	2	true
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"GetServerWeekDay"
+.constant	k1	"hasWeekPopup"
+.constant	k2	"getWeekPopup"
+.constant	k3	"_popup"
+.constant	k4	nil
+.constant	k5	"_tableData"
+.constant	k6	"tonumber"
+.constant	k7	"popup"
+.constant	k8	0
+
+.line	337	getupval      r1    u0
+.line	337	self          r1    r1    k0 ; k0 = "GetServerWeekDay"
+.line	337	call          r1     2     2
+.line	339	loadnil       r2     0
+.line	340	self          r3    r0    k1 ; k1 = "hasWeekPopup"
+.line	340	move          r5    r1
+.line	340	call          r3     3     2
+.line	340	test          r3     0
+.line	340	jmp            0   l15
+.line	341	self          r3    r0    k2 ; k2 = "getWeekPopup"
+.line	341	move          r5    r1
+.line	341	call          r3     3     2
+.line	341	move          r2    r3
+.line	341	jmp            0   l30
+.label	l15
+.line	344	gettable      r3    r0    k3 ; k3 = "_popup"
+.line	344	eq             0    r3    k4 ; k4 = nil
+.line	344	jmp            0   l29
+.line	345	gettable      r3    r0    k5 ; k5 = "_tableData"
+.line	345	test          r3     0
+.line	345	jmp            0   l27
+.line	345	gettabup      r3    u1    k6 ; k6 = "tonumber"
+.line	345	gettable      r4    r0    k5 ; k5 = "_tableData"
+.line	345	gettable      r4    r4    k7 ; k7 = "popup"
+.line	345	call          r3     2     2
+.line	345	test          r3     1
+.line	345	jmp            0   l28
+.label	l27
+.line	345	loadk         r3    k8 ; k8 = 0
+.label	l28
+.line	345	settable      r0    k3    r3 ; k3 = "_popup"
+.label	l29
+.line	348	gettable      r2    r0    k3 ; k3 = "_popup"
+.label	l30
+.line	351	return        r2     2
+.line	352	return        r0     1
+
+.function	main/f32
+
+.source	null
+.linedefined	356
+.lastlinedefined	364
+.numparams	2
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	11
+.local	"weekDay"	0	11
+.local	"popup"	4	11
+
+.constant	k0	"tryParseWeekPopup"
+.constant	k1	"_weekPopupArr"
+.constant	k2	nil
+.constant	k3	-1
+
+.line	357	self          r2    r0    k0 ; k0 = "tryParseWeekPopup"
+.line	357	call          r2     2     1
+.line	358	gettable      r2    r0    k1 ; k1 = "_weekPopupArr"
+.line	358	gettable      r2    r2    r1
+.line	359	eq             1    r2    k2 ; k2 = nil
+.line	359	jmp            0    l9
+.line	360	return        r2     2
+.line	360	jmp            0   l11
+.label	l9
+.line	362	loadk         r3    k3 ; k3 = -1
+.line	362	return        r3     2
+.label	l11
+.line	364	return        r0     1
+
+.function	main/f33
+
+.source	null
+.linedefined	366
+.lastlinedefined	374
+.numparams	2
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	12
+.local	"weekDay"	0	12
+.local	"popup"	4	12
+
+.constant	k0	"tryParseWeekPopup"
+.constant	k1	"_weekPopupArr"
+.constant	k2	nil
+
+.line	367	self          r2    r0    k0 ; k0 = "tryParseWeekPopup"
+.line	367	call          r2     2     1
+.line	368	gettable      r2    r0    k1 ; k1 = "_weekPopupArr"
+.line	368	gettable      r2    r2    r1
+.line	369	eq             1    r2    k2 ; k2 = nil
+.line	369	jmp            0   l10
+.line	370	loadbool      r3     1     0
+.line	370	return        r3     2
+.line	370	jmp            0   l12
+.label	l10
+.line	372	loadbool      r3     0     0
+.line	372	return        r3     2
+.label	l12
+.line	374	return        r0     1
+
+.function	main/f34
+
+.source	null
+.linedefined	376
+.lastlinedefined	398
+.numparams	1
+.is_vararg	0
+.maxstacksize	14
+
+.local	"self"	0	54
+.local	"str"	9	54
+.local	"arr"	21	54
+.local	"(for generator)"	24	53
+.local	"(for state)"	24	53
+.local	"(for control)"	24	53
+.local	"_"	25	51
+.local	"v"	25	51
+.local	"arr1"	36	51
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_weekPopupParsed"
+.constant	k1	true
+.constant	k2	"_weekPopupArr"
+.constant	k3	"_tableData"
+.constant	k4	"popup_week"
+.constant	k5	"string"
+.constant	k6	"IsNullOrEmpty"
+.constant	k7	"split"
+.constant	k8	"|"
+.constant	k9	"ipairs"
+.constant	k10	";"
+.constant	k11	2
+.constant	k12	"printError"
+.constant	k13	"Week popup error"
+.constant	k14	"onParseWeekPopupItem"
+.constant	k15	"tonumber"
+.constant	k16	1
+
+.line	377	gettable      r1    r0    k0 ; k0 = "_weekPopupParsed"
+.line	377	test          r1     0
+.line	377	jmp            0    l5
+.line	378	return        r0     1
+.label	l5
+.line	381	settable      r0    k0    k1 ; k1 = true
+.line	382	newtable      r1     0     0
+.line	382	settable      r0    k2    r1 ; k2 = "_weekPopupArr"
+.line	383	gettable      r1    r0    k3 ; k3 = "_tableData"
+.line	383	gettable      r1    r1    k4 ; k4 = "popup_week"
+.line	384	gettabup      r2    u0    k5 ; k5 = "string"
+.line	384	gettable      r2    r2    k6 ; k6 = "IsNullOrEmpty"
+.line	384	move          r3    r1
+.line	384	call          r2     2     2
+.line	384	test          r2     0
+.line	384	jmp            0   l17
+.line	385	return        r0     1
+.label	l17
+.line	387	gettabup      r2    u0    k5 ; k5 = "string"
+.line	387	gettable      r2    r2    k7 ; k7 = "split"
+.line	387	move          r3    r1
+.line	387	loadk         r4    k8 ; k8 = "|"
+.line	387	call          r2     3     2
+.line	388	gettabup      r3    u0    k9 ; k9 = "ipairs"
+.line	388	move          r4    r2
+.line	388	call          r3     2     4
+.line	388	jmp            0   l52
+.label	l26
+.line	389	gettabup      r8    u0    k5 ; k5 = "string"
+.line	389	gettable      r8    r8    k6 ; k6 = "IsNullOrEmpty"
+.line	389	move          r9    r7
+.line	389	call          r8     2     2
+.line	389	test          r8     1
+.line	389	jmp            0   l52
+.line	390	gettabup      r8    u0    k5 ; k5 = "string"
+.line	390	gettable      r8    r8    k7 ; k7 = "split"
+.line	390	move          r9    r7
+.line	390	loadk        r10   k10 ; k10 = ";"
+.line	390	call          r8     3     2
+.line	391	len           r9    r8
+.line	391	eq             1    r9   k11 ; k11 = 2
+.line	391	jmp            0   l44
+.line	392	gettabup      r9    u0   k12 ; k12 = "printError"
+.line	392	loadk        r10   k13 ; k13 = "Week popup error"
+.line	392	call          r9     2     1
+.line	392	jmp            0   l52
+.label	l44
+.line	394	self          r9    r0   k14 ; k14 = "onParseWeekPopupItem"
+.line	394	gettabup     r11    u0   k15 ; k15 = "tonumber"
+.line	394	gettable     r12    r8   k16 ; k16 = 1
+.line	394	call         r11     2     2
+.line	394	gettabup     r12    u0   k15 ; k15 = "tonumber"
+.line	394	gettable     r13    r8   k11 ; k11 = 2
+.line	394	call         r12     2     0
+.line	394	call          r9     0     1
+.label	l52
+.line	388	tforcall      r3     2
+.line	388	tforloop      r5   l26
+.line	398	return        r0     1
+
+.function	main/f35
+
+.source	null
+.linedefined	400
+.lastlinedefined	402
+.numparams	3
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	3
+.local	"k"	0	3
+.local	"v"	0	3
+
+.constant	k0	"_weekPopupArr"
+
+.line	401	gettable      r3    r0    k0 ; k0 = "_weekPopupArr"
+.line	401	settable      r3    r1    r2
+.line	402	return        r0     1
+
+.function	main/f36
+
+.source	null
+.linedefined	405
+.lastlinedefined	407
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	7
+
+.constant	k0	"_serverData"
+.constant	k1	"bought"
+
+.line	406	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	406	test          r1     0
+.line	406	jmp            0    l6
+.line	406	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	406	gettable      r1    r1    k1 ; k1 = "bought"
+.label	l6
+.line	406	return        r1     2
+.line	407	return        r0     1
+
+.function	main/f37
+
+.source	null
+.linedefined	410
+.lastlinedefined	412
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"buy_times"
+.constant	k2	0
+
+.line	411	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	411	test          r1     0
+.line	411	jmp            0    l8
+.line	411	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	411	gettable      r1    r1    k1 ; k1 = "buy_times"
+.line	411	test          r1     1
+.line	411	jmp            0    l9
+.label	l8
+.line	411	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	411	return        r1     2
+.line	412	return        r0     1
+
+.function	main/f38
+
+.source	null
+.linedefined	415
+.lastlinedefined	417
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"gold_doller"
+.constant	k2	0
+
+.line	416	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	416	test          r1     0
+.line	416	jmp            0    l8
+.line	416	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	416	gettable      r1    r1    k1 ; k1 = "gold_doller"
+.line	416	test          r1     1
+.line	416	jmp            0    l9
+.label	l8
+.line	416	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	416	return        r1     2
+.line	417	return        r0     1
+
+.function	main/f39
+
+.source	null
+.linedefined	420
+.lastlinedefined	422
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"gold_brick_doller"
+.constant	k2	0
+
+.line	421	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	421	test          r1     0
+.line	421	jmp            0    l8
+.line	421	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	421	gettable      r1    r1    k1 ; k1 = "gold_brick_doller"
+.line	421	test          r1     1
+.line	421	jmp            0    l9
+.label	l8
+.line	421	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	421	return        r1     2
+.line	422	return        r0     1
+
+.function	main/f40
+
+.source	null
+.linedefined	424
+.lastlinedefined	426
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	14
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"DataCenter"
+.constant	k1	"CreditTemplateManager"
+.constant	k2	"GetCreditValue"
+.constant	k3	"_tableData"
+.constant	k4	"product_id_google"
+.constant	k5	""
+
+.line	425	gettabup      r1    u0    k0 ; k0 = "DataCenter"
+.line	425	gettable      r1    r1    k1 ; k1 = "CreditTemplateManage" (truncated)
+.line	425	self          r1    r1    k2 ; k2 = "GetCreditValue"
+.line	425	gettable      r3    r0    k3 ; k3 = "_tableData"
+.line	425	test          r3     0
+.line	425	jmp            0   l11
+.line	425	gettable      r3    r0    k3 ; k3 = "_tableData"
+.line	425	gettable      r3    r3    k4 ; k4 = "product_id_google"
+.line	425	test          r3     1
+.line	425	jmp            0   l12
+.label	l11
+.line	425	loadk         r3    k5 ; k5 = ""
+.label	l12
+.line	425	tailcall      r1     3
+.line	425	return        r1     0
+.line	426	return        r0     1
+
+.function	main/f41
+
+.source	null
+.linedefined	429
+.lastlinedefined	431
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"dollar"
+.constant	k2	0
+
+.line	430	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	430	test          r1     0
+.line	430	jmp            0    l8
+.line	430	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	430	gettable      r1    r1    k1 ; k1 = "dollar"
+.line	430	test          r1     1
+.line	430	jmp            0    l9
+.label	l8
+.line	430	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	430	return        r1     2
+.line	431	return        r0     1
+
+.function	main/f42
+
+.source	null
+.linedefined	434
+.lastlinedefined	451
+.numparams	1
+.is_vararg	0
+.maxstacksize	8
+
+.local	"self"	0	31
+.local	"productId"	5	28
+.local	"price"	7	28
+.local	"priceTxt"	12	28
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"priceTxt"
+.constant	k1	nil
+.constant	k2	"getProductID"
+.constant	k3	"getPrice"
+.constant	k4	"DataCenter"
+.constant	k5	"PayManager"
+.constant	k6	"GetLocalCurrency"
+.constant	k7	"string"
+.constant	k8	"IsNullOrEmpty"
+.constant	k9	"GetDollarText"
+
+.line	435	gettable      r1    r0    k0 ; k0 = "priceTxt"
+.line	435	eq             0    r1    k1 ; k1 = nil
+.line	435	jmp            0   l29
+.line	436	self          r1    r0    k2 ; k2 = "getProductID"
+.line	436	call          r1     2     2
+.line	437	self          r2    r0    k3 ; k3 = "getPrice"
+.line	437	call          r2     2     2
+.line	440	gettabup      r3    u0    k4 ; k4 = "DataCenter"
+.line	440	gettable      r3    r3    k5 ; k5 = "PayManager"
+.line	440	self          r3    r3    k6 ; k6 = "GetLocalCurrency"
+.line	440	move          r5    r1
+.line	440	call          r3     3     2
+.line	441	gettabup      r4    u0    k7 ; k7 = "string"
+.line	441	gettable      r4    r4    k8 ; k8 = "IsNullOrEmpty"
+.line	441	move          r5    r3
+.line	441	call          r4     2     2
+.line	441	test          r4     0
+.line	441	jmp            0   l27
+.line	443	gettabup      r4    u0    k4 ; k4 = "DataCenter"
+.line	443	gettable      r4    r4    k5 ; k5 = "PayManager"
+.line	443	self          r4    r4    k9 ; k9 = "GetDollarText"
+.line	443	move          r6    r2
+.line	443	move          r7    r1
+.line	443	call          r4     4     2
+.line	443	move          r3    r4
+.line	443	jmp            0   l28
+.label	l27
+.line	446	settable      r0    k0    r3 ; k0 = "priceTxt"
+.label	l28
+.line	448	return        r3     2
+.label	l29
+.line	450	gettable      r1    r0    k0 ; k0 = "priceTxt"
+.line	450	return        r1     2
+.line	451	return        r0     1
+
+.function	main/f43
+
+.source	null
+.linedefined	454
+.lastlinedefined	456
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"price"
+.constant	k2	0
+
+.line	455	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	455	test          r1     0
+.line	455	jmp            0    l8
+.line	455	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	455	gettable      r1    r1    k1 ; k1 = "price"
+.line	455	test          r1     1
+.line	455	jmp            0    l9
+.label	l8
+.line	455	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	455	return        r1     2
+.line	456	return        r0     1
+
+.function	main/f44
+
+.source	null
+.linedefined	459
+.lastlinedefined	466
+.numparams	1
+.is_vararg	0
+.maxstacksize	7
+
+.local	"self"	0	16
+.local	"originPrice"	5	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"originPriceText"
+.constant	k1	nil
+.constant	k2	"getOriginalPrice"
+.constant	k3	"DataCenter"
+.constant	k4	"PayManager"
+.constant	k5	"GetDollarText"
+
+.line	460	gettable      r1    r0    k0 ; k0 = "originPriceText"
+.line	460	eq             0    r1    k1 ; k1 = nil
+.line	460	jmp            0   l14
+.line	462	self          r1    r0    k2 ; k2 = "getOriginalPrice"
+.line	462	call          r1     2     2
+.line	463	gettabup      r2    u0    k3 ; k3 = "DataCenter"
+.line	463	gettable      r2    r2    k4 ; k4 = "PayManager"
+.line	463	self          r2    r2    k5 ; k5 = "GetDollarText"
+.line	463	move          r4    r1
+.line	463	loadnil       r5     0
+.line	463	loadbool      r6     1     0
+.line	463	call          r2     5     2
+.line	463	settable      r0    k0    r2 ; k0 = "originPriceText"
+.label	l14
+.line	465	gettable      r1    r0    k0 ; k0 = "originPriceText"
+.line	465	return        r1     2
+.line	466	return        r0     1
+
+.function	main/f45
+
+.source	null
+.linedefined	469
+.lastlinedefined	471
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	7
+
+.constant	k0	"_tableData"
+.constant	k1	"percent"
+
+.line	470	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	470	test          r1     0
+.line	470	jmp            0    l6
+.line	470	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	470	gettable      r1    r1    k1 ; k1 = "percent"
+.label	l6
+.line	470	return        r1     2
+.line	471	return        r0     1
+
+.function	main/f46
+
+.source	null
+.linedefined	474
+.lastlinedefined	476
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+
+.constant	k0	"getPercent"
+.constant	k1	nil
+
+.line	475	self          r1    r0    k0 ; k0 = "getPercent"
+.line	475	call          r1     2     2
+.line	475	eq             0    r1    k1 ; k1 = nil
+.line	475	jmp            0    l6
+.line	475	loadbool      r1     0     1
+.label	l6
+.line	475	loadbool      r1     1     0
+.line	475	return        r1     2
+.line	476	return        r0     1
+
+.function	main/f47
+
+.source	null
+.linedefined	478
+.lastlinedefined	480
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	7
+
+.constant	k0	"_tableData"
+.constant	k1	"is_show"
+
+.line	479	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	479	test          r1     0
+.line	479	jmp            0    l6
+.line	479	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	479	gettable      r1    r1    k1 ; k1 = "is_show"
+.label	l6
+.line	479	return        r1     2
+.line	480	return        r0     1
+
+.function	main/f48
+
+.source	null
+.linedefined	483
+.lastlinedefined	485
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	16
+
+.constant	k0	"getIsShow"
+.constant	k1	nil
+.constant	k2	"0"
+.constant	k3	"4"
+
+.line	484	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	484	call          r1     2     2
+.line	484	eq             1    r1    k1 ; k1 = nil
+.line	484	jmp            0   l14
+.line	484	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	484	call          r1     2     2
+.line	484	eq             1    r1    k2 ; k2 = "0"
+.line	484	jmp            0   l14
+.line	484	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	484	call          r1     2     2
+.line	484	eq             1    r1    k3 ; k3 = "4"
+.line	484	jmp            0   l14
+.line	484	loadbool      r1     0     1
+.label	l14
+.line	484	loadbool      r1     1     0
+.line	484	return        r1     2
+.line	485	return        r0     1
+
+.function	main/f49
+
+.source	null
+.linedefined	488
+.lastlinedefined	490
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+
+.constant	k0	"getIsShow"
+.constant	k1	"2"
+
+.line	489	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	489	call          r1     2     2
+.line	489	eq             1    r1    k1 ; k1 = "2"
+.line	489	jmp            0    l6
+.line	489	loadbool      r1     0     1
+.label	l6
+.line	489	loadbool      r1     1     0
+.line	489	return        r1     2
+.line	490	return        r0     1
+
+.function	main/f50
+
+.source	null
+.linedefined	492
+.lastlinedefined	495
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+.local	"isShow"	2	8
+
+.constant	k0	"getIsShow"
+.constant	k1	"4"
+
+.line	493	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	493	call          r1     2     2
+.line	494	eq             1    r1    k1 ; k1 = "4"
+.line	494	jmp            0    l6
+.line	494	loadbool      r2     0     1
+.label	l6
+.line	494	loadbool      r2     1     0
+.line	494	return        r2     2
+.line	495	return        r0     1
+
+.function	main/f51
+
+.source	null
+.linedefined	497
+.lastlinedefined	500
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+.local	"isShow"	2	8
+
+.constant	k0	"getIsShow"
+.constant	k1	"5"
+
+.line	498	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	498	call          r1     2     2
+.line	499	eq             1    r1    k1 ; k1 = "5"
+.line	499	jmp            0    l6
+.line	499	loadbool      r2     0     1
+.label	l6
+.line	499	loadbool      r2     1     0
+.line	499	return        r2     2
+.line	500	return        r0     1
+
+.function	main/f52
+
+.source	null
+.linedefined	502
+.lastlinedefined	504
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	3
+
+.line	503	loadbool      r1     0     0
+.line	503	return        r1     2
+.line	504	return        r0     1
+
+.function	main/f53
+
+.source	null
+.linedefined	507
+.lastlinedefined	510
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"RobotPack"
+
+.line	508	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	508	call          r1     2     2
+.line	509	eq             1    r1    k1 ; k1 = nil
+.line	509	jmp            0   l10
+.line	509	gettable      r2    r1    k2 ; k2 = "type"
+.line	509	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	509	gettable      r3    r3    k4 ; k4 = "RobotPack"
+.line	509	eq             1    r2    r3
+.line	509	jmp            0   l11
+.label	l10
+.line	509	loadbool      r2     0     1
+.label	l11
+.line	509	loadbool      r2     1     0
+.line	509	return        r2     2
+.line	510	return        r0     1
+
+.function	main/f54
+
+.source	null
+.linedefined	513
+.lastlinedefined	516
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"PiggyBank"
+
+.line	514	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	514	call          r1     2     2
+.line	515	eq             1    r1    k1 ; k1 = nil
+.line	515	jmp            0   l10
+.line	515	gettable      r2    r1    k2 ; k2 = "type"
+.line	515	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	515	gettable      r3    r3    k4 ; k4 = "PiggyBank"
+.line	515	eq             1    r2    r3
+.line	515	jmp            0   l11
+.label	l10
+.line	515	loadbool      r2     0     1
+.label	l11
+.line	515	loadbool      r2     1     0
+.line	515	return        r2     2
+.line	516	return        r0     1
+
+.function	main/f55
+
+.source	null
+.linedefined	519
+.lastlinedefined	522
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"EnergyBank"
+
+.line	520	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	520	call          r1     2     2
+.line	521	eq             1    r1    k1 ; k1 = nil
+.line	521	jmp            0   l10
+.line	521	gettable      r2    r1    k2 ; k2 = "type"
+.line	521	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	521	gettable      r3    r3    k4 ; k4 = "EnergyBank"
+.line	521	eq             1    r2    r3
+.line	521	jmp            0   l11
+.label	l10
+.line	521	loadbool      r2     0     1
+.label	l11
+.line	521	loadbool      r2     1     0
+.line	521	return        r2     2
+.line	522	return        r0     1
+
+.function	main/f56
+
+.source	null
+.linedefined	525
+.lastlinedefined	528
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"GrowthPlan"
+
+.line	526	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	526	call          r1     2     2
+.line	527	eq             1    r1    k1 ; k1 = nil
+.line	527	jmp            0   l10
+.line	527	gettable      r2    r1    k2 ; k2 = "type"
+.line	527	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	527	gettable      r3    r3    k4 ; k4 = "GrowthPlan"
+.line	527	eq             1    r2    r3
+.line	527	jmp            0   l11
+.label	l10
+.line	527	loadbool      r2     0     1
+.label	l11
+.line	527	loadbool      r2     1     0
+.line	527	return        r2     2
+.line	528	return        r0     1
+
+.function	main/f57
+
+.source	null
+.linedefined	531
+.lastlinedefined	534
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"ScrollPack"
+
+.line	532	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	532	call          r1     2     2
+.line	533	eq             1    r1    k1 ; k1 = nil
+.line	533	jmp            0   l10
+.line	533	gettable      r2    r1    k2 ; k2 = "type"
+.line	533	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	533	gettable      r3    r3    k4 ; k4 = "ScrollPack"
+.line	533	eq             1    r2    r3
+.line	533	jmp            0   l11
+.label	l10
+.line	533	loadbool      r2     0     1
+.label	l11
+.line	533	loadbool      r2     1     0
+.line	533	return        r2     2
+.line	534	return        r0     1
+
+.function	main/f58
+
+.source	null
+.linedefined	537
+.lastlinedefined	540
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"PvePack"
+
+.line	538	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	538	call          r1     2     2
+.line	539	eq             1    r1    k1 ; k1 = nil
+.line	539	jmp            0   l10
+.line	539	gettable      r2    r1    k2 ; k2 = "type"
+.line	539	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	539	gettable      r3    r3    k4 ; k4 = "PvePack"
+.line	539	eq             1    r2    r3
+.line	539	jmp            0   l11
+.label	l10
+.line	539	loadbool      r2     0     1
+.label	l11
+.line	539	loadbool      r2     1     0
+.line	539	return        r2     2
+.line	540	return        r0     1
+
+.function	main/f59
+
+.source	null
+.linedefined	542
+.lastlinedefined	545
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"FirstCharge"
+
+.line	543	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	543	call          r1     2     2
+.line	544	eq             1    r1    k1 ; k1 = nil
+.line	544	jmp            0   l10
+.line	544	gettable      r2    r1    k2 ; k2 = "type"
+.line	544	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	544	gettable      r3    r3    k4 ; k4 = "FirstCharge"
+.line	544	eq             1    r2    r3
+.line	544	jmp            0   l11
+.label	l10
+.line	544	loadbool      r2     0     1
+.label	l11
+.line	544	loadbool      r2     1     0
+.line	544	return        r2     2
+.line	545	return        r0     1
+
+.function	main/f60
+
+.source	null
+.linedefined	547
+.lastlinedefined	550
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	10
+.local	"type"	2	10
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getType"
+.constant	k1	"GiftPackType"
+.constant	k2	"CreditPackage"
+
+.line	548	self          r1    r0    k0 ; k0 = "getType"
+.line	548	call          r1     2     2
+.line	549	gettabup      r2    u0    k1 ; k1 = "GiftPackType"
+.line	549	gettable      r2    r2    k2 ; k2 = "CreditPackage"
+.line	549	eq             1    r1    r2
+.line	549	jmp            0    l8
+.line	549	loadbool      r2     0     1
+.label	l8
+.line	549	loadbool      r2     1     0
+.line	549	return        r2     2
+.line	550	return        r0     1
+
+.function	main/f61
+
+.source	null
+.linedefined	553
+.lastlinedefined	560
+.numparams	2
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	15
+.local	"rechargeId"	0	15
+.local	"lineData"	6	15
+
+.constant	k0	nil
+.constant	k1	"getRechargeLineData"
+.constant	k2	"id"
+
+.line	554	eq             0    r1    k0 ; k0 = nil
+.line	554	jmp            0    l5
+.line	555	loadbool      r2     0     0
+.line	555	return        r2     2
+.label	l5
+.line	558	self          r2    r0    k1 ; k1 = "getRechargeLineData"
+.line	558	call          r2     2     2
+.line	559	eq             1    r2    k0 ; k0 = nil
+.line	559	jmp            0   l12
+.line	559	gettable      r3    r2    k2 ; k2 = "id"
+.line	559	eq             1    r3    r1
+.line	559	jmp            0   l13
+.label	l12
+.line	559	loadbool      r3     0     1
+.label	l13
+.line	559	loadbool      r3     1     0
+.line	559	return        r3     2
+.line	560	return        r0     1
+
+.function	main/f62
+
+.source	null
+.linedefined	562
+.lastlinedefined	565
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"HeroMonthCardNew"
+
+.line	563	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	563	call          r1     2     2
+.line	564	eq             1    r1    k1 ; k1 = nil
+.line	564	jmp            0   l10
+.line	564	gettable      r2    r1    k2 ; k2 = "type"
+.line	564	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	564	gettable      r3    r3    k4 ; k4 = "HeroMonthCardNew"
+.line	564	eq             1    r2    r3
+.line	564	jmp            0   l11
+.label	l10
+.line	564	loadbool      r2     0     1
+.label	l11
+.line	564	loadbool      r2     1     0
+.line	564	return        r2     2
+.line	565	return        r0     1
+
+.function	main/f63
+
+.source	null
+.linedefined	567
+.lastlinedefined	570
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	13
+.local	"lineData"	2	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getRechargeLineData"
+.constant	k1	nil
+.constant	k2	"type"
+.constant	k3	"WelfareTagType"
+.constant	k4	"BuildQueueWeekCard"
+
+.line	568	self          r1    r0    k0 ; k0 = "getRechargeLineData"
+.line	568	call          r1     2     2
+.line	569	eq             1    r1    k1 ; k1 = nil
+.line	569	jmp            0   l10
+.line	569	gettable      r2    r1    k2 ; k2 = "type"
+.line	569	gettabup      r3    u0    k3 ; k3 = "WelfareTagType"
+.line	569	gettable      r3    r3    k4 ; k4 = "BuildQueueWeekCard"
+.line	569	eq             1    r2    r3
+.line	569	jmp            0   l11
+.label	l10
+.line	569	loadbool      r2     0     1
+.label	l11
+.line	569	loadbool      r2     1     0
+.line	569	return        r2     2
+.line	570	return        r0     1
+
+.function	main/f64
+
+.source	null
+.linedefined	575
+.lastlinedefined	583
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	27
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getID"
+.constant	k1	"40001"
+.constant	k2	"CS"
+.constant	k3	"LF"
+.constant	k4	"LuaInterfaceCommon"
+.constant	k5	"IsVipUnlock"
+.constant	k6	1
+.constant	k7	"getIsShow"
+.constant	k8	"1"
+
+.line	578	self          r1    r0    k0 ; k0 = "getID"
+.line	578	call          r1     2     2
+.line	578	eq             0    r1    k1 ; k1 = "40001"
+.line	578	jmp            0   l20
+.line	579	gettabup      r1    u0    k2 ; k2 = "CS"
+.line	579	gettable      r1    r1    k3 ; k3 = "LF"
+.line	579	gettable      r1    r1    k4 ; k4 = "LuaInterfaceCommon"
+.line	579	gettable      r1    r1    k5 ; k5 = "IsVipUnlock"
+.line	579	loadk         r2    k6 ; k6 = 1
+.line	579	call          r1     2     2
+.line	579	test          r1     0
+.line	579	jmp            0   l19
+.line	579	self          r1    r0    k7 ; k7 = "getIsShow"
+.line	579	call          r1     2     2
+.line	579	eq             1    r1    k8 ; k8 = "1"
+.line	579	jmp            0   l18
+.line	579	loadbool      r1     0     1
+.label	l18
+.line	579	loadbool      r1     1     0
+.label	l19
+.line	579	return        r1     2
+.label	l20
+.line	582	self          r1    r0    k7 ; k7 = "getIsShow"
+.line	582	call          r1     2     2
+.line	582	eq             1    r1    k8 ; k8 = "1"
+.line	582	jmp            0   l25
+.line	582	loadbool      r1     0     1
+.label	l25
+.line	582	loadbool      r1     1     0
+.line	582	return        r1     2
+.line	583	return        r0     1
+
+.function	main/f65
+
+.source	null
+.linedefined	588
+.lastlinedefined	590
+.numparams	2
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	2
+.local	"inPop"	0	2
+
+.constant	k0	"willInPop"
+
+.line	589	settable      r0    k0    r1 ; k0 = "willInPop"
+.line	590	return        r0     1
+
+.function	main/f66
+
+.source	null
+.linedefined	592
+.lastlinedefined	594
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	3
+
+.constant	k0	"willInPop"
+
+.line	593	gettable      r1    r0    k0 ; k0 = "willInPop"
+.line	593	return        r1     2
+.line	594	return        r0     1
+
+.function	main/f67
+
+.source	null
+.linedefined	598
+.lastlinedefined	600
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+
+.constant	k0	"getIsShow"
+.constant	k1	"4"
+
+.line	599	self          r1    r0    k0 ; k0 = "getIsShow"
+.line	599	call          r1     2     2
+.line	599	eq             0    r1    k1 ; k1 = "4"
+.line	599	jmp            0    l6
+.line	599	loadbool      r1     0     1
+.label	l6
+.line	599	loadbool      r1     1     0
+.line	599	return        r1     2
+.line	600	return        r0     1
+
+.function	main/f68
+
+.source	null
+.linedefined	602
+.lastlinedefined	608
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	30
+
+.upvalue	"_ENV"	0	false
+.upvalue	"CommonUtils"	5	true
+
+.constant	k0	"CS"
+.constant	k1	"SDKManager"
+.constant	k2	"IS_UNITY_ANDROID"
+.constant	k3	"IsDebug"
+.constant	k4	"_tableData"
+.constant	k5	"product_id_google"
+.constant	k6	"IS_UNITY_IPHONE"
+.constant	k7	"product_id_ios"
+
+.line	603	gettabup      r1    u0    k0 ; k0 = "CS"
+.line	603	gettable      r1    r1    k1 ; k1 = "SDKManager"
+.line	603	gettable      r1    r1    k2 ; k2 = "IS_UNITY_ANDROID"
+.line	603	call          r1     1     2
+.line	603	test          r1     1
+.line	603	jmp            0   l11
+.line	603	gettabup      r1    u1    k3 ; k3 = "IsDebug"
+.line	603	call          r1     1     2
+.line	603	test          r1     0
+.line	603	jmp            0   l18
+.label	l11
+.line	604	gettable      r1    r0    k4 ; k4 = "_tableData"
+.line	604	test          r1     0
+.line	604	jmp            0   l16
+.line	604	gettable      r1    r0    k4 ; k4 = "_tableData"
+.line	604	gettable      r1    r1    k5 ; k5 = "product_id_google"
+.label	l16
+.line	604	return        r1     2
+.line	604	jmp            0   l30
+.label	l18
+.line	605	gettabup      r1    u0    k0 ; k0 = "CS"
+.line	605	gettable      r1    r1    k1 ; k1 = "SDKManager"
+.line	605	gettable      r1    r1    k6 ; k6 = "IS_UNITY_IPHONE"
+.line	605	call          r1     1     2
+.line	605	test          r1     0
+.line	605	jmp            0   l30
+.line	606	gettable      r1    r0    k4 ; k4 = "_tableData"
+.line	606	test          r1     0
+.line	606	jmp            0   l29
+.line	606	gettable      r1    r0    k4 ; k4 = "_tableData"
+.line	606	gettable      r1    r1    k7 ; k7 = "product_id_ios"
+.label	l29
+.line	606	return        r1     2
+.label	l30
+.line	608	return        r0     1
+
+.function	main/f69
+
+.source	null
+.linedefined	610
+.lastlinedefined	612
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	8
+
+.constant	k0	"getProductID"
+.constant	k1	"free"
+
+.line	611	self          r1    r0    k0 ; k0 = "getProductID"
+.line	611	call          r1     2     2
+.line	611	eq             1    r1    k1 ; k1 = "free"
+.line	611	jmp            0    l6
+.line	611	loadbool      r1     0     1
+.label	l6
+.line	611	loadbool      r1     1     0
+.line	611	return        r1     2
+.line	612	return        r0     1
+
+.function	main/f70
+
+.source	null
+.linedefined	614
+.lastlinedefined	616
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	10
+
+.constant	k0	"getHasGetCount"
+.constant	k1	"getBuyTimes"
+
+.line	615	self          r1    r0    k0 ; k0 = "getHasGetCount"
+.line	615	call          r1     2     2
+.line	615	self          r2    r0    k1 ; k1 = "getBuyTimes"
+.line	615	call          r2     2     2
+.line	615	lt             1    r1    r2
+.line	615	jmp            0    l8
+.line	615	loadbool      r1     0     1
+.label	l8
+.line	615	loadbool      r1     1     0
+.line	615	return        r1     2
+.line	616	return        r0     1
+
+.function	main/f71
+
+.source	null
+.linedefined	619
+.lastlinedefined	621
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"buys"
+.constant	k2	0
+
+.line	620	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	620	test          r1     0
+.line	620	jmp            0    l8
+.line	620	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	620	gettable      r1    r1    k1 ; k1 = "buys"
+.line	620	test          r1     1
+.line	620	jmp            0    l9
+.label	l8
+.line	620	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	620	return        r1     2
+.line	621	return        r0     1
+
+.function	main/f72
+
+.source	null
+.linedefined	623
+.lastlinedefined	625
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"group"
+.constant	k2	""
+
+.line	624	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	624	test          r1     0
+.line	624	jmp            0    l8
+.line	624	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	624	gettable      r1    r1    k1 ; k1 = "group"
+.line	624	test          r1     1
+.line	624	jmp            0    l9
+.label	l8
+.line	624	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	624	return        r1     2
+.line	625	return        r0     1
+
+.function	main/f73
+
+.source	null
+.linedefined	627
+.lastlinedefined	629
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"giftData"
+.constant	k2	""
+
+.line	628	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	628	test          r1     0
+.line	628	jmp            0    l8
+.line	628	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	628	gettable      r1    r1    k1 ; k1 = "giftData"
+.line	628	test          r1     1
+.line	628	jmp            0    l9
+.label	l8
+.line	628	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	628	return        r1     2
+.line	629	return        r0     1
+
+.function	main/f74
+
+.source	null
+.linedefined	638
+.lastlinedefined	662
+.numparams	3
+.is_vararg	0
+.maxstacksize	10
+
+.local	"self"	0	63
+.local	"mainType"	0	63
+.local	"subType"	0	63
+.local	"resTypes"	50	60
+.local	"(for generator)"	53	60
+.local	"(for state)"	53	60
+.local	"(for control)"	53	60
+.local	"i"	54	58
+.local	"v"	54	58
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"tryParseShowType"
+.constant	k1	"string"
+.constant	k2	"IsNullOrEmpty"
+.constant	k3	"_showTypeArr"
+.constant	k4	"split"
+.constant	k5	","
+.constant	k6	"ipairs"
+
+.line	639	self          r3    r0    k0 ; k0 = "tryParseShowType"
+.line	639	call          r3     2     1
+.line	640	gettabup      r3    u0    k1 ; k1 = "string"
+.line	640	gettable      r3    r3    k2 ; k2 = "IsNullOrEmpty"
+.line	640	move          r4    r1
+.line	640	call          r3     2     2
+.line	640	test          r3     0
+.line	640	jmp            0   l17
+.line	640	gettabup      r3    u0    k1 ; k1 = "string"
+.line	640	gettable      r3    r3    k2 ; k2 = "IsNullOrEmpty"
+.line	640	move          r4    r2
+.line	640	call          r3     2     2
+.line	640	test          r3     0
+.line	640	jmp            0   l17
+.line	641	loadbool      r3     0     0
+.line	641	return        r3     2
+.label	l17
+.line	644	gettabup      r3    u0    k1 ; k1 = "string"
+.line	644	gettable      r3    r3    k2 ; k2 = "IsNullOrEmpty"
+.line	644	move          r4    r1
+.line	644	call          r3     2     2
+.line	644	test          r3     0
+.line	644	jmp            0   l25
+.line	645	loadbool      r3     0     0
+.line	645	return        r3     2
+.label	l25
+.line	648	gettabup      r3    u0    k1 ; k1 = "string"
+.line	648	gettable      r3    r3    k2 ; k2 = "IsNullOrEmpty"
+.line	648	move          r4    r2
+.line	648	call          r3     2     2
+.line	648	test          r3     0
+.line	648	jmp            0   l38
+.line	649	gettable      r3    r0    k3 ; k3 = "_showTypeArr"
+.line	649	test          r3     0
+.line	649	jmp            0   l36
+.line	649	gettable      r3    r0    k3 ; k3 = "_showTypeArr"
+.line	649	gettable      r3    r3    r1
+.label	l36
+.line	649	return        r3     2
+.line	649	jmp            0   l61
+.label	l38
+.line	651	gettable      r3    r0    k3 ; k3 = "_showTypeArr"
+.line	651	test          r3     0
+.line	651	jmp            0   l61
+.line	651	gettable      r3    r0    k3 ; k3 = "_showTypeArr"
+.line	651	gettable      r3    r3    r1
+.line	651	test          r3     0
+.line	651	jmp            0   l61
+.line	652	gettabup      r3    u0    k1 ; k1 = "string"
+.line	652	gettable      r3    r3    k4 ; k4 = "split"
+.line	652	gettable      r4    r0    k3 ; k3 = "_showTypeArr"
+.line	652	gettable      r4    r4    r1
+.line	652	loadk         r5    k5 ; k5 = ","
+.line	652	call          r3     3     2
+.line	653	gettabup      r4    u0    k6 ; k6 = "ipairs"
+.line	653	move          r5    r3
+.line	653	call          r4     2     4
+.line	653	jmp            0   l59
+.label	l55
+.line	654	eq             0    r8    r2
+.line	654	jmp            0   l59
+.line	655	loadbool      r9     1     0
+.line	655	return        r9     2
+.label	l59
+.line	653	tforcall      r4     2
+.line	653	tforloop      r6   l55
+.label	l61
+.line	661	loadbool      r3     0     0
+.line	661	return        r3     2
+.line	662	return        r0     1
+
+.function	main/f75
+
+.source	null
+.linedefined	665
+.lastlinedefined	688
+.numparams	1
+.is_vararg	0
+.maxstacksize	13
+
+.local	"self"	0	52
+.local	"showType"	15	52
+.local	"arr"	27	52
+.local	"(for generator)"	30	51
+.local	"(for state)"	30	51
+.local	"(for control)"	30	51
+.local	"_"	31	49
+.local	"v"	31	49
+.local	"arr1"	42	49
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_showTypeParsed"
+.constant	k1	"_showTypeArr"
+.constant	k2	true
+.constant	k3	"_tableData"
+.constant	k4	"show_type"
+.constant	k5	""
+.constant	k6	"string"
+.constant	k7	"IsNullOrEmpty"
+.constant	k8	"split"
+.constant	k9	"|"
+.constant	k10	"ipairs"
+.constant	k11	";"
+.constant	k12	2
+.constant	k13	"onParseShowTypeItem"
+.constant	k14	1
+
+.line	666	gettable      r1    r0    k0 ; k0 = "_showTypeParsed"
+.line	666	test          r1     0
+.line	666	jmp            0    l5
+.line	667	return        r0     1
+.label	l5
+.line	671	newtable      r1     0     0
+.line	671	settable      r0    k1    r1 ; k1 = "_showTypeArr"
+.line	673	settable      r0    k0    k2 ; k2 = true
+.line	674	gettable      r1    r0    k3 ; k3 = "_tableData"
+.line	674	test          r1     0
+.line	674	jmp            0   l15
+.line	674	gettable      r1    r0    k3 ; k3 = "_tableData"
+.line	674	gettable      r1    r1    k4 ; k4 = "show_type"
+.line	674	test          r1     1
+.line	674	jmp            0   l16
+.label	l15
+.line	674	loadk         r1    k5 ; k5 = ""
+.label	l16
+.line	675	gettabup      r2    u0    k6 ; k6 = "string"
+.line	675	gettable      r2    r2    k7 ; k7 = "IsNullOrEmpty"
+.line	675	move          r3    r1
+.line	675	call          r2     2     2
+.line	675	test          r2     0
+.line	675	jmp            0   l23
+.line	676	return        r0     1
+.label	l23
+.line	679	gettabup      r2    u0    k6 ; k6 = "string"
+.line	679	gettable      r2    r2    k8 ; k8 = "split"
+.line	679	move          r3    r1
+.line	679	loadk         r4    k9 ; k9 = "|"
+.line	679	call          r2     3     2
+.line	680	gettabup      r3    u0   k10 ; k10 = "ipairs"
+.line	680	move          r4    r2
+.line	680	call          r3     2     4
+.line	680	jmp            0   l50
+.label	l32
+.line	681	gettabup      r8    u0    k6 ; k6 = "string"
+.line	681	gettable      r8    r8    k7 ; k7 = "IsNullOrEmpty"
+.line	681	move          r9    r7
+.line	681	call          r8     2     2
+.line	681	test          r8     1
+.line	681	jmp            0   l50
+.line	682	gettabup      r8    u0    k6 ; k6 = "string"
+.line	682	gettable      r8    r8    k8 ; k8 = "split"
+.line	682	move          r9    r7
+.line	682	loadk        r10   k11 ; k11 = ";"
+.line	682	call          r8     3     2
+.line	683	len           r9    r8
+.line	683	eq             0    r9   k12 ; k12 = 2
+.line	683	jmp            0   l50
+.line	684	self          r9    r0   k13 ; k13 = "onParseShowTypeItem"
+.line	684	gettable     r11    r8   k14 ; k14 = 1
+.line	684	gettable     r12    r8   k12 ; k12 = 2
+.line	684	call          r9     4     1
+.label	l50
+.line	680	tforcall      r3     2
+.line	680	tforloop      r5   l32
+.line	688	return        r0     1
+
+.function	main/f76
+
+.source	null
+.linedefined	692
+.lastlinedefined	694
+.numparams	3
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	3
+.local	"k"	0	3
+.local	"v"	0	3
+
+.constant	k0	"_showTypeArr"
+
+.line	693	gettable      r3    r0    k0 ; k0 = "_showTypeArr"
+.line	693	settable      r3    r1    r2
+.line	694	return        r0     1
+
+.function	main/f77
+
+.source	null
+.linedefined	698
+.lastlinedefined	711
+.numparams	2
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	19
+.local	"type"	0	19
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"string"
+.constant	k1	"IsNullOrEmpty"
+.constant	k2	"tryParseShowType"
+.constant	k3	"_showTypeArr"
+.constant	k4	nil
+
+.line	700	gettabup      r2    u0    k0 ; k0 = "string"
+.line	700	gettable      r2    r2    k1 ; k1 = "IsNullOrEmpty"
+.line	700	move          r3    r1
+.line	700	call          r2     2     2
+.line	700	test          r2     0
+.line	700	jmp            0    l9
+.line	701	loadnil       r2     0
+.line	701	return        r2     2
+.label	l9
+.line	704	self          r2    r0    k2 ; k2 = "tryParseShowType"
+.line	704	call          r2     2     1
+.line	706	gettable      r2    r0    k3 ; k3 = "_showTypeArr"
+.line	706	eq             0    r2    k4 ; k4 = nil
+.line	706	jmp            0   l16
+.line	707	loadnil       r2     0
+.line	707	return        r2     2
+.label	l16
+.line	710	gettable      r2    r0    k3 ; k3 = "_showTypeArr"
+.line	710	gettable      r2    r2    r1
+.line	710	return        r2     2
+.line	711	return        r0     1
+
+.function	main/f78
+
+.source	null
+.linedefined	713
+.lastlinedefined	715
+.numparams	2
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	2
+.local	"value"	0	2
+
+.constant	k0	"_tagID"
+
+.line	714	settable      r0    k0    r1 ; k0 = "_tagID"
+.line	715	return        r0     1
+
+.function	main/f79
+
+.source	null
+.linedefined	717
+.lastlinedefined	719
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	3
+
+.constant	k0	"_tagID"
+
+.line	718	gettable      r1    r0    k0 ; k0 = "_tagID"
+.line	718	return        r1     2
+.line	719	return        r0     1
+
+.function	main/f80
+
+.source	null
+.linedefined	721
+.lastlinedefined	723
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"item"
+.constant	k2	""
+
+.line	722	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	722	test          r1     0
+.line	722	jmp            0    l8
+.line	722	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	722	gettable      r1    r1    k1 ; k1 = "item"
+.line	722	test          r1     1
+.line	722	jmp            0    l9
+.label	l8
+.line	722	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	722	return        r1     2
+.line	723	return        r0     1
+
+.function	main/f81
+
+.source	null
+.linedefined	725
+.lastlinedefined	727
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"item2"
+.constant	k2	""
+
+.line	726	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	726	test          r1     0
+.line	726	jmp            0    l8
+.line	726	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	726	gettable      r1    r1    k1 ; k1 = "item2"
+.line	726	test          r1     1
+.line	726	jmp            0    l9
+.label	l8
+.line	726	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	726	return        r1     2
+.line	727	return        r0     1
+
+.function	main/f82
+
+.source	null
+.linedefined	729
+.lastlinedefined	731
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"hero"
+.constant	k2	""
+
+.line	730	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	730	test          r1     0
+.line	730	jmp            0    l8
+.line	730	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	730	gettable      r1    r1    k1 ; k1 = "hero"
+.line	730	test          r1     1
+.line	730	jmp            0    l9
+.label	l8
+.line	730	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	730	return        r1     2
+.line	731	return        r0     1
+
+.function	main/f83
+
+.source	null
+.linedefined	733
+.lastlinedefined	735
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"item_use"
+.constant	k2	""
+
+.line	734	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	734	test          r1     0
+.line	734	jmp            0    l8
+.line	734	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	734	gettable      r1    r1    k1 ; k1 = "item_use"
+.line	734	test          r1     1
+.line	734	jmp            0    l9
+.label	l8
+.line	734	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	734	return        r1     2
+.line	735	return        r0     1
+
+.function	main/f84
+
+.source	null
+.linedefined	737
+.lastlinedefined	739
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"resource"
+.constant	k2	""
+
+.line	738	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	738	test          r1     0
+.line	738	jmp            0    l8
+.line	738	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	738	gettable      r1    r1    k1 ; k1 = "resource"
+.line	738	test          r1     1
+.line	738	jmp            0    l9
+.label	l8
+.line	738	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	738	return        r1     2
+.line	739	return        r0     1
+
+.function	main/f85
+
+.source	null
+.linedefined	742
+.lastlinedefined	744
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"giftData"
+.constant	k2	""
+
+.line	743	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	743	test          r1     0
+.line	743	jmp            0    l8
+.line	743	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	743	gettable      r1    r1    k1 ; k1 = "giftData"
+.line	743	test          r1     1
+.line	743	jmp            0    l9
+.label	l8
+.line	743	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	743	return        r1     2
+.line	744	return        r0     1
+
+.function	main/f86
+
+.source	null
+.linedefined	746
+.lastlinedefined	751
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	17
+
+.constant	k0	"_tableData"
+.constant	k1	"best_buy"
+.constant	k2	1
+
+.line	747	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	747	test          r1     0
+.line	747	jmp            0   l15
+.line	747	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	747	gettable      r1    r1    k1 ; k1 = "best_buy"
+.line	747	test          r1     0
+.line	747	jmp            0   l15
+.line	748	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	748	gettable      r1    r1    k1 ; k1 = "best_buy"
+.line	748	eq             1    r1    k2 ; k2 = 1
+.line	748	jmp            0   l13
+.line	748	loadbool      r1     0     1
+.label	l13
+.line	748	loadbool      r1     1     0
+.line	748	return        r1     2
+.label	l15
+.line	750	loadbool      r1     0     0
+.line	750	return        r1     2
+.line	751	return        r0     1
+
+.function	main/f87
+
+.source	null
+.linedefined	753
+.lastlinedefined	757
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_tableData"
+.constant	k1	"buy_type"
+.constant	k2	0
+
+.line	754	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	754	test          r1     0
+.line	754	jmp            0   l10
+.line	755	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	755	gettable      r1    r1    k1 ; k1 = "buy_type"
+.line	755	test          r1     1
+.line	755	jmp            0    l9
+.line	755	loadk         r1    k2 ; k2 = 0
+.label	l9
+.line	755	return        r1     2
+.label	l10
+.line	757	return        r0     1
+
+.function	main/f88
+
+.source	null
+.linedefined	759
+.lastlinedefined	768
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	30
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_tableData"
+.constant	k1	"buy_type_cost"
+.constant	k2	0
+.constant	k3	"_tableDataBuyTypeCostArray"
+.constant	k4	"string"
+.constant	k5	"split"
+.constant	k6	";"
+.constant	k7	"tonumber"
+.constant	k8	2
+.constant	k9	3
+
+.line	760	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	760	test          r1     0
+.line	760	jmp            0    l8
+.line	760	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	760	gettable      r1    r1    k1 ; k1 = "buy_type_cost"
+.line	760	test          r1     1
+.line	760	jmp            0   l11
+.label	l8
+.line	761	loadnil       r1     0
+.line	761	loadk         r2    k2 ; k2 = 0
+.line	761	return        r1     3
+.label	l11
+.line	763	gettable      r1    r0    k3 ; k3 = "_tableDataBuyTypeCos" (truncated)
+.line	763	test          r1     1
+.line	763	jmp            0   l21
+.line	764	gettabup      r1    u0    k4 ; k4 = "string"
+.line	764	gettable      r1    r1    k5 ; k5 = "split"
+.line	764	gettable      r2    r0    k0 ; k0 = "_tableData"
+.line	764	gettable      r2    r2    k1 ; k1 = "buy_type_cost"
+.line	764	loadk         r3    k6 ; k6 = ";"
+.line	764	call          r1     3     2
+.line	764	settable      r0    k3    r1 ; k3 = "_tableDataBuyTypeCos" (truncated)
+.label	l21
+.line	767	gettabup      r1    u0    k7 ; k7 = "tonumber"
+.line	767	gettable      r2    r0    k3 ; k3 = "_tableDataBuyTypeCos" (truncated)
+.line	767	gettable      r2    r2    k8 ; k8 = 2
+.line	767	call          r1     2     2
+.line	767	gettabup      r2    u0    k7 ; k7 = "tonumber"
+.line	767	gettable      r3    r0    k3 ; k3 = "_tableDataBuyTypeCos" (truncated)
+.line	767	gettable      r3    r3    k9 ; k9 = 3
+.line	767	call          r2     2     0
+.line	767	return        r1     0
+.line	768	return        r0     1
+
+.function	main/f89
+
+.source	null
+.linedefined	773
+.lastlinedefined	775
+.numparams	2
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	2
+.local	"value"	0	2
+
+.constant	k0	"_chooseIndex"
+
+.line	774	settable      r0    k0    r1 ; k0 = "_chooseIndex"
+.line	775	return        r0     1
+
+.function	main/f90
+
+.source	null
+.linedefined	778
+.lastlinedefined	781
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	5
+
+.constant	k0	"tryGetChooseIndexFromLocal"
+.constant	k1	"_chooseIndex"
+
+.line	779	self          r1    r0    k0 ; k0 = "tryGetChooseIndexFro" (truncated)
+.line	779	call          r1     2     1
+.line	780	gettable      r1    r0    k1 ; k1 = "_chooseIndex"
+.line	780	return        r1     2
+.line	781	return        r0     1
+
+.function	main/f91
+
+.source	null
+.linedefined	784
+.lastlinedefined	791
+.numparams	1
+.is_vararg	0
+.maxstacksize	6
+
+.local	"self"	0	21
+.local	"isShow"	4	21
+.local	"actIds"	4	21
+.local	"point"	14	17
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"DataCenter"
+.constant	k1	"CumulativeRechargeManager"
+.constant	k2	"CheckIsShow"
+.constant	k3	"_tableData"
+.constant	k4	"recharge_point"
+.constant	k5	0
+
+.line	785	gettabup      r1    u0    k0 ; k0 = "DataCenter"
+.line	785	gettable      r1    r1    k1 ; k1 = "CumulativeRechargeMa" (truncated)
+.line	785	self          r1    r1    k2 ; k2 = "CheckIsShow"
+.line	785	call          r1     2     3
+.line	786	test          r1     0
+.line	786	jmp            0   l18
+.line	787	gettable      r3    r0    k3 ; k3 = "_tableData"
+.line	787	test          r3     0
+.line	787	jmp            0   l14
+.line	787	gettable      r3    r0    k3 ; k3 = "_tableData"
+.line	787	gettable      r3    r3    k4 ; k4 = "recharge_point"
+.line	787	test          r3     1
+.line	787	jmp            0   l15
+.label	l14
+.line	787	loadk         r3    k5 ; k5 = 0
+.label	l15
+.line	788	move          r4    r3
+.line	788	move          r5    r2
+.line	788	return        r4     3
+.label	l18
+.line	790	loadk         r3    k5 ; k5 = 0
+.line	790	loadnil       r4     0
+.line	790	return        r3     3
+.line	791	return        r0     1
+
+.function	main/f92
+
+.source	null
+.linedefined	794
+.lastlinedefined	797
+.numparams	1
+.is_vararg	0
+.maxstacksize	6
+
+.local	"self"	0	18
+
+.upvalue	"Setting"	3	true
+
+.constant	k0	"SetInt"
+.constant	k1	"GIFT_PACK_COMBINE"
+.constant	k2	"getID"
+.constant	k3	"getChooseIndex"
+.constant	k4	"GIFT_PACK_COMBINE_CHOOSE"
+.constant	k5	1
+
+.line	795	getupval      r1    u0
+.line	795	self          r1    r1    k0 ; k0 = "SetInt"
+.line	795	loadk         r3    k1 ; k1 = "GIFT_PACK_COMBINE"
+.line	795	self          r4    r0    k2 ; k2 = "getID"
+.line	795	call          r4     2     2
+.line	795	concat        r3    r3    r4
+.line	795	self          r4    r0    k3 ; k3 = "getChooseIndex"
+.line	795	call          r4     2     0
+.line	795	call          r1     0     1
+.line	796	getupval      r1    u0
+.line	796	self          r1    r1    k0 ; k0 = "SetInt"
+.line	796	loadk         r3    k4 ; k4 = "GIFT_PACK_COMBINE_CH" (truncated)
+.line	796	self          r4    r0    k2 ; k2 = "getID"
+.line	796	call          r4     2     2
+.line	796	concat        r3    r3    r4
+.line	796	loadk         r4    k5 ; k5 = 1
+.line	796	call          r1     4     1
+.line	797	return        r0     1
+
+.function	main/f93
+
+.source	null
+.linedefined	802
+.lastlinedefined	814
+.numparams	1
+.is_vararg	0
+.maxstacksize	6
+
+.local	"self"	0	20
+
+.upvalue	"Setting"	3	true
+
+.constant	k0	"_chooseIndex"
+.constant	k1	0
+.constant	k2	"_chooseIndexParsed"
+.constant	k3	true
+.constant	k4	"GetInt"
+.constant	k5	"GIFT_PACK_COMBINE"
+.constant	k6	"getID"
+.constant	k7	1
+
+.line	804	gettable      r1    r0    k0 ; k0 = "_chooseIndex"
+.line	804	lt             0    k1    r1 ; k1 = 0
+.line	804	jmp            0    l6
+.line	805	settable      r0    k2    k3 ; k3 = true
+.line	806	return        r0     1
+.label	l6
+.line	809	gettable      r1    r0    k2 ; k2 = "_chooseIndexParsed"
+.line	809	test          r1     0
+.line	809	jmp            0   l10
+.line	810	return        r0     1
+.label	l10
+.line	812	getupval      r1    u0
+.line	812	self          r1    r1    k4 ; k4 = "GetInt"
+.line	812	loadk         r3    k5 ; k5 = "GIFT_PACK_COMBINE"
+.line	812	self          r4    r0    k6 ; k6 = "getID"
+.line	812	call          r4     2     2
+.line	812	concat        r3    r3    r4
+.line	812	loadk         r4    k7 ; k7 = 1
+.line	812	call          r1     4     2
+.line	812	settable      r0    k0    r1 ; k0 = "_chooseIndex"
+.line	813	settable      r0    k2    k3 ; k3 = true
+.line	814	return        r0     1
+
+.function	main/f94
+
+.source	null
+.linedefined	816
+.lastlinedefined	828
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	11
+
+.constant	k0	"_tableDataBuyTypeCostArray"
+.constant	k1	nil
+.constant	k2	"_serverData"
+.constant	k3	"_showTypeParsed"
+.constant	k4	false
+.constant	k5	"_showTypeArr"
+.constant	k6	"_weekPopupParsed"
+.constant	k7	"_weekPopupArr"
+.constant	k8	"_chooseIndexParsed"
+.constant	k9	"_combDescParsed"
+.constant	k10	"_combDescs"
+.constant	k11	"_chooseIndex"
+.constant	k12	-1
+
+.line	817	settable      r0    k0    k1 ; k1 = nil
+.line	819	settable      r0    k2    k1 ; k1 = nil
+.line	820	settable      r0    k3    k4 ; k4 = false
+.line	821	settable      r0    k5    k1 ; k1 = nil
+.line	822	settable      r0    k6    k4 ; k4 = false
+.line	823	settable      r0    k7    k1 ; k1 = nil
+.line	824	settable      r0    k8    k4 ; k4 = false
+.line	825	settable      r0    k9    k4 ; k4 = false
+.line	826	settable      r0   k10    k1 ; k1 = nil
+.line	827	settable      r0   k11   k12 ; k12 = -1
+.line	828	return        r0     1
+
+.function	main/f95
+
+.source	null
+.linedefined	830
+.lastlinedefined	851
+.numparams	1
+.is_vararg	1
+.maxstacksize	6
+
+.local	"self"	0	45
+.local	"rapidjson"	3	45
+.local	"jsonData"	43	45
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"require"
+.constant	k1	"Common.dkjson"
+.constant	k2	"_tableData"
+.constant	k3	"item_combine"
+.constant	k4	nil
+.constant	k5	"_chooseIndex"
+.constant	k6	0
+.constant	k7	1
+.constant	k8	"_serverData"
+.constant	k9	"chooseItem"
+.constant	k10	"string"
+.constant	k11	"split"
+.constant	k12	"@"
+.constant	k13	"chooseHero"
+.constant	k14	"hero_combine"
+.constant	k15	"isFree"
+.constant	k16	true
+.constant	k17	"encode"
+
+.line	831	gettabup      r1    u0    k0 ; k0 = "require"
+.line	831	loadk         r2    k1 ; k1 = "Common.dkjson"
+.line	831	call          r1     2     2
+.line	835	gettable      r2    r0    k2 ; k2 = "_tableData"
+.line	835	gettable      r2    r2    k3 ; k3 = "item_combine"
+.line	835	eq             1    r2    k4 ; k4 = nil
+.line	835	jmp            0   l35
+.line	836	gettable      r2    r0    k5 ; k5 = "_chooseIndex"
+.line	836	eq             1    r2    k4 ; k4 = nil
+.line	836	jmp            0   l14
+.line	836	gettable      r2    r0    k5 ; k5 = "_chooseIndex"
+.line	836	lt             0    r2    k6 ; k6 = 0
+.line	836	jmp            0   l15
+.label	l14
+.line	838	settable      r0    k5    k7 ; k7 = 1
+.label	l15
+.line	840	gettable      r2    r0    k8 ; k8 = "_serverData"
+.line	840	gettabup      r3    u0   k10 ; k10 = "string"
+.line	840	gettable      r3    r3   k11 ; k11 = "split"
+.line	840	gettable      r4    r0    k2 ; k2 = "_tableData"
+.line	840	gettable      r4    r4    k3 ; k3 = "item_combine"
+.line	840	loadk         r5   k12 ; k12 = "@"
+.line	840	call          r3     3     2
+.line	840	gettable      r4    r0    k5 ; k5 = "_chooseIndex"
+.line	840	gettable      r3    r3    r4
+.line	840	settable      r2    k9    r3 ; k9 = "chooseItem"
+.line	841	gettable      r2    r0    k8 ; k8 = "_serverData"
+.line	841	gettabup      r3    u0   k10 ; k10 = "string"
+.line	841	gettable      r3    r3   k11 ; k11 = "split"
+.line	841	gettable      r4    r0    k2 ; k2 = "_tableData"
+.line	841	gettable      r4    r4   k14 ; k14 = "hero_combine"
+.line	841	loadk         r5   k12 ; k12 = "@"
+.line	841	call          r3     3     2
+.line	841	gettable      r4    r0    k5 ; k5 = "_chooseIndex"
+.line	841	gettable      r3    r3    r4
+.line	841	settable      r2   k13    r3 ; k13 = "chooseHero"
+.label	l35
+.line	845	self          r2    r0   k15 ; k15 = "isFree"
+.line	845	call          r2     2     2
+.line	845	test          r2     0
+.line	845	jmp            0   l41
+.line	846	gettable      r2    r0    k8 ; k8 = "_serverData"
+.line	846	settable      r2   k15   k16 ; k16 = true
+.label	l41
+.line	849	gettable      r2    r1   k17 ; k17 = "encode"
+.line	849	gettable      r3    r0    k8 ; k8 = "_serverData"
+.line	849	call          r2     2     2
+.line	850	return        r2     2
+.line	851	return        r0     1
+
+.function	main/f96
+
+.source	null
+.linedefined	853
+.lastlinedefined	866
+.numparams	1
+.is_vararg	1
+.maxstacksize	5
+
+.local	"self"	0	30
+.local	"info"	1	30
+.local	"rapidjson"	25	30
+.local	"jsonData"	28	30
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"name"
+.constant	k1	"getNameText"
+.constant	k2	"desc"
+.constant	k3	"getDescText"
+.constant	k4	"countDown"
+.constant	k5	"getCountdown"
+.constant	k6	"priceText"
+.constant	k7	"getPriceText"
+.constant	k8	"id"
+.constant	k9	"getID"
+.constant	k10	"giftPackBarUI"
+.constant	k11	"getPopupImageMini"
+.constant	k12	"diamond"
+.constant	k13	"getDiamond"
+.constant	k14	"require"
+.constant	k15	"Common.dkjson"
+.constant	k16	"encode"
+
+.line	854	newtable      r1     0     0
+.line	855	self          r2    r0    k1 ; k1 = "getNameText"
+.line	855	call          r2     2     2
+.line	855	settable      r1    k0    r2 ; k0 = "name"
+.line	856	self          r2    r0    k3 ; k3 = "getDescText"
+.line	856	call          r2     2     2
+.line	856	settable      r1    k2    r2 ; k2 = "desc"
+.line	857	self          r2    r0    k5 ; k5 = "getCountdown"
+.line	857	call          r2     2     2
+.line	857	settable      r1    k4    r2 ; k4 = "countDown"
+.line	858	self          r2    r0    k7 ; k7 = "getPriceText"
+.line	858	call          r2     2     2
+.line	858	settable      r1    k6    r2 ; k6 = "priceText"
+.line	859	self          r2    r0    k9 ; k9 = "getID"
+.line	859	call          r2     2     2
+.line	859	settable      r1    k8    r2 ; k8 = "id"
+.line	860	self          r2    r0   k11 ; k11 = "getPopupImageMini"
+.line	860	call          r2     2     2
+.line	860	settable      r1   k10    r2 ; k10 = "giftPackBarUI"
+.line	861	self          r2    r0   k13 ; k13 = "getDiamond"
+.line	861	call          r2     2     2
+.line	861	settable      r1   k12    r2 ; k12 = "diamond"
+.line	863	gettabup      r2    u0   k14 ; k14 = "require"
+.line	863	loadk         r3   k15 ; k15 = "Common.dkjson"
+.line	863	call          r2     2     2
+.line	864	gettable      r3    r2   k16 ; k16 = "encode"
+.line	864	move          r4    r1
+.line	864	call          r3     2     2
+.line	865	return        r3     2
+.line	866	return        r0     1
+
+.function	main/f97
+
+.source	null
+.linedefined	869
+.lastlinedefined	873
+.numparams	1
+.is_vararg	0
+.maxstacksize	4
+
+.local	"self"	0	8
+.local	"tempId"	2	8
+.local	"line"	6	8
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"getID"
+.constant	k1	"GiftPackageData"
+.constant	k2	"GetRechargeDataByPackageId"
+
+.line	870	self          r1    r0    k0 ; k0 = "getID"
+.line	870	call          r1     2     2
+.line	871	gettabup      r2    u0    k1 ; k1 = "GiftPackageData"
+.line	871	gettable      r2    r2    k2 ; k2 = "GetRechargeDataByPac" (truncated)
+.line	871	move          r3    r1
+.line	871	call          r2     2     2
+.line	872	return        r2     2
+.line	873	return        r0     1
+
+.function	main/f98
+
+.source	null
+.linedefined	876
+.lastlinedefined	878
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	10
+
+.constant	k0	"_serverData"
+.constant	k1	"goldbrick"
+.constant	k2	""
+
+.line	877	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	877	test          r1     0
+.line	877	jmp            0    l8
+.line	877	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	877	gettable      r1    r1    k1 ; k1 = "goldbrick"
+.line	877	test          r1     1
+.line	877	jmp            0    l9
+.label	l8
+.line	877	loadk         r1    k2 ; k2 = ""
+.label	l9
+.line	877	return        r1     2
+.line	878	return        r0     1
+
+.function	main/f99
+
+.source	null
+.linedefined	881
+.lastlinedefined	887
+.numparams	1
+.is_vararg	0
+.maxstacksize	5
+
+.local	"self"	0	14
+.local	"goldBrickId"	5	11
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"costGoldBrick"
+.constant	k1	nil
+.constant	k2	"getGoldBrickId"
+.constant	k3	"DataCenter"
+.constant	k4	"GoldBrickTemplateManager"
+.constant	k5	"GetCostGoldBrick"
+
+.line	882	gettable      r1    r0    k0 ; k0 = "costGoldBrick"
+.line	882	eq             0    r1    k1 ; k1 = nil
+.line	882	jmp            0   l12
+.line	883	self          r1    r0    k2 ; k2 = "getGoldBrickId"
+.line	883	call          r1     2     2
+.line	884	gettabup      r2    u0    k3 ; k3 = "DataCenter"
+.line	884	gettable      r2    r2    k4 ; k4 = "GoldBrickTemplateMan" (truncated)
+.line	884	self          r2    r2    k5 ; k5 = "GetCostGoldBrick"
+.line	884	move          r4    r1
+.line	884	call          r2     3     2
+.line	884	settable      r0    k0    r2 ; k0 = "costGoldBrick"
+.label	l12
+.line	886	gettable      r1    r0    k0 ; k0 = "costGoldBrick"
+.line	886	return        r1     2
+.line	887	return        r0     1
+
+.function	main/f100
+
+.source	null
+.linedefined	889
+.lastlinedefined	894
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	13
+
+.constant	k0	"_tableData"
+.constant	k1	"common_buy_condition"
+
+.line	890	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	890	test          r1     0
+.line	890	jmp            0   l11
+.line	890	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	890	gettable      r1    r1    k1 ; k1 = "common_buy_condition"
+.line	890	test          r1     0
+.line	890	jmp            0   l11
+.line	891	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	891	gettable      r1    r1    k1 ; k1 = "common_buy_condition"
+.line	891	return        r1     2
+.label	l11
+.line	893	loadnil       r1     0
+.line	893	return        r1     2
+.line	894	return        r0     1
+
+.function	main/f101
+
+.source	null
+.linedefined	896
+.lastlinedefined	901
+.numparams	1
+.is_vararg	0
+.maxstacksize	2
+
+.local	"self"	0	13
+
+.constant	k0	"_tableData"
+.constant	k1	"alert_condition"
+
+.line	897	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	897	test          r1     0
+.line	897	jmp            0   l11
+.line	897	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	897	gettable      r1    r1    k1 ; k1 = "alert_condition"
+.line	897	test          r1     0
+.line	897	jmp            0   l11
+.line	898	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	898	gettable      r1    r1    k1 ; k1 = "alert_condition"
+.line	898	return        r1     2
+.label	l11
+.line	900	loadnil       r1     0
+.line	900	return        r1     2
+.line	901	return        r0     1
+
+.function	main/f102
+
+.source	null
+.linedefined	904
+.lastlinedefined	909
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	19
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_serverData"
+.constant	k1	"can_refund"
+.constant	k2	"tonumber"
+.constant	k3	1
+
+.line	905	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	905	test          r1     0
+.line	905	jmp            0   l17
+.line	905	gettable      r1    r0    k0 ; k0 = "_serverData"
+.line	905	gettable      r1    r1    k1 ; k1 = "can_refund"
+.line	905	test          r1     0
+.line	905	jmp            0   l17
+.line	906	gettabup      r1    u0    k2 ; k2 = "tonumber"
+.line	906	gettable      r2    r0    k0 ; k0 = "_serverData"
+.line	906	gettable      r2    r2    k1 ; k1 = "can_refund"
+.line	906	call          r1     2     2
+.line	906	eq             1    r1    k3 ; k3 = 1
+.line	906	jmp            0   l15
+.line	906	loadbool      r1     0     1
+.label	l15
+.line	906	loadbool      r1     1     0
+.line	906	return        r1     2
+.label	l17
+.line	908	loadbool      r1     0     0
+.line	908	return        r1     2
+.line	909	return        r0     1
+
+.function	main/f103
+
+.source	null
+.linedefined	911
+.lastlinedefined	915
+.numparams	1
+.is_vararg	0
+.maxstacksize	3
+
+.local	"self"	0	13
+
+.upvalue	"_ENV"	0	false
+
+.constant	k0	"_tableData"
+.constant	k1	"preview_info_group"
+.constant	k2	"tonumber"
+
+.line	912	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	912	test          r1     0
+.line	912	jmp            0   l13
+.line	912	gettable      r1    r0    k0 ; k0 = "_tableData"
+.line	912	gettable      r1    r1    k1 ; k1 = "preview_info_group"
+.line	912	test          r1     0
+.line	912	jmp            0   l13
+.line	913	gettabup      r1    u0    k2 ; k2 = "tonumber"
+.line	913	gettable      r2    r0    k0 ; k0 = "_tableData"
+.line	913	gettable      r2    r2    k1 ; k1 = "preview_info_group"
+.line	913	tailcall      r1     2
+.line	913	return        r1     0
+.label	l13
+.line	915	return        r0     1
+

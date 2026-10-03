@@ -1,0 +1,25 @@
+{
+ "m_Name": "DataUIBullet",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 127,
+  "bytes[1]": 193,
+  "bytes[2]": 220,
+  "bytes[3]": 163,
+  "bytes[4]": 98,
+  "bytes[5]": 183,
+  "bytes[6]": 75,
+  "bytes[7]": 48,
+  "bytes[8]": 253,
+  "bytes[9]": 104,
+  "bytes[10]": 76,
+  "bytes[11]": 251,
+  "bytes[12]": 65,
+  "bytes[13]": 192,
+  "bytes[14]": 70,
+  "bytes[15]": 215
+ },
+ "m_ClassName": "DataUIBullet",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

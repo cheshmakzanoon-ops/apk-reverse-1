@@ -1,0 +1,25 @@
+{
+ "m_Name": "MonsterSandworm",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 199,
+  "bytes[1]": 241,
+  "bytes[2]": 57,
+  "bytes[3]": 93,
+  "bytes[4]": 15,
+  "bytes[5]": 160,
+  "bytes[6]": 123,
+  "bytes[7]": 205,
+  "bytes[8]": 80,
+  "bytes[9]": 46,
+  "bytes[10]": 61,
+  "bytes[11]": 236,
+  "bytes[12]": 159,
+  "bytes[13]": 110,
+  "bytes[14]": 248,
+  "bytes[15]": 28
+ },
+ "m_ClassName": "MonsterSandworm",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

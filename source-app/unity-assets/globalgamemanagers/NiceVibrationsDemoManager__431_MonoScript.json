@@ -1,0 +1,25 @@
+{
+ "m_Name": "NiceVibrationsDemoManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 55,
+  "bytes[1]": 159,
+  "bytes[2]": 74,
+  "bytes[3]": 118,
+  "bytes[4]": 76,
+  "bytes[5]": 178,
+  "bytes[6]": 84,
+  "bytes[7]": 48,
+  "bytes[8]": 188,
+  "bytes[9]": 204,
+  "bytes[10]": 156,
+  "bytes[11]": 206,
+  "bytes[12]": 46,
+  "bytes[13]": 218,
+  "bytes[14]": 45,
+  "bytes[15]": 63
+ },
+ "m_ClassName": "NiceVibrationsDemoManager",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

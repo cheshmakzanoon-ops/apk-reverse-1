@@ -1,0 +1,25 @@
+{
+ "m_Name": "NewButton",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 164,
+  "bytes[1]": 86,
+  "bytes[2]": 59,
+  "bytes[3]": 96,
+  "bytes[4]": 93,
+  "bytes[5]": 105,
+  "bytes[6]": 164,
+  "bytes[7]": 100,
+  "bytes[8]": 127,
+  "bytes[9]": 224,
+  "bytes[10]": 7,
+  "bytes[11]": 24,
+  "bytes[12]": 231,
+  "bytes[13]": 127,
+  "bytes[14]": 94,
+  "bytes[15]": 253
+ },
+ "m_ClassName": "NewButton",
+ "m_Namespace": "LS.UnityEngine.UI",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

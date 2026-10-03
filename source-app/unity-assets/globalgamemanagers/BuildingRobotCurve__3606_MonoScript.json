@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildingRobotCurve",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 56,
+  "bytes[1]": 133,
+  "bytes[2]": 47,
+  "bytes[3]": 105,
+  "bytes[4]": 15,
+  "bytes[5]": 198,
+  "bytes[6]": 219,
+  "bytes[7]": 188,
+  "bytes[8]": 206,
+  "bytes[9]": 178,
+  "bytes[10]": 132,
+  "bytes[11]": 43,
+  "bytes[12]": 165,
+  "bytes[13]": 175,
+  "bytes[14]": 5,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "BuildingRobotCurve",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

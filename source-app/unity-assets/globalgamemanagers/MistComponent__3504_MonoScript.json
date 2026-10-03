@@ -1,0 +1,25 @@
+{
+ "m_Name": "MistComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 173,
+  "bytes[1]": 153,
+  "bytes[2]": 44,
+  "bytes[3]": 89,
+  "bytes[4]": 61,
+  "bytes[5]": 138,
+  "bytes[6]": 174,
+  "bytes[7]": 158,
+  "bytes[8]": 160,
+  "bytes[9]": 87,
+  "bytes[10]": 34,
+  "bytes[11]": 141,
+  "bytes[12]": 88,
+  "bytes[13]": 233,
+  "bytes[14]": 112,
+  "bytes[15]": 96
+ },
+ "m_ClassName": "MistComponent",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

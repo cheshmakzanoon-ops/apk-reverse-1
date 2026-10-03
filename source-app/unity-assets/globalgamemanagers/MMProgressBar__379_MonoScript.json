@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMProgressBar",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 146,
+  "bytes[1]": 112,
+  "bytes[2]": 128,
+  "bytes[3]": 229,
+  "bytes[4]": 108,
+  "bytes[5]": 81,
+  "bytes[6]": 233,
+  "bytes[7]": 233,
+  "bytes[8]": 122,
+  "bytes[9]": 29,
+  "bytes[10]": 116,
+  "bytes[11]": 21,
+  "bytes[12]": 116,
+  "bytes[13]": 216,
+  "bytes[14]": 195,
+  "bytes[15]": 116
+ },
+ "m_ClassName": "MMProgressBar",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

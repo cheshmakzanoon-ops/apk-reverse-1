@@ -1,0 +1,25 @@
+{
+ "m_Name": "BallPusher",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 46,
+  "bytes[1]": 146,
+  "bytes[2]": 169,
+  "bytes[3]": 206,
+  "bytes[4]": 57,
+  "bytes[5]": 176,
+  "bytes[6]": 169,
+  "bytes[7]": 103,
+  "bytes[8]": 54,
+  "bytes[9]": 213,
+  "bytes[10]": 195,
+  "bytes[11]": 75,
+  "bytes[12]": 74,
+  "bytes[13]": 150,
+  "bytes[14]": 118,
+  "bytes[15]": 229
+ },
+ "m_ClassName": "BallPusher",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

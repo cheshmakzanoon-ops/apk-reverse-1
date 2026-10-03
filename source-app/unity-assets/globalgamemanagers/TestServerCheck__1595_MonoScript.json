@@ -1,0 +1,25 @@
+{
+ "m_Name": "TestServerCheck",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 191,
+  "bytes[1]": 134,
+  "bytes[2]": 66,
+  "bytes[3]": 206,
+  "bytes[4]": 152,
+  "bytes[5]": 20,
+  "bytes[6]": 176,
+  "bytes[7]": 186,
+  "bytes[8]": 177,
+  "bytes[9]": 39,
+  "bytes[10]": 125,
+  "bytes[11]": 238,
+  "bytes[12]": 55,
+  "bytes[13]": 59,
+  "bytes[14]": 99,
+  "bytes[15]": 141
+ },
+ "m_ClassName": "TestServerCheck",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

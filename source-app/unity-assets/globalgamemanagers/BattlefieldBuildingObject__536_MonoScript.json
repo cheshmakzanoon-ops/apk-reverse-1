@@ -1,0 +1,25 @@
+{
+ "m_Name": "BattlefieldBuildingObject",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 216,
+  "bytes[1]": 173,
+  "bytes[2]": 124,
+  "bytes[3]": 218,
+  "bytes[4]": 71,
+  "bytes[5]": 213,
+  "bytes[6]": 131,
+  "bytes[7]": 133,
+  "bytes[8]": 220,
+  "bytes[9]": 221,
+  "bytes[10]": 216,
+  "bytes[11]": 74,
+  "bytes[12]": 230,
+  "bytes[13]": 58,
+  "bytes[14]": 221,
+  "bytes[15]": 73
+ },
+ "m_ClassName": "BattlefieldBuildingObject",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

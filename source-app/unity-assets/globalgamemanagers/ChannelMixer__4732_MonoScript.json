@@ -1,0 +1,25 @@
+{
+ "m_Name": "ChannelMixer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 12,
+  "bytes[1]": 153,
+  "bytes[2]": 32,
+  "bytes[3]": 251,
+  "bytes[4]": 133,
+  "bytes[5]": 10,
+  "bytes[6]": 255,
+  "bytes[7]": 123,
+  "bytes[8]": 94,
+  "bytes[9]": 199,
+  "bytes[10]": 86,
+  "bytes[11]": 129,
+  "bytes[12]": 91,
+  "bytes[13]": 122,
+  "bytes[14]": 111,
+  "bytes[15]": 193
+ },
+ "m_ClassName": "ChannelMixer",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

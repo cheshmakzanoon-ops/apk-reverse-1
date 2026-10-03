@@ -1,0 +1,25 @@
+{
+ "m_Name": "SecondHandOnGun",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 236,
+  "bytes[1]": 127,
+  "bytes[2]": 188,
+  "bytes[3]": 139,
+  "bytes[4]": 115,
+  "bytes[5]": 224,
+  "bytes[6]": 37,
+  "bytes[7]": 26,
+  "bytes[8]": 210,
+  "bytes[9]": 180,
+  "bytes[10]": 104,
+  "bytes[11]": 21,
+  "bytes[12]": 37,
+  "bytes[13]": 216,
+  "bytes[14]": 108,
+  "bytes[15]": 17
+ },
+ "m_ClassName": "SecondHandOnGun",
+ "m_Namespace": "RootMotion.Demos",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

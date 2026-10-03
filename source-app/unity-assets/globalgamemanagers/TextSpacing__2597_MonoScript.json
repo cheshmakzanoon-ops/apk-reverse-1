@@ -1,0 +1,25 @@
+{
+ "m_Name": "TextSpacing",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 23,
+  "bytes[1]": 160,
+  "bytes[2]": 219,
+  "bytes[3]": 215,
+  "bytes[4]": 39,
+  "bytes[5]": 231,
+  "bytes[6]": 112,
+  "bytes[7]": 127,
+  "bytes[8]": 135,
+  "bytes[9]": 76,
+  "bytes[10]": 162,
+  "bytes[11]": 66,
+  "bytes[12]": 111,
+  "bytes[13]": 110,
+  "bytes[14]": 185,
+  "bytes[15]": 251
+ },
+ "m_ClassName": "TextSpacing",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerPersistentCanvas",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 154,
+  "bytes[1]": 195,
+  "bytes[2]": 39,
+  "bytes[3]": 70,
+  "bytes[4]": 115,
+  "bytes[5]": 147,
+  "bytes[6]": 203,
+  "bytes[7]": 108,
+  "bytes[8]": 128,
+  "bytes[9]": 69,
+  "bytes[10]": 162,
+  "bytes[11]": 253,
+  "bytes[12]": 144,
+  "bytes[13]": 255,
+  "bytes[14]": 103,
+  "bytes[15]": 226
+ },
+ "m_ClassName": "DebugUIHandlerPersistentCanvas",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

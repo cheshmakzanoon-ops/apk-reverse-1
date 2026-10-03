@@ -1,0 +1,25 @@
+{
+ "m_Name": "LWBattleRVOAgent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 37,
+  "bytes[1]": 140,
+  "bytes[2]": 223,
+  "bytes[3]": 28,
+  "bytes[4]": 251,
+  "bytes[5]": 33,
+  "bytes[6]": 129,
+  "bytes[7]": 104,
+  "bytes[8]": 118,
+  "bytes[9]": 94,
+  "bytes[10]": 133,
+  "bytes[11]": 27,
+  "bytes[12]": 123,
+  "bytes[13]": 153,
+  "bytes[14]": 95,
+  "bytes[15]": 38
+ },
+ "m_ClassName": "LWBattleRVOAgent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

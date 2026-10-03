@@ -1,0 +1,7 @@
+local UIBattleResultJeepAdventureVictoryCtrl = BaseClass("UIBattleResultJeepAdventureVictoryCtrl", UIBaseCtrl)
+
+function UIBattleResultJeepAdventureVictoryCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBattleResultJeepAdventureVictory)
+end
+
+return UIBattleResultJeepAdventureVictoryCtrl

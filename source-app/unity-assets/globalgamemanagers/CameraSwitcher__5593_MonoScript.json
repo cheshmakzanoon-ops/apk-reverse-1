@@ -1,0 +1,25 @@
+{
+ "m_Name": "CameraSwitcher",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 125,
+  "bytes[1]": 26,
+  "bytes[2]": 62,
+  "bytes[3]": 18,
+  "bytes[4]": 87,
+  "bytes[5]": 155,
+  "bytes[6]": 123,
+  "bytes[7]": 208,
+  "bytes[8]": 249,
+  "bytes[9]": 73,
+  "bytes[10]": 9,
+  "bytes[11]": 5,
+  "bytes[12]": 127,
+  "bytes[13]": 251,
+  "bytes[14]": 168,
+  "bytes[15]": 208
+ },
+ "m_ClassName": "CameraSwitcher",
+ "m_Namespace": "UnityEngine.Rendering",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerWidget",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 31,
+  "bytes[1]": 6,
+  "bytes[2]": 2,
+  "bytes[3]": 231,
+  "bytes[4]": 186,
+  "bytes[5]": 209,
+  "bytes[6]": 224,
+  "bytes[7]": 169,
+  "bytes[8]": 203,
+  "bytes[9]": 163,
+  "bytes[10]": 28,
+  "bytes[11]": 226,
+  "bytes[12]": 146,
+  "bytes[13]": 238,
+  "bytes[14]": 232,
+  "bytes[15]": 187
+ },
+ "m_ClassName": "DebugUIHandlerWidget",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

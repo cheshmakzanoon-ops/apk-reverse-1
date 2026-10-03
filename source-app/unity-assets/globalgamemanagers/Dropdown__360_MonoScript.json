@@ -1,0 +1,25 @@
+{
+ "m_Name": "Dropdown",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 42,
+  "bytes[1]": 238,
+  "bytes[2]": 236,
+  "bytes[3]": 27,
+  "bytes[4]": 26,
+  "bytes[5]": 20,
+  "bytes[6]": 76,
+  "bytes[7]": 70,
+  "bytes[8]": 156,
+  "bytes[9]": 210,
+  "bytes[10]": 211,
+  "bytes[11]": 119,
+  "bytes[12]": 118,
+  "bytes[13]": 188,
+  "bytes[14]": 35,
+  "bytes[15]": 21
+ },
+ "m_ClassName": "Dropdown",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

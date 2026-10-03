@@ -1,0 +1,25 @@
+{
+ "m_Name": "Button",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 95,
+  "bytes[1]": 23,
+  "bytes[2]": 82,
+  "bytes[3]": 237,
+  "bytes[4]": 32,
+  "bytes[5]": 146,
+  "bytes[6]": 22,
+  "bytes[7]": 47,
+  "bytes[8]": 1,
+  "bytes[9]": 108,
+  "bytes[10]": 25,
+  "bytes[11]": 81,
+  "bytes[12]": 12,
+  "bytes[13]": 40,
+  "bytes[14]": 168,
+  "bytes[15]": 185
+ },
+ "m_ClassName": "Button",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

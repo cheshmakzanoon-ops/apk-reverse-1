@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScreenSafeArea",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 59,
+  "bytes[1]": 103,
+  "bytes[2]": 96,
+  "bytes[3]": 189,
+  "bytes[4]": 141,
+  "bytes[5]": 23,
+  "bytes[6]": 228,
+  "bytes[7]": 193,
+  "bytes[8]": 242,
+  "bytes[9]": 134,
+  "bytes[10]": 56,
+  "bytes[11]": 254,
+  "bytes[12]": 221,
+  "bytes[13]": 200,
+  "bytes[14]": 62,
+  "bytes[15]": 237
+ },
+ "m_ClassName": "ScreenSafeArea",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

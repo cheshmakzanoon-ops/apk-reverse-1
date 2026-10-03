@@ -1,0 +1,13 @@
+local UIActivitySummaryRewardCtrl = BaseClass("UIActivitySummaryRewardCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIActivitySummaryReward, {anim = true})
+end
+
+local function Close(self)
+  UIManager.Instance:DestroyWindowByLayer(UILayer.Normal, false)
+end
+
+UIActivitySummaryRewardCtrl.CloseSelf = CloseSelf
+UIActivitySummaryRewardCtrl.Close = Close
+return UIActivitySummaryRewardCtrl

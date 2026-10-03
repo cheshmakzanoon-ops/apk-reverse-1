@@ -1,0 +1,25 @@
+{
+ "m_Name": "iTween",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 2,
+  "bytes[1]": 73,
+  "bytes[2]": 55,
+  "bytes[3]": 102,
+  "bytes[4]": 186,
+  "bytes[5]": 13,
+  "bytes[6]": 7,
+  "bytes[7]": 59,
+  "bytes[8]": 217,
+  "bytes[9]": 229,
+  "bytes[10]": 214,
+  "bytes[11]": 2,
+  "bytes[12]": 165,
+  "bytes[13]": 135,
+  "bytes[14]": 141,
+  "bytes[15]": 79
+ },
+ "m_ClassName": "iTween",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

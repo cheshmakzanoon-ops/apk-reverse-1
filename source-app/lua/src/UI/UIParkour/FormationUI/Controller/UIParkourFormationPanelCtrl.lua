@@ -1,0 +1,8 @@
+local UIParkourFormationPanelCtrl = BaseClass("UIParkourFormationPanelCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIParkourFormation)
+end
+
+UIParkourFormationPanelCtrl.CloseSelf = CloseSelf
+return UIParkourFormationPanelCtrl

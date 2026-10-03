@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeteoriteCircleProgressBar",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 45,
+  "bytes[1]": 146,
+  "bytes[2]": 77,
+  "bytes[3]": 110,
+  "bytes[4]": 47,
+  "bytes[5]": 51,
+  "bytes[6]": 156,
+  "bytes[7]": 95,
+  "bytes[8]": 207,
+  "bytes[9]": 40,
+  "bytes[10]": 183,
+  "bytes[11]": 136,
+  "bytes[12]": 159,
+  "bytes[13]": 53,
+  "bytes[14]": 22,
+  "bytes[15]": 39
+ },
+ "m_ClassName": "MeteoriteCircleProgressBar",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

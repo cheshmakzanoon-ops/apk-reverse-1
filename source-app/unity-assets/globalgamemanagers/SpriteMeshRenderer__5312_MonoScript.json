@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpriteMeshRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 166,
+  "bytes[1]": 10,
+  "bytes[2]": 139,
+  "bytes[3]": 34,
+  "bytes[4]": 174,
+  "bytes[5]": 241,
+  "bytes[6]": 68,
+  "bytes[7]": 208,
+  "bytes[8]": 220,
+  "bytes[9]": 52,
+  "bytes[10]": 66,
+  "bytes[11]": 226,
+  "bytes[12]": 25,
+  "bytes[13]": 127,
+  "bytes[14]": 228,
+  "bytes[15]": 161
+ },
+ "m_ClassName": "SpriteMeshRenderer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

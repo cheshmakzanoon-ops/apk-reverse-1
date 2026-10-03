@@ -1,0 +1,30 @@
+local SeasonForceRewardMessage = BaseClass("SeasonForceRewardMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    if t.force_rewards ~= nil then
+      DataCenter.DesertDataManager:RefreshForceReward(t.force_rewards)
+    end
+    if t.hasOldCrystal ~= nil then
+      DataCenter.DesertDataManager:RefreshHasOldCrystal(t.hasOldCrystal)
+    end
+    if t.hasOldMoney ~= nil then
+      DataCenter.DesertDataManager:RefreshHasOldMoney(t.hasOldMoney)
+    end
+    EventManager:GetInstance():Broadcast(EventId.DesertForceRefresh)
+  end
+end
+
+SeasonForceRewardMessage.OnCreate = OnCreate
+SeasonForceRewardMessage.HandleMessage = HandleMessage
+return SeasonForceRewardMessage

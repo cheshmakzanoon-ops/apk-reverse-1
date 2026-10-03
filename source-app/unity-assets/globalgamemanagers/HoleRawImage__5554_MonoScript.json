@@ -1,0 +1,25 @@
+{
+ "m_Name": "HoleRawImage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 248,
+  "bytes[1]": 77,
+  "bytes[2]": 148,
+  "bytes[3]": 94,
+  "bytes[4]": 94,
+  "bytes[5]": 28,
+  "bytes[6]": 169,
+  "bytes[7]": 133,
+  "bytes[8]": 105,
+  "bytes[9]": 134,
+  "bytes[10]": 96,
+  "bytes[11]": 252,
+  "bytes[12]": 38,
+  "bytes[13]": 233,
+  "bytes[14]": 101,
+  "bytes[15]": 127
+ },
+ "m_ClassName": "HoleRawImage",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

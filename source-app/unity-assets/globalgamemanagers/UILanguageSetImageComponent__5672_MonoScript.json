@@ -1,0 +1,25 @@
+{
+ "m_Name": "UILanguageSetImageComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 238,
+  "bytes[1]": 43,
+  "bytes[2]": 121,
+  "bytes[3]": 125,
+  "bytes[4]": 14,
+  "bytes[5]": 87,
+  "bytes[6]": 154,
+  "bytes[7]": 71,
+  "bytes[8]": 239,
+  "bytes[9]": 106,
+  "bytes[10]": 24,
+  "bytes[11]": 228,
+  "bytes[12]": 230,
+  "bytes[13]": 58,
+  "bytes[14]": 6,
+  "bytes[15]": 40
+ },
+ "m_ClassName": "UILanguageSetImageComponent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

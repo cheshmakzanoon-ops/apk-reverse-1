@@ -1,0 +1,25 @@
+{
+ "m_Name": "ColorLookup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 132,
+  "bytes[1]": 31,
+  "bytes[2]": 67,
+  "bytes[3]": 154,
+  "bytes[4]": 32,
+  "bytes[5]": 180,
+  "bytes[6]": 163,
+  "bytes[7]": 129,
+  "bytes[8]": 213,
+  "bytes[9]": 160,
+  "bytes[10]": 197,
+  "bytes[11]": 236,
+  "bytes[12]": 158,
+  "bytes[13]": 54,
+  "bytes[14]": 222,
+  "bytes[15]": 218
+ },
+ "m_ClassName": "ColorLookup",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

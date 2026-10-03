@@ -1,0 +1,25 @@
+{
+ "m_Name": "PlayerSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 106,
+  "bytes[1]": 99,
+  "bytes[2]": 22,
+  "bytes[3]": 142,
+  "bytes[4]": 56,
+  "bytes[5]": 141,
+  "bytes[6]": 4,
+  "bytes[7]": 179,
+  "bytes[8]": 228,
+  "bytes[9]": 3,
+  "bytes[10]": 15,
+  "bytes[11]": 30,
+  "bytes[12]": 156,
+  "bytes[13]": 138,
+  "bytes[14]": 218,
+  "bytes[15]": 72
+ },
+ "m_ClassName": "PlayerSettings",
+ "m_Namespace": "VEngine",
+ "m_AssemblyName": "XAssetProRuntime.dll"
+}

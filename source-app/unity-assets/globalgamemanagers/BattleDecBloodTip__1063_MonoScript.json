@@ -1,0 +1,25 @@
+{
+ "m_Name": "BattleDecBloodTip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 97,
+  "bytes[1]": 78,
+  "bytes[2]": 240,
+  "bytes[3]": 113,
+  "bytes[4]": 211,
+  "bytes[5]": 119,
+  "bytes[6]": 170,
+  "bytes[7]": 95,
+  "bytes[8]": 192,
+  "bytes[9]": 53,
+  "bytes[10]": 255,
+  "bytes[11]": 132,
+  "bytes[12]": 205,
+  "bytes[13]": 50,
+  "bytes[14]": 107,
+  "bytes[15]": 152
+ },
+ "m_ClassName": "BattleDecBloodTip",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "PostProcessData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 45,
+  "bytes[1]": 247,
+  "bytes[2]": 35,
+  "bytes[3]": 57,
+  "bytes[4]": 156,
+  "bytes[5]": 233,
+  "bytes[6]": 216,
+  "bytes[7]": 173,
+  "bytes[8]": 153,
+  "bytes[9]": 68,
+  "bytes[10]": 50,
+  "bytes[11]": 70,
+  "bytes[12]": 19,
+  "bytes[13]": 53,
+  "bytes[14]": 0,
+  "bytes[15]": 135
+ },
+ "m_ClassName": "PostProcessData",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

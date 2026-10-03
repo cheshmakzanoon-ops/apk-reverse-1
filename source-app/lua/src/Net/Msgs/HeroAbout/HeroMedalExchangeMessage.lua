@@ -1,0 +1,25 @@
+local HeroMedalExchangeMessage = BaseClass("HeroMedalExchangeMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, srcItemId, targetItemId, num)
+  base.OnCreate(self)
+  self.sfsObj:PutUtfString("common_item", tostring(srcItemId))
+  self.sfsObj:PutUtfString("special_item", tostring(targetItemId))
+  self.sfsObj:PutInt("count", num)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  if message.errorCode ~= nil then
+    local lang = Localization:GetString(message.errorCode)
+    UIUtil.ShowTips(lang or message.errorCode)
+    return
+  end
+  EventManager:GetInstance():Broadcast(EventId.HeroMedalExchanged, message)
+  EventManager:GetInstance():Broadcast(EventId.HeroStationUpdate)
+end
+
+HeroMedalExchangeMessage.OnCreate = OnCreate
+HeroMedalExchangeMessage.HandleMessage = HandleMessage
+return HeroMedalExchangeMessage

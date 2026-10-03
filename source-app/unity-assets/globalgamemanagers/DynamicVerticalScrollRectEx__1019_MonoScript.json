@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicVerticalScrollRectEx",
+ "m_ExecutionOrder": -900,
+ "m_PropertiesHash": {
+  "bytes[0]": 253,
+  "bytes[1]": 185,
+  "bytes[2]": 107,
+  "bytes[3]": 142,
+  "bytes[4]": 202,
+  "bytes[5]": 161,
+  "bytes[6]": 151,
+  "bytes[7]": 18,
+  "bytes[8]": 217,
+  "bytes[9]": 137,
+  "bytes[10]": 71,
+  "bytes[11]": 0,
+  "bytes[12]": 162,
+  "bytes[13]": 114,
+  "bytes[14]": 135,
+  "bytes[15]": 28
+ },
+ "m_ClassName": "DynamicVerticalScrollRectEx",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

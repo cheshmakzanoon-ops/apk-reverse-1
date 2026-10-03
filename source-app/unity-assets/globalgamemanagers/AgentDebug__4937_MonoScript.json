@@ -1,0 +1,25 @@
+{
+ "m_Name": "AgentDebug",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 126,
+  "bytes[1]": 250,
+  "bytes[2]": 204,
+  "bytes[3]": 187,
+  "bytes[4]": 230,
+  "bytes[5]": 103,
+  "bytes[6]": 18,
+  "bytes[7]": 141,
+  "bytes[8]": 109,
+  "bytes[9]": 184,
+  "bytes[10]": 249,
+  "bytes[11]": 122,
+  "bytes[12]": 164,
+  "bytes[13]": 172,
+  "bytes[14]": 47,
+  "bytes[15]": 74
+ },
+ "m_ClassName": "AgentDebug",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

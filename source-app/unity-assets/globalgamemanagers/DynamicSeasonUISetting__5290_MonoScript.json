@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicSeasonUISetting",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 176,
+  "bytes[1]": 203,
+  "bytes[2]": 68,
+  "bytes[3]": 24,
+  "bytes[4]": 84,
+  "bytes[5]": 153,
+  "bytes[6]": 146,
+  "bytes[7]": 209,
+  "bytes[8]": 58,
+  "bytes[9]": 252,
+  "bytes[10]": 156,
+  "bytes[11]": 125,
+  "bytes[12]": 17,
+  "bytes[13]": 173,
+  "bytes[14]": 204,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "DynamicSeasonUISetting",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CityScene",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 244,
+  "bytes[1]": 230,
+  "bytes[2]": 196,
+  "bytes[3]": 49,
+  "bytes[4]": 133,
+  "bytes[5]": 95,
+  "bytes[6]": 101,
+  "bytes[7]": 121,
+  "bytes[8]": 197,
+  "bytes[9]": 20,
+  "bytes[10]": 243,
+  "bytes[11]": 218,
+  "bytes[12]": 159,
+  "bytes[13]": 94,
+  "bytes[14]": 169,
+  "bytes[15]": 24
+ },
+ "m_ClassName": "CityScene",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

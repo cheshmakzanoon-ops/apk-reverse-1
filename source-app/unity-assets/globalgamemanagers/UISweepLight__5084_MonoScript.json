@@ -1,0 +1,25 @@
+{
+ "m_Name": "UISweepLight",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 0,
+  "bytes[1]": 1,
+  "bytes[2]": 208,
+  "bytes[3]": 112,
+  "bytes[4]": 205,
+  "bytes[5]": 246,
+  "bytes[6]": 149,
+  "bytes[7]": 178,
+  "bytes[8]": 200,
+  "bytes[9]": 95,
+  "bytes[10]": 26,
+  "bytes[11]": 198,
+  "bytes[12]": 58,
+  "bytes[13]": 90,
+  "bytes[14]": 88,
+  "bytes[15]": 46
+ },
+ "m_ClassName": "UISweepLight",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

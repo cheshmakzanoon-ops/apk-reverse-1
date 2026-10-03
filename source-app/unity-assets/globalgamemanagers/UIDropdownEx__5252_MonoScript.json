@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIDropdownEx",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 110,
+  "bytes[1]": 58,
+  "bytes[2]": 88,
+  "bytes[3]": 153,
+  "bytes[4]": 53,
+  "bytes[5]": 91,
+  "bytes[6]": 10,
+  "bytes[7]": 99,
+  "bytes[8]": 74,
+  "bytes[9]": 102,
+  "bytes[10]": 24,
+  "bytes[11]": 127,
+  "bytes[12]": 143,
+  "bytes[13]": 210,
+  "bytes[14]": 82,
+  "bytes[15]": 107
+ },
+ "m_ClassName": "UIDropdownEx",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

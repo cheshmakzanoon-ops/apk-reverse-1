@@ -1,0 +1,25 @@
+{
+ "m_Name": "TiltShift",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 235,
+  "bytes[1]": 158,
+  "bytes[2]": 207,
+  "bytes[3]": 148,
+  "bytes[4]": 110,
+  "bytes[5]": 65,
+  "bytes[6]": 163,
+  "bytes[7]": 18,
+  "bytes[8]": 142,
+  "bytes[9]": 196,
+  "bytes[10]": 144,
+  "bytes[11]": 57,
+  "bytes[12]": 2,
+  "bytes[13]": 116,
+  "bytes[14]": 173,
+  "bytes[15]": 97
+ },
+ "m_ClassName": "TiltShift",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

@@ -1,0 +1,9 @@
+local UIBattlePassNewYearGiftPackagePopUp_CommonCtrl = BaseClass("UIBattlePassNewYearGiftPackagePopUp_CommonCtrl", UIBaseCtrl)
+local Localization = CS.GameEntry.Localization
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIBattlePassNewYearGiftPackagePopUp_Common)
+end
+
+UIBattlePassNewYearGiftPackagePopUp_CommonCtrl.CloseSelf = CloseSelf
+return UIBattlePassNewYearGiftPackagePopUp_CommonCtrl

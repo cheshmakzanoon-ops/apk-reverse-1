@@ -1,0 +1,25 @@
+{
+ "m_Name": "CircleMesh",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 238,
+  "bytes[1]": 119,
+  "bytes[2]": 161,
+  "bytes[3]": 125,
+  "bytes[4]": 51,
+  "bytes[5]": 200,
+  "bytes[6]": 233,
+  "bytes[7]": 177,
+  "bytes[8]": 163,
+  "bytes[9]": 24,
+  "bytes[10]": 2,
+  "bytes[11]": 188,
+  "bytes[12]": 238,
+  "bytes[13]": 233,
+  "bytes[14]": 246,
+  "bytes[15]": 188
+ },
+ "m_ClassName": "CircleMesh",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

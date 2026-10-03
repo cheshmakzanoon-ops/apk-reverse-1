@@ -1,0 +1,25 @@
+{
+ "m_Name": "TrailRenderAdjuster",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 21,
+  "bytes[1]": 44,
+  "bytes[2]": 40,
+  "bytes[3]": 36,
+  "bytes[4]": 13,
+  "bytes[5]": 142,
+  "bytes[6]": 195,
+  "bytes[7]": 3,
+  "bytes[8]": 238,
+  "bytes[9]": 168,
+  "bytes[10]": 61,
+  "bytes[11]": 29,
+  "bytes[12]": 8,
+  "bytes[13]": 190,
+  "bytes[14]": 145,
+  "bytes[15]": 148
+ },
+ "m_ClassName": "TrailRenderAdjuster",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

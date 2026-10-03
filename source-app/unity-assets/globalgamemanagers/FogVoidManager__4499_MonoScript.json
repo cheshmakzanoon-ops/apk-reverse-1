@@ -1,0 +1,25 @@
+{
+ "m_Name": "FogVoidManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 247,
+  "bytes[1]": 65,
+  "bytes[2]": 3,
+  "bytes[3]": 31,
+  "bytes[4]": 37,
+  "bytes[5]": 186,
+  "bytes[6]": 86,
+  "bytes[7]": 17,
+  "bytes[8]": 136,
+  "bytes[9]": 155,
+  "bytes[10]": 9,
+  "bytes[11]": 75,
+  "bytes[12]": 62,
+  "bytes[13]": 86,
+  "bytes[14]": 236,
+  "bytes[15]": 236
+ },
+ "m_ClassName": "FogVoidManager",
+ "m_Namespace": "VolumetricFogAndMist2",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

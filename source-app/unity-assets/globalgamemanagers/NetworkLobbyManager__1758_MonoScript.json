@@ -1,0 +1,25 @@
+{
+ "m_Name": "NetworkLobbyManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 38,
+  "bytes[1]": 92,
+  "bytes[2]": 242,
+  "bytes[3]": 123,
+  "bytes[4]": 160,
+  "bytes[5]": 80,
+  "bytes[6]": 213,
+  "bytes[7]": 95,
+  "bytes[8]": 243,
+  "bytes[9]": 58,
+  "bytes[10]": 138,
+  "bytes[11]": 202,
+  "bytes[12]": 180,
+  "bytes[13]": 222,
+  "bytes[14]": 214,
+  "bytes[15]": 192
+ },
+ "m_ClassName": "NetworkLobbyManager",
+ "m_Namespace": "UnityEngine.Networking",
+ "m_AssemblyName": "com.unity.multiplayer-hlapi.Runtime.dll"
+}

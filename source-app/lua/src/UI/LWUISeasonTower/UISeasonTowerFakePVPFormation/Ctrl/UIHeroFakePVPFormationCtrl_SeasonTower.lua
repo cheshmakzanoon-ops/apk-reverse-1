@@ -1,0 +1,7 @@
+local UIHeroFakePVPFormationCtrl_SeasonTower = BaseClass("UIHeroFakePVPFormationCtrl_SeasonTower", UIBaseCtrl)
+
+function UIHeroFakePVPFormationCtrl_SeasonTower:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIHeroFakePVPFormation_SeasonTower)
+end
+
+return UIHeroFakePVPFormationCtrl_SeasonTower

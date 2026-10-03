@@ -1,0 +1,46 @@
+local ScratchOffLuckyIconItem = BaseClass("ScratchOffLuckyIconItem", UIBaseContainer)
+local base = UIBaseContainer
+local icon1_path = "Bg/icon1"
+local icon2_path = "Bg/icon2"
+local icon3_path = "Bg/icon3"
+local eff_path = "eff"
+
+function ScratchOffLuckyIconItem:OnCreate()
+  base.OnCreate(self)
+  self:DataDefine()
+  self:ComponentDefine()
+end
+
+function ScratchOffLuckyIconItem:OnDestroy()
+  self:ComponentDestroy()
+  self:DataDestroy()
+  base.OnDestroy(self)
+end
+
+function ScratchOffLuckyIconItem:DataDefine()
+end
+
+function ScratchOffLuckyIconItem:DataDestroy()
+end
+
+function ScratchOffLuckyIconItem:ComponentDefine()
+  self.icon1 = self:AddComponent(UIImage, icon1_path)
+  self.icon2 = self:AddComponent(UIImage, icon2_path)
+  self.icon3 = self:AddComponent(UIImage, icon3_path)
+  self.eff = self:AddComponent(UIBaseContainer, eff_path)
+end
+
+function ScratchOffLuckyIconItem:ComponentDestroy()
+end
+
+function ScratchOffLuckyIconItem:SetData(itemInfo)
+  if itemInfo == nil then
+    return
+  end
+  self.icon1:LoadSprite(itemInfo.iconPath1)
+  self.icon2:LoadSprite(itemInfo.iconPath2)
+  self.icon3:LoadSprite(itemInfo.iconPath3)
+  self.eff:SetActive(itemInfo.ifLottery)
+end
+
+return ScratchOffLuckyIconItem

@@ -1,0 +1,25 @@
+{
+ "m_Name": "FishingHeadMono",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 195,
+  "bytes[1]": 56,
+  "bytes[2]": 96,
+  "bytes[3]": 111,
+  "bytes[4]": 204,
+  "bytes[5]": 175,
+  "bytes[6]": 197,
+  "bytes[7]": 112,
+  "bytes[8]": 105,
+  "bytes[9]": 95,
+  "bytes[10]": 224,
+  "bytes[11]": 191,
+  "bytes[12]": 15,
+  "bytes[13]": 76,
+  "bytes[14]": 180,
+  "bytes[15]": 221
+ },
+ "m_ClassName": "FishingHeadMono",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

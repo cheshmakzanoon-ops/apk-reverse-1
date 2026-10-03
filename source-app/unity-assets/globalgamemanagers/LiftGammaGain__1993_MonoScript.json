@@ -1,0 +1,25 @@
+{
+ "m_Name": "LiftGammaGain",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 54,
+  "bytes[1]": 17,
+  "bytes[2]": 43,
+  "bytes[3]": 10,
+  "bytes[4]": 22,
+  "bytes[5]": 117,
+  "bytes[6]": 60,
+  "bytes[7]": 171,
+  "bytes[8]": 9,
+  "bytes[9]": 49,
+  "bytes[10]": 82,
+  "bytes[11]": 30,
+  "bytes[12]": 77,
+  "bytes[13]": 230,
+  "bytes[14]": 126,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "LiftGammaGain",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

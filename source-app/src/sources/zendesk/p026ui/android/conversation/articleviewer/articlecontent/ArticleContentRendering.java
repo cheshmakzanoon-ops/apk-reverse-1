@@ -1,0 +1,215 @@
+package zendesk.p026ui.android.conversation.articleviewer.articlecontent;
+
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import zendesk.logger.Logger;
+import zendesk.p026ui.android.conversation.articleviewer.articleattachmentcarousel.ArticleAttachmentItem;
+
+@Metadata(m17d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0007\u0018\u0000 \"2\u00020\u0001:\u0002!\"B\u0007\b\u0016¢\u0006\u0002\u0010\u0002B\u000f\b\u0000\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u0006\u0010 \u001a\u00020\u0004R/\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\b¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\f0\u0007X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR/\u0010\u000f\u001a\u001d\u0012\u0013\u0012\u00110\u0010¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u0011\u0012\u0004\u0012\u00020\f0\u0007X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u000eR\u001a\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\f0\u0014X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R1\u0010\u0017\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u0018¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u0019\u0012\u0004\u0012\u00020\u001a0\u0007X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u000eR\u0014\u0010\u001c\u001a\u00020\u001dX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001f¨\u0006#"}, m18d2 = {"Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering;", "", "()V", "builder", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering$Builder;", "(Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering$Builder;)V", "onAttachmentItemClicked", "Lkotlin/Function1;", "Lzendesk/ui/android/conversation/articleviewer/articleattachmentcarousel/ArticleAttachmentItem;", "Lkotlin/ParameterName;", "name", "attachmentItem", "", "getOnAttachmentItemClicked$zendesk_ui_ui_android", "()Lkotlin/jvm/functions/Function1;", "onLoadingUpdated", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState$ArticleLoadingStatus;", "status", "getOnLoadingUpdated$zendesk_ui_ui_android", "onRetryButtonClicked", "Lkotlin/Function0;", "getOnRetryButtonClicked$zendesk_ui_ui_android", "()Lkotlin/jvm/functions/Function0;", "shouldOverrideUrl", "", "url", "", "getShouldOverrideUrl$zendesk_ui_ui_android", "state", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState;", "getState$zendesk_ui_ui_android", "()Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState;", "toBuilder", "Builder", "Companion", "zendesk.ui_ui-android"}, m19k = 1, m20mv = {1, 9, 0}, m22xi = 48)
+public final class ArticleContentRendering {
+    private static final String LOG_TAG = "ArticleContentRendering";
+    private final Function1<ArticleAttachmentItem, Unit> onAttachmentItemClicked;
+    private final Function1<ArticleContentState.ArticleLoadingStatus, Unit> onLoadingUpdated;
+    private final Function0<Unit> onRetryButtonClicked;
+    private final Function1<String, Boolean> shouldOverrideUrl;
+    private final ArticleContentState state;
+    private static final Companion Companion = new Companion(null);
+    public static final int $stable = 8;
+
+    public ArticleContentRendering(Builder builder) {
+        Intrinsics.checkNotNullParameter(builder, "builder");
+        this.shouldOverrideUrl = builder.getShouldOverrideUrl$zendesk_ui_ui_android();
+        this.onLoadingUpdated = builder.getOnLoadingUpdated$zendesk_ui_ui_android();
+        this.onRetryButtonClicked = builder.getOnRetryButtonClicked$zendesk_ui_ui_android();
+        this.onAttachmentItemClicked = builder.getOnAttachmentItemClicked$zendesk_ui_ui_android();
+        this.state = builder.getState();
+    }
+
+    public final Function1<String, Boolean> getShouldOverrideUrl$zendesk_ui_ui_android() {
+        return this.shouldOverrideUrl;
+    }
+
+    public final Function1<ArticleContentState.ArticleLoadingStatus, Unit> getOnLoadingUpdated$zendesk_ui_ui_android() {
+        return this.onLoadingUpdated;
+    }
+
+    public final Function0<Unit> getOnRetryButtonClicked$zendesk_ui_ui_android() {
+        return this.onRetryButtonClicked;
+    }
+
+    public final Function1<ArticleAttachmentItem, Unit> getOnAttachmentItemClicked$zendesk_ui_ui_android() {
+        return this.onAttachmentItemClicked;
+    }
+
+    public final ArticleContentState getState() {
+        return this.state;
+    }
+
+    public ArticleContentRendering() {
+        this(new Builder());
+    }
+
+    public final Builder toBuilder() {
+        return new Builder(this);
+    }
+
+    @Metadata(m17d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0007\u0018\u00002\u00020\u0001B\u0011\b\u0010\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004B\u0005¢\u0006\u0002\u0010\u0005J\u0006\u0010(\u001a\u00020\u0003J)\u0010\u0006\u001a\u00020\u00002!\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\b¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\f0\u0007J)\u0010\u0011\u001a\u00020\u00002!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0012¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\"\u0012\u0004\u0012\u00020\f0\u0007J\u0014\u0010\u0016\u001a\u00020\u00002\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\f0\u0017J+\u0010\u001c\u001a\u00020\u00002#\u0010\u001c\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u001d¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u001e\u0012\u0004\u0012\u00020\u001f0\u0007J\u001a\u0010\"\u001a\u00020\u00002\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u00020#\u0012\u0004\u0012\u00020#0\u0007R5\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\b¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\f0\u0007X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R5\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0012¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u0013\u0012\u0004\u0012\u00020\f0\u0007X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u000e\"\u0004\b\u0015\u0010\u0010R \u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\f0\u0017X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0018\u0010\u0019\"\u0004\b\u001a\u0010\u001bR7\u0010\u001c\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u001d¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u001e\u0012\u0004\u0012\u00020\u001f0\u0007X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\u000e\"\u0004\b!\u0010\u0010R\u001a\u0010\"\u001a\u00020#X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'¨\u0006*"}, m18d2 = {"Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering$Builder;", "", "rendering", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering;", "(Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering;)V", "()V", "onAttachmentItemClicked", "Lkotlin/Function1;", "Lzendesk/ui/android/conversation/articleviewer/articleattachmentcarousel/ArticleAttachmentItem;", "Lkotlin/ParameterName;", "name", "attachmentItem", "", "getOnAttachmentItemClicked$zendesk_ui_ui_android", "()Lkotlin/jvm/functions/Function1;", "setOnAttachmentItemClicked$zendesk_ui_ui_android", "(Lkotlin/jvm/functions/Function1;)V", "onLoadingUpdated", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState$ArticleLoadingStatus;", "status", "getOnLoadingUpdated$zendesk_ui_ui_android", "setOnLoadingUpdated$zendesk_ui_ui_android", "onRetryButtonClicked", "Lkotlin/Function0;", "getOnRetryButtonClicked$zendesk_ui_ui_android", "()Lkotlin/jvm/functions/Function0;", "setOnRetryButtonClicked$zendesk_ui_ui_android", "(Lkotlin/jvm/functions/Function0;)V", "shouldOverrideUrl", "", "url", "", "getShouldOverrideUrl$zendesk_ui_ui_android", "setShouldOverrideUrl$zendesk_ui_ui_android", "state", "Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState;", "getState$zendesk_ui_ui_android", "()Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState;", "setState$zendesk_ui_ui_android", "(Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentState;)V", "build", "stateUpdate", "zendesk.ui_ui-android"}, m19k = 1, m20mv = {1, 9, 0}, m22xi = 48)
+    public static final class Builder {
+        public static final int $stable = 8;
+        private Function1<? super ArticleAttachmentItem, Unit> onAttachmentItemClicked;
+        private Function1<? super ArticleContentState.ArticleLoadingStatus, Unit> onLoadingUpdated;
+        private Function0<Unit> onRetryButtonClicked;
+        private Function1<? super String, Boolean> shouldOverrideUrl;
+        private ArticleContentState state;
+
+        public Builder() {
+            this.shouldOverrideUrl = new Function1<String, Boolean>() {
+                @Override
+                public final Boolean invoke(String str) {
+                    Logger.m225w("ArticleContentRendering", "onUrlClicked == null", new Object[0]);
+                    return false;
+                }
+            };
+            this.onLoadingUpdated = new Function1<ArticleContentState.ArticleLoadingStatus, Unit>() {
+                @Override
+                public Unit invoke(ArticleContentState.ArticleLoadingStatus articleLoadingStatus) {
+                    invoke2(articleLoadingStatus);
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke2(ArticleContentState.ArticleLoadingStatus it) {
+                    Intrinsics.checkNotNullParameter(it, "it");
+                    Logger.m225w("ArticleContentRendering", "onLoadingUpdated == null", new Object[0]);
+                }
+            };
+            this.onRetryButtonClicked = new Function0<Unit>() {
+                @Override
+                public Unit invoke() {
+                    invoke2();
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke2() {
+                    Logger.m225w("ArticleContentRendering", "onRetryButtonClicked == null", new Object[0]);
+                }
+            };
+            this.onAttachmentItemClicked = new Function1<ArticleAttachmentItem, Unit>() {
+                @Override
+                public Unit invoke(ArticleAttachmentItem articleAttachmentItem) {
+                    invoke2(articleAttachmentItem);
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke2(ArticleAttachmentItem it) {
+                    Intrinsics.checkNotNullParameter(it, "it");
+                    Logger.m225w("ArticleContentRendering", "onAttachmentItemClicked == null", new Object[0]);
+                }
+            };
+            this.state = new ArticleContentState(null, 0, 0, 0, null, null, 0, 0, 0, 511, null);
+        }
+
+        public final Function1<String, Boolean> getShouldOverrideUrl$zendesk_ui_ui_android() {
+            return this.shouldOverrideUrl;
+        }
+
+        public final void setShouldOverrideUrl$zendesk_ui_ui_android(Function1<? super String, Boolean> function1) {
+            Intrinsics.checkNotNullParameter(function1, "<set-?>");
+            this.shouldOverrideUrl = function1;
+        }
+
+        public final Function1<ArticleContentState.ArticleLoadingStatus, Unit> getOnLoadingUpdated$zendesk_ui_ui_android() {
+            return this.onLoadingUpdated;
+        }
+
+        public final void setOnLoadingUpdated$zendesk_ui_ui_android(Function1<? super ArticleContentState.ArticleLoadingStatus, Unit> function1) {
+            Intrinsics.checkNotNullParameter(function1, "<set-?>");
+            this.onLoadingUpdated = function1;
+        }
+
+        public final Function0<Unit> getOnRetryButtonClicked$zendesk_ui_ui_android() {
+            return this.onRetryButtonClicked;
+        }
+
+        public final void setOnRetryButtonClicked$zendesk_ui_ui_android(Function0<Unit> function0) {
+            Intrinsics.checkNotNullParameter(function0, "<set-?>");
+            this.onRetryButtonClicked = function0;
+        }
+
+        public final Function1<ArticleAttachmentItem, Unit> getOnAttachmentItemClicked$zendesk_ui_ui_android() {
+            return this.onAttachmentItemClicked;
+        }
+
+        public final void setOnAttachmentItemClicked$zendesk_ui_ui_android(Function1<? super ArticleAttachmentItem, Unit> function1) {
+            Intrinsics.checkNotNullParameter(function1, "<set-?>");
+            this.onAttachmentItemClicked = function1;
+        }
+
+        public final ArticleContentState getState() {
+            return this.state;
+        }
+
+        public final void setState$zendesk_ui_ui_android(ArticleContentState articleContentState) {
+            Intrinsics.checkNotNullParameter(articleContentState, "<set-?>");
+            this.state = articleContentState;
+        }
+
+        public Builder(ArticleContentRendering rendering) {
+            this();
+            Intrinsics.checkNotNullParameter(rendering, "rendering");
+            this.shouldOverrideUrl = rendering.getShouldOverrideUrl$zendesk_ui_ui_android();
+            this.state = rendering.getState();
+        }
+
+        public Builder(ArticleContentRendering articleContentRendering, int i, DefaultConstructorMarker defaultConstructorMarker) {
+            this((i & 1) != 0 ? new ArticleContentRendering() : articleContentRendering);
+        }
+
+        public final Builder shouldOverrideUrl(Function1<? super String, Boolean> shouldOverrideUrl) {
+            Intrinsics.checkNotNullParameter(shouldOverrideUrl, "shouldOverrideUrl");
+            this.shouldOverrideUrl = shouldOverrideUrl;
+            return this;
+        }
+
+        public final Builder onLoadingUpdated(Function1<? super ArticleContentState.ArticleLoadingStatus, Unit> onLoadingUpdated) {
+            Intrinsics.checkNotNullParameter(onLoadingUpdated, "onLoadingUpdated");
+            this.onLoadingUpdated = onLoadingUpdated;
+            return this;
+        }
+
+        public final Builder onRetryButtonClicked(Function0<Unit> onRetryButtonClicked) {
+            Intrinsics.checkNotNullParameter(onRetryButtonClicked, "onRetryButtonClicked");
+            this.onRetryButtonClicked = onRetryButtonClicked;
+            return this;
+        }
+
+        public final Builder onAttachmentItemClicked(Function1<? super ArticleAttachmentItem, Unit> onAttachmentItemClicked) {
+            Intrinsics.checkNotNullParameter(onAttachmentItemClicked, "onAttachmentItemClicked");
+            this.onAttachmentItemClicked = onAttachmentItemClicked;
+            return this;
+        }
+
+        public final Builder state(Function1<? super ArticleContentState, ArticleContentState> stateUpdate) {
+            Intrinsics.checkNotNullParameter(stateUpdate, "stateUpdate");
+            this.state = stateUpdate.invoke(this.state);
+            return this;
+        }
+
+        public final ArticleContentRendering build() {
+            return new ArticleContentRendering(this);
+        }
+    }
+
+    @Metadata(m17d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0082\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, m18d2 = {"Lzendesk/ui/android/conversation/articleviewer/articlecontent/ArticleContentRendering$Companion;", "", "()V", "LOG_TAG", "", "zendesk.ui_ui-android"}, m19k = 1, m20mv = {1, 9, 0}, m22xi = 48)
+    private static final class Companion {
+        public Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        private Companion() {
+        }
+    }
+}

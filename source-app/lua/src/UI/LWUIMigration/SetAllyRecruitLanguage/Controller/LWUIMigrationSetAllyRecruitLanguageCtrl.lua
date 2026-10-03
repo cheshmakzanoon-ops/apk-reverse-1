@@ -1,0 +1,7 @@
+local LWUIMigrationSetAllyRecruitLanguageCtrl = BaseClass("LWUIMigrationSetAllyRecruitLanguageCtrl", UIBaseCtrl)
+
+function LWUIMigrationSetAllyRecruitLanguageCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.LWUIMigrationSetAllyRecruitLanguage)
+end
+
+return LWUIMigrationSetAllyRecruitLanguageCtrl

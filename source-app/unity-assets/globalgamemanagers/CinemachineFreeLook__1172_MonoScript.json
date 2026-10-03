@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineFreeLook",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 251,
+  "bytes[1]": 112,
+  "bytes[2]": 240,
+  "bytes[3]": 124,
+  "bytes[4]": 82,
+  "bytes[5]": 252,
+  "bytes[6]": 8,
+  "bytes[7]": 23,
+  "bytes[8]": 237,
+  "bytes[9]": 213,
+  "bytes[10]": 67,
+  "bytes[11]": 39,
+  "bytes[12]": 180,
+  "bytes[13]": 28,
+  "bytes[14]": 161,
+  "bytes[15]": 44
+ },
+ "m_ClassName": "CinemachineFreeLook",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

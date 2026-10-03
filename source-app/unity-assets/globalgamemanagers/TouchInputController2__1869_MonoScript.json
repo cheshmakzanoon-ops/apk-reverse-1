@@ -1,0 +1,25 @@
+{
+ "m_Name": "TouchInputController2",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 20,
+  "bytes[1]": 240,
+  "bytes[2]": 6,
+  "bytes[3]": 148,
+  "bytes[4]": 101,
+  "bytes[5]": 82,
+  "bytes[6]": 12,
+  "bytes[7]": 34,
+  "bytes[8]": 99,
+  "bytes[9]": 37,
+  "bytes[10]": 3,
+  "bytes[11]": 8,
+  "bytes[12]": 227,
+  "bytes[13]": 47,
+  "bytes[14]": 7,
+  "bytes[15]": 160
+ },
+ "m_ClassName": "TouchInputController2",
+ "m_Namespace": "BitBenderGames",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

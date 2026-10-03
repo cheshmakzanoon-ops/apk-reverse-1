@@ -1,0 +1,25 @@
+{
+ "m_Name": "LoopStaggeredGridView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 225,
+  "bytes[1]": 201,
+  "bytes[2]": 20,
+  "bytes[3]": 72,
+  "bytes[4]": 247,
+  "bytes[5]": 222,
+  "bytes[6]": 92,
+  "bytes[7]": 224,
+  "bytes[8]": 152,
+  "bytes[9]": 85,
+  "bytes[10]": 250,
+  "bytes[11]": 115,
+  "bytes[12]": 51,
+  "bytes[13]": 127,
+  "bytes[14]": 48,
+  "bytes[15]": 123
+ },
+ "m_ClassName": "LoopStaggeredGridView",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

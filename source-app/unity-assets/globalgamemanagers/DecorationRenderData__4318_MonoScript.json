@@ -1,0 +1,25 @@
+{
+ "m_Name": "DecorationRenderData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 13,
+  "bytes[1]": 226,
+  "bytes[2]": 67,
+  "bytes[3]": 5,
+  "bytes[4]": 179,
+  "bytes[5]": 192,
+  "bytes[6]": 156,
+  "bytes[7]": 139,
+  "bytes[8]": 226,
+  "bytes[9]": 11,
+  "bytes[10]": 174,
+  "bytes[11]": 254,
+  "bytes[12]": 161,
+  "bytes[13]": 140,
+  "bytes[14]": 1,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "DecorationRenderData",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

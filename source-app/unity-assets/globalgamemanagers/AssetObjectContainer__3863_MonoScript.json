@@ -1,0 +1,25 @@
+{
+ "m_Name": "AssetObjectContainer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 10,
+  "bytes[1]": 126,
+  "bytes[2]": 13,
+  "bytes[3]": 155,
+  "bytes[4]": 4,
+  "bytes[5]": 171,
+  "bytes[6]": 208,
+  "bytes[7]": 73,
+  "bytes[8]": 152,
+  "bytes[9]": 77,
+  "bytes[10]": 7,
+  "bytes[11]": 248,
+  "bytes[12]": 237,
+  "bytes[13]": 0,
+  "bytes[14]": 240,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "AssetObjectContainer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 72
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 35
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 86
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 88
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 81
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "BInput",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

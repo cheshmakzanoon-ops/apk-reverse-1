@@ -1,0 +1,7 @@
+local UILWDominatorGorillaTreatmentSuccessCtrl = BaseClass("UILWDominatorGorillaTreatmentSuccessCtrl", UIBaseCtrl)
+
+function UILWDominatorGorillaTreatmentSuccessCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWDominatorGorillaTreatmentSuccess)
+end
+
+return UILWDominatorGorillaTreatmentSuccessCtrl

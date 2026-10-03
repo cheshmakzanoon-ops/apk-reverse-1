@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIScrollItem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 69,
+  "bytes[1]": 167,
+  "bytes[2]": 235,
+  "bytes[3]": 2,
+  "bytes[4]": 96,
+  "bytes[5]": 23,
+  "bytes[6]": 250,
+  "bytes[7]": 46,
+  "bytes[8]": 118,
+  "bytes[9]": 183,
+  "bytes[10]": 220,
+  "bytes[11]": 215,
+  "bytes[12]": 237,
+  "bytes[13]": 2,
+  "bytes[14]": 8,
+  "bytes[15]": 241
+ },
+ "m_ClassName": "UIScrollItem",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

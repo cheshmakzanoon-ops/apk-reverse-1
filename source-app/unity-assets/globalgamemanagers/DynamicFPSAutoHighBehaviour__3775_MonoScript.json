@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicFPSAutoHighBehaviour",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 234,
+  "bytes[1]": 184,
+  "bytes[2]": 226,
+  "bytes[3]": 128,
+  "bytes[4]": 9,
+  "bytes[5]": 26,
+  "bytes[6]": 26,
+  "bytes[7]": 68,
+  "bytes[8]": 152,
+  "bytes[9]": 35,
+  "bytes[10]": 140,
+  "bytes[11]": 58,
+  "bytes[12]": 151,
+  "bytes[13]": 27,
+  "bytes[14]": 161,
+  "bytes[15]": 127
+ },
+ "m_ClassName": "DynamicFPSAutoHighBehaviour",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

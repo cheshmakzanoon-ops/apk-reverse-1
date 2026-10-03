@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIChatSendPhoto",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 139,
+  "bytes[1]": 200,
+  "bytes[2]": 214,
+  "bytes[3]": 75,
+  "bytes[4]": 250,
+  "bytes[5]": 37,
+  "bytes[6]": 13,
+  "bytes[7]": 26,
+  "bytes[8]": 156,
+  "bytes[9]": 211,
+  "bytes[10]": 204,
+  "bytes[11]": 6,
+  "bytes[12]": 67,
+  "bytes[13]": 21,
+  "bytes[14]": 227,
+  "bytes[15]": 171
+ },
+ "m_ClassName": "UIChatSendPhoto",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

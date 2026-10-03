@@ -1,0 +1,25 @@
+{
+ "m_Name": "FullScreenVideoManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 37,
+  "bytes[1]": 132,
+  "bytes[2]": 63,
+  "bytes[3]": 186,
+  "bytes[4]": 204,
+  "bytes[5]": 64,
+  "bytes[6]": 103,
+  "bytes[7]": 232,
+  "bytes[8]": 132,
+  "bytes[9]": 73,
+  "bytes[10]": 17,
+  "bytes[11]": 214,
+  "bytes[12]": 44,
+  "bytes[13]": 119,
+  "bytes[14]": 204,
+  "bytes[15]": 184
+ },
+ "m_ClassName": "FullScreenVideoManager",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

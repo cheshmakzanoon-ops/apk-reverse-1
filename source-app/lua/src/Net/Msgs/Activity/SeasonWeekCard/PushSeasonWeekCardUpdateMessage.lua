@@ -1,0 +1,20 @@
+local PushSeasonWeekCardUpdateMessage = BaseClass("PushSeasonWeekCardUpdateMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.ActSeasonWeekCardData:PushCardUpdate(t)
+  end
+end
+
+PushSeasonWeekCardUpdateMessage.OnCreate = OnCreate
+PushSeasonWeekCardUpdateMessage.HandleMessage = HandleMessage
+return PushSeasonWeekCardUpdateMessage

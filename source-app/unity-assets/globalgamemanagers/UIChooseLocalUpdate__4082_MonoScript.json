@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIChooseLocalUpdate",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 230,
+  "bytes[1]": 232,
+  "bytes[2]": 192,
+  "bytes[3]": 10,
+  "bytes[4]": 235,
+  "bytes[5]": 189,
+  "bytes[6]": 188,
+  "bytes[7]": 239,
+  "bytes[8]": 107,
+  "bytes[9]": 249,
+  "bytes[10]": 116,
+  "bytes[11]": 0,
+  "bytes[12]": 66,
+  "bytes[13]": 35,
+  "bytes[14]": 121,
+  "bytes[15]": 115
+ },
+ "m_ClassName": "UIChooseLocalUpdate",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 11
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 26
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 23
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 20
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 24
+   }
+  }
+ ],
+ "m_Layer": 0,
+ "m_Name": "DebugUI Foldout",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

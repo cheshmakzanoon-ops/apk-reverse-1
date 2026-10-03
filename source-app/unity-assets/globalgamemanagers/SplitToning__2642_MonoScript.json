@@ -1,0 +1,25 @@
+{
+ "m_Name": "SplitToning",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 149,
+  "bytes[1]": 230,
+  "bytes[2]": 121,
+  "bytes[3]": 114,
+  "bytes[4]": 50,
+  "bytes[5]": 183,
+  "bytes[6]": 213,
+  "bytes[7]": 131,
+  "bytes[8]": 28,
+  "bytes[9]": 159,
+  "bytes[10]": 235,
+  "bytes[11]": 85,
+  "bytes[12]": 168,
+  "bytes[13]": 88,
+  "bytes[14]": 41,
+  "bytes[15]": 5
+ },
+ "m_ClassName": "SplitToning",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

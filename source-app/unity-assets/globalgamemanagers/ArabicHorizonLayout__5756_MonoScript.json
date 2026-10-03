@@ -1,0 +1,25 @@
+{
+ "m_Name": "ArabicHorizonLayout",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 43,
+  "bytes[1]": 10,
+  "bytes[2]": 130,
+  "bytes[3]": 71,
+  "bytes[4]": 141,
+  "bytes[5]": 246,
+  "bytes[6]": 94,
+  "bytes[7]": 28,
+  "bytes[8]": 56,
+  "bytes[9]": 10,
+  "bytes[10]": 210,
+  "bytes[11]": 151,
+  "bytes[12]": 118,
+  "bytes[13]": 93,
+  "bytes[14]": 58,
+  "bytes[15]": 52
+ },
+ "m_ClassName": "ArabicHorizonLayout",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

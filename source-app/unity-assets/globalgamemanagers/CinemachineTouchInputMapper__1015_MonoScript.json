@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineTouchInputMapper",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 30,
+  "bytes[1]": 61,
+  "bytes[2]": 98,
+  "bytes[3]": 34,
+  "bytes[4]": 255,
+  "bytes[5]": 83,
+  "bytes[6]": 61,
+  "bytes[7]": 33,
+  "bytes[8]": 58,
+  "bytes[9]": 171,
+  "bytes[10]": 20,
+  "bytes[11]": 78,
+  "bytes[12]": 184,
+  "bytes[13]": 84,
+  "bytes[14]": 165,
+  "bytes[15]": 59
+ },
+ "m_ClassName": "CinemachineTouchInputMapper",
+ "m_Namespace": "",
+ "m_AssemblyName": "Cinemachine.dll"
+}

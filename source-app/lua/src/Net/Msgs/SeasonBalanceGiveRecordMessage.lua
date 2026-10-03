@@ -1,0 +1,21 @@
+local SeasonBalanceGiveRecordMessage = BaseClass("SeasonBalanceGiveRecordMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.DesertDataManager:SetSendGiftRecords(t)
+  end
+end
+
+SeasonBalanceGiveRecordMessage.OnCreate = OnCreate
+SeasonBalanceGiveRecordMessage.HandleMessage = HandleMessage
+return SeasonBalanceGiveRecordMessage

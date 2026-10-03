@@ -1,0 +1,25 @@
+{
+ "m_Name": "UnityTileOutLine",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 120,
+  "bytes[1]": 105,
+  "bytes[2]": 80,
+  "bytes[3]": 81,
+  "bytes[4]": 229,
+  "bytes[5]": 57,
+  "bytes[6]": 127,
+  "bytes[7]": 25,
+  "bytes[8]": 202,
+  "bytes[9]": 165,
+  "bytes[10]": 81,
+  "bytes[11]": 3,
+  "bytes[12]": 225,
+  "bytes[13]": 22,
+  "bytes[14]": 141,
+  "bytes[15]": 13
+ },
+ "m_ClassName": "UnityTileOutLine",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

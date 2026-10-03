@@ -1,0 +1,25 @@
+{
+ "m_Name": "WaterWindWave",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 185,
+  "bytes[1]": 130,
+  "bytes[2]": 36,
+  "bytes[3]": 100,
+  "bytes[4]": 97,
+  "bytes[5]": 198,
+  "bytes[6]": 106,
+  "bytes[7]": 134,
+  "bytes[8]": 21,
+  "bytes[9]": 59,
+  "bytes[10]": 30,
+  "bytes[11]": 33,
+  "bytes[12]": 236,
+  "bytes[13]": 201,
+  "bytes[14]": 252,
+  "bytes[15]": 10
+ },
+ "m_ClassName": "WaterWindWave",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

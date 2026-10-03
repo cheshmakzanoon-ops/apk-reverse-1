@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineBrain",
+ "m_ExecutionOrder": 100,
+ "m_PropertiesHash": {
+  "bytes[0]": 255,
+  "bytes[1]": 219,
+  "bytes[2]": 213,
+  "bytes[3]": 128,
+  "bytes[4]": 44,
+  "bytes[5]": 36,
+  "bytes[6]": 130,
+  "bytes[7]": 160,
+  "bytes[8]": 114,
+  "bytes[9]": 168,
+  "bytes[10]": 143,
+  "bytes[11]": 66,
+  "bytes[12]": 138,
+  "bytes[13]": 211,
+  "bytes[14]": 202,
+  "bytes[15]": 157
+ },
+ "m_ClassName": "CinemachineBrain",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "FlowAniCtrl",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 30,
+  "bytes[1]": 228,
+  "bytes[2]": 68,
+  "bytes[3]": 97,
+  "bytes[4]": 102,
+  "bytes[5]": 148,
+  "bytes[6]": 182,
+  "bytes[7]": 148,
+  "bytes[8]": 147,
+  "bytes[9]": 10,
+  "bytes[10]": 233,
+  "bytes[11]": 78,
+  "bytes[12]": 165,
+  "bytes[13]": 171,
+  "bytes[14]": 17,
+  "bytes[15]": 132
+ },
+ "m_ClassName": "FlowAniCtrl",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

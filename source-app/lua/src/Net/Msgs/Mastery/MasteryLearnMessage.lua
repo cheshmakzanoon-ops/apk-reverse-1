@@ -1,0 +1,29 @@
+local MasteryLearnMessage = BaseClass("MasteryLearnMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self, learnList, page)
+  base.OnCreate(self)
+  local arr = SFSArray.New()
+  for _, v in pairs(learnList) do
+    local obj = SFSObject.New()
+    obj:PutUtfString("groupId", tostring(v.group))
+    obj:PutLong("level", v.level)
+    arr:AddSFSObject(obj)
+  end
+  self.sfsObj:PutSFSArray("learnPoints", arr)
+  self.sfsObj:PutInt("page", page)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  if t.errorCode ~= nil then
+    UIUtil.ShowTipsId(t.errorCode)
+    return
+  end
+  DataCenter.MasteryManager:HandleLearn(t)
+  EventManager:GetInstance():Broadcast(EventId.LWMasterySkillUp)
+end
+
+MasteryLearnMessage.OnCreate = OnCreate
+MasteryLearnMessage.HandleMessage = HandleMessage
+return MasteryLearnMessage

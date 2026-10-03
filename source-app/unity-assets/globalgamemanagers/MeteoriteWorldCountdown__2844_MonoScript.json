@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeteoriteWorldCountdown",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 227,
+  "bytes[1]": 186,
+  "bytes[2]": 164,
+  "bytes[3]": 233,
+  "bytes[4]": 183,
+  "bytes[5]": 231,
+  "bytes[6]": 8,
+  "bytes[7]": 239,
+  "bytes[8]": 107,
+  "bytes[9]": 102,
+  "bytes[10]": 70,
+  "bytes[11]": 88,
+  "bytes[12]": 98,
+  "bytes[13]": 46,
+  "bytes[14]": 195,
+  "bytes[15]": 115
+ },
+ "m_ClassName": "MeteoriteWorldCountdown",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

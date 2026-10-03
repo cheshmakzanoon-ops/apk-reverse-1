@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoundSwitch",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 98,
+  "bytes[1]": 150,
+  "bytes[2]": 6,
+  "bytes[3]": 163,
+  "bytes[4]": 95,
+  "bytes[5]": 101,
+  "bytes[6]": 216,
+  "bytes[7]": 13,
+  "bytes[8]": 129,
+  "bytes[9]": 219,
+  "bytes[10]": 119,
+  "bytes[11]": 133,
+  "bytes[12]": 7,
+  "bytes[13]": 91,
+  "bytes[14]": 71,
+  "bytes[15]": 98
+ },
+ "m_ClassName": "SoundSwitch",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "ListItem9",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 167,
+  "bytes[1]": 166,
+  "bytes[2]": 101,
+  "bytes[3]": 153,
+  "bytes[4]": 117,
+  "bytes[5]": 216,
+  "bytes[6]": 171,
+  "bytes[7]": 170,
+  "bytes[8]": 150,
+  "bytes[9]": 249,
+  "bytes[10]": 238,
+  "bytes[11]": 200,
+  "bytes[12]": 173,
+  "bytes[13]": 104,
+  "bytes[14]": 205,
+  "bytes[15]": 5
+ },
+ "m_ClassName": "ListItem9",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

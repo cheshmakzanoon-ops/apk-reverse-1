@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonMecanim",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 118,
+  "bytes[1]": 213,
+  "bytes[2]": 201,
+  "bytes[3]": 95,
+  "bytes[4]": 169,
+  "bytes[5]": 29,
+  "bytes[6]": 95,
+  "bytes[7]": 199,
+  "bytes[8]": 3,
+  "bytes[9]": 68,
+  "bytes[10]": 234,
+  "bytes[11]": 242,
+  "bytes[12]": 103,
+  "bytes[13]": 233,
+  "bytes[14]": 212,
+  "bytes[15]": 59
+ },
+ "m_ClassName": "SkeletonMecanim",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "RotationLimitHinge",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 28,
+  "bytes[1]": 36,
+  "bytes[2]": 121,
+  "bytes[3]": 167,
+  "bytes[4]": 212,
+  "bytes[5]": 102,
+  "bytes[6]": 110,
+  "bytes[7]": 195,
+  "bytes[8]": 163,
+  "bytes[9]": 218,
+  "bytes[10]": 12,
+  "bytes[11]": 63,
+  "bytes[12]": 154,
+  "bytes[13]": 183,
+  "bytes[14]": 247,
+  "bytes[15]": 242
+ },
+ "m_ClassName": "RotationLimitHinge",
+ "m_Namespace": "RootMotion.FinalIK",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

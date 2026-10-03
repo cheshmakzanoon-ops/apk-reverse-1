@@ -1,0 +1,43 @@
+package zendesk.p026ui.android.conversation.carousel;
+
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import zendesk.ui.android.R;
+
+@Metadata(m17d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J(\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\r\u0010\u0013\u001a\u00020\nH\u0000¢\u0006\u0002\b\u0014R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, m18d2 = {"Lzendesk/ui/android/conversation/carousel/CarouselItemDecoration;", "Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "endMargin", "", "isDefaultLayoutDirection", "", "getItemOffsets", "", "outRect", "Landroid/graphics/Rect;", "view", "Landroid/view/View;", "parent", "Landroidx/recyclerview/widget/RecyclerView;", "state", "Landroidx/recyclerview/widget/RecyclerView$State;", "setLayoutDirectionToRTL", "setLayoutDirectionToRTL$zendesk_ui_ui_android", "zendesk.ui_ui-android"}, m19k = 1, m20mv = {1, 9, 0}, m22xi = 48)
+public final class CarouselItemDecoration extends RecyclerView.ItemDecoration {
+    public static final int $stable = 8;
+    private final Context context;
+    private int endMargin;
+    private boolean isDefaultLayoutDirection;
+
+    public CarouselItemDecoration(Context context) {
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.context = context;
+        this.endMargin = context.getResources().getDimensionPixelSize(R.dimen.zuia_carousel_end_padding);
+        this.isDefaultLayoutDirection = true;
+    }
+
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        Intrinsics.checkNotNullParameter(outRect, "outRect");
+        Intrinsics.checkNotNullParameter(view, "view");
+        Intrinsics.checkNotNullParameter(parent, "parent");
+        Intrinsics.checkNotNullParameter(state, "state");
+        RecyclerView.Adapter adapter = parent.getAdapter();
+        if (adapter != null && parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1) {
+            if (this.isDefaultLayoutDirection) {
+                outRect.right = this.endMargin;
+            } else {
+                outRect.left = this.endMargin;
+            }
+        }
+    }
+
+    public final void setLayoutDirectionToRTL$zendesk_ui_ui_android() {
+        this.isDefaultLayoutDirection = false;
+    }
+}

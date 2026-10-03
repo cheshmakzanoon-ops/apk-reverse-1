@@ -1,0 +1,121 @@
+local UIAllyDuelRewardAllySubPanel = BaseClass("UIAllyDuelRewardAllySubPanel", UIAsyncContainer)
+local base = UIAsyncContainer
+local Localization = CS.GameEntry.Localization
+local UIAllyDuelAllyRewardItem = require("UI.LWUIAllyDuel.LWUIAllyDuelRewardPanel.Component.UIAllyDuelAllyRewardItem")
+local NameConf = {
+  {Name = "372162", Tips = "372642"},
+  {Name = "372640", Tips = "372643"},
+  {Name = "372641", Tips = "372644"},
+  {Name = "459037", Tips = "372642"}
+}
+local rewardItem_path = "ScrollView/Viewport/Content/UIAllyDuelAllyRewardItem"
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:DataDefine()
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  self:DataDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDefine(self)
+  self.rewardItemTbN = {}
+  for i = 1, 3 do
+    local item = self:AddComponent(UIAllyDuelAllyRewardItem, rewardItem_path .. i)
+    table.insert(self.rewardItemTbN, item)
+  end
+end
+
+local function ComponentDestroy(self)
+  self.rewardItemTbN = nil
+end
+
+local function DataDefine(self)
+  self.rewardInfo = nil
+end
+
+local function DataDestroy(self)
+  self.rewardInfo = nil
+end
+
+local function OnAddListener(self)
+  base.OnAddListener(self)
+  self:AddUIListener(EventId.OnLeagueMatchRewardInfoUpdate, self.RefreshAll)
+end
+
+local function OnRemoveListener(self)
+  base.OnRemoveListener(self)
+  self:RemoveUIListener(EventId.OnLeagueMatchRewardInfoUpdate, self.RefreshAll)
+end
+
+local function ShowPanel(self, segment)
+  self.curSegment = segment
+  self:RefreshAll()
+end
+
+local function RefreshAll(self)
+  local segment = DataCenter.LeagueMatchManager:CheckIsOpenForReward() and self.curSegment or 0
+  self.rewardInfo = DataCenter.LeagueMatchManager:GetRewardInfo(2, segment)
+  if not self.rewardInfo then
+    return
+  else
+    self:RefreshDayReward(self.rewardInfo.dailyWinReward, self.rewardInfo.requireDailyPoint)
+    self:RefreshWeekWinReward(self.rewardInfo.weekWinReward, self.rewardInfo.requireWeekPoint)
+    self:RefreshWeekFailReward(self.rewardInfo.weekFailReward, self.rewardInfo.requireWeekPoint)
+  end
+end
+
+local function RefreshDayReward(self, rewardInfo, numParam)
+  self.rewardItemTbN[1]:SetBgImg("Assets/Main/Sprites/UI/UIActivity/lyp_huodong_zqzhg_paihangbang_jiangli_1.png")
+  if rewardInfo then
+    self.rewardItemTbN[1]:SetActive(true)
+    local nameConf
+    if DataCenter.LeagueMatchManager:CheckIsOpenForReward() then
+      nameConf = NameConf[4]
+    else
+      nameConf = NameConf[1]
+    end
+    self.rewardItemTbN[1]:SetItem(rewardInfo, nameConf, numParam)
+  else
+    self.rewardItemTbN[1]:SetActive(false)
+  end
+end
+
+local function RefreshWeekWinReward(self, rewardInfo, numParam)
+  self.rewardItemTbN[2]:SetBgImg("Assets/Main/Sprites/UI/UIActivity/lyp_huodong_zqzhg_paihangbang_jiangli_1.png")
+  if rewardInfo then
+    self.rewardItemTbN[2]:SetActive(true)
+    self.rewardItemTbN[2]:SetItem(rewardInfo, NameConf[2], numParam)
+  else
+    self.rewardItemTbN[2]:SetActive(false)
+  end
+end
+
+local function RefreshWeekFailReward(self, rewardInfo, numParam)
+  self.rewardItemTbN[3]:SetBgImg("Assets/Main/Sprites/UI/UIActivity/lyp_huodong_zqzhg_paihangbang_jiangli_2.png")
+  if rewardInfo then
+    self.rewardItemTbN[3]:SetActive(true)
+    self.rewardItemTbN[3]:SetItem(rewardInfo, NameConf[3], numParam)
+  else
+    self.rewardItemTbN[3]:SetActive(false)
+  end
+end
+
+UIAllyDuelRewardAllySubPanel.OnCreate = OnCreate
+UIAllyDuelRewardAllySubPanel.OnDestroy = OnDestroy
+UIAllyDuelRewardAllySubPanel.ComponentDefine = ComponentDefine
+UIAllyDuelRewardAllySubPanel.ComponentDestroy = ComponentDestroy
+UIAllyDuelRewardAllySubPanel.DataDefine = DataDefine
+UIAllyDuelRewardAllySubPanel.DataDestroy = DataDestroy
+UIAllyDuelRewardAllySubPanel.OnAddListener = OnAddListener
+UIAllyDuelRewardAllySubPanel.OnRemoveListener = OnRemoveListener
+UIAllyDuelRewardAllySubPanel.ShowPanel = ShowPanel
+UIAllyDuelRewardAllySubPanel.RefreshAll = RefreshAll
+UIAllyDuelRewardAllySubPanel.RefreshDayReward = RefreshDayReward
+UIAllyDuelRewardAllySubPanel.RefreshWeekWinReward = RefreshWeekWinReward
+UIAllyDuelRewardAllySubPanel.RefreshWeekFailReward = RefreshWeekFailReward
+return UIAllyDuelRewardAllySubPanel

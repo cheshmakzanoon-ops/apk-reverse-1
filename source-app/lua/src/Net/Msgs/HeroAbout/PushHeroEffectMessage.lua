@@ -1,0 +1,19 @@
+local PushHeroEffectMessage = BaseClass("PushHeroEffectMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  local heroUuid = message.heroUuid
+  local heroData = DataCenter.HeroDataManager:GetHeroByUuid(heroUuid)
+  if heroData ~= nil then
+    heroData:HandleEffect(message.effect)
+  end
+end
+
+PushHeroEffectMessage.OnCreate = OnCreate
+PushHeroEffectMessage.HandleMessage = HandleMessage
+return PushHeroEffectMessage

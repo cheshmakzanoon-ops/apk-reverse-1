@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldAssistanceHeroAsync",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 172,
+  "bytes[1]": 74,
+  "bytes[2]": 161,
+  "bytes[3]": 160,
+  "bytes[4]": 215,
+  "bytes[5]": 231,
+  "bytes[6]": 43,
+  "bytes[7]": 48,
+  "bytes[8]": 74,
+  "bytes[9]": 41,
+  "bytes[10]": 184,
+  "bytes[11]": 95,
+  "bytes[12]": 140,
+  "bytes[13]": 84,
+  "bytes[14]": 72,
+  "bytes[15]": 62
+ },
+ "m_ClassName": "WorldAssistanceHeroAsync",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

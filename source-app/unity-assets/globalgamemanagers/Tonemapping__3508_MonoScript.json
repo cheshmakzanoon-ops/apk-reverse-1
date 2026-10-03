@@ -1,0 +1,25 @@
+{
+ "m_Name": "Tonemapping",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 67,
+  "bytes[1]": 129,
+  "bytes[2]": 244,
+  "bytes[3]": 139,
+  "bytes[4]": 209,
+  "bytes[5]": 215,
+  "bytes[6]": 231,
+  "bytes[7]": 12,
+  "bytes[8]": 175,
+  "bytes[9]": 156,
+  "bytes[10]": 248,
+  "bytes[11]": 91,
+  "bytes[12]": 146,
+  "bytes[13]": 181,
+  "bytes[14]": 214,
+  "bytes[15]": 117
+ },
+ "m_ClassName": "Tonemapping",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

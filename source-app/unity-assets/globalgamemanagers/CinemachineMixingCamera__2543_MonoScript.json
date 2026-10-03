@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineMixingCamera",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 182,
+  "bytes[1]": 57,
+  "bytes[2]": 217,
+  "bytes[3]": 124,
+  "bytes[4]": 183,
+  "bytes[5]": 128,
+  "bytes[6]": 208,
+  "bytes[7]": 217,
+  "bytes[8]": 154,
+  "bytes[9]": 43,
+  "bytes[10]": 251,
+  "bytes[11]": 58,
+  "bytes[12]": 209,
+  "bytes[13]": 147,
+  "bytes[14]": 87,
+  "bytes[15]": 50
+ },
+ "m_ClassName": "CinemachineMixingCamera",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

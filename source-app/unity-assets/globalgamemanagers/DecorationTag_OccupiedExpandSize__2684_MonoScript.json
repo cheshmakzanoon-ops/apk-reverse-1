@@ -1,0 +1,25 @@
+{
+ "m_Name": "DecorationTag_OccupiedExpandSize",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 48,
+  "bytes[1]": 28,
+  "bytes[2]": 1,
+  "bytes[3]": 131,
+  "bytes[4]": 233,
+  "bytes[5]": 111,
+  "bytes[6]": 168,
+  "bytes[7]": 42,
+  "bytes[8]": 41,
+  "bytes[9]": 253,
+  "bytes[10]": 233,
+  "bytes[11]": 226,
+  "bytes[12]": 9,
+  "bytes[13]": 255,
+  "bytes[14]": 15,
+  "bytes[15]": 38
+ },
+ "m_ClassName": "DecorationTag_OccupiedExpandSize",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

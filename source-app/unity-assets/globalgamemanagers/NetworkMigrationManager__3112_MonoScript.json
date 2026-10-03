@@ -1,0 +1,25 @@
+{
+ "m_Name": "NetworkMigrationManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 49,
+  "bytes[1]": 140,
+  "bytes[2]": 108,
+  "bytes[3]": 19,
+  "bytes[4]": 161,
+  "bytes[5]": 156,
+  "bytes[6]": 159,
+  "bytes[7]": 172,
+  "bytes[8]": 152,
+  "bytes[9]": 19,
+  "bytes[10]": 90,
+  "bytes[11]": 225,
+  "bytes[12]": 72,
+  "bytes[13]": 137,
+  "bytes[14]": 222,
+  "bytes[15]": 27
+ },
+ "m_ClassName": "NetworkMigrationManager",
+ "m_Namespace": "UnityEngine.Networking",
+ "m_AssemblyName": "com.unity.multiplayer-hlapi.Runtime.dll"
+}

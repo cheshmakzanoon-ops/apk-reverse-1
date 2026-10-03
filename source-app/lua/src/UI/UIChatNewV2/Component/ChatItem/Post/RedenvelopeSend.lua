@@ -1,0 +1,224 @@
+local IChatItemPost = require("UI.UIChatNewV2.Component.ChatItem.IChatItemPost")
+local ChatItemPost_RedenvelopeSend = BaseClass("RedenvelopeSend", IChatItemPost)
+local base = IChatItemPost
+local Localization = CS.GameEntry.Localization
+local ChatViewController = require("UI.UIChatNew.Controller.ChatViewUtils")
+local _txt_redcontent_path = "GameObject/Txt_RedContent"
+local _img_isGet_path = "GameObject/Img_IsGet"
+local _img_isGetBg_path = "GameObject/Img_IsGetBg"
+local _cp_shareNode = ""
+local up_btn_path = "GameObject/clickObj/good"
+local down_btn_path = "GameObject/clickObj/bad"
+local up_img_path = "GameObject/clickObj/good/goodIcon"
+local up_num_path = "GameObject/clickObj/good/goodNum"
+local down_img_path = "GameObject/clickObj/bad/badIcon"
+local down_num_path = "GameObject/clickObj/bad/badNum"
+
+function ChatItemPost_RedenvelopeSend:OnCreate()
+  base.OnCreate(self)
+  self:ComponentDefine()
+end
+
+function ChatItemPost_RedenvelopeSend:ComponentDefine()
+  self._shareNode = self:AddComponent(UIButton, _cp_shareNode)
+  self._shareNode:SetOnClick(BindCallback(self, self.OnClickBg))
+  self._redContent_txt = self:AddComponent(UIText, _txt_redcontent_path)
+  self._isGey_img = self:AddComponent(UIImage, _img_isGet_path)
+  self._isGeyBg_img = self:AddComponent(UIImage, _img_isGetBg_path)
+  self.upNode = self:AddComponent(UIButton, up_btn_path)
+  self.upNode:SetOnClick(BindCallback(self, self.OnUp))
+  self.downNode = self:AddComponent(UIButton, down_btn_path)
+  self.downNode:SetOnClick(BindCallback(self, self.OnDown))
+  self.up_anim = self:AddComponent(UIAnimator, up_img_path)
+  self.down_anim = self:AddComponent(UIAnimator, down_img_path)
+  self.up_num = self:AddComponent(UIText, up_num_path)
+  self.down_num = self:AddComponent(UIText, down_num_path)
+end
+
+function ChatItemPost_RedenvelopeSend:OnClickBg()
+  local redData = DataCenter.AllianceRedPacketManager:GetRedPacketByUUid(self.chatdata.extra.redPackets)
+  if redData and redData.status and (redData.status == RedPacketState.ALREADY_GET or redData.status == RedPacketState.COST_ALL) then
+    local param = {}
+    param.serverId = self.chatdata.extra.server
+    param.redPacketId = self.chatdata.extra.redPackets
+    param.isViewOnly = true
+    SFSNetwork.SendMessage(MsgDefines.GetRedPack, param)
+    return
+  end
+  local _roomId = self._chatData.roomId
+  local msgTable = {
+    roomId = _roomId,
+    msgSeq = self.seqId,
+    interactLike = 1
+  }
+  if string.IsNullOrEmpty(_roomId) or ChatViewController:GetInstance():IsTmpPrivateChat(_roomId) or _roomId == ChatGMRoomId then
+    local tui = ChatViewController:GetInstance():GetPrivateUserInfo()
+    if tui == nil then
+      return
+    end
+    msgTable.toUid = tui.uid
+  end
+  DataCenter.AllianceRedPacketManager:SetRedRoomInfo(msgTable)
+  local _userInfo = ChatManager2:GetInstance().User:getChatUserInfo(self.chatdata.senderUid, true)
+  local param = {}
+  param.serverId = self.chatdata.extra.server
+  param.redPacketId = self.chatdata.extra.redPackets
+  param.reasonId = self.chatdata.extra.reasonId
+  local sfsObj = SFSObject.New()
+  sfsObj:PutInt("reasonId", self.chatdata.extra.reasonId)
+  sfsObj:PutInt("resType", self.chatdata.extra.resType)
+  sfsObj:PutUtfString("userName", _userInfo.userName)
+  sfsObj:PutUtfString("uid", _userInfo.uid)
+  sfsObj:PutUtfString("headPic", _userInfo.headPic)
+  sfsObj:PutInt("headPicVer", _userInfo.headPicVer)
+  sfsObj:PutInt("mCardET", _userInfo.monthCardEndTime)
+  param.extra = sfsObj
+  SFSNetwork.SendMessage(MsgDefines.RedPacketStatus, param)
+end
+
+function ChatItemPost_RedenvelopeSend:OnLoaded()
+  local chatdata = self:ChatData()
+  if chatdata == nil then
+    return
+  end
+  local attachmentId = chatdata.attachmentId or ""
+  self.seqId = chatdata:getSeqId()
+  self.upNum = chatdata:getLikeNum()
+  self.downNum = chatdata:getDisLikeNum()
+  self.chatdata = chatdata
+  local redData = DataCenter.AllianceRedPacketManager:GetRedPacketByUUid(chatdata.extra.redPackets)
+  if redData and redData.status then
+    local costAllisMy = false
+    if redData.status == RedPacketState.COST_ALL then
+      for i = 1, #redData.record do
+        if redData.record[i].uid == LuaEntry.Player.uid then
+          costAllisMy = true
+        end
+      end
+    end
+    self._isGeyBg_img:SetActive(redData.status == RedPacketState.ALREADY_GET or costAllisMy)
+    self._isGey_img:SetActive(redData.status == RedPacketState.ALREADY_GET or costAllisMy)
+  elseif not redData then
+    self._isGeyBg_img:SetActive(false)
+    self._isGey_img:SetActive(false)
+  end
+  if self.upNum ~= nil and self.upNum > 0 then
+    self.up_num:SetText(string.GetFormattedSeperatorNum(self.upNum))
+  else
+    self.up_num:SetText("0")
+  end
+  if self.downNum ~= nil and self.downNum > 0 then
+    self.down_num:SetText(string.GetFormattedSeperatorNum(self.downNum))
+  else
+    self.down_num:SetText("0")
+  end
+  self:RefreshButton()
+  local senderUid = chatdata.senderUid
+  local _userInfo = ChatManager2:GetInstance().User:getChatUserInfo(senderUid, true)
+  if self._chatNameLayout then
+    self._chatNameLayout:UpdateName(_userInfo, chatdata)
+  end
+  if chatdata.extra.reasonId then
+    local buildId = GetTableData(TableName.SysRedPacket, chatdata.extra.reasonId, "building")
+    local buildTemplate = DataCenter.BuildTemplateManager:GetBuildingDesTemplate(buildId)
+    local lvConfig = GetTableData(TableName.SysRedPacket, chatdata.extra.reasonId, "level")
+    if buildTemplate then
+      self._redContent_txt:SetText(Localization:GetString("390895", _userInfo.userName, Localization:GetString(buildTemplate.name), lvConfig))
+    else
+      Logger.LogError(buildId .. "  buildId not find config")
+    end
+  end
+  self:UpdateTopOffset()
+end
+
+function ChatItemPost_RedenvelopeSend:GetTopOffset()
+  if self._chatNameLayout then
+    return self._chatNameLayout:GetTopOffset()
+  else
+    return 0
+  end
+end
+
+function ChatItemPost_RedenvelopeSend:UpdateTopOffset()
+  local initOffset = 40
+  local initSizeY = 230
+  local topOffset = self:GetTopOffset()
+  local sizeX, _ = self.rectTransform:Get_sizeDelta()
+  self.rectTransform:Set_sizeDelta(sizeX, initSizeY + topOffset)
+  self:SetTransPosY(self._shareNode.rectTransform, -(initOffset + topOffset))
+end
+
+function ChatItemPost_RedenvelopeSend:RefreshButton()
+  local anim = ChatManager2:GetInstance():GetGiveLikeAnim(self.seqId)
+  if 0 < anim then
+    if anim == 1 then
+      local ret, time = self.up_anim:PlayAnimationReturnTime("V_ui_dianzan_anim")
+      ChatManager2:GetInstance():SetGiveLikeAnim(self.seqId, 0)
+    elseif anim == 2 then
+      local ret, time = self.down_anim:PlayAnimationReturnTime("V_ui_diancai_anim")
+      ChatManager2:GetInstance():SetGiveLikeAnim(self.seqId, 0)
+    end
+  else
+    self.up_anim:Play("V_ui_dianzan_finish", 0, 0)
+    self.down_anim:Play("V_ui_diancai_finish", 0, 0)
+  end
+end
+
+function ChatItemPost_RedenvelopeSend:OnDown()
+  local deltaTime = ChatManager2:GetInstance():GetGiveLikeMsgTime(self.seqId)
+  local k1 = LuaEntry.DataConfig:TryGetNum("thumbs_up", "k1")
+  local realLeftTime = deltaTime + k1
+  if 0 < realLeftTime then
+    local delta = UITimeManager:GetInstance():MilliSecondToFmtString(realLeftTime * 1000)
+    UIUtil.ShowTips(Localization:GetString("121068", delta))
+    return
+  end
+  local _roomId = self._chatData.roomId
+  local msgTable = {
+    roomId = _roomId,
+    msgSeq = self.seqId,
+    interactDislike = 1
+  }
+  if string.IsNullOrEmpty(_roomId) or ChatViewController:GetInstance():IsTmpPrivateChat(_roomId) or _roomId == ChatGMRoomId then
+    local tui = ChatViewController:GetInstance():GetPrivateUserInfo()
+    if tui == nil then
+      return
+    end
+    msgTable.toUid = tui.uid
+  end
+  ChatManager2:GetInstance():SetGiveLikeMsgTime(self.seqId)
+  ChatManager2:GetInstance():SetGiveLikeAnim(self.seqId, 2)
+  EventManager:GetInstance():Broadcast(ChatEventEnum.CHAT_SEND_ROOM_MSG_UP_COMMAND, msgTable)
+end
+
+function ChatItemPost_RedenvelopeSend:OnUp()
+  local deltaTime = ChatManager2:GetInstance():GetGiveLikeMsgTime(self.seqId)
+  local k1 = LuaEntry.DataConfig:TryGetNum("thumbs_up", "k1")
+  local realLeftTime = deltaTime + k1
+  if 0 < realLeftTime then
+    local delta = UITimeManager:GetInstance():MilliSecondToFmtString(realLeftTime * 1000)
+    UIUtil.ShowTips(Localization:GetString("121068", delta))
+    return
+  end
+  local _roomId = self._chatData.roomId
+  local msgTable = {
+    roomId = _roomId,
+    msgSeq = self.seqId,
+    interactLike = 1
+  }
+  if string.IsNullOrEmpty(_roomId) or ChatViewController:GetInstance():IsTmpPrivateChat(_roomId) or _roomId == ChatGMRoomId then
+    local tui = ChatViewController:GetInstance():GetPrivateUserInfo()
+    if tui == nil then
+      return
+    end
+    msgTable.toUid = tui.uid
+  end
+  ChatManager2:GetInstance():SetGiveLikeMsgTime(self.seqId)
+  ChatManager2:GetInstance():SetGiveLikeAnim(self.seqId, 1)
+  EventManager:GetInstance():Broadcast(ChatEventEnum.CHAT_SEND_ROOM_MSG_UP_COMMAND, msgTable)
+end
+
+function ChatItemPost_RedenvelopeSend:OnRecycle()
+end
+
+return ChatItemPost_RedenvelopeSend

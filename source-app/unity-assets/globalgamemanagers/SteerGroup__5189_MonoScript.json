@@ -1,0 +1,25 @@
+{
+ "m_Name": "SteerGroup",
+ "m_ExecutionOrder": -40,
+ "m_PropertiesHash": {
+  "bytes[0]": 145,
+  "bytes[1]": 13,
+  "bytes[2]": 70,
+  "bytes[3]": 157,
+  "bytes[4]": 148,
+  "bytes[5]": 51,
+  "bytes[6]": 40,
+  "bytes[7]": 241,
+  "bytes[8]": 173,
+  "bytes[9]": 86,
+  "bytes[10]": 149,
+  "bytes[11]": 89,
+  "bytes[12]": 250,
+  "bytes[13]": 2,
+  "bytes[14]": 64,
+  "bytes[15]": 240
+ },
+ "m_ClassName": "SteerGroup",
+ "m_Namespace": "LW.CountBattle",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "FurRenderFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 195,
+  "bytes[1]": 165,
+  "bytes[2]": 94,
+  "bytes[3]": 205,
+  "bytes[4]": 93,
+  "bytes[5]": 183,
+  "bytes[6]": 83,
+  "bytes[7]": 59,
+  "bytes[8]": 72,
+  "bytes[9]": 97,
+  "bytes[10]": 108,
+  "bytes[11]": 80,
+  "bytes[12]": 170,
+  "bytes[13]": 39,
+  "bytes[14]": 231,
+  "bytes[15]": 161
+ },
+ "m_ClassName": "FurRenderFeature",
+ "m_Namespace": "",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

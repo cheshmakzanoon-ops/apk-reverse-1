@@ -1,0 +1,25 @@
+{
+ "m_Name": "FontLineSpacingController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 77,
+  "bytes[1]": 235,
+  "bytes[2]": 26,
+  "bytes[3]": 12,
+  "bytes[4]": 34,
+  "bytes[5]": 89,
+  "bytes[6]": 182,
+  "bytes[7]": 166,
+  "bytes[8]": 78,
+  "bytes[9]": 9,
+  "bytes[10]": 243,
+  "bytes[11]": 235,
+  "bytes[12]": 8,
+  "bytes[13]": 176,
+  "bytes[14]": 121,
+  "bytes[15]": 173
+ },
+ "m_ClassName": "FontLineSpacingController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,169 @@
+local GuardianTowerSkillTarget = BaseClass("GuardianTowerSkillTarget")
+local Localization = CS.GameEntry.Localization
+local SuperTextMesh = typeof(CS.SuperTextMesh)
+local mark_path = "mark"
+local fanwei_line_path = "ModelGo/range/fanwei/root/line"
+local alliance_mark_path = "mark/mark/UIAlliance_mark_sanjiao"
+
+function GuardianTowerSkillTarget:OnCreate(go)
+  if go ~= nil then
+    self.gameObject = go
+    self.transform = go.transform
+  end
+  self.sequence = nil
+end
+
+function GuardianTowerSkillTarget:OnDestroy()
+  self:DestroyObject()
+end
+
+function GuardianTowerSkillTarget:DestroyObject()
+  if not IsNull(self.sequence) then
+    self.sequence:Pause()
+    self.sequence:Kill()
+    self.sequence = nil
+  end
+  if not IsNull(self.gameObject) then
+    self.gameObject:SetActive(false)
+  end
+  if self.request then
+    self.request:Destroy()
+    self.request = nil
+  end
+end
+
+function GuardianTowerSkillTarget:ReInit(uuid, data)
+  self.uuid = uuid
+  self.data = data
+  self.serverId = data.serverId
+  self.pointId = data.pointId
+  self.buildType = AllianceBuildType.None
+  self.tilePos = SceneUtils.IndexToTilePos(data.pointId, ForceChangeScene.World)
+  self.pointId1 = SceneUtils.TileXYToIndex(self.tilePos.x - data.radius, self.tilePos.y - data.radius, ForceChangeScene.World)
+  self.pointId2 = SceneUtils.TileXYToIndex(self.tilePos.x + data.radius, self.tilePos.y - data.radius, ForceChangeScene.World)
+  self.pointId3 = SceneUtils.TileXYToIndex(self.tilePos.x - data.radius, self.tilePos.y + data.radius, ForceChangeScene.World)
+  self.pointId4 = SceneUtils.TileXYToIndex(self.tilePos.x + data.radius, self.tilePos.y + data.radius, ForceChangeScene.World)
+  if self.gameObject then
+    self.mark = self.gameObject.transform:Find(mark_path)
+    if self.mark then
+      self.mark.gameObject:SetActive(false)
+      self.txt_tip = Localization:GetString("season_s3_government_skill_tips11")
+      self.CityLabel = self.gameObject.transform:Find("ModelGo/CityLabel")
+      if self.CityLabel then
+        self.NameLabel = self.gameObject.transform:Find("ModelGo/CityLabel/NameLabel")
+        if self.NameLabel ~= nil then
+          self.NameText = self.NameLabel.transform:Find("NameText"):GetComponent(SuperTextMesh)
+        end
+      end
+      self.fanwei_line = self.gameObject.transform:Find(fanwei_line_path)
+      self.markImage = self.gameObject.transform:Find(alliance_mark_path):GetComponent(typeof(CS.UnityEngine.MeshRenderer))
+      self.NameText.text = ""
+      self.markImage.sortingOrder = 168
+      if data.radius == 17 then
+        self.fanwei_line.gameObject.transform:Set_localScale(12.3, 12.3, 1)
+      else
+        local cell_count = 2 * data.radius + 1
+        local effect_scale = cell_count / 3
+        self.fanwei_line.gameObject.transform:Set_localScale(effect_scale, effect_scale, 1)
+      end
+    end
+  end
+  local now = UITimeManager:GetInstance():GetServerTime()
+  local OverTime = toInt(data.overTime)
+  if 100 <= OverTime - now then
+    local mgrSkill = DataCenter.AllianceGovernmentSkillManager
+    local SkillId = toInt(data.id)
+    local NextStartTime = toInt(data.activeTime)
+    local OnceTime = 10000
+    local skill_cfg = mgrSkill:GetTemplatesById(SkillId)
+    if skill_cfg ~= nil and skill_cfg.skill_flag == AlOfficialSkillType.GuardianTower then
+      OnceTime = math.max(toInt(skill_cfg.skill_para8) * 1000, 5000)
+      repeat
+        NextStartTime = NextStartTime + OnceTime
+      until now < NextStartTime
+    end
+    self.onceTime = OnceTime
+    self.firstActiveTime = toInt(data.activeTime)
+    self.nextActiveTime = NextStartTime
+  end
+  local theWorld = CS.SceneManager.World
+  if theWorld ~= nil then
+    self:Update(theWorld)
+  end
+end
+
+function GuardianTowerSkillTarget:Update(theWorld)
+  if self.request == nil or theWorld == nil or theWorld.IsOutOfLWAoi == nil then
+    self:DestroyObject()
+    return
+  end
+  if theWorld ~= nil and self.data ~= nil and self.uuid ~= nil and self.tilePos ~= nil and self.data.radius then
+    local tilePos = SceneUtils.WorldToTile(theWorld.CurTarget)
+    if (math.abs(tilePos.x - self.tilePos.x) > self.data.radius or math.abs(tilePos.y - self.tilePos.y) > self.data.radius) and theWorld:IsOutOfLWAoi(self.pointId1, self.serverId) and theWorld:IsOutOfLWAoi(self.pointId2, self.serverId) and theWorld:IsOutOfLWAoi(self.pointId3, self.serverId) and theWorld:IsOutOfLWAoi(self.pointId4, self.serverId) then
+      self:DestroyObject()
+      DataCenter.AllianceSkillManager:RemoveOneWarEffect(self.uuid)
+      return
+    end
+  end
+  if self.data == nil or self.uuid == nil then
+    if self.NameText then
+      self.NameText.text = ""
+    end
+    self:DestroyObject()
+    return
+  end
+  local now = UITimeManager:GetInstance():GetServerTime()
+  if self.uuid and self.data and now >= self.data.overTime then
+    self:DestroyObject()
+    DataCenter.AllianceSkillManager:RemoveOneWarEffect(self.uuid)
+    return
+  end
+  if self.NameText and self.txt_tip and not IsNull(self.NameLabel) then
+    local remainTime = self.data.activeTime - now
+    if remainTime < 0 then
+      self.NameText.text = ""
+    else
+      self.NameText.text = UITimeManager:GetInstance():MilliSecondToFmtString(remainTime)
+    end
+  end
+  if self.nextActiveTime and math.abs(now - self.nextActiveTime) <= 1500 then
+    local effectPath = "Assets/Main/SeasonRes/Shared/Prefabs/Effect/VX/Eff_S4_guanjia_Cast_Small.prefab"
+    self.nextActiveTime = self.nextActiveTime + self.onceTime
+    if self.buildType == AllianceBuildType.None then
+      local info = CS.SceneManager.World:GetPointInfo(self.pointId)
+      if info ~= nil and info.isMainPoint and info.buildId then
+        local buildId = info.buildId
+        local buildType = 0
+        local template = DataCenter.AllianceMineManager:GetAllianceMineTemplate(buildId)
+        if template ~= nil then
+          buildType = toInt(template.type)
+        end
+        self.buildType = buildType
+      end
+    end
+    if self.buildType == AllianceBuildType.MilitaryCenterS4 then
+      effectPath = "Assets/Main/SeasonRes/Shared/Prefabs/Effect/VX/Eff_S4_guanjia_Cast_Big.prefab"
+    end
+    local serverId = LuaEntry.Player:GetCurServerId()
+    serverId = self.data and self.data.serverId or serverId
+    theWorld:CreateBattleVFX(effectPath, 5, function(go)
+      local _world = CS.SceneManager.World
+      if _world ~= nil and go ~= nil and self.tilePos then
+        go.transform.position = SceneUtils.TileToWorld(self.tilePos, ForceChangeScene.World, serverId)
+      end
+    end)
+  end
+end
+
+function GuardianTowerSkillTarget:OnLodChange(lod)
+  if self.NameText and not IsNull(self.NameLabel) then
+    if 4 < lod then
+      self.NameLabel.transform:Set_localScale(0, 0, 0)
+    else
+      self.NameLabel.transform:Set_localScale(0.5, 0.5, 0.5)
+    end
+  end
+  self.theLod = toInt(lod)
+end
+
+return GuardianTowerSkillTarget

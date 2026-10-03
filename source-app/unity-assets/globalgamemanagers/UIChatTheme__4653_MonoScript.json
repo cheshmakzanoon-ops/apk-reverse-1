@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIChatTheme",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 44,
+  "bytes[1]": 136,
+  "bytes[2]": 202,
+  "bytes[3]": 21,
+  "bytes[4]": 243,
+  "bytes[5]": 154,
+  "bytes[6]": 91,
+  "bytes[7]": 61,
+  "bytes[8]": 161,
+  "bytes[9]": 25,
+  "bytes[10]": 31,
+  "bytes[11]": 31,
+  "bytes[12]": 109,
+  "bytes[13]": 18,
+  "bytes[14]": 125,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "UIChatTheme",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

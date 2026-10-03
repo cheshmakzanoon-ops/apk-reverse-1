@@ -1,0 +1,25 @@
+{
+ "m_Name": "RadarImage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 99,
+  "bytes[1]": 10,
+  "bytes[2]": 215,
+  "bytes[3]": 112,
+  "bytes[4]": 177,
+  "bytes[5]": 21,
+  "bytes[6]": 109,
+  "bytes[7]": 146,
+  "bytes[8]": 247,
+  "bytes[9]": 210,
+  "bytes[10]": 61,
+  "bytes[11]": 102,
+  "bytes[12]": 229,
+  "bytes[13]": 166,
+  "bytes[14]": 50,
+  "bytes[15]": 133
+ },
+ "m_ClassName": "RadarImage",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

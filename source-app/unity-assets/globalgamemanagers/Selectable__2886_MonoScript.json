@@ -1,0 +1,25 @@
+{
+ "m_Name": "Selectable",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 141,
+  "bytes[1]": 201,
+  "bytes[2]": 14,
+  "bytes[3]": 100,
+  "bytes[4]": 138,
+  "bytes[5]": 192,
+  "bytes[6]": 111,
+  "bytes[7]": 67,
+  "bytes[8]": 189,
+  "bytes[9]": 211,
+  "bytes[10]": 26,
+  "bytes[11]": 201,
+  "bytes[12]": 250,
+  "bytes[13]": 143,
+  "bytes[14]": 69,
+  "bytes[15]": 121
+ },
+ "m_ClassName": "Selectable",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

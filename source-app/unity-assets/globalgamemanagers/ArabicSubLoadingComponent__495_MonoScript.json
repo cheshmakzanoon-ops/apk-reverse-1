@@ -1,0 +1,25 @@
+{
+ "m_Name": "ArabicSubLoadingComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 207,
+  "bytes[1]": 110,
+  "bytes[2]": 26,
+  "bytes[3]": 142,
+  "bytes[4]": 232,
+  "bytes[5]": 94,
+  "bytes[6]": 5,
+  "bytes[7]": 233,
+  "bytes[8]": 190,
+  "bytes[9]": 83,
+  "bytes[10]": 207,
+  "bytes[11]": 37,
+  "bytes[12]": 134,
+  "bytes[13]": 13,
+  "bytes[14]": 32,
+  "bytes[15]": 75
+ },
+ "m_ClassName": "ArabicSubLoadingComponent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

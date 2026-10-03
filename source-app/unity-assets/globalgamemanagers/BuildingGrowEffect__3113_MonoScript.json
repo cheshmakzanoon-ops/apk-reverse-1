@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildingGrowEffect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 98,
+  "bytes[1]": 207,
+  "bytes[2]": 253,
+  "bytes[3]": 158,
+  "bytes[4]": 213,
+  "bytes[5]": 85,
+  "bytes[6]": 128,
+  "bytes[7]": 62,
+  "bytes[8]": 30,
+  "bytes[9]": 27,
+  "bytes[10]": 240,
+  "bytes[11]": 99,
+  "bytes[12]": 11,
+  "bytes[13]": 82,
+  "bytes[14]": 138,
+  "bytes[15]": 31
+ },
+ "m_ClassName": "BuildingGrowEffect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

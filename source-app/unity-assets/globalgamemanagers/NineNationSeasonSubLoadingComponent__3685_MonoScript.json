@@ -1,0 +1,25 @@
+{
+ "m_Name": "NineNationSeasonSubLoadingComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 179,
+  "bytes[1]": 105,
+  "bytes[2]": 207,
+  "bytes[3]": 60,
+  "bytes[4]": 90,
+  "bytes[5]": 114,
+  "bytes[6]": 28,
+  "bytes[7]": 163,
+  "bytes[8]": 137,
+  "bytes[9]": 150,
+  "bytes[10]": 199,
+  "bytes[11]": 132,
+  "bytes[12]": 120,
+  "bytes[13]": 152,
+  "bytes[14]": 81,
+  "bytes[15]": 53
+ },
+ "m_ClassName": "NineNationSeasonSubLoadingComponent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

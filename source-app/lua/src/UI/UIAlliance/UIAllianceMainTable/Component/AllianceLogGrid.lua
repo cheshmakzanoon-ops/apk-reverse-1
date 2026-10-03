@@ -1,0 +1,37 @@
+local AllianceLogGrid = BaseClass("AllianceLogGrid", UIBaseContainer)
+local base = UIBaseContainer
+local txt_titleTime_path = "Rect_Title/Txt_TitleTime"
+local content_path = ""
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self.grids = {}
+  self.model = {}
+  self._titleTime_txt = self:AddComponent(UIText, txt_titleTime_path)
+  self.content = self:AddComponent(UIBaseContainer, content_path)
+end
+
+local function OnEnable(self)
+  base.OnEnable(self)
+end
+
+local function OnDisable(self)
+  base.OnDisable(self)
+end
+
+local function OnDestroy(self)
+  self.grids = nil
+  base.OnDestroy(self)
+end
+
+local function ReInit(self, data)
+  self.data = data
+  self._titleTime_txt:SetText(UITimeManager:GetInstance():TimeStampToTimeForLocal(data))
+end
+
+AllianceLogGrid.OnCreate = OnCreate
+AllianceLogGrid.OnDestroy = OnDestroy
+AllianceLogGrid.OnEnable = OnEnable
+AllianceLogGrid.OnDisable = OnDisable
+AllianceLogGrid.ReInit = ReInit
+return AllianceLogGrid

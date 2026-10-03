@@ -1,0 +1,25 @@
+{
+ "m_Name": "Vector2Field",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 214,
+  "bytes[1]": 147,
+  "bytes[2]": 183,
+  "bytes[3]": 82,
+  "bytes[4]": 162,
+  "bytes[5]": 80,
+  "bytes[6]": 44,
+  "bytes[7]": 26,
+  "bytes[8]": 125,
+  "bytes[9]": 146,
+  "bytes[10]": 52,
+  "bytes[11]": 103,
+  "bytes[12]": 120,
+  "bytes[13]": 38,
+  "bytes[14]": 72,
+  "bytes[15]": 36
+ },
+ "m_ClassName": "Vector2Field",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

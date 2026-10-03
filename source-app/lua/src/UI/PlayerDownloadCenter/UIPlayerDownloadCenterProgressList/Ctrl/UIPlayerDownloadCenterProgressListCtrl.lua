@@ -1,0 +1,7 @@
+local UIPlayerDownloadCenterProgressListCtrl = BaseClass("UIPlayerDownloadCenterProgressListCtrl", UIBaseCtrl)
+
+function UIPlayerDownloadCenterProgressListCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIPlayerDownloadCenterProgressList)
+end
+
+return UIPlayerDownloadCenterProgressListCtrl

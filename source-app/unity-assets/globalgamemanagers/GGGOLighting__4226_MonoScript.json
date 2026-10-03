@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGOLighting",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 36,
+  "bytes[1]": 86,
+  "bytes[2]": 250,
+  "bytes[3]": 130,
+  "bytes[4]": 201,
+  "bytes[5]": 231,
+  "bytes[6]": 75,
+  "bytes[7]": 110,
+  "bytes[8]": 78,
+  "bytes[9]": 22,
+  "bytes[10]": 174,
+  "bytes[11]": 125,
+  "bytes[12]": 41,
+  "bytes[13]": 144,
+  "bytes[14]": 45,
+  "bytes[15]": 196
+ },
+ "m_ClassName": "GGGOLighting",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

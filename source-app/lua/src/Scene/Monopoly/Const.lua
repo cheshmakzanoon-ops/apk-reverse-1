@@ -1,0 +1,33 @@
+local Const = {}
+Const.PlayerMoedelPath = "Assets/Main/Prefabs/Monopoly/Piece/A_Hero_bubing05.prefab"
+Const.PlayerModelPath_V2 = "Assets/Main/Prefabs/LWCivilizationSpark/Monopoly/A_Hero_bubing05_v2.prefab"
+Const.PlayerModelPath_B = "Assets/Main/Prefabs/Monopoly/Piece/A_Hero_bubing02_B.prefab"
+Const.animNames = {
+  run = "run",
+  idle = "idle",
+  walk = "walk",
+  born = "born",
+  dead = "dead",
+  quickOpen = "quickOpen"
+}
+Const.boxPath = "Assets/Main/Prefabs/Monopoly/Effect/LandLockBubble_mono.prefab"
+Const.winEffectPath = "Assets/_Art_LastWar/Effect/Prefab/Common/VFX_victoryNoUI.prefab"
+Const.loseEffectPath = "Assets/_Art_LastWar/Effect/Prefab/Common/VFX_failureNoUI.prefab"
+Const.deleteEffectPath = "Assets/_Art_LastWar/Effect/Prefab/Arms/APS/VFX_animal_grow.prefab"
+Const.boxBottomEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/Eff_dafuw_jiaozhan_di_green.prefab"
+Const.Eff_dafuw_jiaozhan_di_green_newbies = "Assets/_Art_LastWar/Effect/Prefab/dafuw_newbies/Zhucheng/Eff_dafuw_jiaozhan_di_green_newbies.prefab"
+Const.boxTopEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/Eff_dafuw_shou.prefab"
+Const.battleBottomEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/Eff_dafuw_jiaozhan_di_red.prefab"
+Const.battleTopEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/battleEffect.prefab"
+Const.battleDeadEffectPath = "Assets/_Art_LastWar/Effect/Prefab/Arms/APS/VFX_animal_grow_big.prefab"
+Const.boxOpenEffectPath = "Assets/_Art_LastWar/Effect/Prefab/Arms/APS/VFX_xinshou_xiangzi_open.prefab"
+Const.placealityEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/Eff_dafuw_jiaozhan_di_green.prefab"
+Const.placealityOccupyEffectPath = "Assets/Main/Prefabs/Monopoly/Effect/Eff_dafuw_dige_jiesuo.prefab"
+Const.unlockEffectPath = "Assets/Main/Prefabs/BuildEffect/UnlockEffect.prefab"
+Const.battleTopEffectNewPath = "Assets/Main/Prefabs/Monopoly/Effect/battleEffectNew.prefab"
+Const.threeFogId = 59
+Const.delayTime = 2
+Const.rotatePlacealityDelay = 0.2
+Const.SBattle = 999
+Const.NewbieEventBubblePath = "Assets/Main/Prefabs/Monopoly/Effect/LandLockBubble_mono_Event.prefab"
+return Const

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoloHeroTurret",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 216,
+  "bytes[1]": 150,
+  "bytes[2]": 182,
+  "bytes[3]": 221,
+  "bytes[4]": 196,
+  "bytes[5]": 55,
+  "bytes[6]": 76,
+  "bytes[7]": 72,
+  "bytes[8]": 3,
+  "bytes[9]": 37,
+  "bytes[10]": 227,
+  "bytes[11]": 98,
+  "bytes[12]": 118,
+  "bytes[13]": 57,
+  "bytes[14]": 213,
+  "bytes[15]": 54
+ },
+ "m_ClassName": "SoloHeroTurret",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

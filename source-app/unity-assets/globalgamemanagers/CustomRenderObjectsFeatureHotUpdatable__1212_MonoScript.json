@@ -1,0 +1,25 @@
+{
+ "m_Name": "CustomRenderObjectsFeatureHotUpdatable",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 42,
+  "bytes[1]": 121,
+  "bytes[2]": 148,
+  "bytes[3]": 235,
+  "bytes[4]": 5,
+  "bytes[5]": 134,
+  "bytes[6]": 29,
+  "bytes[7]": 212,
+  "bytes[8]": 72,
+  "bytes[9]": 75,
+  "bytes[10]": 187,
+  "bytes[11]": 137,
+  "bytes[12]": 45,
+  "bytes[13]": 203,
+  "bytes[14]": 180,
+  "bytes[15]": 204
+ },
+ "m_ClassName": "CustomRenderObjectsFeatureHotUpdatable",
+ "m_Namespace": "FibMatrix.RenderingHotUpdatable",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

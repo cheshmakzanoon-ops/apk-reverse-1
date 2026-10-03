@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMNVAndroidWaveFormAsset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 239,
+  "bytes[1]": 49,
+  "bytes[2]": 6,
+  "bytes[3]": 183,
+  "bytes[4]": 97,
+  "bytes[5]": 153,
+  "bytes[6]": 166,
+  "bytes[7]": 65,
+  "bytes[8]": 38,
+  "bytes[9]": 40,
+  "bytes[10]": 20,
+  "bytes[11]": 28,
+  "bytes[12]": 225,
+  "bytes[13]": 183,
+  "bytes[14]": 20,
+  "bytes[15]": 137
+ },
+ "m_ClassName": "MMNVAndroidWaveFormAsset",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Haptics.dll"
+}

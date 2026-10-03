@@ -1,0 +1,25 @@
+{
+ "m_Name": "ObjectRandRotation",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 248,
+  "bytes[1]": 182,
+  "bytes[2]": 69,
+  "bytes[3]": 57,
+  "bytes[4]": 77,
+  "bytes[5]": 157,
+  "bytes[6]": 239,
+  "bytes[7]": 56,
+  "bytes[8]": 77,
+  "bytes[9]": 127,
+  "bytes[10]": 116,
+  "bytes[11]": 45,
+  "bytes[12]": 31,
+  "bytes[13]": 226,
+  "bytes[14]": 183,
+  "bytes[15]": 10
+ },
+ "m_ClassName": "ObjectRandRotation",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_AdvancedData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 64,
+  "bytes[1]": 124,
+  "bytes[2]": 208,
+  "bytes[3]": 115,
+  "bytes[4]": 233,
+  "bytes[5]": 24,
+  "bytes[6]": 190,
+  "bytes[7]": 114,
+  "bytes[8]": 9,
+  "bytes[9]": 63,
+  "bytes[10]": 152,
+  "bytes[11]": 48,
+  "bytes[12]": 111,
+  "bytes[13]": 180,
+  "bytes[14]": 122,
+  "bytes[15]": 111
+ },
+ "m_ClassName": "G_AdvancedData",
+ "m_Namespace": "Tayx.Graphy.Advanced",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

@@ -1,0 +1,208 @@
+{
+ "m_AssemblyNames": [
+  "Cinemachine",
+  "Unity.RenderPipelines.Core.Runtime",
+  "spine-unity",
+  "FibMatrix.Rendering",
+  "XAssetProRuntime",
+  "UIExtensionRuntime",
+  "Unity.MemoryProfiler",
+  "com.unity.multiplayer-hlapi.Runtime"
+ ],
+ "m_NamespaceNames": [
+  "Cinemachine",
+  "UnityEngine.Rendering",
+  "Spine.Unity.AttachmentTools",
+  "FibMatrix.Rendering",
+  "VEngine",
+  "Coffee.UIExtensions",
+  "UnityEngine.UI",
+  "Unity.MemoryProfiler",
+  "UnityEngine.Networking"
+ ],
+ "m_ClassInfos": [
+  {
+   "m_AssemblyNameIndex": 0,
+   "m_NamespaceIndex": 0,
+   "m_ClassName": "CinemachineStoryboard",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 0,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 0,
+   "m_NamespaceIndex": 0,
+   "m_ClassName": "CinemachineCore",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 1,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 0,
+   "m_NamespaceIndex": 0,
+   "m_ClassName": "UpdateTracker",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 2,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 1,
+   "m_NamespaceIndex": 1,
+   "m_ClassName": "DebugUpdater",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 3,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 2,
+   "m_NamespaceIndex": 2,
+   "m_ClassName": "AtlasUtilities",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 4,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 3,
+   "m_NamespaceIndex": 3,
+   "m_ClassName": "RenderingLayerMaskSetting",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 5,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 4,
+   "m_NamespaceIndex": 4,
+   "m_ClassName": "Updater",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 6,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 5,
+   "m_NamespaceIndex": 5,
+   "m_ClassName": "UIParticleUpdater",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 7,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 5,
+   "m_NamespaceIndex": 6,
+   "m_ClassName": "GraphicConnector",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 8,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 6,
+   "m_NamespaceIndex": 7,
+   "m_ClassName": "MetadataInjector",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 9,
+   "m_IsUnityClass": false
+  },
+  {
+   "m_AssemblyNameIndex": 7,
+   "m_NamespaceIndex": 8,
+   "m_ClassName": "NetworkIdentity",
+   "m_NamespaceName": "",
+   "m_NumOfMethods": 1,
+   "m_MethodIndex": 10,
+   "m_IsUnityClass": false
+  }
+ ],
+ "m_ClassMethodInfos": [
+  {
+   "m_ClassIndex": 0,
+   "m_MethodName": "InitializeModule",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 1,
+   "m_MethodName": "InitializeModule",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 2,
+   "m_MethodName": "InitializeModule",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 3,
+   "m_MethodName": "RuntimeInit",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 4,
+   "m_MethodName": "Init",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 5,
+   "m_MethodName": "RefreshRenderingLayerMaskSetting",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 6,
+   "m_MethodName": "InitializeOnLoad",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 7,
+   "m_MethodName": "InitializeOnLoad",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 8,
+   "m_MethodName": "Init",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 9,
+   "m_MethodName": "PlayerInitMetadata",
+   "m_OrderNumber": 0
+  },
+  {
+   "m_ClassIndex": 10,
+   "m_MethodName": "OnRuntimeInitializeOnLoad",
+   "m_OrderNumber": 0
+  }
+ ],
+ "m_BeforeUnityMethodExecutionOrders": [
+  8
+ ],
+ "m_AfterUnityMethodExecutionOrders": [
+  3,
+  10
+ ],
+ "m_BeforeMethodExecutionOrders": [],
+ "m_AfterMethodExecutionOrders": [
+  0,
+  1,
+  2,
+  6,
+  7
+ ],
+ "m_AfterAssembliesLoadedUnityMethodExecutionOrders": [],
+ "m_AfterAssembliesLoadedMethodExecutionOrders": [
+  5
+ ],
+ "m_BeforeSplashScreenUnityMethodExecutionOrders": [
+  9
+ ],
+ "m_BeforeSplashScreenMethodExecutionOrders": [],
+ "m_SubsystemRegistrationUnityMethodExecutionOrders": [],
+ "m_SubsystemRegistrationMethodExecutionOrders": [
+  4
+ ]
+}

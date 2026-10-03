@@ -1,0 +1,25 @@
+{
+ "m_Name": "BasementChip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 20,
+  "bytes[1]": 143,
+  "bytes[2]": 110,
+  "bytes[3]": 89,
+  "bytes[4]": 86,
+  "bytes[5]": 149,
+  "bytes[6]": 72,
+  "bytes[7]": 248,
+  "bytes[8]": 22,
+  "bytes[9]": 254,
+  "bytes[10]": 183,
+  "bytes[11]": 7,
+  "bytes[12]": 80,
+  "bytes[13]": 46,
+  "bytes[14]": 28,
+  "bytes[15]": 248
+ },
+ "m_ClassName": "BasementChip",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

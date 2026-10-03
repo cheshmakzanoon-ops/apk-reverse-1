@@ -1,0 +1,25 @@
+{
+ "m_Name": "ColorAdjustments",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 111,
+  "bytes[1]": 41,
+  "bytes[2]": 176,
+  "bytes[3]": 73,
+  "bytes[4]": 214,
+  "bytes[5]": 182,
+  "bytes[6]": 177,
+  "bytes[7]": 139,
+  "bytes[8]": 238,
+  "bytes[9]": 35,
+  "bytes[10]": 170,
+  "bytes[11]": 242,
+  "bytes[12]": 254,
+  "bytes[13]": 39,
+  "bytes[14]": 62,
+  "bytes[15]": 2
+ },
+ "m_ClassName": "ColorAdjustments",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

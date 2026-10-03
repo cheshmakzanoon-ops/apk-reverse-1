@@ -1,0 +1,25 @@
+{
+ "m_Name": "CustomDepthRenderFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 70,
+  "bytes[1]": 160,
+  "bytes[2]": 191,
+  "bytes[3]": 157,
+  "bytes[4]": 158,
+  "bytes[5]": 12,
+  "bytes[6]": 171,
+  "bytes[7]": 179,
+  "bytes[8]": 70,
+  "bytes[9]": 199,
+  "bytes[10]": 32,
+  "bytes[11]": 24,
+  "bytes[12]": 99,
+  "bytes[13]": 207,
+  "bytes[14]": 207,
+  "bytes[15]": 60
+ },
+ "m_ClassName": "CustomDepthRenderFeature",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "UpdateKeywordsRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 182,
+  "bytes[1]": 211,
+  "bytes[2]": 250,
+  "bytes[3]": 161,
+  "bytes[4]": 163,
+  "bytes[5]": 14,
+  "bytes[6]": 146,
+  "bytes[7]": 116,
+  "bytes[8]": 87,
+  "bytes[9]": 148,
+  "bytes[10]": 231,
+  "bytes[11]": 41,
+  "bytes[12]": 169,
+  "bytes[13]": 88,
+  "bytes[14]": 249,
+  "bytes[15]": 113
+ },
+ "m_ClassName": "UpdateKeywordsRendererFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

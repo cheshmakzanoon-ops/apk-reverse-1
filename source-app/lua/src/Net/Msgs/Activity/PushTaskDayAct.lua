@@ -1,0 +1,19 @@
+local PushTaskDayAct = BaseClass("PushTaskDayAct", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  if message.errorCode ~= nil then
+    UIUtil.ShowTips(Localization:GetString(message.errorCode))
+    return
+  end
+  DataCenter.ActivityListDataManager:RefreshSevenDayActData(message)
+end
+
+PushTaskDayAct.OnCreate = OnCreate
+PushTaskDayAct.HandleMessage = HandleMessage
+return PushTaskDayAct

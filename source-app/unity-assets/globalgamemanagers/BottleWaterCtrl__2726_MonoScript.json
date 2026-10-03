@@ -1,0 +1,25 @@
+{
+ "m_Name": "BottleWaterCtrl",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 151,
+  "bytes[1]": 26,
+  "bytes[2]": 43,
+  "bytes[3]": 114,
+  "bytes[4]": 237,
+  "bytes[5]": 165,
+  "bytes[6]": 172,
+  "bytes[7]": 12,
+  "bytes[8]": 215,
+  "bytes[9]": 36,
+  "bytes[10]": 53,
+  "bytes[11]": 62,
+  "bytes[12]": 81,
+  "bytes[13]": 15,
+  "bytes[14]": 252,
+  "bytes[15]": 247
+ },
+ "m_ClassName": "BottleWaterCtrl",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

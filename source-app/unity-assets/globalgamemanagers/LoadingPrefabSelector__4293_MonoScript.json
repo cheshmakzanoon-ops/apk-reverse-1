@@ -1,0 +1,25 @@
+{
+ "m_Name": "LoadingPrefabSelector",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 197,
+  "bytes[1]": 75,
+  "bytes[2]": 36,
+  "bytes[3]": 205,
+  "bytes[4]": 68,
+  "bytes[5]": 217,
+  "bytes[6]": 129,
+  "bytes[7]": 151,
+  "bytes[8]": 37,
+  "bytes[9]": 56,
+  "bytes[10]": 55,
+  "bytes[11]": 147,
+  "bytes[12]": 89,
+  "bytes[13]": 191,
+  "bytes[14]": 147,
+  "bytes[15]": 199
+ },
+ "m_ClassName": "LoadingPrefabSelector",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

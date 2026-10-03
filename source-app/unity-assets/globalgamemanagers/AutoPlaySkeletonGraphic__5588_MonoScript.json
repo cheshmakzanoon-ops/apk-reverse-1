@@ -1,0 +1,25 @@
+{
+ "m_Name": "AutoPlaySkeletonGraphic",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 139,
+  "bytes[1]": 235,
+  "bytes[2]": 61,
+  "bytes[3]": 115,
+  "bytes[4]": 238,
+  "bytes[5]": 241,
+  "bytes[6]": 140,
+  "bytes[7]": 173,
+  "bytes[8]": 55,
+  "bytes[9]": 210,
+  "bytes[10]": 104,
+  "bytes[11]": 171,
+  "bytes[12]": 210,
+  "bytes[13]": 88,
+  "bytes[14]": 211,
+  "bytes[15]": 205
+ },
+ "m_ClassName": "AutoPlaySkeletonGraphic",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

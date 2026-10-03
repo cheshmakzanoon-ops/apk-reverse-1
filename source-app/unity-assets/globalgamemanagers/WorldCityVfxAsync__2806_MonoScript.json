@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldCityVfxAsync",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 183,
+  "bytes[1]": 183,
+  "bytes[2]": 161,
+  "bytes[3]": 125,
+  "bytes[4]": 239,
+  "bytes[5]": 217,
+  "bytes[6]": 190,
+  "bytes[7]": 131,
+  "bytes[8]": 241,
+  "bytes[9]": 219,
+  "bytes[10]": 23,
+  "bytes[11]": 134,
+  "bytes[12]": 210,
+  "bytes[13]": 66,
+  "bytes[14]": 100,
+  "bytes[15]": 181
+ },
+ "m_ClassName": "WorldCityVfxAsync",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

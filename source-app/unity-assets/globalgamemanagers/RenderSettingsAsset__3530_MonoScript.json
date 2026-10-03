@@ -1,0 +1,25 @@
+{
+ "m_Name": "RenderSettingsAsset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 136,
+  "bytes[1]": 201,
+  "bytes[2]": 62,
+  "bytes[3]": 149,
+  "bytes[4]": 250,
+  "bytes[5]": 89,
+  "bytes[6]": 68,
+  "bytes[7]": 182,
+  "bytes[8]": 231,
+  "bytes[9]": 70,
+  "bytes[10]": 42,
+  "bytes[11]": 76,
+  "bytes[12]": 217,
+  "bytes[13]": 255,
+  "bytes[14]": 139,
+  "bytes[15]": 186
+ },
+ "m_ClassName": "RenderSettingsAsset",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

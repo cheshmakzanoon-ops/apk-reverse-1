@@ -1,0 +1,25 @@
+{
+ "m_Name": "ChromaticAberration",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 189,
+  "bytes[1]": 178,
+  "bytes[2]": 170,
+  "bytes[3]": 86,
+  "bytes[4]": 63,
+  "bytes[5]": 243,
+  "bytes[6]": 76,
+  "bytes[7]": 217,
+  "bytes[8]": 109,
+  "bytes[9]": 254,
+  "bytes[10]": 142,
+  "bytes[11]": 70,
+  "bytes[12]": 179,
+  "bytes[13]": 56,
+  "bytes[14]": 32,
+  "bytes[15]": 18
+ },
+ "m_ClassName": "ChromaticAberration",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

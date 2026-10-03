@@ -1,0 +1,25 @@
+{
+ "m_Name": "HeightFogVolume",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 92,
+  "bytes[1]": 243,
+  "bytes[2]": 251,
+  "bytes[3]": 246,
+  "bytes[4]": 229,
+  "bytes[5]": 16,
+  "bytes[6]": 64,
+  "bytes[7]": 42,
+  "bytes[8]": 138,
+  "bytes[9]": 184,
+  "bytes[10]": 140,
+  "bytes[11]": 230,
+  "bytes[12]": 36,
+  "bytes[13]": 59,
+  "bytes[14]": 22,
+  "bytes[15]": 190
+ },
+ "m_ClassName": "HeightFogVolume",
+ "m_Namespace": "",
+ "m_AssemblyName": "HeightFog.dll"
+}

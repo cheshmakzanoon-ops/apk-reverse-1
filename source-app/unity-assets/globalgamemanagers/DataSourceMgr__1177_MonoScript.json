@@ -1,0 +1,25 @@
+{
+ "m_Name": "DataSourceMgr",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 190,
+  "bytes[1]": 8,
+  "bytes[2]": 147,
+  "bytes[3]": 249,
+  "bytes[4]": 106,
+  "bytes[5]": 238,
+  "bytes[6]": 227,
+  "bytes[7]": 168,
+  "bytes[8]": 129,
+  "bytes[9]": 198,
+  "bytes[10]": 151,
+  "bytes[11]": 210,
+  "bytes[12]": 152,
+  "bytes[13]": 186,
+  "bytes[14]": 46,
+  "bytes[15]": 17
+ },
+ "m_ClassName": "DataSourceMgr",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

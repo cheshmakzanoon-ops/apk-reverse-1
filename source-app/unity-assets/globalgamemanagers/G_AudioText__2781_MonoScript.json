@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_AudioText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 255,
+  "bytes[1]": 159,
+  "bytes[2]": 109,
+  "bytes[3]": 192,
+  "bytes[4]": 249,
+  "bytes[5]": 89,
+  "bytes[6]": 20,
+  "bytes[7]": 69,
+  "bytes[8]": 212,
+  "bytes[9]": 25,
+  "bytes[10]": 59,
+  "bytes[11]": 187,
+  "bytes[12]": 115,
+  "bytes[13]": 150,
+  "bytes[14]": 223,
+  "bytes[15]": 40
+ },
+ "m_ClassName": "G_AudioText",
+ "m_Namespace": "Tayx.Graphy.Audio",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

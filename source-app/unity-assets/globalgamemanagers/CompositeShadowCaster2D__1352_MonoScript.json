@@ -1,0 +1,25 @@
+{
+ "m_Name": "CompositeShadowCaster2D",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 159,
+  "bytes[1]": 13,
+  "bytes[2]": 33,
+  "bytes[3]": 86,
+  "bytes[4]": 203,
+  "bytes[5]": 40,
+  "bytes[6]": 118,
+  "bytes[7]": 204,
+  "bytes[8]": 133,
+  "bytes[9]": 110,
+  "bytes[10]": 176,
+  "bytes[11]": 64,
+  "bytes[12]": 191,
+  "bytes[13]": 226,
+  "bytes[14]": 62,
+  "bytes[15]": 118
+ },
+ "m_ClassName": "CompositeShadowCaster2D",
+ "m_Namespace": "UnityEngine.Experimental.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

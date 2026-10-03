@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIFoldout",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 148,
+  "bytes[1]": 154,
+  "bytes[2]": 88,
+  "bytes[3]": 144,
+  "bytes[4]": 206,
+  "bytes[5]": 87,
+  "bytes[6]": 46,
+  "bytes[7]": 194,
+  "bytes[8]": 64,
+  "bytes[9]": 23,
+  "bytes[10]": 133,
+  "bytes[11]": 33,
+  "bytes[12]": 37,
+  "bytes[13]": 75,
+  "bytes[14]": 114,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "UIFoldout",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

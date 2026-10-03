@@ -1,0 +1,26 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 64
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 44
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 80
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "VisibleArea",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "Vignette",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 8,
+  "bytes[1]": 112,
+  "bytes[2]": 92,
+  "bytes[3]": 239,
+  "bytes[4]": 131,
+  "bytes[5]": 127,
+  "bytes[6]": 93,
+  "bytes[7]": 24,
+  "bytes[8]": 164,
+  "bytes[9]": 200,
+  "bytes[10]": 107,
+  "bytes[11]": 25,
+  "bytes[12]": 177,
+  "bytes[13]": 204,
+  "bytes[14]": 243,
+  "bytes[15]": 71
+ },
+ "m_ClassName": "Vignette",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

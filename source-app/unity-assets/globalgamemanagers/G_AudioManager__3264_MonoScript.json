@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_AudioManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 7,
+  "bytes[1]": 177,
+  "bytes[2]": 14,
+  "bytes[3]": 198,
+  "bytes[4]": 116,
+  "bytes[5]": 52,
+  "bytes[6]": 48,
+  "bytes[7]": 213,
+  "bytes[8]": 73,
+  "bytes[9]": 49,
+  "bytes[10]": 75,
+  "bytes[11]": 135,
+  "bytes[12]": 232,
+  "bytes[13]": 230,
+  "bytes[14]": 127,
+  "bytes[15]": 157
+ },
+ "m_ClassName": "G_AudioManager",
+ "m_Namespace": "Tayx.Graphy.Audio",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

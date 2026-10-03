@@ -1,0 +1,12 @@
+package com.google.common.collect;
+
+import java.util.Comparator;
+import java.util.Iterator;
+
+@ElementTypesAreNonnullByDefault
+interface SortedIterable<T> extends Iterable<T> {
+    Comparator<? super T> comparator();
+
+    @Override
+    Iterator<T> iterator();
+}

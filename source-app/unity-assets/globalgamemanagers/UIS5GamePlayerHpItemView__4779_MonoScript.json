@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIS5GamePlayerHpItemView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 28,
+  "bytes[1]": 153,
+  "bytes[2]": 57,
+  "bytes[3]": 13,
+  "bytes[4]": 227,
+  "bytes[5]": 246,
+  "bytes[6]": 59,
+  "bytes[7]": 5,
+  "bytes[8]": 16,
+  "bytes[9]": 134,
+  "bytes[10]": 45,
+  "bytes[11]": 253,
+  "bytes[12]": 130,
+  "bytes[13]": 146,
+  "bytes[14]": 250,
+  "bytes[15]": 7
+ },
+ "m_ClassName": "UIS5GamePlayerHpItemView",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

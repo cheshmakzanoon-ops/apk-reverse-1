@@ -1,0 +1,7 @@
+local LWUIZoneMobilizationBoxRewardPreviewCtrl = BaseClass("LWUIZoneMobilizationBoxRewardPreviewCtrl", UIBaseCtrl)
+
+function LWUIZoneMobilizationBoxRewardPreviewCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.LWUIZoneMobilizationBoxRewardPreview)
+end
+
+return LWUIZoneMobilizationBoxRewardPreviewCtrl

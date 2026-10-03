@@ -1,0 +1,65 @@
+{
+ "tags": [
+  "Info",
+  "Tank",
+  "Monster",
+  "Npc",
+  "visitor"
+ ],
+ "layers": [
+  "Default",
+  "TransparentFX",
+  "Ignore Raycast",
+  "",
+  "Water",
+  "UI",
+  "",
+  "",
+  "PostProcessing",
+  "Terrain Raycast",
+  "Terrain",
+  "PlaneShadowObject",
+  "OutLine",
+  "WorldArmy",
+  "Fog",
+  "PlaneShadowObject2",
+  "PlaneShadowObject3",
+  "WorldStatic",
+  "UIObject3D",
+  "Hud3D",
+  "BuildingBubble",
+  "Hide",
+  "OutLineGolden",
+  "",
+  "",
+  "Train",
+  "Member",
+  "Zombie",
+  "Junk",
+  "timeline",
+  "RendererFeature",
+  ""
+ ],
+ "m_SortingLayers": [
+  {
+   "name": "FreeBuildGround",
+   "uniqueID": 4194657685
+  },
+  {
+   "name": "FreeBuildMiddle",
+   "uniqueID": 4228207561
+  },
+  {
+   "name": "Default",
+   "uniqueID": 0
+  },
+  {
+   "name": "FreeBuildAir",
+   "uniqueID": 673425963
+  },
+  {
+   "name": "FreeBuildSky",
+   "uniqueID": 3462404779
+  }
+ ]
+}

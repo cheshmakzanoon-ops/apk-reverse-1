@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoftReferencePrefab",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 154,
+  "bytes[1]": 47,
+  "bytes[2]": 54,
+  "bytes[3]": 58,
+  "bytes[4]": 244,
+  "bytes[5]": 252,
+  "bytes[6]": 181,
+  "bytes[7]": 196,
+  "bytes[8]": 229,
+  "bytes[9]": 11,
+  "bytes[10]": 126,
+  "bytes[11]": 90,
+  "bytes[12]": 125,
+  "bytes[13]": 127,
+  "bytes[14]": 95,
+  "bytes[15]": 29
+ },
+ "m_ClassName": "SoftReferencePrefab",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

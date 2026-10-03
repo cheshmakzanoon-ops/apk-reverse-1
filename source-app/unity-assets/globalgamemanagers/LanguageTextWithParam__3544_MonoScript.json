@@ -1,0 +1,25 @@
+{
+ "m_Name": "LanguageTextWithParam",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 231,
+  "bytes[1]": 36,
+  "bytes[2]": 177,
+  "bytes[3]": 53,
+  "bytes[4]": 248,
+  "bytes[5]": 174,
+  "bytes[6]": 145,
+  "bytes[7]": 152,
+  "bytes[8]": 167,
+  "bytes[9]": 0,
+  "bytes[10]": 155,
+  "bytes[11]": 72,
+  "bytes[12]": 135,
+  "bytes[13]": 70,
+  "bytes[14]": 37,
+  "bytes[15]": 167
+ },
+ "m_ClassName": "LanguageTextWithParam",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

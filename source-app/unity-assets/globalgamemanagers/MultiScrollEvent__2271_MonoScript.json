@@ -1,0 +1,25 @@
+{
+ "m_Name": "MultiScrollEvent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 20,
+  "bytes[1]": 134,
+  "bytes[2]": 216,
+  "bytes[3]": 99,
+  "bytes[4]": 6,
+  "bytes[5]": 143,
+  "bytes[6]": 172,
+  "bytes[7]": 95,
+  "bytes[8]": 168,
+  "bytes[9]": 142,
+  "bytes[10]": 125,
+  "bytes[11]": 107,
+  "bytes[12]": 56,
+  "bytes[13]": 13,
+  "bytes[14]": 225,
+  "bytes[15]": 151
+ },
+ "m_ClassName": "MultiScrollEvent",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

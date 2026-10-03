@@ -1,0 +1,25 @@
+{
+ "m_Name": "CompatibilityAssetBundleManifest",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 84,
+  "bytes[1]": 165,
+  "bytes[2]": 8,
+  "bytes[3]": 36,
+  "bytes[4]": 137,
+  "bytes[5]": 250,
+  "bytes[6]": 213,
+  "bytes[7]": 71,
+  "bytes[8]": 118,
+  "bytes[9]": 109,
+  "bytes[10]": 61,
+  "bytes[11]": 77,
+  "bytes[12]": 118,
+  "bytes[13]": 53,
+  "bytes[14]": 223,
+  "bytes[15]": 18
+ },
+ "m_ClassName": "CompatibilityAssetBundleManifest",
+ "m_Namespace": "UnityEngine.Build.Pipeline",
+ "m_AssemblyName": "Unity.ScriptableBuildPipeline.dll"
+}

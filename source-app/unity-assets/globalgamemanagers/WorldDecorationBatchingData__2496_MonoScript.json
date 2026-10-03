@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldDecorationBatchingData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 21,
+  "bytes[1]": 149,
+  "bytes[2]": 24,
+  "bytes[3]": 140,
+  "bytes[4]": 103,
+  "bytes[5]": 231,
+  "bytes[6]": 53,
+  "bytes[7]": 66,
+  "bytes[8]": 116,
+  "bytes[9]": 245,
+  "bytes[10]": 45,
+  "bytes[11]": 253,
+  "bytes[12]": 199,
+  "bytes[13]": 219,
+  "bytes[14]": 223,
+  "bytes[15]": 52
+ },
+ "m_ClassName": "WorldDecorationBatchingData",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIFontResizeFloat",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 241,
+  "bytes[1]": 199,
+  "bytes[2]": 70,
+  "bytes[3]": 4,
+  "bytes[4]": 108,
+  "bytes[5]": 43,
+  "bytes[6]": 237,
+  "bytes[7]": 41,
+  "bytes[8]": 31,
+  "bytes[9]": 154,
+  "bytes[10]": 101,
+  "bytes[11]": 174,
+  "bytes[12]": 118,
+  "bytes[13]": 48,
+  "bytes[14]": 63,
+  "bytes[15]": 133
+ },
+ "m_ClassName": "UIFontResizeFloat",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

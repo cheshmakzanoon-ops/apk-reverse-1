@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIGuideMaskCtrl",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 174,
+  "bytes[1]": 67,
+  "bytes[2]": 48,
+  "bytes[3]": 219,
+  "bytes[4]": 105,
+  "bytes[5]": 222,
+  "bytes[6]": 7,
+  "bytes[7]": 154,
+  "bytes[8]": 223,
+  "bytes[9]": 157,
+  "bytes[10]": 113,
+  "bytes[11]": 80,
+  "bytes[12]": 91,
+  "bytes[13]": 90,
+  "bytes[14]": 126,
+  "bytes[15]": 158
+ },
+ "m_ClassName": "UIGuideMaskCtrl",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

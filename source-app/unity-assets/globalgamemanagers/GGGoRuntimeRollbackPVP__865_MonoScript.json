@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGoRuntimeRollbackPVP",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 201,
+  "bytes[1]": 248,
+  "bytes[2]": 33,
+  "bytes[3]": 138,
+  "bytes[4]": 48,
+  "bytes[5]": 64,
+  "bytes[6]": 112,
+  "bytes[7]": 82,
+  "bytes[8]": 6,
+  "bytes[9]": 61,
+  "bytes[10]": 73,
+  "bytes[11]": 132,
+  "bytes[12]": 230,
+  "bytes[13]": 168,
+  "bytes[14]": 31,
+  "bytes[15]": 89
+ },
+ "m_ClassName": "GGGoRuntimeRollbackPVP",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

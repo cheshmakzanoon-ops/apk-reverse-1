@@ -1,0 +1,25 @@
+{
+ "m_Name": "SwingArmModel",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 137,
+  "bytes[1]": 61,
+  "bytes[2]": 189,
+  "bytes[3]": 191,
+  "bytes[4]": 230,
+  "bytes[5]": 17,
+  "bytes[6]": 214,
+  "bytes[7]": 46,
+  "bytes[8]": 35,
+  "bytes[9]": 10,
+  "bytes[10]": 104,
+  "bytes[11]": 110,
+  "bytes[12]": 168,
+  "bytes[13]": 159,
+  "bytes[14]": 30,
+  "bytes[15]": 253
+ },
+ "m_ClassName": "SwingArmModel",
+ "m_Namespace": "UnityEngine.XR.LegacyInputHelpers",
+ "m_AssemblyName": "UnityEngine.XR.LegacyInputHelpers.dll"
+}

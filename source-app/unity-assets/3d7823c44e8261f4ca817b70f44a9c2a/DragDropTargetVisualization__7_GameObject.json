@@ -1,0 +1,32 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 74
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 55
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 45
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 109
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "DragDropTargetVisualization",
+ "m_Tag": 0,
+ "m_IsActive": false
+}

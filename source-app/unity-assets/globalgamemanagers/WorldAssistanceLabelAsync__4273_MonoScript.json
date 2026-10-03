@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldAssistanceLabelAsync",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 229,
+  "bytes[1]": 234,
+  "bytes[2]": 186,
+  "bytes[3]": 48,
+  "bytes[4]": 218,
+  "bytes[5]": 113,
+  "bytes[6]": 106,
+  "bytes[7]": 237,
+  "bytes[8]": 77,
+  "bytes[9]": 223,
+  "bytes[10]": 123,
+  "bytes[11]": 46,
+  "bytes[12]": 13,
+  "bytes[13]": 24,
+  "bytes[14]": 107,
+  "bytes[15]": 221
+ },
+ "m_ClassName": "WorldAssistanceLabelAsync",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SetBoundaryFromCollider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 163,
+  "bytes[1]": 189,
+  "bytes[2]": 49,
+  "bytes[3]": 178,
+  "bytes[4]": 116,
+  "bytes[5]": 254,
+  "bytes[6]": 21,
+  "bytes[7]": 3,
+  "bytes[8]": 103,
+  "bytes[9]": 72,
+  "bytes[10]": 87,
+  "bytes[11]": 166,
+  "bytes[12]": 206,
+  "bytes[13]": 58,
+  "bytes[14]": 64,
+  "bytes[15]": 132
+ },
+ "m_ClassName": "SetBoundaryFromCollider",
+ "m_Namespace": "BitBenderGames",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

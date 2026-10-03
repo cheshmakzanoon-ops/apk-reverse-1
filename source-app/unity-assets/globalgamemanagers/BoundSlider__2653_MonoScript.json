@@ -1,0 +1,25 @@
+{
+ "m_Name": "BoundSlider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 243,
+  "bytes[1]": 197,
+  "bytes[2]": 214,
+  "bytes[3]": 46,
+  "bytes[4]": 35,
+  "bytes[5]": 122,
+  "bytes[6]": 59,
+  "bytes[7]": 197,
+  "bytes[8]": 36,
+  "bytes[9]": 198,
+  "bytes[10]": 192,
+  "bytes[11]": 67,
+  "bytes[12]": 171,
+  "bytes[13]": 222,
+  "bytes[14]": 129,
+  "bytes[15]": 87
+ },
+ "m_ClassName": "BoundSlider",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

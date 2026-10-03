@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIWhistleBuffLabel",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 61,
+  "bytes[1]": 222,
+  "bytes[2]": 112,
+  "bytes[3]": 74,
+  "bytes[4]": 244,
+  "bytes[5]": 12,
+  "bytes[6]": 38,
+  "bytes[7]": 4,
+  "bytes[8]": 141,
+  "bytes[9]": 117,
+  "bytes[10]": 165,
+  "bytes[11]": 190,
+  "bytes[12]": 3,
+  "bytes[13]": 149,
+  "bytes[14]": 249,
+  "bytes[15]": 76
+ },
+ "m_ClassName": "UIWhistleBuffLabel",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

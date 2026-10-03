@@ -1,0 +1,25 @@
+{
+ "m_Name": "TouchObjectEventTrigger",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 32,
+  "bytes[1]": 157,
+  "bytes[2]": 143,
+  "bytes[3]": 156,
+  "bytes[4]": 136,
+  "bytes[5]": 213,
+  "bytes[6]": 64,
+  "bytes[7]": 178,
+  "bytes[8]": 117,
+  "bytes[9]": 135,
+  "bytes[10]": 168,
+  "bytes[11]": 119,
+  "bytes[12]": 15,
+  "bytes[13]": 97,
+  "bytes[14]": 178,
+  "bytes[15]": 2
+ },
+ "m_ClassName": "TouchObjectEventTrigger",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 60
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 32
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 75
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 77
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 116
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "GInput",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

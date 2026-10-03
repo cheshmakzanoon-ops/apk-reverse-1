@@ -1,0 +1,25 @@
+{
+ "m_Name": "BiuBiuDebugBoxCollider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 200,
+  "bytes[1]": 143,
+  "bytes[2]": 57,
+  "bytes[3]": 64,
+  "bytes[4]": 158,
+  "bytes[5]": 176,
+  "bytes[6]": 130,
+  "bytes[7]": 49,
+  "bytes[8]": 64,
+  "bytes[9]": 119,
+  "bytes[10]": 50,
+  "bytes[11]": 154,
+  "bytes[12]": 219,
+  "bytes[13]": 210,
+  "bytes[14]": 5,
+  "bytes[15]": 54
+ },
+ "m_ClassName": "BiuBiuDebugBoxCollider",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

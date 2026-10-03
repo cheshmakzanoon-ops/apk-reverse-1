@@ -1,0 +1,25 @@
+{
+ "m_Name": "ChangeSceneCircleSlider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 83,
+  "bytes[1]": 124,
+  "bytes[2]": 170,
+  "bytes[3]": 110,
+  "bytes[4]": 149,
+  "bytes[5]": 144,
+  "bytes[6]": 208,
+  "bytes[7]": 40,
+  "bytes[8]": 174,
+  "bytes[9]": 124,
+  "bytes[10]": 71,
+  "bytes[11]": 135,
+  "bytes[12]": 159,
+  "bytes[13]": 215,
+  "bytes[14]": 189,
+  "bytes[15]": 83
+ },
+ "m_ClassName": "ChangeSceneCircleSlider",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

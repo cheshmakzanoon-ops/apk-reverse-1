@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIScrollViewItemEventTrigger",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 20,
+  "bytes[1]": 151,
+  "bytes[2]": 7,
+  "bytes[3]": 238,
+  "bytes[4]": 49,
+  "bytes[5]": 14,
+  "bytes[6]": 143,
+  "bytes[7]": 99,
+  "bytes[8]": 209,
+  "bytes[9]": 54,
+  "bytes[10]": 194,
+  "bytes[11]": 136,
+  "bytes[12]": 191,
+  "bytes[13]": 55,
+  "bytes[14]": 166,
+  "bytes[15]": 183
+ },
+ "m_ClassName": "UIScrollViewItemEventTrigger",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

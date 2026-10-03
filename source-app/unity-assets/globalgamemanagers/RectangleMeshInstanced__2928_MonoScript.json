@@ -1,0 +1,25 @@
+{
+ "m_Name": "RectangleMeshInstanced",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 137,
+  "bytes[1]": 104,
+  "bytes[2]": 58,
+  "bytes[3]": 32,
+  "bytes[4]": 79,
+  "bytes[5]": 142,
+  "bytes[6]": 70,
+  "bytes[7]": 165,
+  "bytes[8]": 122,
+  "bytes[9]": 34,
+  "bytes[10]": 121,
+  "bytes[11]": 130,
+  "bytes[12]": 72,
+  "bytes[13]": 118,
+  "bytes[14]": 30,
+  "bytes[15]": 218
+ },
+ "m_ClassName": "RectangleMeshInstanced",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

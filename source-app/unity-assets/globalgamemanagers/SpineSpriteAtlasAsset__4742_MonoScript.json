@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpineSpriteAtlasAsset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 85,
+  "bytes[1]": 2,
+  "bytes[2]": 163,
+  "bytes[3]": 72,
+  "bytes[4]": 51,
+  "bytes[5]": 142,
+  "bytes[6]": 175,
+  "bytes[7]": 250,
+  "bytes[8]": 44,
+  "bytes[9]": 46,
+  "bytes[10]": 33,
+  "bytes[11]": 153,
+  "bytes[12]": 42,
+  "bytes[13]": 33,
+  "bytes[14]": 111,
+  "bytes[15]": 42
+ },
+ "m_ClassName": "SpineSpriteAtlasAsset",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

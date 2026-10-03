@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMNVPath",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 140,
+  "bytes[1]": 163,
+  "bytes[2]": 110,
+  "bytes[3]": 180,
+  "bytes[4]": 117,
+  "bytes[5]": 133,
+  "bytes[6]": 91,
+  "bytes[7]": 10,
+  "bytes[8]": 201,
+  "bytes[9]": 177,
+  "bytes[10]": 54,
+  "bytes[11]": 109,
+  "bytes[12]": 167,
+  "bytes[13]": 154,
+  "bytes[14]": 114,
+  "bytes[15]": 18
+ },
+ "m_ClassName": "MMNVPath",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.dll"
+}

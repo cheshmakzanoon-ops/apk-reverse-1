@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicInfinityListRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 241,
+  "bytes[1]": 198,
+  "bytes[2]": 231,
+  "bytes[3]": 139,
+  "bytes[4]": 29,
+  "bytes[5]": 1,
+  "bytes[6]": 157,
+  "bytes[7]": 17,
+  "bytes[8]": 91,
+  "bytes[9]": 81,
+  "bytes[10]": 42,
+  "bytes[11]": 78,
+  "bytes[12]": 87,
+  "bytes[13]": 90,
+  "bytes[14]": 49,
+  "bytes[15]": 69
+ },
+ "m_ClassName": "DynamicInfinityListRenderer",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

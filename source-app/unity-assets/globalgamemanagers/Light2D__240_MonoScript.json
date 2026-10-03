@@ -1,0 +1,25 @@
+{
+ "m_Name": "Light2D",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 9,
+  "bytes[1]": 139,
+  "bytes[2]": 8,
+  "bytes[3]": 231,
+  "bytes[4]": 127,
+  "bytes[5]": 22,
+  "bytes[6]": 252,
+  "bytes[7]": 116,
+  "bytes[8]": 11,
+  "bytes[9]": 135,
+  "bytes[10]": 215,
+  "bytes[11]": 153,
+  "bytes[12]": 120,
+  "bytes[13]": 179,
+  "bytes[14]": 130,
+  "bytes[15]": 182
+ },
+ "m_ClassName": "Light2D",
+ "m_Namespace": "UnityEngine.Experimental.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

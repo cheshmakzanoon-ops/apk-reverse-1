@@ -1,0 +1,25 @@
+{
+ "m_Name": "ForceArabicEffect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 220,
+  "bytes[1]": 224,
+  "bytes[2]": 216,
+  "bytes[3]": 1,
+  "bytes[4]": 6,
+  "bytes[5]": 72,
+  "bytes[6]": 2,
+  "bytes[7]": 6,
+  "bytes[8]": 92,
+  "bytes[9]": 156,
+  "bytes[10]": 235,
+  "bytes[11]": 243,
+  "bytes[12]": 75,
+  "bytes[13]": 232,
+  "bytes[14]": 82,
+  "bytes[15]": 237
+ },
+ "m_ClassName": "ForceArabicEffect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

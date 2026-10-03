@@ -1,0 +1,25 @@
+{
+ "m_Name": "FollowLocationRigidbody2D",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 7,
+  "bytes[1]": 251,
+  "bytes[2]": 236,
+  "bytes[3]": 55,
+  "bytes[4]": 231,
+  "bytes[5]": 13,
+  "bytes[6]": 151,
+  "bytes[7]": 174,
+  "bytes[8]": 14,
+  "bytes[9]": 35,
+  "bytes[10]": 120,
+  "bytes[11]": 5,
+  "bytes[12]": 27,
+  "bytes[13]": 220,
+  "bytes[14]": 14,
+  "bytes[15]": 141
+ },
+ "m_ClassName": "FollowLocationRigidbody2D",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

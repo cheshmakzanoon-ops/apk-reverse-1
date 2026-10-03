@@ -1,0 +1,25 @@
+{
+ "m_Name": "FlipBookTools",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 10,
+  "bytes[1]": 222,
+  "bytes[2]": 25,
+  "bytes[3]": 195,
+  "bytes[4]": 173,
+  "bytes[5]": 206,
+  "bytes[6]": 38,
+  "bytes[7]": 212,
+  "bytes[8]": 89,
+  "bytes[9]": 152,
+  "bytes[10]": 166,
+  "bytes[11]": 162,
+  "bytes[12]": 154,
+  "bytes[13]": 223,
+  "bytes[14]": 38,
+  "bytes[15]": 33
+ },
+ "m_ClassName": "FlipBookTools",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,7 @@
+local UITacticalCardVersionChangePreviewCtrl = BaseClass("UITacticalCardVersionChangePreviewCtrl", UIBaseCtrl)
+
+function UITacticalCardVersionChangePreviewCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UITacticalCardVersionChangePreview)
+end
+
+return UITacticalCardVersionChangePreviewCtrl

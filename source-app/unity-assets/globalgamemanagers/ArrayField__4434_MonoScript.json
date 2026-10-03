@@ -1,0 +1,25 @@
+{
+ "m_Name": "ArrayField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 100,
+  "bytes[1]": 156,
+  "bytes[2]": 200,
+  "bytes[3]": 106,
+  "bytes[4]": 4,
+  "bytes[5]": 60,
+  "bytes[6]": 19,
+  "bytes[7]": 149,
+  "bytes[8]": 88,
+  "bytes[9]": 248,
+  "bytes[10]": 67,
+  "bytes[11]": 249,
+  "bytes[12]": 19,
+  "bytes[13]": 139,
+  "bytes[14]": 45,
+  "bytes[15]": 78
+ },
+ "m_ClassName": "ArrayField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

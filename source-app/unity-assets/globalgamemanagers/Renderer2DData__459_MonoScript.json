@@ -1,0 +1,25 @@
+{
+ "m_Name": "Renderer2DData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 104,
+  "bytes[1]": 111,
+  "bytes[2]": 204,
+  "bytes[3]": 103,
+  "bytes[4]": 50,
+  "bytes[5]": 189,
+  "bytes[6]": 195,
+  "bytes[7]": 227,
+  "bytes[8]": 122,
+  "bytes[9]": 201,
+  "bytes[10]": 219,
+  "bytes[11]": 163,
+  "bytes[12]": 210,
+  "bytes[13]": 70,
+  "bytes[14]": 105,
+  "bytes[15]": 80
+ },
+ "m_ClassName": "Renderer2DData",
+ "m_Namespace": "UnityEngine.Experimental.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

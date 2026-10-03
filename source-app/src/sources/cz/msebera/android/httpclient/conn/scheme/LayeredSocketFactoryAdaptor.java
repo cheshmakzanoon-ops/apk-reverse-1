@@ -1,0 +1,19 @@
+package cz.msebera.android.httpclient.conn.scheme;
+
+import java.io.IOException;
+import java.net.Socket;
+
+@Deprecated
+class LayeredSocketFactoryAdaptor extends SocketFactoryAdaptor implements LayeredSocketFactory {
+    private final LayeredSchemeSocketFactory factory;
+
+    LayeredSocketFactoryAdaptor(LayeredSchemeSocketFactory layeredSchemeSocketFactory) {
+        super(layeredSchemeSocketFactory);
+        this.factory = layeredSchemeSocketFactory;
+    }
+
+    @Override
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        return this.factory.createLayeredSocket(socket, str, i, z);
+    }
+}

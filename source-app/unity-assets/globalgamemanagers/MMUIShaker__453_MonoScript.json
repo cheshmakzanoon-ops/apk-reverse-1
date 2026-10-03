@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMUIShaker",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 178,
+  "bytes[1]": 58,
+  "bytes[2]": 162,
+  "bytes[3]": 116,
+  "bytes[4]": 144,
+  "bytes[5]": 209,
+  "bytes[6]": 55,
+  "bytes[7]": 151,
+  "bytes[8]": 251,
+  "bytes[9]": 164,
+  "bytes[10]": 224,
+  "bytes[11]": 18,
+  "bytes[12]": 124,
+  "bytes[13]": 87,
+  "bytes[14]": 251,
+  "bytes[15]": 247
+ },
+ "m_ClassName": "MMUIShaker",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

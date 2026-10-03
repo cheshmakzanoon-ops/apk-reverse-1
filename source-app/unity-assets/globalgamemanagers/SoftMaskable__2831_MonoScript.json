@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoftMaskable",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 3,
+  "bytes[1]": 63,
+  "bytes[2]": 57,
+  "bytes[3]": 87,
+  "bytes[4]": 58,
+  "bytes[5]": 62,
+  "bytes[6]": 218,
+  "bytes[7]": 224,
+  "bytes[8]": 123,
+  "bytes[9]": 109,
+  "bytes[10]": 213,
+  "bytes[11]": 185,
+  "bytes[12]": 246,
+  "bytes[13]": 117,
+  "bytes[14]": 7,
+  "bytes[15]": 97
+ },
+ "m_ClassName": "SoftMaskable",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "Mirror",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 119,
+  "bytes[1]": 244,
+  "bytes[2]": 240,
+  "bytes[3]": 60,
+  "bytes[4]": 160,
+  "bytes[5]": 255,
+  "bytes[6]": 154,
+  "bytes[7]": 147,
+  "bytes[8]": 42,
+  "bytes[9]": 173,
+  "bytes[10]": 29,
+  "bytes[11]": 4,
+  "bytes[12]": 213,
+  "bytes[13]": 187,
+  "bytes[14]": 82,
+  "bytes[15]": 188
+ },
+ "m_ClassName": "Mirror",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

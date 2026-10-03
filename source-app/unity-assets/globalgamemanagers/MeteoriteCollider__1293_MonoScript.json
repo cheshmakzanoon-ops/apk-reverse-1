@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeteoriteCollider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 18,
+  "bytes[1]": 169,
+  "bytes[2]": 205,
+  "bytes[3]": 185,
+  "bytes[4]": 3,
+  "bytes[5]": 112,
+  "bytes[6]": 107,
+  "bytes[7]": 81,
+  "bytes[8]": 180,
+  "bytes[9]": 47,
+  "bytes[10]": 124,
+  "bytes[11]": 151,
+  "bytes[12]": 170,
+  "bytes[13]": 101,
+  "bytes[14]": 154,
+  "bytes[15]": 20
+ },
+ "m_ClassName": "MeteoriteCollider",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DOTweenSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 23,
+  "bytes[1]": 150,
+  "bytes[2]": 72,
+  "bytes[3]": 3,
+  "bytes[4]": 51,
+  "bytes[5]": 113,
+  "bytes[6]": 69,
+  "bytes[7]": 105,
+  "bytes[8]": 129,
+  "bytes[9]": 163,
+  "bytes[10]": 192,
+  "bytes[11]": 140,
+  "bytes[12]": 185,
+  "bytes[13]": 244,
+  "bytes[14]": 116,
+  "bytes[15]": 119
+ },
+ "m_ClassName": "DOTweenSettings",
+ "m_Namespace": "DG.Tweening.Core",
+ "m_AssemblyName": "DOTween.dll"
+}

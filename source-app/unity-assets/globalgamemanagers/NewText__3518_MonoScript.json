@@ -1,0 +1,25 @@
+{
+ "m_Name": "NewText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 46,
+  "bytes[1]": 101,
+  "bytes[2]": 241,
+  "bytes[3]": 132,
+  "bytes[4]": 13,
+  "bytes[5]": 82,
+  "bytes[6]": 184,
+  "bytes[7]": 93,
+  "bytes[8]": 123,
+  "bytes[9]": 201,
+  "bytes[10]": 180,
+  "bytes[11]": 175,
+  "bytes[12]": 202,
+  "bytes[13]": 213,
+  "bytes[14]": 167,
+  "bytes[15]": 68
+ },
+ "m_ClassName": "NewText",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

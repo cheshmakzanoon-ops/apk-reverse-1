@@ -1,0 +1,25 @@
+{
+ "m_Name": "NavigationGestureInputSystem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 113,
+  "bytes[1]": 191,
+  "bytes[2]": 202,
+  "bytes[3]": 194,
+  "bytes[4]": 181,
+  "bytes[5]": 42,
+  "bytes[6]": 182,
+  "bytes[7]": 34,
+  "bytes[8]": 7,
+  "bytes[9]": 87,
+  "bytes[10]": 164,
+  "bytes[11]": 74,
+  "bytes[12]": 66,
+  "bytes[13]": 254,
+  "bytes[14]": 170,
+  "bytes[15]": 220
+ },
+ "m_ClassName": "NavigationGestureInputSystem",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

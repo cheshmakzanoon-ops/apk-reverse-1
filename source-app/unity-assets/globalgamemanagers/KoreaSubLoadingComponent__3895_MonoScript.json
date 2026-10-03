@@ -1,0 +1,25 @@
+{
+ "m_Name": "KoreaSubLoadingComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 103,
+  "bytes[1]": 152,
+  "bytes[2]": 187,
+  "bytes[3]": 119,
+  "bytes[4]": 249,
+  "bytes[5]": 170,
+  "bytes[6]": 77,
+  "bytes[7]": 57,
+  "bytes[8]": 245,
+  "bytes[9]": 37,
+  "bytes[10]": 13,
+  "bytes[11]": 213,
+  "bytes[12]": 185,
+  "bytes[13]": 250,
+  "bytes[14]": 239,
+  "bytes[15]": 140
+ },
+ "m_ClassName": "KoreaSubLoadingComponent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

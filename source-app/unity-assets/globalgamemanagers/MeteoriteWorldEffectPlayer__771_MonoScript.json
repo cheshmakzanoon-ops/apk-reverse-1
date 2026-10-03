@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeteoriteWorldEffectPlayer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 60,
+  "bytes[1]": 93,
+  "bytes[2]": 77,
+  "bytes[3]": 64,
+  "bytes[4]": 147,
+  "bytes[5]": 198,
+  "bytes[6]": 117,
+  "bytes[7]": 23,
+  "bytes[8]": 212,
+  "bytes[9]": 56,
+  "bytes[10]": 71,
+  "bytes[11]": 106,
+  "bytes[12]": 63,
+  "bytes[13]": 155,
+  "bytes[14]": 164,
+  "bytes[15]": 44
+ },
+ "m_ClassName": "MeteoriteWorldEffectPlayer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

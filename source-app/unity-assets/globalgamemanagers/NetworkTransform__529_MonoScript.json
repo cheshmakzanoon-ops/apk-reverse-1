@@ -1,0 +1,25 @@
+{
+ "m_Name": "NetworkTransform",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 173,
+  "bytes[1]": 145,
+  "bytes[2]": 115,
+  "bytes[3]": 211,
+  "bytes[4]": 166,
+  "bytes[5]": 157,
+  "bytes[6]": 153,
+  "bytes[7]": 21,
+  "bytes[8]": 63,
+  "bytes[9]": 56,
+  "bytes[10]": 237,
+  "bytes[11]": 75,
+  "bytes[12]": 98,
+  "bytes[13]": 34,
+  "bytes[14]": 97,
+  "bytes[15]": 41
+ },
+ "m_ClassName": "NetworkTransform",
+ "m_Namespace": "UnityEngine.Networking",
+ "m_AssemblyName": "com.unity.multiplayer-hlapi.Runtime.dll"
+}

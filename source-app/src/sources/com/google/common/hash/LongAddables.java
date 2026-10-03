@@ -1,0 +1,57 @@
+package com.google.common.hash;
+
+import com.google.common.base.Supplier;
+import java.util.concurrent.atomic.AtomicLong;
+
+@ElementTypesAreNonnullByDefault
+final class LongAddables {
+    private static final Supplier<LongAddable> SUPPLIER;
+
+    LongAddables() {
+    }
+
+    static {
+        Supplier<LongAddable> supplier;
+        try {
+            new LongAdder();
+            supplier = new Supplier<LongAddable>() {
+                @Override
+                public LongAddable get() {
+                    return new LongAdder();
+                }
+            };
+        } catch (Throwable unused) {
+            supplier = new Supplier<LongAddable>() {
+                @Override
+                public LongAddable get() {
+                    return new PureJavaLongAddable();
+                }
+            };
+        }
+        SUPPLIER = supplier;
+    }
+
+    public static LongAddable create() {
+        return SUPPLIER.get();
+    }
+
+    private static final class PureJavaLongAddable extends AtomicLong implements LongAddable {
+        private PureJavaLongAddable() {
+        }
+
+        @Override
+        public void increment() {
+            getAndIncrement();
+        }
+
+        @Override
+        public void add(long j) {
+            getAndAdd(j);
+        }
+
+        @Override
+        public long sum() {
+            return get();
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineBasicMultiChannelPerlin",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 148,
+  "bytes[1]": 166,
+  "bytes[2]": 33,
+  "bytes[3]": 43,
+  "bytes[4]": 201,
+  "bytes[5]": 126,
+  "bytes[6]": 216,
+  "bytes[7]": 145,
+  "bytes[8]": 191,
+  "bytes[9]": 70,
+  "bytes[10]": 201,
+  "bytes[11]": 194,
+  "bytes[12]": 26,
+  "bytes[13]": 6,
+  "bytes[14]": 88,
+  "bytes[15]": 204
+ },
+ "m_ClassName": "CinemachineBasicMultiChannelPerlin",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

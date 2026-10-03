@@ -1,0 +1,25 @@
+{
+ "m_Name": "ControlPlayableAsset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 247,
+  "bytes[1]": 255,
+  "bytes[2]": 41,
+  "bytes[3]": 117,
+  "bytes[4]": 106,
+  "bytes[5]": 22,
+  "bytes[6]": 161,
+  "bytes[7]": 211,
+  "bytes[8]": 144,
+  "bytes[9]": 111,
+  "bytes[10]": 173,
+  "bytes[11]": 25,
+  "bytes[12]": 239,
+  "bytes[13]": 199,
+  "bytes[14]": 111,
+  "bytes[15]": 98
+ },
+ "m_ClassName": "ControlPlayableAsset",
+ "m_Namespace": "UnityEngine.Timeline",
+ "m_AssemblyName": "Unity.Timeline.dll"
+}

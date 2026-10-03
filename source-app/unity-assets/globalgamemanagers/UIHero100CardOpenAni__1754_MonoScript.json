@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIHero100CardOpenAni",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 79,
+  "bytes[1]": 65,
+  "bytes[2]": 212,
+  "bytes[3]": 188,
+  "bytes[4]": 155,
+  "bytes[5]": 49,
+  "bytes[6]": 109,
+  "bytes[7]": 163,
+  "bytes[8]": 57,
+  "bytes[9]": 117,
+  "bytes[10]": 214,
+  "bytes[11]": 22,
+  "bytes[12]": 29,
+  "bytes[13]": 186,
+  "bytes[14]": 15,
+  "bytes[15]": 215
+ },
+ "m_ClassName": "UIHero100CardOpenAni",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

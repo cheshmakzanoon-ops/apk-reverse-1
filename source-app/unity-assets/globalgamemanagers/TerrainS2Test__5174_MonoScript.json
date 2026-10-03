@@ -1,0 +1,25 @@
+{
+ "m_Name": "TerrainS2Test",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 83,
+  "bytes[1]": 81,
+  "bytes[2]": 25,
+  "bytes[3]": 203,
+  "bytes[4]": 88,
+  "bytes[5]": 217,
+  "bytes[6]": 178,
+  "bytes[7]": 27,
+  "bytes[8]": 231,
+  "bytes[9]": 150,
+  "bytes[10]": 222,
+  "bytes[11]": 74,
+  "bytes[12]": 165,
+  "bytes[13]": 223,
+  "bytes[14]": 158,
+  "bytes[15]": 212
+ },
+ "m_ClassName": "TerrainS2Test",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,22 @@
+local UINoticeHeroTipsCtrl = BaseClass("UINoticeHeroTipsCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UINoticeHeroTips, {anim = true, playEffect = false})
+  if self.noticeType and self.noticeType == 2 then
+    UIManager:GetInstance():OpenWindow(UIWindowNames.UINoticeTips, {anim = true, playEffect = false})
+  end
+  self.noticeType = nil
+end
+
+local function Close(self)
+  UIManager:GetInstance():DestroyWindowByLayer(UILayer.Normal)
+end
+
+local function SetNewNotice(self, noticeType)
+  self.noticeType = noticeType
+end
+
+UINoticeHeroTipsCtrl.CloseSelf = CloseSelf
+UINoticeHeroTipsCtrl.Close = Close
+UINoticeHeroTipsCtrl.SetNewNotice = SetNewNotice
+return UINoticeHeroTipsCtrl

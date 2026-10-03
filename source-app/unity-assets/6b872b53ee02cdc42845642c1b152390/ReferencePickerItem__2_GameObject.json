@@ -1,0 +1,44 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 7
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 6
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 11
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 16
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 13
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 10
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "ReferencePickerItem",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

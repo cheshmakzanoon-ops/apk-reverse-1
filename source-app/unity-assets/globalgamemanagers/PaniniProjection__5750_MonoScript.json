@@ -1,0 +1,25 @@
+{
+ "m_Name": "PaniniProjection",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 19,
+  "bytes[1]": 69,
+  "bytes[2]": 32,
+  "bytes[3]": 241,
+  "bytes[4]": 112,
+  "bytes[5]": 100,
+  "bytes[6]": 72,
+  "bytes[7]": 134,
+  "bytes[8]": 188,
+  "bytes[9]": 224,
+  "bytes[10]": 56,
+  "bytes[11]": 164,
+  "bytes[12]": 3,
+  "bytes[13]": 138,
+  "bytes[14]": 66,
+  "bytes[15]": 201
+ },
+ "m_ClassName": "PaniniProjection",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

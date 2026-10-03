@@ -1,0 +1,27 @@
+local BeginJigsawChallengeMessage = BaseClass("BeginJigsawChallengeMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, activityId, jigsawId)
+  base.OnCreate(self)
+  self.sfsObj:PutInt("activityId", tonumber(activityId))
+  self.sfsObj:PutInt("id", jigsawId)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    if t.gold ~= nil then
+      LuaEntry.Player.gold = t.gold
+      EventManager:GetInstance():Broadcast(EventId.UpdateGold)
+    end
+    DataCenter.JigsawPuzzleManager:OnRecvBeginChallenge(t)
+  end
+end
+
+BeginJigsawChallengeMessage.OnCreate = OnCreate
+BeginJigsawChallengeMessage.HandleMessage = HandleMessage
+return BeginJigsawChallengeMessage

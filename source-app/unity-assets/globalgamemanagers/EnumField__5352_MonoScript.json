@@ -1,0 +1,25 @@
+{
+ "m_Name": "EnumField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 254,
+  "bytes[1]": 104,
+  "bytes[2]": 151,
+  "bytes[3]": 66,
+  "bytes[4]": 165,
+  "bytes[5]": 60,
+  "bytes[6]": 106,
+  "bytes[7]": 96,
+  "bytes[8]": 131,
+  "bytes[9]": 86,
+  "bytes[10]": 56,
+  "bytes[11]": 96,
+  "bytes[12]": 123,
+  "bytes[13]": 85,
+  "bytes[14]": 131,
+  "bytes[15]": 239
+ },
+ "m_ClassName": "EnumField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

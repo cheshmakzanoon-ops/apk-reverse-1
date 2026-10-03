@@ -1,0 +1,25 @@
+{
+ "m_Name": "CityEnergyConfig",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 64,
+  "bytes[1]": 175,
+  "bytes[2]": 230,
+  "bytes[3]": 100,
+  "bytes[4]": 76,
+  "bytes[5]": 105,
+  "bytes[6]": 137,
+  "bytes[7]": 161,
+  "bytes[8]": 148,
+  "bytes[9]": 46,
+  "bytes[10]": 137,
+  "bytes[11]": 124,
+  "bytes[12]": 190,
+  "bytes[13]": 181,
+  "bytes[14]": 200,
+  "bytes[15]": 170
+ },
+ "m_ClassName": "CityEnergyConfig",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

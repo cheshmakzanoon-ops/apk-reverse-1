@@ -1,0 +1,25 @@
+{
+ "m_Name": "LODBackupComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 156,
+  "bytes[1]": 142,
+  "bytes[2]": 50,
+  "bytes[3]": 131,
+  "bytes[4]": 103,
+  "bytes[5]": 210,
+  "bytes[6]": 98,
+  "bytes[7]": 242,
+  "bytes[8]": 155,
+  "bytes[9]": 138,
+  "bytes[10]": 205,
+  "bytes[11]": 142,
+  "bytes[12]": 134,
+  "bytes[13]": 243,
+  "bytes[14]": 160,
+  "bytes[15]": 179
+ },
+ "m_ClassName": "LODBackupComponent",
+ "m_Namespace": "UnityMeshSimplifier",
+ "m_AssemblyName": "Whinarn.UnityMeshSimplifier.Runtime.dll"
+}

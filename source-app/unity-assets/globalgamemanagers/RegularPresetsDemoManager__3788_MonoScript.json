@@ -1,0 +1,25 @@
+{
+ "m_Name": "RegularPresetsDemoManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 171,
+  "bytes[1]": 57,
+  "bytes[2]": 104,
+  "bytes[3]": 44,
+  "bytes[4]": 194,
+  "bytes[5]": 132,
+  "bytes[6]": 170,
+  "bytes[7]": 28,
+  "bytes[8]": 21,
+  "bytes[9]": 27,
+  "bytes[10]": 234,
+  "bytes[11]": 211,
+  "bytes[12]": 142,
+  "bytes[13]": 161,
+  "bytes[14]": 17,
+  "bytes[15]": 53
+ },
+ "m_ClassName": "RegularPresetsDemoManager",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

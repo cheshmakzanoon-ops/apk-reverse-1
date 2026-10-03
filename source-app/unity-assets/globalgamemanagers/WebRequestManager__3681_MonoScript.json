@@ -1,0 +1,25 @@
+{
+ "m_Name": "WebRequestManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 52,
+  "bytes[1]": 176,
+  "bytes[2]": 134,
+  "bytes[3]": 124,
+  "bytes[4]": 63,
+  "bytes[5]": 182,
+  "bytes[6]": 112,
+  "bytes[7]": 233,
+  "bytes[8]": 9,
+  "bytes[9]": 57,
+  "bytes[10]": 100,
+  "bytes[11]": 239,
+  "bytes[12]": 216,
+  "bytes[13]": 56,
+  "bytes[14]": 179,
+  "bytes[15]": 25
+ },
+ "m_ClassName": "WebRequestManager",
+ "m_Namespace": "GameKit.Base",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

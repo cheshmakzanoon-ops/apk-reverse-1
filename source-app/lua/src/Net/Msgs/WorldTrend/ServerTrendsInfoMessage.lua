@@ -1,0 +1,21 @@
+local ServerTrendsInfoMessage = BaseClass("ServerTrendsInfoMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  local errCode = message.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.WorldTrendManager:UpdateWorldTrendData(message)
+  end
+end
+
+ServerTrendsInfoMessage.OnCreate = OnCreate
+ServerTrendsInfoMessage.HandleMessage = HandleMessage
+return ServerTrendsInfoMessage

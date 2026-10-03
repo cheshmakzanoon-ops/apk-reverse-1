@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoftJoystick",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 27,
+  "bytes[1]": 133,
+  "bytes[2]": 74,
+  "bytes[3]": 24,
+  "bytes[4]": 37,
+  "bytes[5]": 150,
+  "bytes[6]": 62,
+  "bytes[7]": 154,
+  "bytes[8]": 200,
+  "bytes[9]": 226,
+  "bytes[10]": 80,
+  "bytes[11]": 156,
+  "bytes[12]": 164,
+  "bytes[13]": 255,
+  "bytes[14]": 212,
+  "bytes[15]": 255
+ },
+ "m_ClassName": "SoftJoystick",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

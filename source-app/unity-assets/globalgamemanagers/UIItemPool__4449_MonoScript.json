@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIItemPool",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 218,
+  "bytes[1]": 199,
+  "bytes[2]": 16,
+  "bytes[3]": 62,
+  "bytes[4]": 61,
+  "bytes[5]": 8,
+  "bytes[6]": 255,
+  "bytes[7]": 221,
+  "bytes[8]": 4,
+  "bytes[9]": 26,
+  "bytes[10]": 194,
+  "bytes[11]": 6,
+  "bytes[12]": 114,
+  "bytes[13]": 114,
+  "bytes[14]": 50,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "UIItemPool",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

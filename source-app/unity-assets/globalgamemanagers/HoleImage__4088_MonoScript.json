@@ -1,0 +1,25 @@
+{
+ "m_Name": "HoleImage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 137,
+  "bytes[1]": 249,
+  "bytes[2]": 161,
+  "bytes[3]": 180,
+  "bytes[4]": 198,
+  "bytes[5]": 77,
+  "bytes[6]": 185,
+  "bytes[7]": 85,
+  "bytes[8]": 158,
+  "bytes[9]": 57,
+  "bytes[10]": 244,
+  "bytes[11]": 162,
+  "bytes[12]": 227,
+  "bytes[13]": 191,
+  "bytes[14]": 170,
+  "bytes[15]": 221
+ },
+ "m_ClassName": "HoleImage",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

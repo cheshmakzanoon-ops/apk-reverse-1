@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineImpulseSource",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 192,
+  "bytes[1]": 32,
+  "bytes[2]": 29,
+  "bytes[3]": 190,
+  "bytes[4]": 205,
+  "bytes[5]": 133,
+  "bytes[6]": 247,
+  "bytes[7]": 0,
+  "bytes[8]": 188,
+  "bytes[9]": 223,
+  "bytes[10]": 244,
+  "bytes[11]": 147,
+  "bytes[12]": 162,
+  "bytes[13]": 114,
+  "bytes[14]": 99,
+  "bytes[15]": 29
+ },
+ "m_ClassName": "CinemachineImpulseSource",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

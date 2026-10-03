@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineTransposer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 124,
+  "bytes[1]": 121,
+  "bytes[2]": 35,
+  "bytes[3]": 147,
+  "bytes[4]": 251,
+  "bytes[5]": 130,
+  "bytes[6]": 72,
+  "bytes[7]": 139,
+  "bytes[8]": 210,
+  "bytes[9]": 1,
+  "bytes[10]": 57,
+  "bytes[11]": 220,
+  "bytes[12]": 197,
+  "bytes[13]": 186,
+  "bytes[14]": 38,
+  "bytes[15]": 216
+ },
+ "m_ClassName": "CinemachineTransposer",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

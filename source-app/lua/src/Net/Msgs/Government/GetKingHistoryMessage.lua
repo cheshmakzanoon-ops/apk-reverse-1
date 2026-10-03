@@ -1,0 +1,17 @@
+local GetKingHistoryMessage = BaseClass("GetKingHistoryMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self, serverId, page)
+  base.OnCreate(self)
+  self.sfsObj:PutInt("serverId", serverId)
+  self.sfsObj:PutInt("page", page)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  DataCenter.GovernmentManager:GetKingHistoryHandler(t)
+end
+
+GetKingHistoryMessage.OnCreate = OnCreate
+GetKingHistoryMessage.HandleMessage = HandleMessage
+return GetKingHistoryMessage

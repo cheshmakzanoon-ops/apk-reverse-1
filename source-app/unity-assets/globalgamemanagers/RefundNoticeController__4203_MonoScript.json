@@ -1,0 +1,25 @@
+{
+ "m_Name": "RefundNoticeController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 67,
+  "bytes[1]": 44,
+  "bytes[2]": 182,
+  "bytes[3]": 211,
+  "bytes[4]": 7,
+  "bytes[5]": 34,
+  "bytes[6]": 142,
+  "bytes[7]": 242,
+  "bytes[8]": 130,
+  "bytes[9]": 230,
+  "bytes[10]": 220,
+  "bytes[11]": 181,
+  "bytes[12]": 172,
+  "bytes[13]": 50,
+  "bytes[14]": 187,
+  "bytes[15]": 233
+ },
+ "m_ClassName": "RefundNoticeController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

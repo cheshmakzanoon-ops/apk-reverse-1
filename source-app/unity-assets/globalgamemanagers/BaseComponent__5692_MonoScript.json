@@ -1,0 +1,25 @@
+{
+ "m_Name": "BaseComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 233,
+  "bytes[1]": 2,
+  "bytes[2]": 22,
+  "bytes[3]": 202,
+  "bytes[4]": 188,
+  "bytes[5]": 130,
+  "bytes[6]": 90,
+  "bytes[7]": 188,
+  "bytes[8]": 17,
+  "bytes[9]": 4,
+  "bytes[10]": 3,
+  "bytes[11]": 138,
+  "bytes[12]": 178,
+  "bytes[13]": 197,
+  "bytes[14]": 191,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "BaseComponent",
+ "m_Namespace": "UnityGameFramework.Runtime",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

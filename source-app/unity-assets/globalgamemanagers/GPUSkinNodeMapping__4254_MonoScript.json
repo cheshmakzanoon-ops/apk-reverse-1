@@ -1,0 +1,25 @@
+{
+ "m_Name": "GPUSkinNodeMapping",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 160,
+  "bytes[1]": 102,
+  "bytes[2]": 222,
+  "bytes[3]": 219,
+  "bytes[4]": 157,
+  "bytes[5]": 99,
+  "bytes[6]": 76,
+  "bytes[7]": 174,
+  "bytes[8]": 31,
+  "bytes[9]": 245,
+  "bytes[10]": 38,
+  "bytes[11]": 242,
+  "bytes[12]": 65,
+  "bytes[13]": 76,
+  "bytes[14]": 234,
+  "bytes[15]": 234
+ },
+ "m_ClassName": "GPUSkinNodeMapping",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

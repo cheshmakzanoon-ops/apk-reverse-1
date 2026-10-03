@@ -1,0 +1,20 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 423
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 586
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "DebugUI Toggle 23",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

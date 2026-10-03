@@ -1,0 +1,25 @@
+{
+ "m_Name": "CityTroop",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 2,
+  "bytes[1]": 241,
+  "bytes[2]": 153,
+  "bytes[3]": 135,
+  "bytes[4]": 162,
+  "bytes[5]": 178,
+  "bytes[6]": 208,
+  "bytes[7]": 201,
+  "bytes[8]": 218,
+  "bytes[9]": 111,
+  "bytes[10]": 197,
+  "bytes[11]": 172,
+  "bytes[12]": 216,
+  "bytes[13]": 204,
+  "bytes[14]": 144,
+  "bytes[15]": 127
+ },
+ "m_ClassName": "CityTroop",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

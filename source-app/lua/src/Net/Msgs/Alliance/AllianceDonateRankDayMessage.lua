@@ -1,0 +1,22 @@
+local AllianceDonateRankDayMessage = BaseClass("AllianceDonateRankDayMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.AllianceDonateRankDataManager:UpdateRankDayList(t)
+    EventManager:GetInstance():Broadcast(EventId.AllianceDonateRankDay)
+  end
+end
+
+AllianceDonateRankDayMessage.OnCreate = OnCreate
+AllianceDonateRankDayMessage.HandleMessage = HandleMessage
+return AllianceDonateRankDayMessage

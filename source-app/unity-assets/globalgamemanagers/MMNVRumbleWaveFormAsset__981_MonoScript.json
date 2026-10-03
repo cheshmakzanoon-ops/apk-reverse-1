@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMNVRumbleWaveFormAsset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 200,
+  "bytes[1]": 121,
+  "bytes[2]": 57,
+  "bytes[3]": 129,
+  "bytes[4]": 182,
+  "bytes[5]": 241,
+  "bytes[6]": 149,
+  "bytes[7]": 174,
+  "bytes[8]": 146,
+  "bytes[9]": 75,
+  "bytes[10]": 61,
+  "bytes[11]": 254,
+  "bytes[12]": 76,
+  "bytes[13]": 231,
+  "bytes[14]": 138,
+  "bytes[15]": 116
+ },
+ "m_ClassName": "MMNVRumbleWaveFormAsset",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Haptics.dll"
+}

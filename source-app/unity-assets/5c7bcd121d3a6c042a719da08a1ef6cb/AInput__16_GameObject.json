@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 58
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 44
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 104
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 115
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 91
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "AInput",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "GetHDRIntensity",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 60,
+  "bytes[1]": 92,
+  "bytes[2]": 241,
+  "bytes[3]": 167,
+  "bytes[4]": 208,
+  "bytes[5]": 116,
+  "bytes[6]": 145,
+  "bytes[7]": 193,
+  "bytes[8]": 65,
+  "bytes[9]": 219,
+  "bytes[10]": 19,
+  "bytes[11]": 248,
+  "bytes[12]": 26,
+  "bytes[13]": 252,
+  "bytes[14]": 50,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "GetHDRIntensity",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

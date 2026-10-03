@@ -1,0 +1,25 @@
+{
+ "m_Name": "UiMesh",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 178,
+  "bytes[1]": 213,
+  "bytes[2]": 42,
+  "bytes[3]": 190,
+  "bytes[4]": 79,
+  "bytes[5]": 227,
+  "bytes[6]": 228,
+  "bytes[7]": 52,
+  "bytes[8]": 28,
+  "bytes[9]": 19,
+  "bytes[10]": 252,
+  "bytes[11]": 207,
+  "bytes[12]": 104,
+  "bytes[13]": 178,
+  "bytes[14]": 161,
+  "bytes[15]": 18
+ },
+ "m_ClassName": "UiMesh",
+ "m_Namespace": "DragonReborn.UI.UGUIExtends",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

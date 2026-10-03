@@ -1,0 +1,25 @@
+{
+ "m_Name": "RenderingLayerMaskSetting",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 2,
+  "bytes[1]": 1,
+  "bytes[2]": 204,
+  "bytes[3]": 45,
+  "bytes[4]": 182,
+  "bytes[5]": 153,
+  "bytes[6]": 2,
+  "bytes[7]": 50,
+  "bytes[8]": 154,
+  "bytes[9]": 28,
+  "bytes[10]": 185,
+  "bytes[11]": 252,
+  "bytes[12]": 182,
+  "bytes[13]": 102,
+  "bytes[14]": 245,
+  "bytes[15]": 37
+ },
+ "m_ClassName": "RenderingLayerMaskSetting",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

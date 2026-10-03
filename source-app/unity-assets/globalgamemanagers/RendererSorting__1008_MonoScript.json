@@ -1,0 +1,25 @@
+{
+ "m_Name": "RendererSorting",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 178,
+  "bytes[1]": 101,
+  "bytes[2]": 244,
+  "bytes[3]": 205,
+  "bytes[4]": 180,
+  "bytes[5]": 196,
+  "bytes[6]": 165,
+  "bytes[7]": 158,
+  "bytes[8]": 22,
+  "bytes[9]": 103,
+  "bytes[10]": 138,
+  "bytes[11]": 236,
+  "bytes[12]": 138,
+  "bytes[13]": 97,
+  "bytes[14]": 123,
+  "bytes[15]": 165
+ },
+ "m_ClassName": "RendererSorting",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldBuildingAniEffect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 55,
+  "bytes[1]": 87,
+  "bytes[2]": 50,
+  "bytes[3]": 43,
+  "bytes[4]": 246,
+  "bytes[5]": 102,
+  "bytes[6]": 202,
+  "bytes[7]": 139,
+  "bytes[8]": 228,
+  "bytes[9]": 182,
+  "bytes[10]": 216,
+  "bytes[11]": 253,
+  "bytes[12]": 24,
+  "bytes[13]": 76,
+  "bytes[14]": 55,
+  "bytes[15]": 101
+ },
+ "m_ClassName": "WorldBuildingAniEffect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

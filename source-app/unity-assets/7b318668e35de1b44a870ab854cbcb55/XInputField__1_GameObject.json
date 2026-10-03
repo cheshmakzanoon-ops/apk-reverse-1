@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 78
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 28
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 106
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 89
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 87
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "XInputField",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

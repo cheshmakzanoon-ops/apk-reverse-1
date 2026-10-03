@@ -1,0 +1,13 @@
+local UIIDCardDesTipsCtrl = BaseClass("UIIDCardDesTipsCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIIDCardDesTips)
+end
+
+local function Close(self)
+  UIManager.Instance:DestroyWindowByLayer(UILayer.Info)
+end
+
+UIIDCardDesTipsCtrl.CloseSelf = CloseSelf
+UIIDCardDesTipsCtrl.Close = Close
+return UIIDCardDesTipsCtrl

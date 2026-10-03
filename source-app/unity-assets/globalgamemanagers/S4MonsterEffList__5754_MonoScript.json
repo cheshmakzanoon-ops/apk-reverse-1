@@ -1,0 +1,25 @@
+{
+ "m_Name": "S4MonsterEffList",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 107,
+  "bytes[1]": 249,
+  "bytes[2]": 25,
+  "bytes[3]": 26,
+  "bytes[4]": 44,
+  "bytes[5]": 166,
+  "bytes[6]": 8,
+  "bytes[7]": 83,
+  "bytes[8]": 39,
+  "bytes[9]": 89,
+  "bytes[10]": 125,
+  "bytes[11]": 134,
+  "bytes[12]": 163,
+  "bytes[13]": 144,
+  "bytes[14]": 163,
+  "bytes[15]": 180
+ },
+ "m_ClassName": "S4MonsterEffList",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

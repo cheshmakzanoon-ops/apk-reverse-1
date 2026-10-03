@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMKnob",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 89,
+  "bytes[1]": 213,
+  "bytes[2]": 134,
+  "bytes[3]": 254,
+  "bytes[4]": 169,
+  "bytes[5]": 231,
+  "bytes[6]": 52,
+  "bytes[7]": 231,
+  "bytes[8]": 171,
+  "bytes[9]": 79,
+  "bytes[10]": 200,
+  "bytes[11]": 220,
+  "bytes[12]": 202,
+  "bytes[13]": 27,
+  "bytes[14]": 33,
+  "bytes[15]": 125
+ },
+ "m_ClassName": "MMKnob",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

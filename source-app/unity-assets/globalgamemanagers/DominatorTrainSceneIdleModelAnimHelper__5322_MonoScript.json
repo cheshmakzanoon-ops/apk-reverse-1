@@ -1,0 +1,25 @@
+{
+ "m_Name": "DominatorTrainSceneIdleModelAnimHelper",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 107,
+  "bytes[1]": 62,
+  "bytes[2]": 253,
+  "bytes[3]": 97,
+  "bytes[4]": 3,
+  "bytes[5]": 39,
+  "bytes[6]": 87,
+  "bytes[7]": 237,
+  "bytes[8]": 23,
+  "bytes[9]": 200,
+  "bytes[10]": 98,
+  "bytes[11]": 241,
+  "bytes[12]": 154,
+  "bytes[13]": 17,
+  "bytes[14]": 79,
+  "bytes[15]": 26
+ },
+ "m_ClassName": "DominatorTrainSceneIdleModelAnimHelper",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

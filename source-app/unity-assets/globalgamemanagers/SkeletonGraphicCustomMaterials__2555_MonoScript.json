@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonGraphicCustomMaterials",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 15,
+  "bytes[1]": 213,
+  "bytes[2]": 251,
+  "bytes[3]": 172,
+  "bytes[4]": 45,
+  "bytes[5]": 89,
+  "bytes[6]": 209,
+  "bytes[7]": 59,
+  "bytes[8]": 72,
+  "bytes[9]": 77,
+  "bytes[10]": 72,
+  "bytes[11]": 175,
+  "bytes[12]": 197,
+  "bytes[13]": 232,
+  "bytes[14]": 6,
+  "bytes[15]": 66
+ },
+ "m_ClassName": "SkeletonGraphicCustomMaterials",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

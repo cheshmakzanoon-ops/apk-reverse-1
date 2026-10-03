@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldPeopleTruckBase",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 120,
+  "bytes[1]": 16,
+  "bytes[2]": 131,
+  "bytes[3]": 208,
+  "bytes[4]": 214,
+  "bytes[5]": 144,
+  "bytes[6]": 167,
+  "bytes[7]": 239,
+  "bytes[8]": 77,
+  "bytes[9]": 169,
+  "bytes[10]": 244,
+  "bytes[11]": 130,
+  "bytes[12]": 147,
+  "bytes[13]": 118,
+  "bytes[14]": 249,
+  "bytes[15]": 47
+ },
+ "m_ClassName": "WorldPeopleTruckBase",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

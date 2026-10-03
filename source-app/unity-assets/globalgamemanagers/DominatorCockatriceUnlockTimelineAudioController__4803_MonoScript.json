@@ -1,0 +1,25 @@
+{
+ "m_Name": "DominatorCockatriceUnlockTimelineAudioController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 246,
+  "bytes[1]": 61,
+  "bytes[2]": 216,
+  "bytes[3]": 139,
+  "bytes[4]": 135,
+  "bytes[5]": 104,
+  "bytes[6]": 105,
+  "bytes[7]": 187,
+  "bytes[8]": 32,
+  "bytes[9]": 62,
+  "bytes[10]": 1,
+  "bytes[11]": 116,
+  "bytes[12]": 23,
+  "bytes[13]": 238,
+  "bytes[14]": 41,
+  "bytes[15]": 100
+ },
+ "m_ClassName": "DominatorCockatriceUnlockTimelineAudioController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

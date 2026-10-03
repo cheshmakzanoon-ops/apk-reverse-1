@@ -1,0 +1,25 @@
+{
+ "m_Name": "VerticalLayoutGroup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 90,
+  "bytes[1]": 212,
+  "bytes[2]": 170,
+  "bytes[3]": 35,
+  "bytes[4]": 125,
+  "bytes[5]": 71,
+  "bytes[6]": 172,
+  "bytes[7]": 43,
+  "bytes[8]": 171,
+  "bytes[9]": 23,
+  "bytes[10]": 186,
+  "bytes[11]": 203,
+  "bytes[12]": 103,
+  "bytes[13]": 46,
+  "bytes[14]": 223,
+  "bytes[15]": 122
+ },
+ "m_ClassName": "VerticalLayoutGroup",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

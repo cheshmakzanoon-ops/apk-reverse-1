@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerVector3",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 125,
+  "bytes[1]": 191,
+  "bytes[2]": 69,
+  "bytes[3]": 9,
+  "bytes[4]": 50,
+  "bytes[5]": 35,
+  "bytes[6]": 65,
+  "bytes[7]": 88,
+  "bytes[8]": 190,
+  "bytes[9]": 88,
+  "bytes[10]": 202,
+  "bytes[11]": 32,
+  "bytes[12]": 39,
+  "bytes[13]": 86,
+  "bytes[14]": 61,
+  "bytes[15]": 203
+ },
+ "m_ClassName": "DebugUIHandlerVector3",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

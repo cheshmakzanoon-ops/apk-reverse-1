@@ -1,0 +1,25 @@
+{
+ "m_Name": "StandaloneInputModule",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 116,
+  "bytes[1]": 141,
+  "bytes[2]": 210,
+  "bytes[3]": 162,
+  "bytes[4]": 162,
+  "bytes[5]": 141,
+  "bytes[6]": 164,
+  "bytes[7]": 230,
+  "bytes[8]": 24,
+  "bytes[9]": 145,
+  "bytes[10]": 45,
+  "bytes[11]": 165,
+  "bytes[12]": 172,
+  "bytes[13]": 69,
+  "bytes[14]": 104,
+  "bytes[15]": 75
+ },
+ "m_ClassName": "StandaloneInputModule",
+ "m_Namespace": "UnityEngine.EventSystems",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

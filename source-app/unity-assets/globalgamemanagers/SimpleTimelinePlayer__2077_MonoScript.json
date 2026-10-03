@@ -1,0 +1,25 @@
+{
+ "m_Name": "SimpleTimelinePlayer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 78,
+  "bytes[1]": 7,
+  "bytes[2]": 205,
+  "bytes[3]": 85,
+  "bytes[4]": 139,
+  "bytes[5]": 36,
+  "bytes[6]": 128,
+  "bytes[7]": 71,
+  "bytes[8]": 20,
+  "bytes[9]": 84,
+  "bytes[10]": 128,
+  "bytes[11]": 61,
+  "bytes[12]": 236,
+  "bytes[13]": 75,
+  "bytes[14]": 218,
+  "bytes[15]": 194
+ },
+ "m_ClassName": "SimpleTimelinePlayer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

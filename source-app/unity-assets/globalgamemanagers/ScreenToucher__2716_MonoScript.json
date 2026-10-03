@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScreenToucher",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 18,
+  "bytes[1]": 197,
+  "bytes[2]": 221,
+  "bytes[3]": 83,
+  "bytes[4]": 75,
+  "bytes[5]": 134,
+  "bytes[6]": 195,
+  "bytes[7]": 52,
+  "bytes[8]": 228,
+  "bytes[9]": 12,
+  "bytes[10]": 157,
+  "bytes[11]": 192,
+  "bytes[12]": 140,
+  "bytes[13]": 106,
+  "bytes[14]": 107,
+  "bytes[15]": 7
+ },
+ "m_ClassName": "ScreenToucher",
+ "m_Namespace": "Framework.Utils.UnityEx",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

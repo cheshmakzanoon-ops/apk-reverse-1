@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 2
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 6
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 4
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 5
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 3
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "DebugUI HBox",
+ "m_Tag": 0,
+ "m_IsActive": true
+}
