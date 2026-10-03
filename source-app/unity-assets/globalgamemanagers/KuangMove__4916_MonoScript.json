@@ -1,0 +1,25 @@
+{
+ "m_Name": "KuangMove",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 92,
+  "bytes[1]": 114,
+  "bytes[2]": 108,
+  "bytes[3]": 44,
+  "bytes[4]": 31,
+  "bytes[5]": 32,
+  "bytes[6]": 4,
+  "bytes[7]": 158,
+  "bytes[8]": 243,
+  "bytes[9]": 108,
+  "bytes[10]": 166,
+  "bytes[11]": 37,
+  "bytes[12]": 85,
+  "bytes[13]": 248,
+  "bytes[14]": 179,
+  "bytes[15]": 209
+ },
+ "m_ClassName": "KuangMove",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

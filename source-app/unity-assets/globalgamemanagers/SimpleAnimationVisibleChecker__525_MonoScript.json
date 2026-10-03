@@ -1,0 +1,25 @@
+{
+ "m_Name": "SimpleAnimationVisibleChecker",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 234,
+  "bytes[1]": 164,
+  "bytes[2]": 62,
+  "bytes[3]": 126,
+  "bytes[4]": 228,
+  "bytes[5]": 39,
+  "bytes[6]": 166,
+  "bytes[7]": 113,
+  "bytes[8]": 120,
+  "bytes[9]": 132,
+  "bytes[10]": 104,
+  "bytes[11]": 251,
+  "bytes[12]": 237,
+  "bytes[13]": 141,
+  "bytes[14]": 56,
+  "bytes[15]": 213
+ },
+ "m_ClassName": "SimpleAnimationVisibleChecker",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

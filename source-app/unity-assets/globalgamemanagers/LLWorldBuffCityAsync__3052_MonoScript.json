@@ -1,0 +1,25 @@
+{
+ "m_Name": "LLWorldBuffCityAsync",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 24,
+  "bytes[1]": 78,
+  "bytes[2]": 205,
+  "bytes[3]": 28,
+  "bytes[4]": 216,
+  "bytes[5]": 17,
+  "bytes[6]": 138,
+  "bytes[7]": 30,
+  "bytes[8]": 81,
+  "bytes[9]": 80,
+  "bytes[10]": 29,
+  "bytes[11]": 47,
+  "bytes[12]": 113,
+  "bytes[13]": 110,
+  "bytes[14]": 89,
+  "bytes[15]": 195
+ },
+ "m_ClassName": "LLWorldBuffCityAsync",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

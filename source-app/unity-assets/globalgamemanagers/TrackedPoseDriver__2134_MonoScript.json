@@ -1,0 +1,25 @@
+{
+ "m_Name": "TrackedPoseDriver",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 210,
+  "bytes[1]": 81,
+  "bytes[2]": 191,
+  "bytes[3]": 136,
+  "bytes[4]": 219,
+  "bytes[5]": 108,
+  "bytes[6]": 149,
+  "bytes[7]": 166,
+  "bytes[8]": 177,
+  "bytes[9]": 170,
+  "bytes[10]": 11,
+  "bytes[11]": 105,
+  "bytes[12]": 41,
+  "bytes[13]": 141,
+  "bytes[14]": 169,
+  "bytes[15]": 239
+ },
+ "m_ClassName": "TrackedPoseDriver",
+ "m_Namespace": "UnityEngine.SpatialTracking",
+ "m_AssemblyName": "UnityEngine.SpatialTracking.dll"
+}

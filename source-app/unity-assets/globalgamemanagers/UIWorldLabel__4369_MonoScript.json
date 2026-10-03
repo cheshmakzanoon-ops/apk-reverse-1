@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIWorldLabel",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 2,
+  "bytes[1]": 144,
+  "bytes[2]": 209,
+  "bytes[3]": 188,
+  "bytes[4]": 28,
+  "bytes[5]": 196,
+  "bytes[6]": 3,
+  "bytes[7]": 210,
+  "bytes[8]": 139,
+  "bytes[9]": 177,
+  "bytes[10]": 114,
+  "bytes[11]": 50,
+  "bytes[12]": 48,
+  "bytes[13]": 139,
+  "bytes[14]": 159,
+  "bytes[15]": 172
+ },
+ "m_ClassName": "UIWorldLabel",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

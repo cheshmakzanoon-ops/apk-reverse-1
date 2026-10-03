@@ -1,0 +1,7 @@
+local UIBattleResultMysteryTreasureDefeatCtrl = BaseClass("UIBattleResultMysteryTreasureDefeatCtrl", UIBaseCtrl)
+
+function UIBattleResultMysteryTreasureDefeatCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBattleResultMysteryTreasureDefeat)
+end
+
+return UIBattleResultMysteryTreasureDefeatCtrl

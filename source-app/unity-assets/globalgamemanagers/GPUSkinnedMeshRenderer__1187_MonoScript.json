@@ -1,0 +1,25 @@
+{
+ "m_Name": "GPUSkinnedMeshRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 7,
+  "bytes[1]": 236,
+  "bytes[2]": 37,
+  "bytes[3]": 92,
+  "bytes[4]": 218,
+  "bytes[5]": 185,
+  "bytes[6]": 51,
+  "bytes[7]": 59,
+  "bytes[8]": 162,
+  "bytes[9]": 227,
+  "bytes[10]": 242,
+  "bytes[11]": 245,
+  "bytes[12]": 225,
+  "bytes[13]": 145,
+  "bytes[14]": 15,
+  "bytes[15]": 178
+ },
+ "m_ClassName": "GPUSkinnedMeshRenderer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

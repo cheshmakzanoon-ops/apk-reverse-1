@@ -1,0 +1,25 @@
+{
+ "m_Name": "FbxPrefab",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 172,
+  "bytes[1]": 167,
+  "bytes[2]": 175,
+  "bytes[3]": 143,
+  "bytes[4]": 231,
+  "bytes[5]": 214,
+  "bytes[6]": 155,
+  "bytes[7]": 230,
+  "bytes[8]": 171,
+  "bytes[9]": 80,
+  "bytes[10]": 227,
+  "bytes[11]": 24,
+  "bytes[12]": 77,
+  "bytes[13]": 40,
+  "bytes[14]": 229,
+  "bytes[15]": 25
+ },
+ "m_ClassName": "FbxPrefab",
+ "m_Namespace": "UnityEngine.Formats.Fbx.Exporter",
+ "m_AssemblyName": "Unity.Formats.Fbx.Runtime.dll"
+}

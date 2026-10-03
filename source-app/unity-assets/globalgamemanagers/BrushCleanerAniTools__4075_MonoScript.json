@@ -1,0 +1,25 @@
+{
+ "m_Name": "BrushCleanerAniTools",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 226,
+  "bytes[1]": 88,
+  "bytes[2]": 7,
+  "bytes[3]": 77,
+  "bytes[4]": 64,
+  "bytes[5]": 156,
+  "bytes[6]": 82,
+  "bytes[7]": 40,
+  "bytes[8]": 146,
+  "bytes[9]": 206,
+  "bytes[10]": 228,
+  "bytes[11]": 130,
+  "bytes[12]": 172,
+  "bytes[13]": 2,
+  "bytes[14]": 21,
+  "bytes[15]": 107
+ },
+ "m_ClassName": "BrushCleanerAniTools",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

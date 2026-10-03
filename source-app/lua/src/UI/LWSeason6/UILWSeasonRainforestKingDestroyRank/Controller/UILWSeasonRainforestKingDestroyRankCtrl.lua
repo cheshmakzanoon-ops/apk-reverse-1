@@ -1,0 +1,7 @@
+local UILWSeasonRainforestKingDestroyRankCtrl = BaseClass("UILWSeasonRainforestKingDestroyRankCtrl", UIBaseCtrl)
+
+function UILWSeasonRainforestKingDestroyRankCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWSeasonRainforestKingDestroyRank)
+end
+
+return UILWSeasonRainforestKingDestroyRankCtrl

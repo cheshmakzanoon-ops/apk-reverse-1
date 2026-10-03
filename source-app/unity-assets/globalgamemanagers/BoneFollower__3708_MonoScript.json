@@ -1,0 +1,25 @@
+{
+ "m_Name": "BoneFollower",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 247,
+  "bytes[1]": 43,
+  "bytes[2]": 93,
+  "bytes[3]": 77,
+  "bytes[4]": 122,
+  "bytes[5]": 238,
+  "bytes[6]": 132,
+  "bytes[7]": 77,
+  "bytes[8]": 22,
+  "bytes[9]": 239,
+  "bytes[10]": 56,
+  "bytes[11]": 26,
+  "bytes[12]": 11,
+  "bytes[13]": 140,
+  "bytes[14]": 227,
+  "bytes[15]": 114
+ },
+ "m_ClassName": "BoneFollower",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

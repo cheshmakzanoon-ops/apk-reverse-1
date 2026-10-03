@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIHealthBarController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 43,
+  "bytes[1]": 231,
+  "bytes[2]": 67,
+  "bytes[3]": 139,
+  "bytes[4]": 184,
+  "bytes[5]": 106,
+  "bytes[6]": 156,
+  "bytes[7]": 17,
+  "bytes[8]": 76,
+  "bytes[9]": 204,
+  "bytes[10]": 235,
+  "bytes[11]": 37,
+  "bytes[12]": 142,
+  "bytes[13]": 79,
+  "bytes[14]": 177,
+  "bytes[15]": 247
+ },
+ "m_ClassName": "UIHealthBarController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

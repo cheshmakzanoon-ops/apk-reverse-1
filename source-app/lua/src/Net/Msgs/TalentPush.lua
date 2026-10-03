@@ -1,0 +1,15 @@
+local TalentPush = BaseClass("TalentPush", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  DataCenter.TalentDataManager:TalentPushHandler(t)
+end
+
+TalentPush.OnCreate = OnCreate
+TalentPush.HandleMessage = HandleMessage
+return TalentPush

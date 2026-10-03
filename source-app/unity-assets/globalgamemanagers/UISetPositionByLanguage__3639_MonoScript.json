@@ -1,0 +1,25 @@
+{
+ "m_Name": "UISetPositionByLanguage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 230,
+  "bytes[1]": 113,
+  "bytes[2]": 6,
+  "bytes[3]": 72,
+  "bytes[4]": 30,
+  "bytes[5]": 197,
+  "bytes[6]": 63,
+  "bytes[7]": 232,
+  "bytes[8]": 219,
+  "bytes[9]": 107,
+  "bytes[10]": 56,
+  "bytes[11]": 141,
+  "bytes[12]": 181,
+  "bytes[13]": 222,
+  "bytes[14]": 74,
+  "bytes[15]": 79
+ },
+ "m_ClassName": "UISetPositionByLanguage",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

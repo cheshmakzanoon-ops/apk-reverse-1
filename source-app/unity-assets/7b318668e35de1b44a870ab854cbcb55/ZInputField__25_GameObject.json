@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 62
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 48
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 108
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 99
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 118
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "ZInputField",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

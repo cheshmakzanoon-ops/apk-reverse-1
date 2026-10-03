@@ -1,0 +1,25 @@
+{
+ "m_Name": "SRPBatcherProfiler",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 180,
+  "bytes[1]": 67,
+  "bytes[2]": 69,
+  "bytes[3]": 117,
+  "bytes[4]": 125,
+  "bytes[5]": 124,
+  "bytes[6]": 200,
+  "bytes[7]": 31,
+  "bytes[8]": 63,
+  "bytes[9]": 69,
+  "bytes[10]": 35,
+  "bytes[11]": 208,
+  "bytes[12]": 197,
+  "bytes[13]": 171,
+  "bytes[14]": 135,
+  "bytes[15]": 168
+ },
+ "m_ClassName": "SRPBatcherProfiler",
+ "m_Namespace": "UnityEngine.Experimental.Rendering",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

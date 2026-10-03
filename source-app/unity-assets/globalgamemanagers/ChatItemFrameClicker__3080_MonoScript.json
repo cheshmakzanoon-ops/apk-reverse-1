@@ -1,0 +1,25 @@
+{
+ "m_Name": "ChatItemFrameClicker",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 207,
+  "bytes[1]": 192,
+  "bytes[2]": 224,
+  "bytes[3]": 142,
+  "bytes[4]": 87,
+  "bytes[5]": 76,
+  "bytes[6]": 12,
+  "bytes[7]": 104,
+  "bytes[8]": 83,
+  "bytes[9]": 211,
+  "bytes[10]": 189,
+  "bytes[11]": 206,
+  "bytes[12]": 185,
+  "bytes[13]": 247,
+  "bytes[14]": 163,
+  "bytes[15]": 137
+ },
+ "m_ClassName": "ChatItemFrameClicker",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

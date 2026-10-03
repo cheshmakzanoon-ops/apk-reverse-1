@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldCityPeople",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 6,
+  "bytes[1]": 112,
+  "bytes[2]": 89,
+  "bytes[3]": 32,
+  "bytes[4]": 112,
+  "bytes[5]": 69,
+  "bytes[6]": 119,
+  "bytes[7]": 85,
+  "bytes[8]": 64,
+  "bytes[9]": 9,
+  "bytes[10]": 32,
+  "bytes[11]": 136,
+  "bytes[12]": 164,
+  "bytes[13]": 147,
+  "bytes[14]": 31,
+  "bytes[15]": 127
+ },
+ "m_ClassName": "WorldCityPeople",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

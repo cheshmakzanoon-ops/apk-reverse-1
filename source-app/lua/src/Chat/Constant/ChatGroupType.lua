@@ -1,0 +1,56 @@
+ChatGroupType = {
+  GROUP_COUNTRY = "country",
+  GROUP_ALLIANCE = "alliance",
+  GROUP_WARZONE = "warzone",
+  GROUP_CROSS_SERVER = "crossbattle_",
+  GROUP_DRAGON_SELF_SERVER = "custom_starwar_team_",
+  GROUP_DRAGON_ALL_SERVER = "custom_starwar_",
+  GROUP_EPIDEMIC_FARMER = "battlefield_quarantine_farm",
+  GROUP_LANDLORD_FARMER = "battlefield_landlord_farmer",
+  GROUP_LANDLORD_LORD = "battlefield_landlord_lord",
+  GROUP_CUSTOM = "custom",
+  GROUP_FORCE = "force",
+  GROUP_MAILCHAT = "mailChat",
+  GROUP_QUEST = "quest",
+  GROUP_RADAR = "radar",
+  GROUP_TMPRoom = "tmpRoom",
+  GROUP_AL_AUTO_INVITE = "alAutoInvite",
+  GROUP_LANGUAGE = "language",
+  GROUP_ALLIANCE_NOTICE = "notice",
+  GROUP_ALLIANCE_NOTICE_COMMENTS = "notice_comments",
+  GROUP_ALLIANCE_MANAGER = "alliance_manager",
+  GROUP_ALLIANCE_FRIEND_ROOM = "alliance_friend",
+  GROUP_SEASON_ROOM = "custom_season_sustain_",
+  GROUP_SEASON_FACTION_WAR_ROOM = "season_faction_war",
+  GROUP_FRIENDS_CIRCLE_ROOM = "friends_circle",
+  GROUP_FRIENDS_CIRCLE_COMMENT_ROOM = "friends_circle_comment",
+  GROUP_EASTER_EGG_ROOM = "easter_egg_comment",
+  GROUP_ALLIANCE_MOMENT = "alliance_moment",
+  GROUP_FOLLOW_MOMENT = "follow_moment",
+  GROUP_SERVER_COMMENT = "country_moment",
+  GROUP_ALL_MOMENT = "all_moment",
+  GROUP_SUGGEST_MOMENT = "suggest_moment",
+  GROUP_CUSTOM_GROUP = "custom_group"
+}
+FakeChatGroupType = {
+  Fake_GROUP_ALLIANCE_NOTICE = "fake_group_notice"
+}
+ChatNotRoomGroup = {
+  [ChatGroupType.GROUP_ALLIANCE_MOMENT] = true,
+  [ChatGroupType.GROUP_FOLLOW_MOMENT] = true,
+  [ChatGroupType.GROUP_ALLIANCE_NOTICE] = true
+}
+ChatGroupTypeImg = {
+  [ChatGroupType.GROUP_COUNTRY] = "zyf_liaotian_shijie",
+  [ChatGroupType.GROUP_ALLIANCE] = "zyf_liaotian_lianmeng",
+  [ChatGroupType.GROUP_RADAR] = "zyf_liaotian_xitong",
+  [ChatGroupType.GROUP_LANGUAGE] = "zyf_liaotian_xitong",
+  [ChatGroupType.GROUP_DRAGON_SELF_SERVER] = "zyf_liaotian_team",
+  [ChatGroupType.GROUP_DRAGON_ALL_SERVER] = "zyf_liaotian_zhanchang",
+  [ChatGroupType.GROUP_ALLIANCE_MANAGER] = "zyf_yaoqingchenggong_jihe",
+  [ChatGroupType.GROUP_SEASON_ROOM] = "zyf_liaotian_zhanqu",
+  [ChatGroupType.GROUP_EPIDEMIC_FARMER] = "zyf_liaotian_team",
+  [ChatGroupType.GROUP_LANDLORD_LORD] = "zyf_liaotian_team",
+  [ChatGroupType.GROUP_LANDLORD_FARMER] = "zyf_liaotian_team",
+  [ChatGroupType.GROUP_ALLIANCE_FRIEND_ROOM] = "mjc_lianmeng_jiemeng"
+}

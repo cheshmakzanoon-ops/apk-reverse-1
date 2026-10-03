@@ -1,0 +1,25 @@
+{
+ "m_Name": "NetworkManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 33,
+  "bytes[1]": 232,
+  "bytes[2]": 113,
+  "bytes[3]": 216,
+  "bytes[4]": 155,
+  "bytes[5]": 188,
+  "bytes[6]": 229,
+  "bytes[7]": 60,
+  "bytes[8]": 3,
+  "bytes[9]": 143,
+  "bytes[10]": 199,
+  "bytes[11]": 90,
+  "bytes[12]": 209,
+  "bytes[13]": 183,
+  "bytes[14]": 199,
+  "bytes[15]": 243
+ },
+ "m_ClassName": "NetworkManager",
+ "m_Namespace": "UnityEngine.Networking",
+ "m_AssemblyName": "com.unity.multiplayer-hlapi.Runtime.dll"
+}

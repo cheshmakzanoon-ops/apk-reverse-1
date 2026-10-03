@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIGGGoHp",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 149,
+  "bytes[1]": 66,
+  "bytes[2]": 217,
+  "bytes[3]": 241,
+  "bytes[4]": 142,
+  "bytes[5]": 162,
+  "bytes[6]": 16,
+  "bytes[7]": 216,
+  "bytes[8]": 58,
+  "bytes[9]": 86,
+  "bytes[10]": 246,
+  "bytes[11]": 37,
+  "bytes[12]": 183,
+  "bytes[13]": 9,
+  "bytes[14]": 163,
+  "bytes[15]": 226
+ },
+ "m_ClassName": "UIGGGoHp",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

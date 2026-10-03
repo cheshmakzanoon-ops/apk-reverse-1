@@ -1,0 +1,25 @@
+{
+ "m_Name": "UILoadingComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 21,
+  "bytes[1]": 178,
+  "bytes[2]": 254,
+  "bytes[3]": 107,
+  "bytes[4]": 62,
+  "bytes[5]": 203,
+  "bytes[6]": 162,
+  "bytes[7]": 55,
+  "bytes[8]": 49,
+  "bytes[9]": 52,
+  "bytes[10]": 19,
+  "bytes[11]": 60,
+  "bytes[12]": 18,
+  "bytes[13]": 207,
+  "bytes[14]": 31,
+  "bytes[15]": 40
+ },
+ "m_ClassName": "UILoadingComponent",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "MobileInputField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 197,
+  "bytes[1]": 198,
+  "bytes[2]": 163,
+  "bytes[3]": 144,
+  "bytes[4]": 107,
+  "bytes[5]": 229,
+  "bytes[6]": 15,
+  "bytes[7]": 98,
+  "bytes[8]": 167,
+  "bytes[9]": 149,
+  "bytes[10]": 83,
+  "bytes[11]": 180,
+  "bytes[12]": 219,
+  "bytes[13]": 177,
+  "bytes[14]": 237,
+  "bytes[15]": 154
+ },
+ "m_ClassName": "MobileInputField",
+ "m_Namespace": "Mopsicus.Plugins",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SceneLODEffect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 218,
+  "bytes[1]": 122,
+  "bytes[2]": 124,
+  "bytes[3]": 218,
+  "bytes[4]": 59,
+  "bytes[5]": 208,
+  "bytes[6]": 187,
+  "bytes[7]": 28,
+  "bytes[8]": 202,
+  "bytes[9]": 33,
+  "bytes[10]": 48,
+  "bytes[11]": 31,
+  "bytes[12]": 176,
+  "bytes[13]": 18,
+  "bytes[14]": 22,
+  "bytes[15]": 20
+ },
+ "m_ClassName": "SceneLODEffect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

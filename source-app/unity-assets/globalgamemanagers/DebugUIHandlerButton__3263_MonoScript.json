@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerButton",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 10,
+  "bytes[1]": 63,
+  "bytes[2]": 161,
+  "bytes[3]": 163,
+  "bytes[4]": 103,
+  "bytes[5]": 253,
+  "bytes[6]": 220,
+  "bytes[7]": 101,
+  "bytes[8]": 235,
+  "bytes[9]": 50,
+  "bytes[10]": 81,
+  "bytes[11]": 80,
+  "bytes[12]": 41,
+  "bytes[13]": 80,
+  "bytes[14]": 51,
+  "bytes[15]": 52
+ },
+ "m_ClassName": "DebugUIHandlerButton",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

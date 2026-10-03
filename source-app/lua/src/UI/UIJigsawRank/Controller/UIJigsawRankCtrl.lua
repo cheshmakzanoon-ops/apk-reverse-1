@@ -1,0 +1,13 @@
+local UIJigsawRank = BaseClass("UIJigsawRank", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIJigsawRank)
+end
+
+local function Close(self)
+  UIManager.Instance:DestroyWindowByLayer(UILayer.Normal, false)
+end
+
+UIJigsawRank.CloseSelf = CloseSelf
+UIJigsawRank.Close = Close
+return UIJigsawRank

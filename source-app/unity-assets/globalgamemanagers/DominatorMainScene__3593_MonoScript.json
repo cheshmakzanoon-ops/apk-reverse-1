@@ -1,0 +1,25 @@
+{
+ "m_Name": "DominatorMainScene",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 93,
+  "bytes[1]": 46,
+  "bytes[2]": 44,
+  "bytes[3]": 215,
+  "bytes[4]": 102,
+  "bytes[5]": 61,
+  "bytes[6]": 150,
+  "bytes[7]": 118,
+  "bytes[8]": 195,
+  "bytes[9]": 214,
+  "bytes[10]": 4,
+  "bytes[11]": 84,
+  "bytes[12]": 242,
+  "bytes[13]": 238,
+  "bytes[14]": 182,
+  "bytes[15]": 194
+ },
+ "m_ClassName": "DominatorMainScene",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

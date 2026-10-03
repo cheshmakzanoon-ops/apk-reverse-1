@@ -1,0 +1,25 @@
+{
+ "m_Name": "BaseRocketCenter",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 67,
+  "bytes[1]": 57,
+  "bytes[2]": 211,
+  "bytes[3]": 206,
+  "bytes[4]": 34,
+  "bytes[5]": 12,
+  "bytes[6]": 28,
+  "bytes[7]": 244,
+  "bytes[8]": 118,
+  "bytes[9]": 125,
+  "bytes[10]": 227,
+  "bytes[11]": 125,
+  "bytes[12]": 148,
+  "bytes[13]": 103,
+  "bytes[14]": 175,
+  "bytes[15]": 200
+ },
+ "m_ClassName": "BaseRocketCenter",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

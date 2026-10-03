@@ -1,0 +1,106 @@
+{
+ "m_Fog": false,
+ "m_FogColor": {
+  "r": 0.5568627715110779,
+  "g": 0.43921568989753723,
+  "b": 0.21960784494876862,
+  "a": 1.0
+ },
+ "m_FogMode": 3,
+ "m_FogDensity": 0.006000000052154064,
+ "m_LinearFogStart": 90.0,
+ "m_LinearFogEnd": 1000.0,
+ "m_AmbientSkyColor": {
+  "r": 0.6452473998069763,
+  "g": 0.8657958507537842,
+  "b": 0.9433962106704712,
+  "a": 1.0
+ },
+ "m_AmbientEquatorColor": {
+  "r": 0.5615072250366211,
+  "g": 0.6746071577072144,
+  "b": 1.117165446281433,
+  "a": 1.0
+ },
+ "m_AmbientGroundColor": {
+  "r": 0.5660377740859985,
+  "g": 0.28178733587265015,
+  "b": 0.18956926465034485,
+  "a": 1.0
+ },
+ "m_AmbientIntensity": 1.2000000476837158,
+ "m_AmbientMode": 1,
+ "m_SubtractiveShadowColor": {
+  "r": 0.41999998688697815,
+  "g": 0.4779999852180481,
+  "b": 0.6269999742507935,
+  "a": 1.0
+ },
+ "m_SkyboxMaterial": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_HaloStrength": 0.26600000262260437,
+ "m_FlareStrength": 1.0,
+ "m_FlareFadeSpeed": 3.0,
+ "m_HaloTexture": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_SpotCookie": {
+  "m_FileID": 2,
+  "m_PathID": 10001
+ },
+ "m_DefaultReflectionMode": 1,
+ "m_DefaultReflectionResolution": 128,
+ "m_ReflectionBounces": 1,
+ "m_ReflectionIntensity": 1.0,
+ "m_CustomReflection": {
+  "m_FileID": 3,
+  "m_PathID": 10
+ },
+ "m_AmbientProbe": {
+  "sh[ 0]": 0.0,
+  "sh[ 1]": 0.0,
+  "sh[ 2]": 0.0,
+  "sh[ 3]": 0.0,
+  "sh[ 4]": 0.0,
+  "sh[ 5]": 0.0,
+  "sh[ 6]": 0.0,
+  "sh[ 7]": 0.0,
+  "sh[ 8]": 0.0,
+  "sh[ 9]": 0.0,
+  "sh[10]": 0.0,
+  "sh[11]": 0.0,
+  "sh[12]": 0.0,
+  "sh[13]": 0.0,
+  "sh[14]": 0.0,
+  "sh[15]": 0.0,
+  "sh[16]": 0.0,
+  "sh[17]": 0.0,
+  "sh[18]": 0.0,
+  "sh[19]": 0.0,
+  "sh[20]": 0.0,
+  "sh[21]": 0.0,
+  "sh[22]": 0.0,
+  "sh[23]": 0.0,
+  "sh[24]": 0.0,
+  "sh[25]": 0.0,
+  "sh[26]": 0.0
+ },
+ "m_GeneratedSkyboxReflection": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_Sun": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_IndirectSpecularColor": {
+  "r": 0.0,
+  "g": 0.0,
+  "b": 0.0,
+  "a": 1.0
+ },
+ "m_UseRadianceAmbientProbe": false
+}

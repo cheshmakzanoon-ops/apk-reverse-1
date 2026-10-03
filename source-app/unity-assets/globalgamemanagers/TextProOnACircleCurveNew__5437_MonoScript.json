@@ -1,0 +1,25 @@
+{
+ "m_Name": "TextProOnACircleCurveNew",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 191,
+  "bytes[1]": 70,
+  "bytes[2]": 152,
+  "bytes[3]": 163,
+  "bytes[4]": 183,
+  "bytes[5]": 10,
+  "bytes[6]": 233,
+  "bytes[7]": 45,
+  "bytes[8]": 113,
+  "bytes[9]": 102,
+  "bytes[10]": 171,
+  "bytes[11]": 49,
+  "bytes[12]": 195,
+  "bytes[13]": 222,
+  "bytes[14]": 121,
+  "bytes[15]": 145
+ },
+ "m_ClassName": "TextProOnACircleCurveNew",
+ "m_Namespace": "Scripts.Utilities",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "V2DemoManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 213,
+  "bytes[1]": 46,
+  "bytes[2]": 245,
+  "bytes[3]": 9,
+  "bytes[4]": 53,
+  "bytes[5]": 172,
+  "bytes[6]": 222,
+  "bytes[7]": 9,
+  "bytes[8]": 24,
+  "bytes[9]": 23,
+  "bytes[10]": 219,
+  "bytes[11]": 240,
+  "bytes[12]": 254,
+  "bytes[13]": 189,
+  "bytes[14]": 114,
+  "bytes[15]": 66
+ },
+ "m_ClassName": "V2DemoManager",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

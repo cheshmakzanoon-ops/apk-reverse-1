@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldTroopDestinationSignal",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 199,
+  "bytes[1]": 156,
+  "bytes[2]": 215,
+  "bytes[3]": 83,
+  "bytes[4]": 228,
+  "bytes[5]": 103,
+  "bytes[6]": 211,
+  "bytes[7]": 2,
+  "bytes[8]": 97,
+  "bytes[9]": 52,
+  "bytes[10]": 94,
+  "bytes[11]": 202,
+  "bytes[12]": 85,
+  "bytes[13]": 42,
+  "bytes[14]": 21,
+  "bytes[15]": 211
+ },
+ "m_ClassName": "WorldTroopDestinationSignal",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

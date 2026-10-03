@@ -1,0 +1,25 @@
+{
+ "m_Name": "FollowTarget",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 90,
+  "bytes[1]": 200,
+  "bytes[2]": 64,
+  "bytes[3]": 217,
+  "bytes[4]": 215,
+  "bytes[5]": 21,
+  "bytes[6]": 164,
+  "bytes[7]": 80,
+  "bytes[8]": 173,
+  "bytes[9]": 39,
+  "bytes[10]": 169,
+  "bytes[11]": 209,
+  "bytes[12]": 230,
+  "bytes[13]": 185,
+  "bytes[14]": 145,
+  "bytes[15]": 136
+ },
+ "m_ClassName": "FollowTarget",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineBlenderSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 189,
+  "bytes[1]": 80,
+  "bytes[2]": 190,
+  "bytes[3]": 185,
+  "bytes[4]": 81,
+  "bytes[5]": 32,
+  "bytes[6]": 50,
+  "bytes[7]": 77,
+  "bytes[8]": 140,
+  "bytes[9]": 78,
+  "bytes[10]": 131,
+  "bytes[11]": 134,
+  "bytes[12]": 105,
+  "bytes[13]": 43,
+  "bytes[14]": 110,
+  "bytes[15]": 130
+ },
+ "m_ClassName": "CinemachineBlenderSettings",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

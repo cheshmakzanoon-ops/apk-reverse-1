@@ -1,0 +1,25 @@
+{
+ "m_Name": "UICityMeteorite",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 255,
+  "bytes[1]": 184,
+  "bytes[2]": 14,
+  "bytes[3]": 61,
+  "bytes[4]": 222,
+  "bytes[5]": 80,
+  "bytes[6]": 120,
+  "bytes[7]": 108,
+  "bytes[8]": 153,
+  "bytes[9]": 146,
+  "bytes[10]": 31,
+  "bytes[11]": 185,
+  "bytes[12]": 123,
+  "bytes[13]": 95,
+  "bytes[14]": 128,
+  "bytes[15]": 199
+ },
+ "m_ClassName": "UICityMeteorite",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

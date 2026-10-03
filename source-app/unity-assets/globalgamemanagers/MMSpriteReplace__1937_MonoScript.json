@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMSpriteReplace",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 161,
+  "bytes[1]": 9,
+  "bytes[2]": 146,
+  "bytes[3]": 247,
+  "bytes[4]": 209,
+  "bytes[5]": 25,
+  "bytes[6]": 62,
+  "bytes[7]": 57,
+  "bytes[8]": 91,
+  "bytes[9]": 48,
+  "bytes[10]": 32,
+  "bytes[11]": 215,
+  "bytes[12]": 150,
+  "bytes[13]": 85,
+  "bytes[14]": 234,
+  "bytes[15]": 26
+ },
+ "m_ClassName": "MMSpriteReplace",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

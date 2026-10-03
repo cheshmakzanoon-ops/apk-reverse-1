@@ -1,0 +1,25 @@
+{
+ "m_Name": "SceneRenderPipeline",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 205,
+  "bytes[1]": 30,
+  "bytes[2]": 145,
+  "bytes[3]": 245,
+  "bytes[4]": 175,
+  "bytes[5]": 237,
+  "bytes[6]": 37,
+  "bytes[7]": 154,
+  "bytes[8]": 21,
+  "bytes[9]": 18,
+  "bytes[10]": 187,
+  "bytes[11]": 241,
+  "bytes[12]": 141,
+  "bytes[13]": 193,
+  "bytes[14]": 43,
+  "bytes[15]": 215
+ },
+ "m_ClassName": "SceneRenderPipeline",
+ "m_Namespace": "",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

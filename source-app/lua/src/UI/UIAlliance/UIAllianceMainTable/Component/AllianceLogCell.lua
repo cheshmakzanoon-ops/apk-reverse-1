@@ -1,0 +1,60 @@
+local AllianceLogCell = BaseClass("AllianceLogCell", UIBaseContainer)
+local base = UIBaseContainer
+local txt_content_path = "Txt_Content"
+local img_sign_path = "Img_Sign"
+local self_obj = ""
+local btn_content_path = "Txt_Content/Btn_Content"
+
+local function OnCreate(self, data)
+  base.OnCreate(self)
+  self.itemData = data
+  self._content_txt = self:AddComponent(UITextMeshProUGUIEx, txt_content_path)
+  self._sign_img = self:AddComponent(UIImage, img_sign_path)
+  self.self_obj = self:AddComponent(UIBaseContainer, self_obj)
+  self._content_btn = self:AddComponent(UIButton, btn_content_path)
+  self._content_btn:SetOnClick(function()
+    self:OnClickContentBtn()
+  end)
+end
+
+local function OnEnable(self)
+  base.OnEnable(self)
+end
+
+local function OnDisable(self)
+  base.OnDisable(self)
+end
+
+local function OnDestroy(self)
+  self.itemData = nil
+  base.OnDestroy(self)
+end
+
+local function ReInit(self, data)
+  self.data = data
+  self._content_txt:SetText(data:GetStrLog())
+  self._sign_img:LoadSprite(data:GetLogSignIconPath())
+  CS.UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(self._content_txt.rectTransform)
+  CS.UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(self.self_obj.rectTransform)
+end
+
+local function GetCellSizeDeltaY(self)
+  return self.self_obj:GetSizeDelta().y
+end
+
+local function OnClickContentBtn(self)
+  if (self.data.type == 2 or self.data.type == 3 or self.data.type >= 10) and self.data:GetPos() then
+    GoToUtil.CloseAllWindows()
+    local worldPointPos = SceneUtils.TileIndexToWorld(self.data:GetPos(), ForceChangeScene.World)
+    GoToUtil.GotoWorldPos(worldPointPos, CS.SceneManager.World.InitZoom, LookAtFocusTime)
+  end
+end
+
+AllianceLogCell.OnCreate = OnCreate
+AllianceLogCell.OnDestroy = OnDestroy
+AllianceLogCell.OnEnable = OnEnable
+AllianceLogCell.OnDisable = OnDisable
+AllianceLogCell.ReInit = ReInit
+AllianceLogCell.GetCellSizeDeltaY = GetCellSizeDeltaY
+AllianceLogCell.OnClickContentBtn = OnClickContentBtn
+return AllianceLogCell

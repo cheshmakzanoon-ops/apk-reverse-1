@@ -1,0 +1,25 @@
+{
+ "m_Name": "RendererSorter",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 81,
+  "bytes[1]": 231,
+  "bytes[2]": 134,
+  "bytes[3]": 231,
+  "bytes[4]": 115,
+  "bytes[5]": 141,
+  "bytes[6]": 32,
+  "bytes[7]": 30,
+  "bytes[8]": 136,
+  "bytes[9]": 123,
+  "bytes[10]": 182,
+  "bytes[11]": 49,
+  "bytes[12]": 183,
+  "bytes[13]": 58,
+  "bytes[14]": 0,
+  "bytes[15]": 121
+ },
+ "m_ClassName": "RendererSorter",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

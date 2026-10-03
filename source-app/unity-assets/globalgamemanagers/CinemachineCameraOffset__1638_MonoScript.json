@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineCameraOffset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 126,
+  "bytes[1]": 244,
+  "bytes[2]": 180,
+  "bytes[3]": 99,
+  "bytes[4]": 222,
+  "bytes[5]": 227,
+  "bytes[6]": 254,
+  "bytes[7]": 83,
+  "bytes[8]": 38,
+  "bytes[9]": 181,
+  "bytes[10]": 223,
+  "bytes[11]": 242,
+  "bytes[12]": 47,
+  "bytes[13]": 253,
+  "bytes[14]": 169,
+  "bytes[15]": 142
+ },
+ "m_ClassName": "CinemachineCameraOffset",
+ "m_Namespace": "",
+ "m_AssemblyName": "Cinemachine.dll"
+}

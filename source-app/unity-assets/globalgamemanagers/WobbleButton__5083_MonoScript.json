@@ -1,0 +1,25 @@
+{
+ "m_Name": "WobbleButton",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 247,
+  "bytes[1]": 160,
+  "bytes[2]": 72,
+  "bytes[3]": 72,
+  "bytes[4]": 8,
+  "bytes[5]": 61,
+  "bytes[6]": 83,
+  "bytes[7]": 209,
+  "bytes[8]": 204,
+  "bytes[9]": 125,
+  "bytes[10]": 154,
+  "bytes[11]": 117,
+  "bytes[12]": 241,
+  "bytes[13]": 164,
+  "bytes[14]": 71,
+  "bytes[15]": 139
+ },
+ "m_ClassName": "WobbleButton",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

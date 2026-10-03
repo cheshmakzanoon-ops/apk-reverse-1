@@ -1,0 +1,25 @@
+{
+ "m_Name": "ColorField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 142,
+  "bytes[1]": 167,
+  "bytes[2]": 36,
+  "bytes[3]": 193,
+  "bytes[4]": 141,
+  "bytes[5]": 197,
+  "bytes[6]": 53,
+  "bytes[7]": 190,
+  "bytes[8]": 206,
+  "bytes[9]": 159,
+  "bytes[10]": 63,
+  "bytes[11]": 80,
+  "bytes[12]": 29,
+  "bytes[13]": 141,
+  "bytes[14]": 66,
+  "bytes[15]": 190
+ },
+ "m_ClassName": "ColorField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

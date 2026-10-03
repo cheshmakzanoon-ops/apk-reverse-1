@@ -1,0 +1,339 @@
+local Localization = CS.GameEntry.Localization
+local ActionItem = BaseClass("ActionItem")
+
+function ActionItem:InitData(actiondata, userlist)
+  self._actionData = actiondata or {}
+  self._userlist = userlist
+  self._skillTarget = {}
+end
+
+function ActionItem:AddSkillTarget(actionItem)
+  self._skillTarget[#self._skillTarget + 1] = actionItem
+end
+
+function ActionItem:GetSkillTarget()
+  return self._skillTarget
+end
+
+function ActionItem:GetActionItemType()
+  return self._actionData.type
+end
+
+function ActionItem:GetTriggerIndex()
+  return self._actionData.triggerIndex
+end
+
+function ActionItem:GetSkillId()
+  return self._actionData.skillId
+end
+
+function ActionItem:GetTargetIndex()
+  return self._actionData.targetIndex
+end
+
+function ActionItem:GetHeroId()
+  return self._actionData.heroId
+end
+
+function ActionItem:IsSubActionItem()
+  local actionType = self:GetActionItemType()
+  if actionType ~= eMailDetailActionType.ATTACK then
+    return false
+  end
+  local skillId = self:GetSkillId()
+  if skillId == 0 or skillId == 100000 then
+    return false
+  end
+  return true
+end
+
+function ActionItem:IsBelongThisSkill(actionItem)
+  local roundType = self._actionData.type
+  if roundType ~= eMailDetailActionType.USE_SKILL then
+    return false
+  end
+  if actionItem:GetActionItemType() ~= eMailDetailActionType.ATTACK then
+    return false
+  end
+  if self:GetTriggerIndex() == actionItem:GetTriggerIndex() and self:GetSkillId() == actionItem:GetSkillId() then
+    return true
+  end
+  return false
+end
+
+function ActionItem:IsSubSkill(skillId)
+  local roundType = self._actionData.type
+  if roundType ~= eMailDetailActionType.USE_SKILL then
+    return false
+  end
+  local _skillId = self:GetSkillId()
+  local _attached_skill = GetTableData(TableName.SkillTab, _skillId, "attached_skill")
+  local _tab_attached_skill = string.split(_attached_skill, ";")
+  for _, v in pairs(_tab_attached_skill) do
+    if tonumber(v) == skillId then
+      return true
+    end
+  end
+  return false
+end
+
+function ActionItem:GetRoundIndex()
+  return self._actionData.round or 0
+end
+
+function ActionItem:GetTriggerUserInfo()
+  local triggerindex = self._actionData.triggerIndex
+  local triggerPlayer = self._userlist[triggerindex]
+  return triggerPlayer
+end
+
+function ActionItem:GetTargetUserInfo()
+  local targetindex = self._actionData.targetIndex
+  local targetPlayer = self._userlist[targetindex]
+  return targetPlayer
+end
+
+function ActionItem:GetDesc()
+  local roundType = self._actionData.type
+  if roundType == eMailDetailActionType.DEFAULT then
+    return self:GetDesc_Default()
+  elseif roundType == eMailDetailActionType.ATTACK then
+    return self:GetDesc_Attack()
+  elseif roundType == eMailDetailActionType.COUNTER_ATTACK then
+    return self:GetDesc_CounterAttack()
+  elseif roundType == eMailDetailActionType.SHIELD_ATTACK then
+    return self:GetDesc_ShieldAttack()
+  elseif roundType == eMailDetailActionType.SHIELD then
+    return self:GetDesc_Shield()
+  elseif roundType == eMailDetailActionType.RECOVER_DAMAGE then
+    return self:GetDesc_RecoverDamage()
+  elseif roundType == eMailDetailActionType.ADD_EFFECT then
+    return self:GetDesc_AddEffect()
+  elseif roundType == eMailDetailActionType.USE_SKILL then
+    return self:GetDesc_UseSkill()
+  elseif roundType == eMailDetailActionType.ADD_ANGER then
+    return self:GetDesc_AddAnger()
+  else
+    return ""
+  end
+end
+
+function ActionItem:GetDesc_Default()
+  return "GetDesc_Default"
+end
+
+function ActionItem:GetTriggerName()
+  local triggerInfo = self:GetTriggerUserInfo()
+  if triggerInfo == nil then
+    return "not find GetTriggerName"
+  end
+  local triggerName = triggerInfo.name
+  if triggerInfo.infoType == 1 then
+    local monsterName = GetTableData(LuaEntry.Player:GetABTestTableName(TableName.Monster), triggerName, "name")
+    triggerName = Localization:GetString(monsterName)
+  end
+  if triggerInfo.isSelf then
+    triggerName = eMailDetailTxtColor.Green_Start .. "[" .. triggerName .. "]" .. eMailDetailTxtColor.End
+  else
+    triggerName = eMailDetailTxtColor.Red_Start .. "[" .. triggerName .. "]" .. eMailDetailTxtColor.End
+  end
+  return triggerName
+end
+
+function ActionItem:IsTriggerIsSelf()
+  local triggerInfo = self:GetTriggerUserInfo()
+  if triggerInfo == nil then
+    return false
+  end
+  return triggerInfo.isSelf or false
+end
+
+function ActionItem:GetTargetName()
+  local targetInfo = self:GetTargetUserInfo()
+  if targetInfo == nil then
+    return "not find GetTargetName"
+  end
+  local targetName = targetInfo.name
+  if targetInfo.infoType == 1 then
+    local monsterName = GetTableData(LuaEntry.Player:GetABTestTableName(TableName.Monster), targetName, "name")
+    targetName = Localization:GetString(monsterName)
+  end
+  if targetInfo.isSelf then
+    targetName = eMailDetailTxtColor.Green_Start .. "[" .. targetName .. "]" .. eMailDetailTxtColor.End
+  else
+    targetName = eMailDetailTxtColor.Red_Start .. "[" .. targetName .. "]" .. eMailDetailTxtColor.End
+  end
+  return targetName
+end
+
+function ActionItem:IsTargetIsSelf()
+  local targetInfo = self:GetTargetUserInfo()
+  if targetInfo == nil then
+    return false
+  end
+  return targetInfo.isSelf or false
+end
+
+function ActionItem:GetValue()
+  local roundType = self._actionData.type
+  if roundType == eMailDetailActionType.ATTACK then
+    return self:GetValue_Attack()
+  elseif roundType == eMailDetailActionType.COUNTER_ATTACK then
+    return self:GetValue_CounterAttack()
+  elseif roundType == eMailDetailActionType.RECOVER_DAMAGE then
+    return self:GetValue_RecoverDamage()
+  elseif roundType == eMailDetailActionType.SHIELD_ATTACK then
+    return self:GetValue_Attack()
+  end
+  return {}
+end
+
+function ActionItem:GetValue_Attack()
+  local param = {}
+  local isMyDemage = self:IsTargetIsSelf()
+  if isMyDemage then
+    param.side = eMailDetailTroopSide.Self
+  else
+    param.side = eMailDetailTroopSide.Other
+  end
+  param.value = -self._actionData.value or 0
+  return param
+end
+
+function ActionItem:GetValue_CounterAttack()
+  local param = {}
+  local isMyDemage = self:IsTargetIsSelf()
+  if isMyDemage then
+    param.side = eMailDetailTroopSide.Self
+  else
+    param.side = eMailDetailTroopSide.Other
+  end
+  param.value = -self._actionData.value or 0
+  return param
+end
+
+function ActionItem:GetValue_RecoverDamage()
+  local param = {}
+  local isMyDemage = self:IsTargetIsSelf()
+  if isMyDemage then
+    param.side = eMailDetailTroopSide.Self
+  else
+    param.side = eMailDetailTroopSide.Other
+  end
+  param.value = self._actionData.value or 0
+  return param
+end
+
+function ActionItem:GetActionValue()
+  return self._actionData.value or 0
+end
+
+function ActionItem:GetDesc_Attack()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local value = self._actionData.value or 0
+  local skillId = self._actionData.skillId or 0
+  if skillId ~= nil and skillId ~= 0 and skillId ~= 100000 then
+    return "---->" .. Localization:GetString("310171", targetName, value)
+  else
+    return Localization:GetString("261004", triggerName, targetName, value)
+  end
+end
+
+function ActionItem:GetDesc_CounterAttack()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local value = self._actionData.value or 0
+  return Localization:GetString("310168", triggerName, targetName, value)
+end
+
+function ActionItem:GetDesc_ShieldAttack()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local value = self._actionData.value or 0
+  return Localization:GetString("261011", triggerName, targetName, value)
+end
+
+function ActionItem:GetDesc_Shield()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local skillId = self._actionData.skillId or 0
+  local skillName = GetTableData(TableName.SkillTab, skillId, "name")
+  skillName = Localization:GetString(skillName)
+  return Localization:GetString("261010", triggerName, skillName, targetName)
+end
+
+function ActionItem:GetDesc_RecoverDamage()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local value = self._actionData.value or 0
+  local skillId = self._actionData.skillId or 0
+  local skillName = GetTableData(TableName.SkillTab, skillId, "name")
+  if skillName == nil or skillName == "" then
+    Logger.Log("battle report skillId" .. skillId)
+  end
+  skillName = Localization:GetString(skillName)
+  return Localization:GetString("261009", triggerName, skillName, targetName, value)
+end
+
+function ActionItem:GetDesc_AddEffect()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local skillId = self._actionData.skillId or 0
+  local skillIdName = GetTableData(TableName.SkillTab, skillId, "name")
+  local skillName = Localization:GetString(skillIdName)
+  if skillIdName == "" then
+    skillName = skillName .. "-skillId:" .. tostring(skillId)
+  end
+  local status = self._actionData.value or 0
+  local effectArr = GetTableData(TableName.StatusTab, status, "effect") or ""
+  effectArr = string.split(effectArr, "|") or {}
+  local effectNumArr = GetTableData(TableName.StatusTab, status, "effect_num") or ""
+  effectNumArr = string.split(effectNumArr, "|") or {}
+  local skillLevel = self._actionData.skillLevel or 1
+  local effectName = ""
+  local effectValue = ""
+  local effectArrCnt = table.count(effectArr)
+  local effectNumArrCnt = table.count(effectNumArr)
+  if effectArrCnt == effectNumArrCnt and skillLevel <= effectArrCnt then
+    local effectId = effectArr[skillLevel]
+    effectName = GetTableData(TableName.EffectNumDesc, effectId, "des")
+    effectName = Localization:GetString(effectName)
+    local effectType = GetTableData(TableName.EffectNumDesc, effectId, "type")
+    if effectType == "1" then
+      effectValue = effectNumArr[skillLevel] .. "%"
+    else
+      effectValue = effectNumArr[skillLevel]
+    end
+  end
+  local result = Localization:GetString("261008", triggerName, skillName, targetName, effectName, effectValue)
+  return result
+end
+
+function ActionItem:GetDesc_UseSkill()
+  local triggerName = self:GetTriggerName()
+  local targetName = self:GetTargetName()
+  local skillId = self._actionData.skillId or 0
+  local skillName = GetTableData(TableName.SkillTab, skillId, "name")
+  if skillName == nil or skillName == "" then
+    Logger.LogError("no name skillId" .. skillId)
+  end
+  skillName = Localization:GetString(skillName)
+  local skillTitle = Localization:GetString("310170", triggerName, skillName)
+  local skillTarget = ""
+  for _, v in pairs(self._skillTarget) do
+    skillTarget = [[
+
+ ]] .. skillTarget .. v:GetDesc()
+  end
+  local content = skillTitle .. skillTarget
+  return content
+end
+
+function ActionItem:GetDesc_AddAnger()
+  local targetName = self:GetTargetName()
+  local value = self._actionData.value or 0
+  return Localization:GetString("261006", targetName, value)
+end
+
+return ActionItem

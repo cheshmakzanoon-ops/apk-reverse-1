@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicVerticalScrollRect",
+ "m_ExecutionOrder": -901,
+ "m_PropertiesHash": {
+  "bytes[0]": 236,
+  "bytes[1]": 122,
+  "bytes[2]": 26,
+  "bytes[3]": 59,
+  "bytes[4]": 142,
+  "bytes[5]": 108,
+  "bytes[6]": 145,
+  "bytes[7]": 60,
+  "bytes[8]": 166,
+  "bytes[9]": 39,
+  "bytes[10]": 46,
+  "bytes[11]": 239,
+  "bytes[12]": 58,
+  "bytes[13]": 186,
+  "bytes[14]": 134,
+  "bytes[15]": 243
+ },
+ "m_ClassName": "DynamicVerticalScrollRect",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

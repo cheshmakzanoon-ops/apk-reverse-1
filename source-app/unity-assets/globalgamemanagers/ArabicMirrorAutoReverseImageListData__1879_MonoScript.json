@@ -1,0 +1,25 @@
+{
+ "m_Name": "ArabicMirrorAutoReverseImageListData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 44,
+  "bytes[1]": 179,
+  "bytes[2]": 36,
+  "bytes[3]": 126,
+  "bytes[4]": 56,
+  "bytes[5]": 232,
+  "bytes[6]": 230,
+  "bytes[7]": 50,
+  "bytes[8]": 158,
+  "bytes[9]": 161,
+  "bytes[10]": 123,
+  "bytes[11]": 34,
+  "bytes[12]": 105,
+  "bytes[13]": 56,
+  "bytes[14]": 197,
+  "bytes[15]": 151
+ },
+ "m_ClassName": "ArabicMirrorAutoReverseImageListData",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

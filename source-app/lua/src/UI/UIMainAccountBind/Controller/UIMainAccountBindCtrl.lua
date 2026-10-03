@@ -1,0 +1,13 @@
+local UIMainAccountBindCtrl = BaseClass("UIMainAccountBindCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIMainAccountBind)
+end
+
+local function Close(self)
+  UIManager.Instance:DestroyWindowByLayer(UILayer.Normal, false)
+end
+
+UIMainAccountBindCtrl.CloseSelf = CloseSelf
+UIMainAccountBindCtrl.Close = Close
+return UIMainAccountBindCtrl

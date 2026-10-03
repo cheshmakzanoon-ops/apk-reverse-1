@@ -1,0 +1,25 @@
+{
+ "m_Name": "TMP_Dropdown",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 180,
+  "bytes[1]": 252,
+  "bytes[2]": 66,
+  "bytes[3]": 176,
+  "bytes[4]": 32,
+  "bytes[5]": 223,
+  "bytes[6]": 75,
+  "bytes[7]": 103,
+  "bytes[8]": 56,
+  "bytes[9]": 94,
+  "bytes[10]": 97,
+  "bytes[11]": 255,
+  "bytes[12]": 33,
+  "bytes[13]": 213,
+  "bytes[14]": 19,
+  "bytes[15]": 204
+ },
+ "m_ClassName": "TMP_Dropdown",
+ "m_Namespace": "TMPro",
+ "m_AssemblyName": "Unity.TextMeshPro.dll"
+}

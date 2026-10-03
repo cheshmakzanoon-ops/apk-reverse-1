@@ -1,0 +1,25 @@
+{
+ "m_Name": "ObjectReferencePickerItem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 185,
+  "bytes[1]": 149,
+  "bytes[2]": 40,
+  "bytes[3]": 137,
+  "bytes[4]": 68,
+  "bytes[5]": 111,
+  "bytes[6]": 5,
+  "bytes[7]": 27,
+  "bytes[8]": 201,
+  "bytes[9]": 177,
+  "bytes[10]": 198,
+  "bytes[11]": 36,
+  "bytes[12]": 68,
+  "bytes[13]": 226,
+  "bytes[14]": 54,
+  "bytes[15]": 190
+ },
+ "m_ClassName": "ObjectReferencePickerItem",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

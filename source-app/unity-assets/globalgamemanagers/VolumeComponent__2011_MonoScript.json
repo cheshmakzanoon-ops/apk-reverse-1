@@ -1,0 +1,25 @@
+{
+ "m_Name": "VolumeComponent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 166,
+  "bytes[1]": 75,
+  "bytes[2]": 143,
+  "bytes[3]": 247,
+  "bytes[4]": 3,
+  "bytes[5]": 166,
+  "bytes[6]": 159,
+  "bytes[7]": 51,
+  "bytes[8]": 82,
+  "bytes[9]": 196,
+  "bytes[10]": 36,
+  "bytes[11]": 233,
+  "bytes[12]": 208,
+  "bytes[13]": 188,
+  "bytes[14]": 28,
+  "bytes[15]": 73
+ },
+ "m_ClassName": "VolumeComponent",
+ "m_Namespace": "UnityEngine.Rendering",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

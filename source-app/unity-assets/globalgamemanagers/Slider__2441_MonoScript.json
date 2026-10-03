@@ -1,0 +1,25 @@
+{
+ "m_Name": "Slider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 112,
+  "bytes[1]": 114,
+  "bytes[2]": 35,
+  "bytes[3]": 19,
+  "bytes[4]": 130,
+  "bytes[5]": 235,
+  "bytes[6]": 60,
+  "bytes[7]": 72,
+  "bytes[8]": 113,
+  "bytes[9]": 179,
+  "bytes[10]": 221,
+  "bytes[11]": 117,
+  "bytes[12]": 173,
+  "bytes[13]": 2,
+  "bytes[14]": 39,
+  "bytes[15]": 225
+ },
+ "m_ClassName": "Slider",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

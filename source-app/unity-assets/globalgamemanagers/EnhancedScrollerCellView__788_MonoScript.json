@@ -1,0 +1,25 @@
+{
+ "m_Name": "EnhancedScrollerCellView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 106,
+  "bytes[1]": 173,
+  "bytes[2]": 158,
+  "bytes[3]": 75,
+  "bytes[4]": 153,
+  "bytes[5]": 230,
+  "bytes[6]": 69,
+  "bytes[7]": 250,
+  "bytes[8]": 253,
+  "bytes[9]": 236,
+  "bytes[10]": 172,
+  "bytes[11]": 213,
+  "bytes[12]": 94,
+  "bytes[13]": 4,
+  "bytes[14]": 170,
+  "bytes[15]": 135
+ },
+ "m_ClassName": "EnhancedScrollerCellView",
+ "m_Namespace": "EnhancedUI.EnhancedScroller",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

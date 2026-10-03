@@ -1,0 +1,25 @@
+{
+ "m_Name": "BiuBiuEditorDrag",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 134,
+  "bytes[1]": 143,
+  "bytes[2]": 222,
+  "bytes[3]": 201,
+  "bytes[4]": 108,
+  "bytes[5]": 165,
+  "bytes[6]": 189,
+  "bytes[7]": 138,
+  "bytes[8]": 20,
+  "bytes[9]": 199,
+  "bytes[10]": 170,
+  "bytes[11]": 36,
+  "bytes[12]": 201,
+  "bytes[13]": 131,
+  "bytes[14]": 226,
+  "bytes[15]": 237
+ },
+ "m_ClassName": "BiuBiuEditorDrag",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

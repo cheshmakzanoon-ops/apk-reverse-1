@@ -1,0 +1,25 @@
+{
+ "m_Name": "LanguagePrefabSelector",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 37,
+  "bytes[1]": 108,
+  "bytes[2]": 57,
+  "bytes[3]": 156,
+  "bytes[4]": 2,
+  "bytes[5]": 34,
+  "bytes[6]": 38,
+  "bytes[7]": 25,
+  "bytes[8]": 127,
+  "bytes[9]": 99,
+  "bytes[10]": 157,
+  "bytes[11]": 172,
+  "bytes[12]": 205,
+  "bytes[13]": 102,
+  "bytes[14]": 102,
+  "bytes[15]": 217
+ },
+ "m_ClassName": "LanguagePrefabSelector",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

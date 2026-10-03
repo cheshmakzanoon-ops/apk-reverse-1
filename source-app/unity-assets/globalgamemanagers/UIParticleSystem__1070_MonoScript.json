@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIParticleSystem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 219,
+  "bytes[1]": 203,
+  "bytes[2]": 119,
+  "bytes[3]": 46,
+  "bytes[4]": 122,
+  "bytes[5]": 52,
+  "bytes[6]": 192,
+  "bytes[7]": 245,
+  "bytes[8]": 99,
+  "bytes[9]": 191,
+  "bytes[10]": 173,
+  "bytes[11]": 6,
+  "bytes[12]": 254,
+  "bytes[13]": 42,
+  "bytes[14]": 150,
+  "bytes[15]": 248
+ },
+ "m_ClassName": "UIParticleSystem",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

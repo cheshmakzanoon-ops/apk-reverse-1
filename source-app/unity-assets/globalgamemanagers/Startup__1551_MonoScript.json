@@ -1,0 +1,25 @@
+{
+ "m_Name": "Startup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 15,
+  "bytes[1]": 161,
+  "bytes[2]": 80,
+  "bytes[3]": 21,
+  "bytes[4]": 193,
+  "bytes[5]": 81,
+  "bytes[6]": 70,
+  "bytes[7]": 153,
+  "bytes[8]": 4,
+  "bytes[9]": 253,
+  "bytes[10]": 225,
+  "bytes[11]": 127,
+  "bytes[12]": 162,
+  "bytes[13]": 170,
+  "bytes[14]": 79,
+  "bytes[15]": 21
+ },
+ "m_ClassName": "Startup",
+ "m_Namespace": "VEngine",
+ "m_AssemblyName": "XAssetProRuntime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicBone",
+ "m_ExecutionOrder": 10000,
+ "m_PropertiesHash": {
+  "bytes[0]": 123,
+  "bytes[1]": 79,
+  "bytes[2]": 131,
+  "bytes[3]": 206,
+  "bytes[4]": 4,
+  "bytes[5]": 53,
+  "bytes[6]": 187,
+  "bytes[7]": 139,
+  "bytes[8]": 51,
+  "bytes[9]": 16,
+  "bytes[10]": 65,
+  "bytes[11]": 239,
+  "bytes[12]": 239,
+  "bytes[13]": 58,
+  "bytes[14]": 50,
+  "bytes[15]": 31
+ },
+ "m_ClassName": "DynamicBone",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp-firstpass.dll"
+}

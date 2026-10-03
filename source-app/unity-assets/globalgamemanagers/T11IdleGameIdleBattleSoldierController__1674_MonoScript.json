@@ -1,0 +1,25 @@
+{
+ "m_Name": "T11IdleGameIdleBattleSoldierController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 30,
+  "bytes[1]": 141,
+  "bytes[2]": 216,
+  "bytes[3]": 182,
+  "bytes[4]": 119,
+  "bytes[5]": 242,
+  "bytes[6]": 174,
+  "bytes[7]": 232,
+  "bytes[8]": 21,
+  "bytes[9]": 181,
+  "bytes[10]": 95,
+  "bytes[11]": 136,
+  "bytes[12]": 102,
+  "bytes[13]": 238,
+  "bytes[14]": 54,
+  "bytes[15]": 121
+ },
+ "m_ClassName": "T11IdleGameIdleBattleSoldierController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

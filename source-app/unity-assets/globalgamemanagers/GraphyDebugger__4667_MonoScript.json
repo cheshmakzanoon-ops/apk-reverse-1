@@ -1,0 +1,25 @@
+{
+ "m_Name": "GraphyDebugger",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 196,
+  "bytes[1]": 120,
+  "bytes[2]": 41,
+  "bytes[3]": 75,
+  "bytes[4]": 24,
+  "bytes[5]": 173,
+  "bytes[6]": 65,
+  "bytes[7]": 41,
+  "bytes[8]": 25,
+  "bytes[9]": 123,
+  "bytes[10]": 22,
+  "bytes[11]": 197,
+  "bytes[12]": 245,
+  "bytes[13]": 101,
+  "bytes[14]": 177,
+  "bytes[15]": 40
+ },
+ "m_ClassName": "GraphyDebugger",
+ "m_Namespace": "Tayx.Graphy",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

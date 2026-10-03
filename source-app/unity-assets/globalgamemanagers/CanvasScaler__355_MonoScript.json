@@ -1,0 +1,25 @@
+{
+ "m_Name": "CanvasScaler",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 75,
+  "bytes[1]": 196,
+  "bytes[2]": 52,
+  "bytes[3]": 106,
+  "bytes[4]": 113,
+  "bytes[5]": 168,
+  "bytes[6]": 223,
+  "bytes[7]": 83,
+  "bytes[8]": 166,
+  "bytes[9]": 177,
+  "bytes[10]": 6,
+  "bytes[11]": 246,
+  "bytes[12]": 142,
+  "bytes[13]": 243,
+  "bytes[14]": 161,
+  "bytes[15]": 144
+ },
+ "m_ClassName": "CanvasScaler",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

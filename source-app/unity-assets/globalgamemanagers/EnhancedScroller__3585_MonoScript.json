@@ -1,0 +1,25 @@
+{
+ "m_Name": "EnhancedScroller",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 13,
+  "bytes[1]": 219,
+  "bytes[2]": 163,
+  "bytes[3]": 103,
+  "bytes[4]": 71,
+  "bytes[5]": 32,
+  "bytes[6]": 163,
+  "bytes[7]": 55,
+  "bytes[8]": 101,
+  "bytes[9]": 156,
+  "bytes[10]": 156,
+  "bytes[11]": 86,
+  "bytes[12]": 64,
+  "bytes[13]": 232,
+  "bytes[14]": 16,
+  "bytes[15]": 110
+ },
+ "m_ClassName": "EnhancedScroller",
+ "m_Namespace": "EnhancedUI.EnhancedScroller",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

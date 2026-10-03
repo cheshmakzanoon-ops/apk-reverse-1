@@ -1,0 +1,25 @@
+{
+ "m_Name": "TextMeshProUGUIEx",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 105,
+  "bytes[1]": 57,
+  "bytes[2]": 119,
+  "bytes[3]": 44,
+  "bytes[4]": 179,
+  "bytes[5]": 206,
+  "bytes[6]": 119,
+  "bytes[7]": 90,
+  "bytes[8]": 142,
+  "bytes[9]": 141,
+  "bytes[10]": 153,
+  "bytes[11]": 243,
+  "bytes[12]": 50,
+  "bytes[13]": 83,
+  "bytes[14]": 68,
+  "bytes[15]": 145
+ },
+ "m_ClassName": "TextMeshProUGUIEx",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

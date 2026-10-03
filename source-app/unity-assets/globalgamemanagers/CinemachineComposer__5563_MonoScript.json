@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineComposer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 189,
+  "bytes[1]": 84,
+  "bytes[2]": 59,
+  "bytes[3]": 173,
+  "bytes[4]": 127,
+  "bytes[5]": 159,
+  "bytes[6]": 98,
+  "bytes[7]": 98,
+  "bytes[8]": 241,
+  "bytes[9]": 5,
+  "bytes[10]": 149,
+  "bytes[11]": 170,
+  "bytes[12]": 219,
+  "bytes[13]": 19,
+  "bytes[14]": 13,
+  "bytes[15]": 34
+ },
+ "m_ClassName": "CinemachineComposer",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

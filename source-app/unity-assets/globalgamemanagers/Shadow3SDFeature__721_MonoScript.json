@@ -1,0 +1,25 @@
+{
+ "m_Name": "Shadow3SDFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 219,
+  "bytes[1]": 247,
+  "bytes[2]": 129,
+  "bytes[3]": 189,
+  "bytes[4]": 130,
+  "bytes[5]": 103,
+  "bytes[6]": 10,
+  "bytes[7]": 74,
+  "bytes[8]": 173,
+  "bytes[9]": 32,
+  "bytes[10]": 68,
+  "bytes[11]": 79,
+  "bytes[12]": 97,
+  "bytes[13]": 197,
+  "bytes[14]": 172,
+  "bytes[15]": 84
+ },
+ "m_ClassName": "Shadow3SDFeature",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

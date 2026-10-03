@@ -1,0 +1,7 @@
+local UIBattleResultFrontBreakSundayDefeatCtrl = BaseClass("UIBattleResultFrontBreakSundayDefeatCtrl", UIBaseCtrl)
+
+function UIBattleResultFrontBreakSundayDefeatCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBattleResultFrontBreakSundayDefeat)
+end
+
+return UIBattleResultFrontBreakSundayDefeatCtrl

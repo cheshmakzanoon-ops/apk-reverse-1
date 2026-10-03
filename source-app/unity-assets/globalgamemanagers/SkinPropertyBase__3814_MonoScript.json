@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkinPropertyBase",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 226,
+  "bytes[1]": 255,
+  "bytes[2]": 241,
+  "bytes[3]": 196,
+  "bytes[4]": 136,
+  "bytes[5]": 24,
+  "bytes[6]": 232,
+  "bytes[7]": 79,
+  "bytes[8]": 29,
+  "bytes[9]": 32,
+  "bytes[10]": 2,
+  "bytes[11]": 245,
+  "bytes[12]": 21,
+  "bytes[13]": 48,
+  "bytes[14]": 41,
+  "bytes[15]": 69
+ },
+ "m_ClassName": "SkinPropertyBase",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

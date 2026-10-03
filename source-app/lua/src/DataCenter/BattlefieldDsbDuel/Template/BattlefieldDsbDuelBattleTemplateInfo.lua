@@ -1,0 +1,12 @@
+local BattlefieldDsbDuelBattleTemplateInfo = BaseClass("BattlefieldDsbDuelBattleTemplateInfo")
+
+function BattlefieldDsbDuelBattleTemplateInfo:__init()
+end
+
+function BattlefieldDsbDuelBattleTemplateInfo:__delete()
+end
+
+function BattlefieldDsbDuelBattleTemplateInfo:InitBattleConfigTemplates()
+end
+
+return BattlefieldDsbDuelBattleTemplateInfo

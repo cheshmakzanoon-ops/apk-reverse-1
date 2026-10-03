@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineTrackedDolly",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 32,
+  "bytes[1]": 78,
+  "bytes[2]": 160,
+  "bytes[3]": 41,
+  "bytes[4]": 9,
+  "bytes[5]": 234,
+  "bytes[6]": 63,
+  "bytes[7]": 115,
+  "bytes[8]": 141,
+  "bytes[9]": 175,
+  "bytes[10]": 227,
+  "bytes[11]": 255,
+  "bytes[12]": 99,
+  "bytes[13]": 61,
+  "bytes[14]": 42,
+  "bytes[15]": 147
+ },
+ "m_ClassName": "CinemachineTrackedDolly",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

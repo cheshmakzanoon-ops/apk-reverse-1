@@ -1,0 +1,25 @@
+{
+ "m_Name": "BountyHunterCinemachineController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 60,
+  "bytes[1]": 37,
+  "bytes[2]": 102,
+  "bytes[3]": 118,
+  "bytes[4]": 130,
+  "bytes[5]": 171,
+  "bytes[6]": 91,
+  "bytes[7]": 54,
+  "bytes[8]": 57,
+  "bytes[9]": 54,
+  "bytes[10]": 59,
+  "bytes[11]": 200,
+  "bytes[12]": 82,
+  "bytes[13]": 228,
+  "bytes[14]": 196,
+  "bytes[15]": 160
+ },
+ "m_ClassName": "BountyHunterCinemachineController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

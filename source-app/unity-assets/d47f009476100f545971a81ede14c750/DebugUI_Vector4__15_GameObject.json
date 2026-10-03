@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 38
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 53
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 71
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 65
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 68
+   }
+  }
+ ],
+ "m_Layer": 0,
+ "m_Name": "DebugUI Vector4",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

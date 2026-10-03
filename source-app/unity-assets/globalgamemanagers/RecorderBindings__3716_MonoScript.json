@@ -1,0 +1,25 @@
+{
+ "m_Name": "RecorderBindings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 73,
+  "bytes[1]": 16,
+  "bytes[2]": 19,
+  "bytes[3]": 25,
+  "bytes[4]": 178,
+  "bytes[5]": 16,
+  "bytes[6]": 67,
+  "bytes[7]": 53,
+  "bytes[8]": 124,
+  "bytes[9]": 184,
+  "bytes[10]": 12,
+  "bytes[11]": 90,
+  "bytes[12]": 186,
+  "bytes[13]": 4,
+  "bytes[14]": 62,
+  "bytes[15]": 29
+ },
+ "m_ClassName": "RecorderBindings",
+ "m_Namespace": "UnityEngine.Recorder",
+ "m_AssemblyName": "Unity.Recorder.dll"
+}

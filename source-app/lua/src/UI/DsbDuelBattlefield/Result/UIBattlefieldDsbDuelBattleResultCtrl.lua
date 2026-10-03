@@ -1,0 +1,10 @@
+local UIBattlefieldDsbDuelBattleResultCtrl = BaseClass("UIBattlefieldDsbDuelBattleResultCtrl", UIBaseCtrl)
+
+function UIBattlefieldDsbDuelBattleResultCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBattlefieldDsbDuelBattleResultView)
+end
+
+function UIBattlefieldDsbDuelBattleResultCtrl:OnCustomKeyCodeEscape()
+end
+
+return UIBattlefieldDsbDuelBattleResultCtrl

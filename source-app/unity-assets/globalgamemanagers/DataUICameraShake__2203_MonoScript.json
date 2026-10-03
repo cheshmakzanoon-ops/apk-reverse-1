@@ -1,0 +1,25 @@
+{
+ "m_Name": "DataUICameraShake",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 92,
+  "bytes[1]": 186,
+  "bytes[2]": 109,
+  "bytes[3]": 159,
+  "bytes[4]": 163,
+  "bytes[5]": 194,
+  "bytes[6]": 96,
+  "bytes[7]": 71,
+  "bytes[8]": 85,
+  "bytes[9]": 129,
+  "bytes[10]": 252,
+  "bytes[11]": 85,
+  "bytes[12]": 137,
+  "bytes[13]": 117,
+  "bytes[14]": 131,
+  "bytes[15]": 175
+ },
+ "m_ClassName": "DataUICameraShake",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

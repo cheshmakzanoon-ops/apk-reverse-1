@@ -1,0 +1,25 @@
+{
+ "m_Name": "Test",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 223,
+  "bytes[1]": 189,
+  "bytes[2]": 154,
+  "bytes[3]": 62,
+  "bytes[4]": 6,
+  "bytes[5]": 59,
+  "bytes[6]": 148,
+  "bytes[7]": 54,
+  "bytes[8]": 200,
+  "bytes[9]": 112,
+  "bytes[10]": 167,
+  "bytes[11]": 95,
+  "bytes[12]": 194,
+  "bytes[13]": 0,
+  "bytes[14]": 224,
+  "bytes[15]": 155
+ },
+ "m_ClassName": "Test",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "MotionBlur",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 103,
+  "bytes[1]": 169,
+  "bytes[2]": 156,
+  "bytes[3]": 114,
+  "bytes[4]": 191,
+  "bytes[5]": 81,
+  "bytes[6]": 114,
+  "bytes[7]": 42,
+  "bytes[8]": 0,
+  "bytes[9]": 73,
+  "bytes[10]": 121,
+  "bytes[11]": 181,
+  "bytes[12]": 125,
+  "bytes[13]": 184,
+  "bytes[14]": 113,
+  "bytes[15]": 120
+ },
+ "m_ClassName": "MotionBlur",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

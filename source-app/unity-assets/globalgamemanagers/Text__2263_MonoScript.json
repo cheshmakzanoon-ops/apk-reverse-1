@@ -1,0 +1,25 @@
+{
+ "m_Name": "Text",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 174,
+  "bytes[1]": 182,
+  "bytes[2]": 47,
+  "bytes[3]": 114,
+  "bytes[4]": 156,
+  "bytes[5]": 82,
+  "bytes[6]": 200,
+  "bytes[7]": 20,
+  "bytes[8]": 222,
+  "bytes[9]": 200,
+  "bytes[10]": 108,
+  "bytes[11]": 71,
+  "bytes[12]": 220,
+  "bytes[13]": 172,
+  "bytes[14]": 20,
+  "bytes[15]": 113
+ },
+ "m_ClassName": "Text",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

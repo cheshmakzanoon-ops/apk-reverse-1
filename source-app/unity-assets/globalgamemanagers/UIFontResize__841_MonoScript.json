@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIFontResize",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 112,
+  "bytes[1]": 251,
+  "bytes[2]": 220,
+  "bytes[3]": 247,
+  "bytes[4]": 203,
+  "bytes[5]": 71,
+  "bytes[6]": 233,
+  "bytes[7]": 31,
+  "bytes[8]": 20,
+  "bytes[9]": 136,
+  "bytes[10]": 211,
+  "bytes[11]": 74,
+  "bytes[12]": 112,
+  "bytes[13]": 123,
+  "bytes[14]": 66,
+  "bytes[15]": 100
+ },
+ "m_ClassName": "UIFontResize",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 31
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 56
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 50
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 28
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 66
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "Content",
+ "m_Tag": 0,
+ "m_IsActive": false
+}

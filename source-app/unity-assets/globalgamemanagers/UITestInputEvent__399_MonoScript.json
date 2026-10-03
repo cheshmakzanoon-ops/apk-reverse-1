@@ -1,0 +1,25 @@
+{
+ "m_Name": "UITestInputEvent",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 59,
+  "bytes[1]": 7,
+  "bytes[2]": 80,
+  "bytes[3]": 104,
+  "bytes[4]": 235,
+  "bytes[5]": 38,
+  "bytes[6]": 99,
+  "bytes[7]": 149,
+  "bytes[8]": 178,
+  "bytes[9]": 75,
+  "bytes[10]": 211,
+  "bytes[11]": 105,
+  "bytes[12]": 124,
+  "bytes[13]": 197,
+  "bytes[14]": 140,
+  "bytes[15]": 130
+ },
+ "m_ClassName": "UITestInputEvent",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

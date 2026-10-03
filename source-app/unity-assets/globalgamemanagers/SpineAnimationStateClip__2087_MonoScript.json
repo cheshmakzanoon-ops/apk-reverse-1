@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpineAnimationStateClip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 129,
+  "bytes[1]": 133,
+  "bytes[2]": 239,
+  "bytes[3]": 117,
+  "bytes[4]": 14,
+  "bytes[5]": 29,
+  "bytes[6]": 239,
+  "bytes[7]": 103,
+  "bytes[8]": 222,
+  "bytes[9]": 209,
+  "bytes[10]": 163,
+  "bytes[11]": 37,
+  "bytes[12]": 240,
+  "bytes[13]": 112,
+  "bytes[14]": 3,
+  "bytes[15]": 99
+ },
+ "m_ClassName": "SpineAnimationStateClip",
+ "m_Namespace": "Spine.Unity.Playables",
+ "m_AssemblyName": "spine-timeline.dll"
+}

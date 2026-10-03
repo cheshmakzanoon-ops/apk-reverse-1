@@ -1,0 +1,25 @@
+{
+ "m_Name": "AreaHightingSystem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 149,
+  "bytes[1]": 9,
+  "bytes[2]": 212,
+  "bytes[3]": 110,
+  "bytes[4]": 126,
+  "bytes[5]": 79,
+  "bytes[6]": 194,
+  "bytes[7]": 5,
+  "bytes[8]": 152,
+  "bytes[9]": 23,
+  "bytes[10]": 66,
+  "bytes[11]": 140,
+  "bytes[12]": 120,
+  "bytes[13]": 212,
+  "bytes[14]": 191,
+  "bytes[15]": 20
+ },
+ "m_ClassName": "AreaHightingSystem",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

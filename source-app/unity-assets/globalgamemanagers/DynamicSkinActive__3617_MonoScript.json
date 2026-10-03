@@ -1,0 +1,25 @@
+{
+ "m_Name": "DynamicSkinActive",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 148,
+  "bytes[1]": 111,
+  "bytes[2]": 104,
+  "bytes[3]": 40,
+  "bytes[4]": 58,
+  "bytes[5]": 72,
+  "bytes[6]": 93,
+  "bytes[7]": 149,
+  "bytes[8]": 5,
+  "bytes[9]": 57,
+  "bytes[10]": 136,
+  "bytes[11]": 67,
+  "bytes[12]": 8,
+  "bytes[13]": 148,
+  "bytes[14]": 199,
+  "bytes[15]": 239
+ },
+ "m_ClassName": "DynamicSkinActive",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

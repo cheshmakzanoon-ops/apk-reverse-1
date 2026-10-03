@@ -1,0 +1,25 @@
+{
+ "m_Name": "TMP_SubMeshUI",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 17,
+  "bytes[1]": 3,
+  "bytes[2]": 251,
+  "bytes[3]": 7,
+  "bytes[4]": 88,
+  "bytes[5]": 151,
+  "bytes[6]": 99,
+  "bytes[7]": 85,
+  "bytes[8]": 205,
+  "bytes[9]": 249,
+  "bytes[10]": 183,
+  "bytes[11]": 213,
+  "bytes[12]": 206,
+  "bytes[13]": 156,
+  "bytes[14]": 183,
+  "bytes[15]": 224
+ },
+ "m_ClassName": "TMP_SubMeshUI",
+ "m_Namespace": "TMPro",
+ "m_AssemblyName": "Unity.TextMeshPro.dll"
+}

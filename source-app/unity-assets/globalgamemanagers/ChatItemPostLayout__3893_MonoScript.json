@@ -1,0 +1,25 @@
+{
+ "m_Name": "ChatItemPostLayout",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 149,
+  "bytes[1]": 130,
+  "bytes[2]": 89,
+  "bytes[3]": 39,
+  "bytes[4]": 132,
+  "bytes[5]": 147,
+  "bytes[6]": 14,
+  "bytes[7]": 226,
+  "bytes[8]": 202,
+  "bytes[9]": 163,
+  "bytes[10]": 226,
+  "bytes[11]": 52,
+  "bytes[12]": 69,
+  "bytes[13]": 11,
+  "bytes[14]": 129,
+  "bytes[15]": 196
+ },
+ "m_ClassName": "ChatItemPostLayout",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

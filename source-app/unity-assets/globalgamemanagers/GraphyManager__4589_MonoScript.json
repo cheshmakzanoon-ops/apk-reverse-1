@@ -1,0 +1,25 @@
+{
+ "m_Name": "GraphyManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 78,
+  "bytes[1]": 252,
+  "bytes[2]": 114,
+  "bytes[3]": 116,
+  "bytes[4]": 73,
+  "bytes[5]": 36,
+  "bytes[6]": 116,
+  "bytes[7]": 9,
+  "bytes[8]": 56,
+  "bytes[9]": 121,
+  "bytes[10]": 61,
+  "bytes[11]": 251,
+  "bytes[12]": 179,
+  "bytes[13]": 44,
+  "bytes[14]": 74,
+  "bytes[15]": 224
+ },
+ "m_ClassName": "GraphyManager",
+ "m_Namespace": "Tayx.Graphy",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

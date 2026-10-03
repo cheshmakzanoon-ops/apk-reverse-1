@@ -1,0 +1,25 @@
+{
+ "m_Name": "SimpleParticleClip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 55,
+  "bytes[1]": 120,
+  "bytes[2]": 184,
+  "bytes[3]": 252,
+  "bytes[4]": 165,
+  "bytes[5]": 35,
+  "bytes[6]": 113,
+  "bytes[7]": 138,
+  "bytes[8]": 176,
+  "bytes[9]": 96,
+  "bytes[10]": 90,
+  "bytes[11]": 46,
+  "bytes[12]": 180,
+  "bytes[13]": 20,
+  "bytes[14]": 20,
+  "bytes[15]": 71
+ },
+ "m_ClassName": "SimpleParticleClip",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

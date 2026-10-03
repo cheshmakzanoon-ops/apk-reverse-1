@@ -1,0 +1,25 @@
+{
+ "m_Name": "ForwardRendererData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 235,
+  "bytes[1]": 34,
+  "bytes[2]": 156,
+  "bytes[3]": 109,
+  "bytes[4]": 80,
+  "bytes[5]": 184,
+  "bytes[6]": 82,
+  "bytes[7]": 195,
+  "bytes[8]": 41,
+  "bytes[9]": 190,
+  "bytes[10]": 224,
+  "bytes[11]": 223,
+  "bytes[12]": 65,
+  "bytes[13]": 83,
+  "bytes[14]": 239,
+  "bytes[15]": 32
+ },
+ "m_ClassName": "ForwardRendererData",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

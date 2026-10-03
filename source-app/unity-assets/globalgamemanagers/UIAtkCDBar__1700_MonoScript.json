@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIAtkCDBar",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 1,
+  "bytes[1]": 218,
+  "bytes[2]": 198,
+  "bytes[3]": 146,
+  "bytes[4]": 134,
+  "bytes[5]": 96,
+  "bytes[6]": 253,
+  "bytes[7]": 247,
+  "bytes[8]": 12,
+  "bytes[9]": 76,
+  "bytes[10]": 173,
+  "bytes[11]": 155,
+  "bytes[12]": 106,
+  "bytes[13]": 198,
+  "bytes[14]": 199,
+  "bytes[15]": 73
+ },
+ "m_ClassName": "UIAtkCDBar",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

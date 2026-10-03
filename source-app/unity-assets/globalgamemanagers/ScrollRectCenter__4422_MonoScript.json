@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScrollRectCenter",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 101,
+  "bytes[1]": 125,
+  "bytes[2]": 30,
+  "bytes[3]": 119,
+  "bytes[4]": 33,
+  "bytes[5]": 16,
+  "bytes[6]": 44,
+  "bytes[7]": 164,
+  "bytes[8]": 7,
+  "bytes[9]": 62,
+  "bytes[10]": 35,
+  "bytes[11]": 204,
+  "bytes[12]": 228,
+  "bytes[13]": 43,
+  "bytes[14]": 251,
+  "bytes[15]": 109
+ },
+ "m_ClassName": "ScrollRectCenter",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

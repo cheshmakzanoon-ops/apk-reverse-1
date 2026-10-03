@@ -1,0 +1,25 @@
+{
+ "m_Name": "ShMapping",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 23,
+  "bytes[1]": 88,
+  "bytes[2]": 207,
+  "bytes[3]": 218,
+  "bytes[4]": 184,
+  "bytes[5]": 18,
+  "bytes[6]": 177,
+  "bytes[7]": 199,
+  "bytes[8]": 251,
+  "bytes[9]": 247,
+  "bytes[10]": 59,
+  "bytes[11]": 166,
+  "bytes[12]": 53,
+  "bytes[13]": 85,
+  "bytes[14]": 230,
+  "bytes[15]": 94
+ },
+ "m_ClassName": "ShMapping",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

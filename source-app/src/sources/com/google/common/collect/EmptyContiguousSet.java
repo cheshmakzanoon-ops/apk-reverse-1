@@ -1,0 +1,140 @@
+package com.google.common.collect;
+
+import java.io.Serializable;
+import java.lang.Comparable;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import javax.annotation.CheckForNull;
+
+@ElementTypesAreNonnullByDefault
+final class EmptyContiguousSet<C extends Comparable> extends ContiguousSet<C> {
+    @Override
+    public boolean contains(@CheckForNull Object obj) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
+    @Override
+    public ContiguousSet<C> headSetImpl(C c, boolean z) {
+        return this;
+    }
+
+    @Override
+    int indexOf(@CheckForNull Object obj) {
+        return -1;
+    }
+
+    @Override
+    public ContiguousSet<C> intersection(ContiguousSet<C> contiguousSet) {
+        return this;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return true;
+    }
+
+    @Override
+    boolean isHashCodeFast() {
+        return true;
+    }
+
+    @Override
+    boolean isPartialView() {
+        return false;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public ContiguousSet<C> subSetImpl(C c, boolean z, C c2, boolean z2) {
+        return this;
+    }
+
+    @Override
+    public ContiguousSet<C> tailSetImpl(C c, boolean z) {
+        return this;
+    }
+
+    EmptyContiguousSet(DiscreteDomain<C> discreteDomain) {
+        super(discreteDomain);
+    }
+
+    @Override
+    public C first() {
+        throw new NoSuchElementException();
+    }
+
+    @Override
+    public C last() {
+        throw new NoSuchElementException();
+    }
+
+    @Override
+    public Range<C> range() {
+        throw new NoSuchElementException();
+    }
+
+    @Override
+    public Range<C> range(BoundType boundType, BoundType boundType2) {
+        throw new NoSuchElementException();
+    }
+
+    @Override
+    public UnmodifiableIterator<C> iterator() {
+        return Iterators.emptyIterator();
+    }
+
+    @Override
+    public UnmodifiableIterator<C> descendingIterator() {
+        return Iterators.emptyIterator();
+    }
+
+    @Override
+    public ImmutableList<C> asList() {
+        return ImmutableList.m160of();
+    }
+
+    @Override
+    public String toString() {
+        return "[]";
+    }
+
+    @Override
+    public boolean equals(@CheckForNull Object obj) {
+        if (obj instanceof Set) {
+            return ((Set) obj).isEmpty();
+        }
+        return false;
+    }
+
+    private static final class SerializedForm<C extends Comparable> implements Serializable {
+        private static final long serialVersionUID = 0;
+        private final DiscreteDomain<C> domain;
+
+        private SerializedForm(DiscreteDomain<C> discreteDomain) {
+            this.domain = discreteDomain;
+        }
+
+        private Object readResolve() {
+            return new EmptyContiguousSet(this.domain);
+        }
+    }
+
+    @Override
+    Object writeReplace() {
+        return new SerializedForm(this.domain);
+    }
+
+    @Override
+    ImmutableSortedSet<C> createDescendingSet() {
+        return ImmutableSortedSet.emptySet(Ordering.natural().reverse());
+    }
+}

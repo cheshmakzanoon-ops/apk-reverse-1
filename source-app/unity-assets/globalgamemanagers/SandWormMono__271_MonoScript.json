@@ -1,0 +1,25 @@
+{
+ "m_Name": "SandWormMono",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 105,
+  "bytes[1]": 219,
+  "bytes[2]": 228,
+  "bytes[3]": 88,
+  "bytes[4]": 212,
+  "bytes[5]": 103,
+  "bytes[6]": 106,
+  "bytes[7]": 226,
+  "bytes[8]": 140,
+  "bytes[9]": 24,
+  "bytes[10]": 7,
+  "bytes[11]": 80,
+  "bytes[12]": 179,
+  "bytes[13]": 169,
+  "bytes[14]": 232,
+  "bytes[15]": 85
+ },
+ "m_ClassName": "SandWormMono",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "GPUSkinAnimTexData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 235,
+  "bytes[1]": 249,
+  "bytes[2]": 205,
+  "bytes[3]": 117,
+  "bytes[4]": 218,
+  "bytes[5]": 16,
+  "bytes[6]": 180,
+  "bytes[7]": 79,
+  "bytes[8]": 67,
+  "bytes[9]": 141,
+  "bytes[10]": 230,
+  "bytes[11]": 142,
+  "bytes[12]": 177,
+  "bytes[13]": 102,
+  "bytes[14]": 130,
+  "bytes[15]": 103
+ },
+ "m_ClassName": "GPUSkinAnimTexData",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

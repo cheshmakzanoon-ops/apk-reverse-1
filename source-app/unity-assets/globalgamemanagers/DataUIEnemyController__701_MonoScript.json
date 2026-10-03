@@ -1,0 +1,25 @@
+{
+ "m_Name": "DataUIEnemyController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 61,
+  "bytes[1]": 79,
+  "bytes[2]": 106,
+  "bytes[3]": 99,
+  "bytes[4]": 241,
+  "bytes[5]": 50,
+  "bytes[6]": 87,
+  "bytes[7]": 70,
+  "bytes[8]": 59,
+  "bytes[9]": 117,
+  "bytes[10]": 22,
+  "bytes[11]": 247,
+  "bytes[12]": 124,
+  "bytes[13]": 207,
+  "bytes[14]": 193,
+  "bytes[15]": 228
+ },
+ "m_ClassName": "DataUIEnemyController",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

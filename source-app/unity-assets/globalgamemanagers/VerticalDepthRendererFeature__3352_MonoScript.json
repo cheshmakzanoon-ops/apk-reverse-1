@@ -1,0 +1,25 @@
+{
+ "m_Name": "VerticalDepthRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 33,
+  "bytes[1]": 42,
+  "bytes[2]": 193,
+  "bytes[3]": 121,
+  "bytes[4]": 12,
+  "bytes[5]": 84,
+  "bytes[6]": 118,
+  "bytes[7]": 42,
+  "bytes[8]": 22,
+  "bytes[9]": 220,
+  "bytes[10]": 7,
+  "bytes[11]": 245,
+  "bytes[12]": 238,
+  "bytes[13]": 134,
+  "bytes[14]": 197,
+  "bytes[15]": 49
+ },
+ "m_ClassName": "VerticalDepthRendererFeature",
+ "m_Namespace": "",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

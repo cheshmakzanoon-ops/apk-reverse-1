@@ -1,0 +1,25 @@
+{
+ "m_Name": "TerrainSetting",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 214,
+  "bytes[1]": 146,
+  "bytes[2]": 205,
+  "bytes[3]": 67,
+  "bytes[4]": 18,
+  "bytes[5]": 206,
+  "bytes[6]": 209,
+  "bytes[7]": 117,
+  "bytes[8]": 157,
+  "bytes[9]": 81,
+  "bytes[10]": 93,
+  "bytes[11]": 74,
+  "bytes[12]": 224,
+  "bytes[13]": 137,
+  "bytes[14]": 188,
+  "bytes[15]": 242
+ },
+ "m_ClassName": "TerrainSetting",
+ "m_Namespace": "Main.Scripts.Scene",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "PerfToolsRuntimeCfg",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 173,
+  "bytes[1]": 160,
+  "bytes[2]": 44,
+  "bytes[3]": 209,
+  "bytes[4]": 247,
+  "bytes[5]": 250,
+  "bytes[6]": 237,
+  "bytes[7]": 248,
+  "bytes[8]": 64,
+  "bytes[9]": 99,
+  "bytes[10]": 54,
+  "bytes[11]": 126,
+  "bytes[12]": 14,
+  "bytes[13]": 25,
+  "bytes[14]": 168,
+  "bytes[15]": 119
+ },
+ "m_ClassName": "PerfToolsRuntimeCfg",
+ "m_Namespace": "FibMatrix.PerfTools",
+ "m_AssemblyName": "FibMatrix.PerfTools.dll"
+}

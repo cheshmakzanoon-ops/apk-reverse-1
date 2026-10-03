@@ -1,0 +1,25 @@
+{
+ "m_Name": "ArabicGridLayoutGroup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 89,
+  "bytes[1]": 162,
+  "bytes[2]": 22,
+  "bytes[3]": 228,
+  "bytes[4]": 5,
+  "bytes[5]": 66,
+  "bytes[6]": 95,
+  "bytes[7]": 14,
+  "bytes[8]": 39,
+  "bytes[9]": 20,
+  "bytes[10]": 118,
+  "bytes[11]": 210,
+  "bytes[12]": 101,
+  "bytes[13]": 82,
+  "bytes[14]": 86,
+  "bytes[15]": 238
+ },
+ "m_ClassName": "ArabicGridLayoutGroup",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

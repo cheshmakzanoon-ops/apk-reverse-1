@@ -1,0 +1,25 @@
+{
+ "m_Name": "HierarchyDragDropListener",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 167,
+  "bytes[1]": 47,
+  "bytes[2]": 255,
+  "bytes[3]": 13,
+  "bytes[4]": 210,
+  "bytes[5]": 6,
+  "bytes[6]": 153,
+  "bytes[7]": 248,
+  "bytes[8]": 166,
+  "bytes[9]": 87,
+  "bytes[10]": 165,
+  "bytes[11]": 182,
+  "bytes[12]": 80,
+  "bytes[13]": 128,
+  "bytes[14]": 227,
+  "bytes[15]": 206
+ },
+ "m_ClassName": "HierarchyDragDropListener",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

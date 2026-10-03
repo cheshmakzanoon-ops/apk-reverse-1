@@ -1,0 +1,17 @@
+# Recovered payloads must round-trip byte-for-byte.
+#
+# The Lua, C#, Java and config-table trees are machine-generated decompiler
+# output, not hand-written text. Letting git apply its text/eol heuristics
+# (CRLF<->LF normalisation) could rewrite line endings - or mishandle a file
+# whose bytes git misjudges - which would silently diverge from the APK the
+# tree was decoded from. `-text` disables that class of corruption everywhere.
+* -text
+
+# The hand-written toolchain is the opposite case: real text, real diffs, and LF
+# endings wanted on every platform. These paths are scoped rather than matched
+# by extension on purpose - a global `*.json text` rule would also rewrite the
+# 7,390 recovered Unity JSON files under source-app/unity-assets.
+*.sh          text eol=lf
+/tools/**     text eol=lf
+/.github/**   text eol=lf
+/*.md         text eol=lf

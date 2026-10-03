@@ -1,0 +1,25 @@
+{
+ "m_Name": "UISelfExplosion",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 66,
+  "bytes[1]": 131,
+  "bytes[2]": 200,
+  "bytes[3]": 67,
+  "bytes[4]": 237,
+  "bytes[5]": 174,
+  "bytes[6]": 137,
+  "bytes[7]": 19,
+  "bytes[8]": 255,
+  "bytes[9]": 47,
+  "bytes[10]": 89,
+  "bytes[11]": 79,
+  "bytes[12]": 140,
+  "bytes[13]": 52,
+  "bytes[14]": 168,
+  "bytes[15]": 47
+ },
+ "m_ClassName": "UISelfExplosion",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

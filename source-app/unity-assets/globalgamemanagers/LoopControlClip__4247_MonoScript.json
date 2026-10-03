@@ -1,0 +1,25 @@
+{
+ "m_Name": "LoopControlClip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 197,
+  "bytes[1]": 97,
+  "bytes[2]": 73,
+  "bytes[3]": 9,
+  "bytes[4]": 156,
+  "bytes[5]": 212,
+  "bytes[6]": 56,
+  "bytes[7]": 55,
+  "bytes[8]": 116,
+  "bytes[9]": 150,
+  "bytes[10]": 103,
+  "bytes[11]": 27,
+  "bytes[12]": 96,
+  "bytes[13]": 249,
+  "bytes[14]": 89,
+  "bytes[15]": 250
+ },
+ "m_ClassName": "LoopControlClip",
+ "m_Namespace": "TimelineScript",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

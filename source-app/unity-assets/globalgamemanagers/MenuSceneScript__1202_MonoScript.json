@@ -1,0 +1,25 @@
+{
+ "m_Name": "MenuSceneScript",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 15,
+  "bytes[1]": 99,
+  "bytes[2]": 232,
+  "bytes[3]": 253,
+  "bytes[4]": 207,
+  "bytes[5]": 163,
+  "bytes[6]": 228,
+  "bytes[7]": 178,
+  "bytes[8]": 37,
+  "bytes[9]": 201,
+  "bytes[10]": 232,
+  "bytes[11]": 188,
+  "bytes[12]": 13,
+  "bytes[13]": 91,
+  "bytes[14]": 65,
+  "bytes[15]": 92
+ },
+ "m_ClassName": "MenuSceneScript",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

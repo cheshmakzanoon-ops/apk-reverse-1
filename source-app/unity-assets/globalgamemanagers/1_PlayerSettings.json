@@ -1,0 +1,235 @@
+{
+ "productGUID": {
+  "data[0]": 872752094,
+  "data[1]": 1285423238,
+  "data[2]": 2838132889,
+  "data[3]": 3532449168
+ },
+ "AndroidProfiler": false,
+ "AndroidFilterTouchesWhenObscured": false,
+ "AndroidEnableSustainedPerformanceMode": false,
+ "defaultScreenOrientation": 0,
+ "targetDevice": 2,
+ "useOnDemandResources": false,
+ "accelerometerFrequency": 60,
+ "companyName": "LCYD",
+ "productName": "APS",
+ "defaultCursor": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "cursorHotspot": {
+  "x": 0.0,
+  "y": 0.0
+ },
+ "m_SplashScreenBackgroundColor": {
+  "r": 0.0,
+  "g": 0.0,
+  "b": 0.0,
+  "a": 1.0
+ },
+ "m_ShowUnitySplashScreen": false,
+ "m_ShowUnitySplashLogo": false,
+ "m_SplashScreenOverlayOpacity": 0.0,
+ "m_SplashScreenAnimation": 1,
+ "m_SplashScreenLogoStyle": 1,
+ "m_SplashScreenDrawMode": 0,
+ "m_SplashScreenBackgroundAnimationZoom": 1.0,
+ "m_SplashScreenLogoAnimationZoom": 1.0,
+ "m_SplashScreenBackgroundLandscapeAspect": 0.5,
+ "m_SplashScreenBackgroundPortraitAspect": 1.0,
+ "m_SplashScreenBackgroundLandscapeUvs": {
+  "x": 0.0,
+  "y": 0.0,
+  "width": 1.0,
+  "height": 1.0
+ },
+ "m_SplashScreenBackgroundPortraitUvs": {
+  "x": 0.0,
+  "y": 0.0,
+  "width": 1.0,
+  "height": 1.0
+ },
+ "m_SplashScreenLogos": [
+  {
+   "logo": {
+    "m_FileID": 1,
+    "m_PathID": 5861
+   },
+   "duration": 2.0
+  }
+ ],
+ "m_SplashScreenBackgroundLandscape": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_SplashScreenBackgroundPortrait": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_VirtualRealitySplashScreen": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "m_HolographicTrackingLossScreen": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "defaultScreenWidth": 1024,
+ "defaultScreenHeight": 768,
+ "defaultScreenWidthWeb": 960,
+ "defaultScreenHeightWeb": 600,
+ "m_StereoRenderingPath": 0,
+ "m_ActiveColorSpace": 1,
+ "m_MTRendering": true,
+ "mobileMTRenderingBaked": true,
+ "m_StackTraceTypes": [
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "iosShowActivityIndicatorOnLoading": -1,
+ "androidShowActivityIndicatorOnLoading": -1,
+ "iosUseCustomAppBackgroundBehavior": false,
+ "iosAllowHTTPDownload": true,
+ "allowedAutorotateToPortrait": false,
+ "allowedAutorotateToPortraitUpsideDown": false,
+ "allowedAutorotateToLandscapeRight": true,
+ "allowedAutorotateToLandscapeLeft": true,
+ "useOSAutorotation": true,
+ "use32BitDisplayBuffer": true,
+ "preserveFramebufferAlpha": false,
+ "disableDepthAndStencilBuffers": false,
+ "androidStartInFullscreen": true,
+ "androidRenderOutsideSafeArea": true,
+ "androidUseSwappy": false,
+ "androidBlitType": 2,
+ "androidResizableWindow": false,
+ "androidDefaultWindowWidth": 1920,
+ "androidDefaultWindowHeight": 1080,
+ "androidMinimumWindowWidth": 400,
+ "androidMinimumWindowHeight": 300,
+ "androidFullscreenMode": 1,
+ "defaultIsNativeResolution": true,
+ "macRetinaSupport": true,
+ "runInBackground": false,
+ "captureSingleScreen": false,
+ "muteOtherAudioSources": false,
+ "Prepare IOS For Recording": false,
+ "Force IOS Speakers When Recording": false,
+ "deferSystemGesturesMode": 15,
+ "hideHomeButton": false,
+ "submitAnalytics": true,
+ "usePlayerLog": true,
+ "bakeCollisionMeshes": false,
+ "forceSingleInstance": false,
+ "useFlipModelSwapchain": true,
+ "resizableWindow": false,
+ "useMacAppStoreValidation": false,
+ "macAppStoreCategory": "public.app-category.games",
+ "gpuSkinning": false,
+ "xboxPIXTextureCapture": false,
+ "xboxEnableAvatar": false,
+ "xboxEnableKinect": false,
+ "xboxEnableKinectAutoTracking": false,
+ "xboxEnableFitness": false,
+ "visibleInBackground": true,
+ "allowFullscreenSwitch": true,
+ "fullscreenMode": 1,
+ "xboxSpeechDB": 0,
+ "xboxEnableHeadOrientation": false,
+ "xboxEnableGuest": false,
+ "xboxEnablePIXSampling": false,
+ "metalFramebufferOnly": false,
+ "xboxOneResolution": 0,
+ "xboxOneSResolution": 0,
+ "xboxOneXResolution": 3,
+ "xboxOneMonoLoggingLevel": 0,
+ "xboxOneLoggingLevel": 1,
+ "xboxOneDisableEsram": false,
+ "xboxOneEnableTypeOptimization": false,
+ "xboxOnePresentImmediateThreshold": 0,
+ "switchQueueCommandMemory": 0,
+ "switchQueueControlMemory": 16384,
+ "switchQueueComputeMemory": 262144,
+ "switchNVNShaderPoolsGranularity": 33554432,
+ "switchNVNDefaultPoolsGranularity": 16777216,
+ "switchNVNOtherPoolsGranularity": 16777216,
+ "switchNVNMaxPublicTextureIDCount": 0,
+ "switchNVNMaxPublicSamplerIDCount": 0,
+ "stadiaPresentMode": 0,
+ "stadiaTargetFramerate": 0,
+ "vulkanNumSwapchainBuffers": 3,
+ "vulkanEnableSetSRGBWrite": false,
+ "vulkanEnableLateAcquireNextImage": false,
+ "m_SupportedAspectRatios": {
+  "4:3": true,
+  "5:4": true,
+  "16:10": true,
+  "16:9": true,
+  "Others": true
+ },
+ "bundleVersion": "1.0.342",
+ "preloadedAssets": [],
+ "metroInputSource": 0,
+ "wsaTransparentSwapchain": false,
+ "m_HolographicPauseOnTrackingLoss": true,
+ "xboxOneDisableKinectGpuReservation": false,
+ "xboxOneEnable7thCore": false,
+ "vrSettings": {
+  "none": {},
+  "cardboard": {
+   "depthFormat": 0,
+   "enableTransitionView": false
+  },
+  "daydream": {
+   "depthFormat": 0,
+   "useSustainedPerformanceMode": false,
+   "enableVideoLayer": false,
+   "useProtectedVideoMemory": false,
+   "minimumSupportedHeadTracking": 0,
+   "maximumSupportedHeadTracking": 1
+  },
+  "hololens": {
+   "depthFormat": 1,
+   "depthBufferSharingEnabled": false
+  },
+  "lumin": {
+   "depthFormat": 0,
+   "frameTiming": 2,
+   "enableGLCache": false,
+   "glCacheMaxBlobSize": 524288,
+   "glCacheMaxFileSize": 8388608
+  },
+  "oculus": {
+   "sharedDepthBuffer": false,
+   "dashSupport": false,
+   "lowOverheadMode": false,
+   "protectedContext": false,
+   "v2Signing": false
+  },
+  "enable360StereoCapture": false
+ },
+ "isWsaHolographicRemotingEnabled": false,
+ "enableFrameTimingStats": false,
+ "useHDRDisplay": false,
+ "D3DHDRBitDepth": 0,
+ "m_ColorGamuts": [
+  0
+ ],
+ "targetPixelDensity": 30,
+ "resolutionScalingMode": 0,
+ "androidSupportedAspectRatio": 1,
+ "androidMaxAspectRatio": 2.0999999046325684,
+ "cloudProjectId": "",
+ "framebufferDepthMemorylessMode": 0,
+ "projectName": "",
+ "organizationId": "",
+ "cloudEnabled": false,
+ "enableNativePlatformBackendsForNewInputSystem": false,
+ "disableOldInputManagerSupport": false,
+ "legacyClampBlendShapeWeights": true
+}

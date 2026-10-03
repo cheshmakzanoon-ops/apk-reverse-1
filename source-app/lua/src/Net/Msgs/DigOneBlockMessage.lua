@@ -1,0 +1,23 @@
+local DigOneBlockMessage = BaseClass("DigOneBlockMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, activityId, digIndex)
+  base.OnCreate(self)
+  self.sfsObj:PutInt("activityId", activityId)
+  self.sfsObj:PutInt("digIndex", digIndex)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.DigActivityManager:OnRecvDigResult(t)
+  end
+end
+
+DigOneBlockMessage.OnCreate = OnCreate
+DigOneBlockMessage.HandleMessage = HandleMessage
+return DigOneBlockMessage

@@ -1,0 +1,13 @@
+local UICommonItemProbabilityCtrl = BaseClass("UICommonItemProbabilityCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UICommonItemProbability)
+end
+
+local function Close(self)
+  UIManager:GetInstance():DestroyWindowByLayer(UILayer.Normal)
+end
+
+UICommonItemProbabilityCtrl.CloseSelf = CloseSelf
+UICommonItemProbabilityCtrl.Close = Close
+return UICommonItemProbabilityCtrl

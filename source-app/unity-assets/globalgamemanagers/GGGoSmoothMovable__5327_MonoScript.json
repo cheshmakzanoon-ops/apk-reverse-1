@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGoSmoothMovable",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 90,
+  "bytes[1]": 75,
+  "bytes[2]": 52,
+  "bytes[3]": 77,
+  "bytes[4]": 57,
+  "bytes[5]": 200,
+  "bytes[6]": 42,
+  "bytes[7]": 206,
+  "bytes[8]": 242,
+  "bytes[9]": 65,
+  "bytes[10]": 11,
+  "bytes[11]": 66,
+  "bytes[12]": 168,
+  "bytes[13]": 247,
+  "bytes[14]": 150,
+  "bytes[15]": 49
+ },
+ "m_ClassName": "GGGoSmoothMovable",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CattleMature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 19,
+  "bytes[1]": 203,
+  "bytes[2]": 80,
+  "bytes[3]": 241,
+  "bytes[4]": 31,
+  "bytes[5]": 39,
+  "bytes[6]": 81,
+  "bytes[7]": 205,
+  "bytes[8]": 174,
+  "bytes[9]": 46,
+  "bytes[10]": 207,
+  "bytes[11]": 200,
+  "bytes[12]": 249,
+  "bytes[13]": 3,
+  "bytes[14]": 173,
+  "bytes[15]": 5
+ },
+ "m_ClassName": "CattleMature",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

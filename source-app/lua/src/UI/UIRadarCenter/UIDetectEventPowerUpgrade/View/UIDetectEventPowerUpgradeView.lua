@@ -1,0 +1,119 @@
+local UIDetectEventPowerUpgradeView = BaseClass("UIDetectEventPowerUpgradeView", UIBaseView)
+local base = UIBaseView
+local Localization = CS.GameEntry.Localization
+local title_text_path = "title_text"
+local return_btn_path = "panel"
+local close_btn_path = "close_btn"
+local current_lv_text_path = "Current_Lv_Text"
+local next_lv_text_path = "Current_Lv_Text/To_Next_Image/Next_Lv_Text"
+local green_btn_path = "Green_Btn"
+local green_btn_text_path = "Green_Btn/Green_Btn_Text"
+local yellow_btn_path = "Yellow_Btn"
+local yellow_btn_text_path = "Yellow_Btn/Yellow_Btn_Text"
+local upgrade_item_need_text_path = "Upgrade_Item_Need_Text"
+local upgrade_item_need_icon_path = "Upgrade_Item_Need_Text/Need_Item_Icon"
+local upgrade_item_need_num_text_path = "Upgrade_Item_Need_Text/Need_Item_Icon/Need_Item_Num_Text"
+local reward_title_text_path = "Reward_Title_Text"
+local reward_item_get_num_path = "Reward_Item_Get/Reward_Item_Get_Num"
+local reward_item_get_icon_path = "Reward_Item_Get/Reward_Item_Get_Icon"
+local reward_refresh_text_path = "Reward_Refresh/Reward_Refresh_Text"
+local reward_refresh_icon_path = "Reward_Refresh/Reward_Refresh_Icon"
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:ReInit()
+end
+
+local function ComponentDefine(self)
+  self.close_btn = self:AddComponent(UIButton, close_btn_path)
+  self.title_text = self:AddComponent(UIText, title_text_path)
+  self.current_lv_text = self:AddComponent(UIText, current_lv_text_path)
+  self.next_lv_text = self:AddComponent(UIText, next_lv_text_path)
+  self.green_btn = self:AddComponent(UIButton, green_btn_path)
+  self.green_btn_text = self:AddComponent(UIText, green_btn_text_path)
+  self.yellow_btn = self:AddComponent(UIButton, yellow_btn_path)
+  self.yellow_btn_text = self:AddComponent(UIText, yellow_btn_text_path)
+  self.upgrade_item_need_icon = self:AddComponent(UIImage, upgrade_item_need_icon_path)
+  self.upgrade_item_need_num_text = self:AddComponent(UIText, upgrade_item_need_num_text_path)
+  self.upgrade_item_need_text = self:AddComponent(UIText, upgrade_item_need_text_path)
+  self.reward_item_get_num = self:AddComponent(UIText, reward_item_get_num_path)
+  self.reward_item_get_icon = self:AddComponent(UIImage, reward_item_get_icon_path)
+  self.reward_title_text_path = self:AddComponent(UIText, reward_title_text_path)
+  self.reward_refresh_text = self:AddComponent(UIText, reward_refresh_text_path)
+  self.reward_refresh_icon = self:AddComponent(UIImage, reward_refresh_icon_path)
+  self.reward_refresh_text:SetLocalText(GameDialogDefine.REWARD_BETTER)
+  self.reward_title_text_path:SetLocalText(GameDialogDefine.UPGRADE_CAN_GET)
+  self.upgrade_item_need_text:SetLocalText(GameDialogDefine.UPGRADE_CONDITION)
+  self.green_btn_text:SetLocalText(GameDialogDefine.GOTO)
+  self.yellow_btn_text:SetLocalText(GameDialogDefine.UPGRADE)
+  self.title_text:SetLocalText(GameDialogDefine.DETECT_POWER_UPGRADE)
+  self.close_btn:SetOnClick(function()
+    self.ctrl:CloseSelf()
+  end)
+  self.green_btn:SetOnClick(function()
+    DataCenter.LWSoundManager:PlayEffect(SoundAssetId.SFX_UI_General_Click_1st)
+    self.ctrl:Goto()
+  end)
+  self.yellow_btn:SetOnClick(function()
+    DataCenter.LWSoundManager:PlayEffect(SoundAssetId.SFX_UI_General_Click_1st)
+    self:UpgradePower()
+  end)
+  self.return_btn = self:AddComponent(UIButton, return_btn_path)
+  self.return_btn:SetOnClick(function()
+    self.ctrl:CloseSelf()
+  end)
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDestroy(self)
+end
+
+local function UpgradePower(self)
+  SFSNetwork.SendMessage(MsgDefines.DetectPowerUpgrade)
+  self.ctrl:CloseSelf()
+end
+
+local function ReInit(self)
+  local currentPowerLv = DataCenter.RadarCenterDataManager:GetDetectInfoPower()
+  local nextPowerLv = currentPowerLv + 1
+  self.current_lv_text:SetLocalText(GameDialogDefine.LEVEL_NUMBER, currentPowerLv)
+  self.next_lv_text:SetText(string.GetFormattedSeperatorNum(nextPowerLv))
+  local canUpdate = self.ctrl:IsCanUpdate()
+  self.green_btn:SetActive(not canUpdate)
+  self.yellow_btn:SetActive(canUpdate)
+  local itemId, itemNum = self.ctrl:GetUpgradeItem()
+  if itemId ~= nil then
+    local itemTemplate = DataCenter.ItemTemplateManager:GetItemTemplate(itemId)
+    if itemTemplate ~= nil then
+      self.upgrade_item_need_icon:LoadSprite(string.format(LoadPath.ItemPath, itemTemplate.icon))
+    end
+    if canUpdate then
+      self.upgrade_item_need_num_text:SetColor(GreenColor)
+    else
+      self.upgrade_item_need_num_text:SetColor(RedColor)
+    end
+    self.upgrade_item_need_num_text:SetText(string.GetFormattedSeperatorNum(itemNum))
+  end
+  local powerReward = DataCenter.RadarCenterDataManager:GetPowerRewardList()
+  if table.count(powerReward) > 0 then
+    local reward = powerReward[1]
+    local icon = DataCenter.RewardManager:GetPicByType(reward.rewardType, reward.itemId)
+    local num = reward.count
+    self.reward_item_get_icon:LoadSprite(icon)
+    local name = DataCenter.RewardManager:GetNameByType(reward.rewardType, reward.itemId) .. "+" .. string.GetFormattedSeperatorNum(num)
+    self.reward_item_get_num:SetText(name)
+  end
+end
+
+UIDetectEventPowerUpgradeView.OnCreate = OnCreate
+UIDetectEventPowerUpgradeView.OnDestroy = OnDestroy
+UIDetectEventPowerUpgradeView.ComponentDefine = ComponentDefine
+UIDetectEventPowerUpgradeView.ComponentDestroy = ComponentDestroy
+UIDetectEventPowerUpgradeView.UpgradePower = UpgradePower
+UIDetectEventPowerUpgradeView.ReInit = ReInit
+return UIDetectEventPowerUpgradeView

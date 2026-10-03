@@ -1,0 +1,25 @@
+{
+ "m_Name": "BF_MeshExtrusion",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 239,
+  "bytes[1]": 57,
+  "bytes[2]": 204,
+  "bytes[3]": 83,
+  "bytes[4]": 41,
+  "bytes[5]": 175,
+  "bytes[6]": 176,
+  "bytes[7]": 1,
+  "bytes[8]": 123,
+  "bytes[9]": 206,
+  "bytes[10]": 68,
+  "bytes[11]": 2,
+  "bytes[12]": 40,
+  "bytes[13]": 65,
+  "bytes[14]": 79,
+  "bytes[15]": 190
+ },
+ "m_ClassName": "BF_MeshExtrusion",
+ "m_Namespace": "",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

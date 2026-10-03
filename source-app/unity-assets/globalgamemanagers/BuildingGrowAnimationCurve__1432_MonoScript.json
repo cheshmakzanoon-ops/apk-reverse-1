@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildingGrowAnimationCurve",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 171,
+  "bytes[1]": 218,
+  "bytes[2]": 174,
+  "bytes[3]": 14,
+  "bytes[4]": 79,
+  "bytes[5]": 27,
+  "bytes[6]": 35,
+  "bytes[7]": 107,
+  "bytes[8]": 88,
+  "bytes[9]": 198,
+  "bytes[10]": 194,
+  "bytes[11]": 59,
+  "bytes[12]": 90,
+  "bytes[13]": 193,
+  "bytes[14]": 172,
+  "bytes[15]": 136
+ },
+ "m_ClassName": "BuildingGrowAnimationCurve",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

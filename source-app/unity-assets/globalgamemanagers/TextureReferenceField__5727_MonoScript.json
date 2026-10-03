@@ -1,0 +1,25 @@
+{
+ "m_Name": "TextureReferenceField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 3,
+  "bytes[1]": 175,
+  "bytes[2]": 125,
+  "bytes[3]": 131,
+  "bytes[4]": 113,
+  "bytes[5]": 20,
+  "bytes[6]": 162,
+  "bytes[7]": 136,
+  "bytes[8]": 182,
+  "bytes[9]": 7,
+  "bytes[10]": 11,
+  "bytes[11]": 20,
+  "bytes[12]": 210,
+  "bytes[13]": 88,
+  "bytes[14]": 68,
+  "bytes[15]": 166
+ },
+ "m_ClassName": "TextureReferenceField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

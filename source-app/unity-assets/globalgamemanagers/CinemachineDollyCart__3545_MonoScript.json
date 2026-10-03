@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineDollyCart",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 21,
+  "bytes[1]": 136,
+  "bytes[2]": 42,
+  "bytes[3]": 82,
+  "bytes[4]": 121,
+  "bytes[5]": 140,
+  "bytes[6]": 39,
+  "bytes[7]": 83,
+  "bytes[8]": 97,
+  "bytes[9]": 205,
+  "bytes[10]": 10,
+  "bytes[11]": 58,
+  "bytes[12]": 218,
+  "bytes[13]": 152,
+  "bytes[14]": 78,
+  "bytes[15]": 197
+ },
+ "m_ClassName": "CinemachineDollyCart",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

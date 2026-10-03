@@ -1,0 +1,25 @@
+{
+ "m_Name": "HierarchyField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 222,
+  "bytes[1]": 107,
+  "bytes[2]": 88,
+  "bytes[3]": 27,
+  "bytes[4]": 64,
+  "bytes[5]": 102,
+  "bytes[6]": 75,
+  "bytes[7]": 175,
+  "bytes[8]": 218,
+  "bytes[9]": 54,
+  "bytes[10]": 26,
+  "bytes[11]": 70,
+  "bytes[12]": 81,
+  "bytes[13]": 2,
+  "bytes[14]": 74,
+  "bytes[15]": 193
+ },
+ "m_ClassName": "HierarchyField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "LimbIK",
+ "m_ExecutionOrder": 9997,
+ "m_PropertiesHash": {
+  "bytes[0]": 83,
+  "bytes[1]": 169,
+  "bytes[2]": 81,
+  "bytes[3]": 151,
+  "bytes[4]": 171,
+  "bytes[5]": 43,
+  "bytes[6]": 84,
+  "bytes[7]": 169,
+  "bytes[8]": 54,
+  "bytes[9]": 211,
+  "bytes[10]": 244,
+  "bytes[11]": 185,
+  "bytes[12]": 132,
+  "bytes[13]": 48,
+  "bytes[14]": 228,
+  "bytes[15]": 247
+ },
+ "m_ClassName": "LimbIK",
+ "m_Namespace": "RootMotion.FinalIK",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

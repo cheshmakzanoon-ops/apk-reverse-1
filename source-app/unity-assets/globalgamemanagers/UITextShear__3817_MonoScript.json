@@ -1,0 +1,25 @@
+{
+ "m_Name": "UITextShear",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 45,
+  "bytes[1]": 113,
+  "bytes[2]": 33,
+  "bytes[3]": 238,
+  "bytes[4]": 166,
+  "bytes[5]": 103,
+  "bytes[6]": 240,
+  "bytes[7]": 10,
+  "bytes[8]": 78,
+  "bytes[9]": 101,
+  "bytes[10]": 127,
+  "bytes[11]": 247,
+  "bytes[12]": 112,
+  "bytes[13]": 149,
+  "bytes[14]": 155,
+  "bytes[15]": 186
+ },
+ "m_ClassName": "UITextShear",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeshExtrusion",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 192,
+  "bytes[1]": 150,
+  "bytes[2]": 194,
+  "bytes[3]": 112,
+  "bytes[4]": 103,
+  "bytes[5]": 10,
+  "bytes[6]": 25,
+  "bytes[7]": 19,
+  "bytes[8]": 177,
+  "bytes[9]": 57,
+  "bytes[10]": 64,
+  "bytes[11]": 98,
+  "bytes[12]": 176,
+  "bytes[13]": 247,
+  "bytes[14]": 1,
+  "bytes[15]": 16
+ },
+ "m_ClassName": "MeshExtrusion",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

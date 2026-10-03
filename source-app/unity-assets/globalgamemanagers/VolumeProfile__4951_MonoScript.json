@@ -1,0 +1,25 @@
+{
+ "m_Name": "VolumeProfile",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 77,
+  "bytes[1]": 81,
+  "bytes[2]": 213,
+  "bytes[3]": 204,
+  "bytes[4]": 243,
+  "bytes[5]": 125,
+  "bytes[6]": 32,
+  "bytes[7]": 137,
+  "bytes[8]": 189,
+  "bytes[9]": 254,
+  "bytes[10]": 130,
+  "bytes[11]": 118,
+  "bytes[12]": 23,
+  "bytes[13]": 183,
+  "bytes[14]": 132,
+  "bytes[15]": 255
+ },
+ "m_ClassName": "VolumeProfile",
+ "m_Namespace": "UnityEngine.Rendering",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

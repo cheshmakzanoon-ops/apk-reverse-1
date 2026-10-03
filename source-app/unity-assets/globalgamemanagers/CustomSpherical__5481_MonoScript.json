@@ -1,0 +1,25 @@
+{
+ "m_Name": "CustomSpherical",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 9,
+  "bytes[1]": 165,
+  "bytes[2]": 230,
+  "bytes[3]": 190,
+  "bytes[4]": 216,
+  "bytes[5]": 222,
+  "bytes[6]": 9,
+  "bytes[7]": 139,
+  "bytes[8]": 132,
+  "bytes[9]": 1,
+  "bytes[10]": 79,
+  "bytes[11]": 236,
+  "bytes[12]": 91,
+  "bytes[13]": 11,
+  "bytes[14]": 227,
+  "bytes[15]": 119
+ },
+ "m_ClassName": "CustomSpherical",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

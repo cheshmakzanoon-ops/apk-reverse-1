@@ -1,0 +1,25 @@
+{
+ "m_Name": "BallTouchZone",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 104,
+  "bytes[1]": 172,
+  "bytes[2]": 193,
+  "bytes[3]": 170,
+  "bytes[4]": 186,
+  "bytes[5]": 22,
+  "bytes[6]": 30,
+  "bytes[7]": 153,
+  "bytes[8]": 79,
+  "bytes[9]": 5,
+  "bytes[10]": 74,
+  "bytes[11]": 34,
+  "bytes[12]": 89,
+  "bytes[13]": 144,
+  "bytes[14]": 119,
+  "bytes[15]": 155
+ },
+ "m_ClassName": "BallTouchZone",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

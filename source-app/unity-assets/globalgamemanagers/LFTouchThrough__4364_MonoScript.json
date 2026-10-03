@@ -1,0 +1,25 @@
+{
+ "m_Name": "LFTouchThrough",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 80,
+  "bytes[1]": 249,
+  "bytes[2]": 116,
+  "bytes[3]": 178,
+  "bytes[4]": 136,
+  "bytes[5]": 234,
+  "bytes[6]": 76,
+  "bytes[7]": 178,
+  "bytes[8]": 221,
+  "bytes[9]": 123,
+  "bytes[10]": 82,
+  "bytes[11]": 33,
+  "bytes[12]": 80,
+  "bytes[13]": 20,
+  "bytes[14]": 85,
+  "bytes[15]": 49
+ },
+ "m_ClassName": "LFTouchThrough",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

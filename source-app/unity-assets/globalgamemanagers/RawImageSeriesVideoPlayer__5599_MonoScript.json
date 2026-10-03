@@ -1,0 +1,25 @@
+{
+ "m_Name": "RawImageSeriesVideoPlayer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 20,
+  "bytes[1]": 81,
+  "bytes[2]": 210,
+  "bytes[3]": 73,
+  "bytes[4]": 182,
+  "bytes[5]": 245,
+  "bytes[6]": 233,
+  "bytes[7]": 185,
+  "bytes[8]": 55,
+  "bytes[9]": 65,
+  "bytes[10]": 75,
+  "bytes[11]": 211,
+  "bytes[12]": 236,
+  "bytes[13]": 100,
+  "bytes[14]": 210,
+  "bytes[15]": 181
+ },
+ "m_ClassName": "RawImageSeriesVideoPlayer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

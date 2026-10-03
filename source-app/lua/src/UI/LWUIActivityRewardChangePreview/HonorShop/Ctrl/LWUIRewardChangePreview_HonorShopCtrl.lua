@@ -1,0 +1,7 @@
+local LWUIRewardChangePreview_HonorShopCtrl = BaseClass("LWUIRewardChangePreview_HonorShopCtrl", UIBaseCtrl)
+
+function LWUIRewardChangePreview_HonorShopCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.LWUIRewardChangePreview_HonorShopView)
+end
+
+return LWUIRewardChangePreview_HonorShopCtrl

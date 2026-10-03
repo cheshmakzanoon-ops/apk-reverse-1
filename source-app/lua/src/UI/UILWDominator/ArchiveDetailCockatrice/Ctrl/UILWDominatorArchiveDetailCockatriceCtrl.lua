@@ -1,0 +1,7 @@
+local UILWDominatorArchiveDetailCockatriceCtrl = BaseClass("UILWDominatorArchiveDetailCockatriceCtrl", UIBaseCtrl)
+
+function UILWDominatorArchiveDetailCockatriceCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWDominatorArchiveDetailCockatrice)
+end
+
+return UILWDominatorArchiveDetailCockatriceCtrl

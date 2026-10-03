@@ -1,0 +1,13 @@
+local UIActMonsterTowerDiffTips = BaseClass("UIActMonsterTowerDiffTips", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIActMonsterTowerDiffTips, {anim = true})
+end
+
+local function Close(self)
+  UIManager:GetInstance():DestroyWindowByLayer(UILayer.Normal)
+end
+
+UIActMonsterTowerDiffTips.CloseSelf = CloseSelf
+UIActMonsterTowerDiffTips.Close = Close
+return UIActMonsterTowerDiffTips

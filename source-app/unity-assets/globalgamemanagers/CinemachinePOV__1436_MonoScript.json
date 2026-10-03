@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachinePOV",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 60,
+  "bytes[1]": 43,
+  "bytes[2]": 17,
+  "bytes[3]": 168,
+  "bytes[4]": 2,
+  "bytes[5]": 119,
+  "bytes[6]": 2,
+  "bytes[7]": 247,
+  "bytes[8]": 254,
+  "bytes[9]": 244,
+  "bytes[10]": 168,
+  "bytes[11]": 25,
+  "bytes[12]": 216,
+  "bytes[13]": 185,
+  "bytes[14]": 25,
+  "bytes[15]": 26
+ },
+ "m_ClassName": "CinemachinePOV",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

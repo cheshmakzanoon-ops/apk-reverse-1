@@ -1,0 +1,8 @@
+local UIPlayerChangeHeadIcon = {
+  Name = UIWindowNames.UIPlayerChangeHeadIcon,
+  Layer = UILayer.Normal,
+  Ctrl = require("UI.UIPlayerChangeHeadIcon.Controller.UIPlayerChangeHeadIconCtrl"),
+  View = require("UI.UIPlayerChangeHeadIcon.View.UIPlayerChangeHeadIconView"),
+  PrefabPath = "Assets/Main/Prefabs/UI/Set/New/UIPlayerChangeHeadIconNew.prefab"
+}
+return {UIPlayerChangeHeadIcon = UIPlayerChangeHeadIcon}

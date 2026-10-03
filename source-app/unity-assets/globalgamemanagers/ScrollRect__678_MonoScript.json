@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScrollRect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 212,
+  "bytes[1]": 2,
+  "bytes[2]": 11,
+  "bytes[3]": 175,
+  "bytes[4]": 205,
+  "bytes[5]": 60,
+  "bytes[6]": 203,
+  "bytes[7]": 181,
+  "bytes[8]": 96,
+  "bytes[9]": 26,
+  "bytes[10]": 110,
+  "bytes[11]": 108,
+  "bytes[12]": 138,
+  "bytes[13]": 199,
+  "bytes[14]": 139,
+  "bytes[15]": 224
+ },
+ "m_ClassName": "ScrollRect",
+ "m_Namespace": "UnityEngine.UI",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildPowerFactory",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 105,
+  "bytes[1]": 224,
+  "bytes[2]": 5,
+  "bytes[3]": 191,
+  "bytes[4]": 153,
+  "bytes[5]": 100,
+  "bytes[6]": 15,
+  "bytes[7]": 23,
+  "bytes[8]": 154,
+  "bytes[9]": 114,
+  "bytes[10]": 171,
+  "bytes[11]": 86,
+  "bytes[12]": 81,
+  "bytes[13]": 18,
+  "bytes[14]": 209,
+  "bytes[15]": 11
+ },
+ "m_ClassName": "BuildPowerFactory",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

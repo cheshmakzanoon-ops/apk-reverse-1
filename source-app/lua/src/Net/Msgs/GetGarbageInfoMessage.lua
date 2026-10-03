@@ -1,0 +1,24 @@
+local GetGarbageInfoMessage = BaseClass("GetGarbageInfoMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  elseif t.garbageArr then
+    local list = t.garbageArr
+    for i = 1, table.count(list) do
+      GoToUtil.GotoWorldPos(SceneUtils.TileIndexToWorld(list[i].pointId, ForceChangeScene.World), CS.SceneManager.World.InitZoom)
+      break
+    end
+  end
+end
+
+GetGarbageInfoMessage.OnCreate = OnCreate
+GetGarbageInfoMessage.HandleMessage = HandleMessage
+return GetGarbageInfoMessage

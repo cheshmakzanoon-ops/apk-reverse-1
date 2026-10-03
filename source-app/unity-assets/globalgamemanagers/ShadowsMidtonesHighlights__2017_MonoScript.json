@@ -1,0 +1,25 @@
+{
+ "m_Name": "ShadowsMidtonesHighlights",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 89,
+  "bytes[1]": 124,
+  "bytes[2]": 253,
+  "bytes[3]": 226,
+  "bytes[4]": 230,
+  "bytes[5]": 11,
+  "bytes[6]": 132,
+  "bytes[7]": 43,
+  "bytes[8]": 58,
+  "bytes[9]": 203,
+  "bytes[10]": 210,
+  "bytes[11]": 150,
+  "bytes[12]": 31,
+  "bytes[13]": 240,
+  "bytes[14]": 99,
+  "bytes[15]": 27
+ },
+ "m_ClassName": "ShadowsMidtonesHighlights",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

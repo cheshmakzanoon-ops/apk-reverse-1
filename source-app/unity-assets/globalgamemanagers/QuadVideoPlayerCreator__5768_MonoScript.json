@@ -1,0 +1,25 @@
+{
+ "m_Name": "QuadVideoPlayerCreator",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 70,
+  "bytes[1]": 211,
+  "bytes[2]": 12,
+  "bytes[3]": 187,
+  "bytes[4]": 109,
+  "bytes[5]": 160,
+  "bytes[6]": 200,
+  "bytes[7]": 220,
+  "bytes[8]": 55,
+  "bytes[9]": 72,
+  "bytes[10]": 196,
+  "bytes[11]": 243,
+  "bytes[12]": 164,
+  "bytes[13]": 208,
+  "bytes[14]": 86,
+  "bytes[15]": 181
+ },
+ "m_ClassName": "QuadVideoPlayerCreator",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

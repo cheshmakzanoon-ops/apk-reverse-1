@@ -1,0 +1,25 @@
+{
+ "m_Name": "PresetDemoRotator",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 58,
+  "bytes[1]": 116,
+  "bytes[2]": 82,
+  "bytes[3]": 219,
+  "bytes[4]": 109,
+  "bytes[5]": 246,
+  "bytes[6]": 206,
+  "bytes[7]": 138,
+  "bytes[8]": 82,
+  "bytes[9]": 108,
+  "bytes[10]": 85,
+  "bytes[11]": 139,
+  "bytes[12]": 211,
+  "bytes[13]": 148,
+  "bytes[14]": 166,
+  "bytes[15]": 116
+ },
+ "m_ClassName": "PresetDemoRotator",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

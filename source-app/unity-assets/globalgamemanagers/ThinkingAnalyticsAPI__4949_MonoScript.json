@@ -1,0 +1,25 @@
+{
+ "m_Name": "ThinkingAnalyticsAPI",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 177,
+  "bytes[1]": 247,
+  "bytes[2]": 122,
+  "bytes[3]": 232,
+  "bytes[4]": 93,
+  "bytes[5]": 211,
+  "bytes[6]": 202,
+  "bytes[7]": 252,
+  "bytes[8]": 171,
+  "bytes[9]": 126,
+  "bytes[10]": 82,
+  "bytes[11]": 147,
+  "bytes[12]": 250,
+  "bytes[13]": 166,
+  "bytes[14]": 238,
+  "bytes[15]": 40
+ },
+ "m_ClassName": "ThinkingAnalyticsAPI",
+ "m_Namespace": "ThinkingAnalytics",
+ "m_AssemblyName": "ThinkingAnalytics.dll"
+}

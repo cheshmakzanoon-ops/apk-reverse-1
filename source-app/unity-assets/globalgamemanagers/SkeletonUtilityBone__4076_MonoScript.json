@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonUtilityBone",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 159,
+  "bytes[1]": 196,
+  "bytes[2]": 151,
+  "bytes[3]": 57,
+  "bytes[4]": 148,
+  "bytes[5]": 79,
+  "bytes[6]": 151,
+  "bytes[7]": 183,
+  "bytes[8]": 88,
+  "bytes[9]": 152,
+  "bytes[10]": 157,
+  "bytes[11]": 94,
+  "bytes[12]": 22,
+  "bytes[13]": 12,
+  "bytes[14]": 142,
+  "bytes[15]": 133
+ },
+ "m_ClassName": "SkeletonUtilityBone",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

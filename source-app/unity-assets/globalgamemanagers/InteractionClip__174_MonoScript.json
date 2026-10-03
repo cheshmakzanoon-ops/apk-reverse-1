@@ -1,0 +1,25 @@
+{
+ "m_Name": "InteractionClip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 90,
+  "bytes[1]": 216,
+  "bytes[2]": 20,
+  "bytes[3]": 250,
+  "bytes[4]": 44,
+  "bytes[5]": 9,
+  "bytes[6]": 213,
+  "bytes[7]": 255,
+  "bytes[8]": 144,
+  "bytes[9]": 81,
+  "bytes[10]": 114,
+  "bytes[11]": 176,
+  "bytes[12]": 215,
+  "bytes[13]": 176,
+  "bytes[14]": 189,
+  "bytes[15]": 219
+ },
+ "m_ClassName": "InteractionClip",
+ "m_Namespace": "TimelineScript",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

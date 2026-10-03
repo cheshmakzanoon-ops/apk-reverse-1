@@ -1,0 +1,25 @@
+{
+ "m_Name": "LensDistortion",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 145,
+  "bytes[1]": 198,
+  "bytes[2]": 103,
+  "bytes[3]": 54,
+  "bytes[4]": 227,
+  "bytes[5]": 80,
+  "bytes[6]": 123,
+  "bytes[7]": 189,
+  "bytes[8]": 60,
+  "bytes[9]": 21,
+  "bytes[10]": 169,
+  "bytes[11]": 176,
+  "bytes[12]": 42,
+  "bytes[13]": 190,
+  "bytes[14]": 162,
+  "bytes[15]": 27
+ },
+ "m_ClassName": "LensDistortion",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

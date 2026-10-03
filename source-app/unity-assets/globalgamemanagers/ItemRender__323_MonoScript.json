@@ -1,0 +1,25 @@
+{
+ "m_Name": "ItemRender",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 33,
+  "bytes[1]": 62,
+  "bytes[2]": 102,
+  "bytes[3]": 118,
+  "bytes[4]": 242,
+  "bytes[5]": 218,
+  "bytes[6]": 129,
+  "bytes[7]": 203,
+  "bytes[8]": 82,
+  "bytes[9]": 100,
+  "bytes[10]": 40,
+  "bytes[11]": 208,
+  "bytes[12]": 22,
+  "bytes[13]": 3,
+  "bytes[14]": 155,
+  "bytes[15]": 66
+ },
+ "m_ClassName": "ItemRender",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

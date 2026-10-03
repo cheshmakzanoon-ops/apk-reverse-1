@@ -1,0 +1,25 @@
+{
+ "m_Name": "ContentSizeFitterEx",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 181,
+  "bytes[1]": 250,
+  "bytes[2]": 136,
+  "bytes[3]": 180,
+  "bytes[4]": 215,
+  "bytes[5]": 173,
+  "bytes[6]": 159,
+  "bytes[7]": 177,
+  "bytes[8]": 123,
+  "bytes[9]": 153,
+  "bytes[10]": 85,
+  "bytes[11]": 144,
+  "bytes[12]": 0,
+  "bytes[13]": 50,
+  "bytes[14]": 181,
+  "bytes[15]": 238
+ },
+ "m_ClassName": "ContentSizeFitterEx",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

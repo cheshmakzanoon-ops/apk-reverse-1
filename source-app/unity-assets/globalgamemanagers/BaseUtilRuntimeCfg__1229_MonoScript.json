@@ -1,0 +1,25 @@
+{
+ "m_Name": "BaseUtilRuntimeCfg",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 130,
+  "bytes[1]": 144,
+  "bytes[2]": 231,
+  "bytes[3]": 62,
+  "bytes[4]": 80,
+  "bytes[5]": 15,
+  "bytes[6]": 39,
+  "bytes[7]": 143,
+  "bytes[8]": 156,
+  "bytes[9]": 180,
+  "bytes[10]": 184,
+  "bytes[11]": 24,
+  "bytes[12]": 224,
+  "bytes[13]": 162,
+  "bytes[14]": 94,
+  "bytes[15]": 205
+ },
+ "m_ClassName": "BaseUtilRuntimeCfg",
+ "m_Namespace": "FibMatrix.BaseUtils",
+ "m_AssemblyName": "FibMatrix.BaseUtils.dll"
+}

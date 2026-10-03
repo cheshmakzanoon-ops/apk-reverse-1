@@ -1,0 +1,25 @@
+{
+ "m_Name": "MissileFire",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 101,
+  "bytes[1]": 17,
+  "bytes[2]": 197,
+  "bytes[3]": 21,
+  "bytes[4]": 115,
+  "bytes[5]": 192,
+  "bytes[6]": 255,
+  "bytes[7]": 130,
+  "bytes[8]": 219,
+  "bytes[9]": 73,
+  "bytes[10]": 226,
+  "bytes[11]": 124,
+  "bytes[12]": 244,
+  "bytes[13]": 76,
+  "bytes[14]": 137,
+  "bytes[15]": 136
+ },
+ "m_ClassName": "MissileFire",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

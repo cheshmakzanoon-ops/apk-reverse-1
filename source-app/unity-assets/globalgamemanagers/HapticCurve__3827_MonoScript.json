@@ -1,0 +1,25 @@
+{
+ "m_Name": "HapticCurve",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 42,
+  "bytes[1]": 252,
+  "bytes[2]": 72,
+  "bytes[3]": 127,
+  "bytes[4]": 56,
+  "bytes[5]": 150,
+  "bytes[6]": 103,
+  "bytes[7]": 177,
+  "bytes[8]": 58,
+  "bytes[9]": 252,
+  "bytes[10]": 20,
+  "bytes[11]": 84,
+  "bytes[12]": 130,
+  "bytes[13]": 254,
+  "bytes[14]": 191,
+  "bytes[15]": 179
+ },
+ "m_ClassName": "HapticCurve",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

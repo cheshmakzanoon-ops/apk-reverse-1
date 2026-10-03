@@ -1,0 +1,25 @@
+{
+ "m_Name": "MultiKillMonoBehav",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 213,
+  "bytes[1]": 21,
+  "bytes[2]": 184,
+  "bytes[3]": 109,
+  "bytes[4]": 170,
+  "bytes[5]": 94,
+  "bytes[6]": 224,
+  "bytes[7]": 160,
+  "bytes[8]": 29,
+  "bytes[9]": 150,
+  "bytes[10]": 200,
+  "bytes[11]": 136,
+  "bytes[12]": 117,
+  "bytes[13]": 125,
+  "bytes[14]": 54,
+  "bytes[15]": 122
+ },
+ "m_ClassName": "MultiKillMonoBehav",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

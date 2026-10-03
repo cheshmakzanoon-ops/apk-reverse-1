@@ -1,0 +1,25 @@
+{
+ "m_Name": "DataUIPlayerController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 104,
+  "bytes[1]": 108,
+  "bytes[2]": 96,
+  "bytes[3]": 148,
+  "bytes[4]": 217,
+  "bytes[5]": 75,
+  "bytes[6]": 25,
+  "bytes[7]": 233,
+  "bytes[8]": 5,
+  "bytes[9]": 19,
+  "bytes[10]": 254,
+  "bytes[11]": 190,
+  "bytes[12]": 237,
+  "bytes[13]": 40,
+  "bytes[14]": 243,
+  "bytes[15]": 236
+ },
+ "m_ClassName": "DataUIPlayerController",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

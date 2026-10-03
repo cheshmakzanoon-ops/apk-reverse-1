@@ -1,0 +1,25 @@
+{
+ "m_Name": "VideoPlayerLoader",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 238,
+  "bytes[1]": 77,
+  "bytes[2]": 36,
+  "bytes[3]": 25,
+  "bytes[4]": 250,
+  "bytes[5]": 103,
+  "bytes[6]": 202,
+  "bytes[7]": 119,
+  "bytes[8]": 43,
+  "bytes[9]": 12,
+  "bytes[10]": 193,
+  "bytes[11]": 9,
+  "bytes[12]": 219,
+  "bytes[13]": 149,
+  "bytes[14]": 190,
+  "bytes[15]": 54
+ },
+ "m_ClassName": "VideoPlayerLoader",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

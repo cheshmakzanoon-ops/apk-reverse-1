@@ -1,0 +1,25 @@
+{
+ "m_Name": "ResManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 12,
+  "bytes[1]": 213,
+  "bytes[2]": 89,
+  "bytes[3]": 3,
+  "bytes[4]": 124,
+  "bytes[5]": 135,
+  "bytes[6]": 62,
+  "bytes[7]": 126,
+  "bytes[8]": 140,
+  "bytes[9]": 199,
+  "bytes[10]": 87,
+  "bytes[11]": 188,
+  "bytes[12]": 130,
+  "bytes[13]": 31,
+  "bytes[14]": 39,
+  "bytes[15]": 37
+ },
+ "m_ClassName": "ResManager",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

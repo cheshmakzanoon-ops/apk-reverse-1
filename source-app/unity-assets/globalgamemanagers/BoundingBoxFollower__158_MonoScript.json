@@ -1,0 +1,25 @@
+{
+ "m_Name": "BoundingBoxFollower",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 161,
+  "bytes[1]": 165,
+  "bytes[2]": 141,
+  "bytes[3]": 48,
+  "bytes[4]": 87,
+  "bytes[5]": 162,
+  "bytes[6]": 99,
+  "bytes[7]": 134,
+  "bytes[8]": 99,
+  "bytes[9]": 235,
+  "bytes[10]": 236,
+  "bytes[11]": 41,
+  "bytes[12]": 102,
+  "bytes[13]": 157,
+  "bytes[14]": 230,
+  "bytes[15]": 29
+ },
+ "m_ClassName": "BoundingBoxFollower",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

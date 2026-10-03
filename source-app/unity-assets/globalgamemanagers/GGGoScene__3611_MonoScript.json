@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGoScene",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 24,
+  "bytes[1]": 198,
+  "bytes[2]": 92,
+  "bytes[3]": 192,
+  "bytes[4]": 2,
+  "bytes[5]": 84,
+  "bytes[6]": 23,
+  "bytes[7]": 151,
+  "bytes[8]": 45,
+  "bytes[9]": 144,
+  "bytes[10]": 15,
+  "bytes[11]": 68,
+  "bytes[12]": 113,
+  "bytes[13]": 72,
+  "bytes[14]": 133,
+  "bytes[15]": 7
+ },
+ "m_ClassName": "GGGoScene",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

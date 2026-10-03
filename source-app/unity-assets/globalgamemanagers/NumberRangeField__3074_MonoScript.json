@@ -1,0 +1,25 @@
+{
+ "m_Name": "NumberRangeField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 111,
+  "bytes[1]": 108,
+  "bytes[2]": 7,
+  "bytes[3]": 157,
+  "bytes[4]": 229,
+  "bytes[5]": 154,
+  "bytes[6]": 19,
+  "bytes[7]": 214,
+  "bytes[8]": 72,
+  "bytes[9]": 159,
+  "bytes[10]": 106,
+  "bytes[11]": 100,
+  "bytes[12]": 75,
+  "bytes[13]": 16,
+  "bytes[14]": 139,
+  "bytes[15]": 180
+ },
+ "m_ClassName": "NumberRangeField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

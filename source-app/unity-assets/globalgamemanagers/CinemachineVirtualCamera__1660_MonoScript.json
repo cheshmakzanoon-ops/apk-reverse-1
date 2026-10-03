@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineVirtualCamera",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 223,
+  "bytes[1]": 118,
+  "bytes[2]": 222,
+  "bytes[3]": 95,
+  "bytes[4]": 178,
+  "bytes[5]": 178,
+  "bytes[6]": 112,
+  "bytes[7]": 7,
+  "bytes[8]": 213,
+  "bytes[9]": 20,
+  "bytes[10]": 253,
+  "bytes[11]": 179,
+  "bytes[12]": 139,
+  "bytes[13]": 145,
+  "bytes[14]": 207,
+  "bytes[15]": 137
+ },
+ "m_ClassName": "CinemachineVirtualCamera",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

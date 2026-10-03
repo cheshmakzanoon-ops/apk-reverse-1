@@ -1,0 +1,25 @@
+{
+ "m_Name": "NoiseSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 137,
+  "bytes[1]": 99,
+  "bytes[2]": 105,
+  "bytes[3]": 14,
+  "bytes[4]": 246,
+  "bytes[5]": 246,
+  "bytes[6]": 176,
+  "bytes[7]": 92,
+  "bytes[8]": 224,
+  "bytes[9]": 59,
+  "bytes[10]": 253,
+  "bytes[11]": 139,
+  "bytes[12]": 92,
+  "bytes[13]": 38,
+  "bytes[14]": 226,
+  "bytes[15]": 12
+ },
+ "m_ClassName": "NoiseSettings",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

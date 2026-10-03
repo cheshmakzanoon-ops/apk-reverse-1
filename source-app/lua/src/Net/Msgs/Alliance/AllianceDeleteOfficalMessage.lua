@@ -1,0 +1,27 @@
+local AllianceDeleteOfficalMessage = BaseClass("AllianceDeleteOfficalMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, allianceId, operateType, officalType, playerId)
+  base.OnCreate(self)
+  self.sfsObj:PutUtfString("allianceId", allianceId)
+  self.sfsObj:PutInt("operateType", operateType)
+  self.sfsObj:PutInt("officalType", officalType)
+  self.sfsObj:PutUtfString("playerId", playerId)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.AllianceMemberDataManager:DeleteAllianceOfficial(t)
+    EventManager:GetInstance():Broadcast(EventId.AllianceMember)
+    UIUtil.ShowTipsId(280150)
+  end
+end
+
+AllianceDeleteOfficalMessage.OnCreate = OnCreate
+AllianceDeleteOfficalMessage.HandleMessage = HandleMessage
+return AllianceDeleteOfficalMessage

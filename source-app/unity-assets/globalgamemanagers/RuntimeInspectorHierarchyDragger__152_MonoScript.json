@@ -1,0 +1,25 @@
+{
+ "m_Name": "RuntimeInspectorHierarchyDragger",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 102,
+  "bytes[1]": 188,
+  "bytes[2]": 165,
+  "bytes[3]": 204,
+  "bytes[4]": 106,
+  "bytes[5]": 24,
+  "bytes[6]": 197,
+  "bytes[7]": 41,
+  "bytes[8]": 142,
+  "bytes[9]": 199,
+  "bytes[10]": 82,
+  "bytes[11]": 53,
+  "bytes[12]": 229,
+  "bytes[13]": 106,
+  "bytes[14]": 132,
+  "bytes[15]": 214
+ },
+ "m_ClassName": "RuntimeInspectorHierarchyDragger",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

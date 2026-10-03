@@ -1,0 +1,25 @@
+{
+ "m_Name": "DecorationGradingConfig",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 214,
+  "bytes[1]": 217,
+  "bytes[2]": 201,
+  "bytes[3]": 36,
+  "bytes[4]": 250,
+  "bytes[5]": 118,
+  "bytes[6]": 160,
+  "bytes[7]": 13,
+  "bytes[8]": 1,
+  "bytes[9]": 160,
+  "bytes[10]": 50,
+  "bytes[11]": 189,
+  "bytes[12]": 74,
+  "bytes[13]": 135,
+  "bytes[14]": 34,
+  "bytes[15]": 58
+ },
+ "m_ClassName": "DecorationGradingConfig",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

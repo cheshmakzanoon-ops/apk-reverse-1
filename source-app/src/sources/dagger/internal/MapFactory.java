@@ -1,0 +1,62 @@
+package dagger.internal;
+
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public final class MapFactory<K, V> extends AbstractMapFactory<K, V, V> {
+    private static final Provider<Map<Object, Object>> EMPTY = InstanceFactory.create(Collections.emptyMap());
+
+    public static <K, V> Builder<K, V> builder(int i) {
+        return new Builder<>(i);
+    }
+
+    public static <K, V> Provider<Map<K, V>> emptyMapProvider() {
+        return (Provider<Map<K, V>>) EMPTY;
+    }
+
+    private MapFactory(Map<K, Provider<V>> map) {
+        super(map);
+    }
+
+    @Override
+    public Map<K, V> get() {
+        LinkedHashMap linkedHashMapNewLinkedHashMapWithExpectedSize = DaggerCollections.newLinkedHashMapWithExpectedSize(contributingMap().size());
+        for (Map.Entry<K, Provider<V>> entry : contributingMap().entrySet()) {
+            linkedHashMapNewLinkedHashMapWithExpectedSize.put(entry.getKey(), entry.getValue().get());
+        }
+        return Collections.unmodifiableMap(linkedHashMapNewLinkedHashMapWithExpectedSize);
+    }
+
+    public static final class Builder<K, V> extends AbstractMapFactory.Builder<K, V, V> {
+        private Builder(int i) {
+            super(i);
+        }
+
+        @Override
+        public Builder<K, V> put(K k, Provider<V> provider) {
+            super.put((Object) k, (Provider) provider);
+            return this;
+        }
+
+        @Deprecated
+        public Builder<K, V> put(K k, javax.inject.Provider<V> provider) {
+            return put((Object) k, (Provider) Providers.asDaggerProvider(provider));
+        }
+
+        @Override
+        public Builder<K, V> putAll(Provider<Map<K, V>> provider) {
+            super.putAll((Provider) provider);
+            return this;
+        }
+
+        @Deprecated
+        public Builder<K, V> putAll(javax.inject.Provider<Map<K, V>> provider) {
+            return putAll((Provider) Providers.asDaggerProvider(provider));
+        }
+
+        public MapFactory<K, V> build() {
+            return new MapFactory<>(this.map);
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "Vector3Field",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 72,
+  "bytes[1]": 123,
+  "bytes[2]": 219,
+  "bytes[3]": 238,
+  "bytes[4]": 253,
+  "bytes[5]": 106,
+  "bytes[6]": 115,
+  "bytes[7]": 45,
+  "bytes[8]": 186,
+  "bytes[9]": 219,
+  "bytes[10]": 150,
+  "bytes[11]": 8,
+  "bytes[12]": 41,
+  "bytes[13]": 213,
+  "bytes[14]": 213,
+  "bytes[15]": 216
+ },
+ "m_ClassName": "Vector3Field",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

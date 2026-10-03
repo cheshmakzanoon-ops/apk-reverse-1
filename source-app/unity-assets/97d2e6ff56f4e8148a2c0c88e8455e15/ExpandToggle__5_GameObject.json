@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 14
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 10
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 25
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 34
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 30
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "ExpandToggle",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

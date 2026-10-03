@@ -1,0 +1,25 @@
+{
+ "m_Name": "PixelPerfectCamera",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 99,
+  "bytes[1]": 189,
+  "bytes[2]": 194,
+  "bytes[3]": 207,
+  "bytes[4]": 50,
+  "bytes[5]": 115,
+  "bytes[6]": 170,
+  "bytes[7]": 155,
+  "bytes[8]": 246,
+  "bytes[9]": 80,
+  "bytes[10]": 53,
+  "bytes[11]": 15,
+  "bytes[12]": 25,
+  "bytes[13]": 210,
+  "bytes[14]": 175,
+  "bytes[15]": 97
+ },
+ "m_ClassName": "PixelPerfectCamera",
+ "m_Namespace": "UnityEngine.Experimental.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

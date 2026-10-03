@@ -1,0 +1,27 @@
+package androidx.compose.foundation;
+
+import kotlin.Metadata;
+import kotlin.coroutines.Continuation;
+import kotlin.coroutines.jvm.internal.ContinuationImpl;
+import kotlin.coroutines.jvm.internal.DebugMetadata;
+
+@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@DebugMetadata(c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect", f = "AndroidOverscroll.android.kt", i = {1, 1}, l = {533, 559}, m = "applyToFling-BMRW4eQ", n = {"this", "remainingVelocity"}, s = {"L$0", "J$0"})
+final class AndroidEdgeEffectOverscrollEffect$applyToFling$1 extends ContinuationImpl {
+    long J$0;
+    Object L$0;
+    int label;
+    Object result;
+    final AndroidEdgeEffectOverscrollEffect this$0;
+
+    AndroidEdgeEffectOverscrollEffect$applyToFling$1(AndroidEdgeEffectOverscrollEffect androidEdgeEffectOverscrollEffect, Continuation<? super AndroidEdgeEffectOverscrollEffect$applyToFling$1> continuation) {
+        super(continuation);
+        this.this$0 = androidEdgeEffectOverscrollEffect;
+    }
+
+    public final Object invokeSuspend(Object obj) {
+        this.result = obj;
+        this.label |= Integer.MIN_VALUE;
+        return this.this$0.mo500applyToFlingBMRW4eQ(0L, null, (Continuation) this);
+    }
+}

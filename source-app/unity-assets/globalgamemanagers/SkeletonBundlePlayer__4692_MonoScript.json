@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonBundlePlayer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 102,
+  "bytes[1]": 27,
+  "bytes[2]": 137,
+  "bytes[3]": 37,
+  "bytes[4]": 144,
+  "bytes[5]": 114,
+  "bytes[6]": 210,
+  "bytes[7]": 248,
+  "bytes[8]": 28,
+  "bytes[9]": 54,
+  "bytes[10]": 71,
+  "bytes[11]": 192,
+  "bytes[12]": 199,
+  "bytes[13]": 90,
+  "bytes[14]": 34,
+  "bytes[15]": 198
+ },
+ "m_ClassName": "SkeletonBundlePlayer",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

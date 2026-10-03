@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldMapZoneImage",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 80,
+  "bytes[1]": 1,
+  "bytes[2]": 60,
+  "bytes[3]": 235,
+  "bytes[4]": 156,
+  "bytes[5]": 239,
+  "bytes[6]": 46,
+  "bytes[7]": 179,
+  "bytes[8]": 121,
+  "bytes[9]": 50,
+  "bytes[10]": 207,
+  "bytes[11]": 177,
+  "bytes[12]": 142,
+  "bytes[13]": 100,
+  "bytes[14]": 36,
+  "bytes[15]": 67
+ },
+ "m_ClassName": "WorldMapZoneImage",
+ "m_Namespace": "LS.UnityEngine.UI",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

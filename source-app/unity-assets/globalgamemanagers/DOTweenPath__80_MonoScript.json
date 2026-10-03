@@ -1,0 +1,25 @@
+{
+ "m_Name": "DOTweenPath",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 125,
+  "bytes[1]": 47,
+  "bytes[2]": 40,
+  "bytes[3]": 58,
+  "bytes[4]": 183,
+  "bytes[5]": 95,
+  "bytes[6]": 70,
+  "bytes[7]": 105,
+  "bytes[8]": 224,
+  "bytes[9]": 35,
+  "bytes[10]": 55,
+  "bytes[11]": 15,
+  "bytes[12]": 220,
+  "bytes[13]": 50,
+  "bytes[14]": 11,
+  "bytes[15]": 25
+ },
+ "m_ClassName": "DOTweenPath",
+ "m_Namespace": "DG.Tweening",
+ "m_AssemblyName": "DOTweenPro.dll"
+}

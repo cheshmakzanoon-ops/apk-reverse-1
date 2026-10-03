@@ -1,0 +1,57 @@
+local UILoginConfirm = BaseClass("UILoginConfirm", UIBaseView)
+local base = UIBaseView
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:OnOpen()
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDefine(self)
+  self.textTitle = self:AddComponent(UIText, "Root/TextTitle")
+  self.textTip1 = self:AddComponent(UIText, "Root/TextTip1")
+  self.textTip2 = self:AddComponent(UIText, "Root/TextTip2")
+  self.textTip3 = self:AddComponent(UIText, "Root/TextTip3")
+  self.textBtnConfirm = self:AddComponent(UIText, "Root/BtnConfirm/TextConfirm")
+  self.btnClose = self:AddComponent(UIButton, "Root/BtnClose")
+  self.btnConfirm = self:AddComponent(UIButton, "Root/BtnConfirm")
+  self.btnClose:SetOnClick(BindCallback(self.ctrl, self.ctrl.CloseSelf))
+  self.btnConfirm:SetOnClick(BindCallback(self, self.OnBtnConfirmClick))
+  self.textTitle:SetLocalText(110008)
+  self.textTip1:SetLocalText(280058)
+  self.textTip3:SetLocalText(280051)
+  self.textBtnConfirm:SetLocalText(110006)
+end
+
+local function ComponentDestroy(self)
+  self.textTitle = nil
+  self.textTip1 = nil
+  self.textTip2 = nil
+  self.textTip3 = nil
+  self.textBtnConfirm = nil
+  self.btnClose = nil
+  self.btnConfirm = nil
+end
+
+local function OnOpen(self)
+  local message = self:GetUserData()
+  self.message = message
+  self.textTip2:SetText(Localization:GetString("208186") .. "  " .. message.gameUserName .. "\n" .. Localization:GetString("280060") .. "  " .. message.id)
+end
+
+local function OnBtnConfirmClick(self)
+end
+
+UILoginConfirm.OnCreate = OnCreate
+UILoginConfirm.OnDestroy = OnDestroy
+UILoginConfirm.ComponentDefine = ComponentDefine
+UILoginConfirm.ComponentDestroy = ComponentDestroy
+UILoginConfirm.OnOpen = OnOpen
+UILoginConfirm.OnBtnConfirmClick = OnBtnConfirmClick
+return UILoginConfirm

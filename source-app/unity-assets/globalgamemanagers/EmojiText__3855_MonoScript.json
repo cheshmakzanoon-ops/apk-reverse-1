@@ -1,0 +1,25 @@
+{
+ "m_Name": "EmojiText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 183,
+  "bytes[1]": 57,
+  "bytes[2]": 183,
+  "bytes[3]": 61,
+  "bytes[4]": 239,
+  "bytes[5]": 16,
+  "bytes[6]": 144,
+  "bytes[7]": 23,
+  "bytes[8]": 58,
+  "bytes[9]": 58,
+  "bytes[10]": 181,
+  "bytes[11]": 179,
+  "bytes[12]": 189,
+  "bytes[13]": 109,
+  "bytes[14]": 199,
+  "bytes[15]": 141
+ },
+ "m_ClassName": "EmojiText",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

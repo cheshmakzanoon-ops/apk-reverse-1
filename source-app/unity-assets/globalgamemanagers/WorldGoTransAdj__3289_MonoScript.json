@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldGoTransAdj",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 186,
+  "bytes[1]": 82,
+  "bytes[2]": 138,
+  "bytes[3]": 161,
+  "bytes[4]": 92,
+  "bytes[5]": 207,
+  "bytes[6]": 22,
+  "bytes[7]": 255,
+  "bytes[8]": 181,
+  "bytes[9]": 194,
+  "bytes[10]": 194,
+  "bytes[11]": 0,
+  "bytes[12]": 219,
+  "bytes[13]": 155,
+  "bytes[14]": 30,
+  "bytes[15]": 21
+ },
+ "m_ClassName": "WorldGoTransAdj",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,7 @@
+local UILWSeasonFactionWarDeclareHistoryCtrl = BaseClass("UILWSeasonFactionWarDeclareHistoryCtrl", UIBaseCtrl)
+
+function UILWSeasonFactionWarDeclareHistoryCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWSeasonFactionWarDeclareHistory)
+end
+
+return UILWSeasonFactionWarDeclareHistoryCtrl

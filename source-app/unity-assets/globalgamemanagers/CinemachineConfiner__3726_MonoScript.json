@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineConfiner",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 223,
+  "bytes[1]": 33,
+  "bytes[2]": 255,
+  "bytes[3]": 209,
+  "bytes[4]": 134,
+  "bytes[5]": 69,
+  "bytes[6]": 81,
+  "bytes[7]": 163,
+  "bytes[8]": 228,
+  "bytes[9]": 52,
+  "bytes[10]": 16,
+  "bytes[11]": 242,
+  "bytes[12]": 135,
+  "bytes[13]": 84,
+  "bytes[14]": 167,
+  "bytes[15]": 62
+ },
+ "m_ClassName": "CinemachineConfiner",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

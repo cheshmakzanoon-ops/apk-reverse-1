@@ -1,0 +1,27 @@
+local ActivityTreasureHuntNewBuyDigToolMessage = BaseClass("ActivityTreasureHuntNewBuyDigToolMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, activityId, num)
+  base.OnCreate(self)
+  self.sfsObj:PutInt("activityId", activityId)
+  self.sfsObj:PutInt("num", num)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    if t.gold ~= nil then
+      LuaEntry.Player.gold = t.gold
+      EventManager:GetInstance():Broadcast(EventId.UpdateGold)
+    end
+    DataCenter.ActivityTreasureHuntNewManager:OnRecvBuyItemRet(t)
+  end
+end
+
+ActivityTreasureHuntNewBuyDigToolMessage.OnCreate = OnCreate
+ActivityTreasureHuntNewBuyDigToolMessage.HandleMessage = HandleMessage
+return ActivityTreasureHuntNewBuyDigToolMessage

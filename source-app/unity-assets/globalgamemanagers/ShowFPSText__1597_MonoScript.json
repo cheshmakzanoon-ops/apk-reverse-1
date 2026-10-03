@@ -1,0 +1,25 @@
+{
+ "m_Name": "ShowFPSText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 64,
+  "bytes[1]": 180,
+  "bytes[2]": 37,
+  "bytes[3]": 228,
+  "bytes[4]": 149,
+  "bytes[5]": 150,
+  "bytes[6]": 199,
+  "bytes[7]": 122,
+  "bytes[8]": 185,
+  "bytes[9]": 225,
+  "bytes[10]": 124,
+  "bytes[11]": 184,
+  "bytes[12]": 172,
+  "bytes[13]": 33,
+  "bytes[14]": 17,
+  "bytes[15]": 38
+ },
+ "m_ClassName": "ShowFPSText",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "CommonTabGroupGeneratorExample",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 40,
+  "bytes[1]": 125,
+  "bytes[2]": 132,
+  "bytes[3]": 225,
+  "bytes[4]": 239,
+  "bytes[5]": 74,
+  "bytes[6]": 82,
+  "bytes[7]": 71,
+  "bytes[8]": 31,
+  "bytes[9]": 235,
+  "bytes[10]": 105,
+  "bytes[11]": 133,
+  "bytes[12]": 33,
+  "bytes[13]": 251,
+  "bytes[14]": 77,
+  "bytes[15]": 75
+ },
+ "m_ClassName": "CommonTabGroupGeneratorExample",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

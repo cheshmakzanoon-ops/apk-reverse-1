@@ -1,0 +1,25 @@
+{
+ "m_Name": "LuaMonoBehaviour",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 128,
+  "bytes[1]": 63,
+  "bytes[2]": 80,
+  "bytes[3]": 228,
+  "bytes[4]": 203,
+  "bytes[5]": 157,
+  "bytes[6]": 191,
+  "bytes[7]": 164,
+  "bytes[8]": 195,
+  "bytes[9]": 16,
+  "bytes[10]": 144,
+  "bytes[11]": 175,
+  "bytes[12]": 224,
+  "bytes[13]": 129,
+  "bytes[14]": 41,
+  "bytes[15]": 205
+ },
+ "m_ClassName": "LuaMonoBehaviour",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

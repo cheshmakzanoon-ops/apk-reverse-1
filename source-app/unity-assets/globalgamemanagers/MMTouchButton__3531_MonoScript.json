@@ -1,0 +1,25 @@
+{
+ "m_Name": "MMTouchButton",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 210,
+  "bytes[1]": 16,
+  "bytes[2]": 124,
+  "bytes[3]": 115,
+  "bytes[4]": 92,
+  "bytes[5]": 26,
+  "bytes[6]": 135,
+  "bytes[7]": 64,
+  "bytes[8]": 73,
+  "bytes[9]": 119,
+  "bytes[10]": 136,
+  "bytes[11]": 187,
+  "bytes[12]": 191,
+  "bytes[13]": 169,
+  "bytes[14]": 104,
+  "bytes[15]": 10
+ },
+ "m_ClassName": "MMTouchButton",
+ "m_Namespace": "MoreMountains.NiceVibrations",
+ "m_AssemblyName": "MoreMountains.NiceVibrations.Demos.dll"
+}

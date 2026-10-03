@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIScrollController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 189,
+  "bytes[1]": 32,
+  "bytes[2]": 172,
+  "bytes[3]": 85,
+  "bytes[4]": 176,
+  "bytes[5]": 133,
+  "bytes[6]": 36,
+  "bytes[7]": 73,
+  "bytes[8]": 177,
+  "bytes[9]": 128,
+  "bytes[10]": 60,
+  "bytes[11]": 144,
+  "bytes[12]": 231,
+  "bytes[13]": 104,
+  "bytes[14]": 208,
+  "bytes[15]": 3
+ },
+ "m_ClassName": "UIScrollController",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

@@ -1,0 +1,21 @@
+local GetWorldNewInfoMessage = BaseClass("GetWorldNewInfoMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.WorldNewsDataManager:UpdateWorldNewsData(t)
+  end
+end
+
+GetWorldNewInfoMessage.OnCreate = OnCreate
+GetWorldNewInfoMessage.HandleMessage = HandleMessage
+return GetWorldNewInfoMessage

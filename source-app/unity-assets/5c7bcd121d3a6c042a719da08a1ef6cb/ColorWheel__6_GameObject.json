@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 61
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 38
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 82
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 89
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 85
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "ColorWheel",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

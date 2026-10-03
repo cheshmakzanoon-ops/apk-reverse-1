@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldAllianceBuildS4",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 134,
+  "bytes[1]": 107,
+  "bytes[2]": 203,
+  "bytes[3]": 197,
+  "bytes[4]": 117,
+  "bytes[5]": 93,
+  "bytes[6]": 111,
+  "bytes[7]": 108,
+  "bytes[8]": 77,
+  "bytes[9]": 104,
+  "bytes[10]": 6,
+  "bytes[11]": 205,
+  "bytes[12]": 38,
+  "bytes[13]": 29,
+  "bytes[14]": 123,
+  "bytes[15]": 212
+ },
+ "m_ClassName": "WorldAllianceBuildS4",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

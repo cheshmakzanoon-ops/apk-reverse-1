@@ -1,0 +1,44 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 54
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 45
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 99
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 98
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 114
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 93
+   }
+  }
+ ],
+ "m_Layer": 5,
+ "m_Name": "Panel",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

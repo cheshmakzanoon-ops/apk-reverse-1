@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpinDatePickerDemoScript",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 150,
+  "bytes[1]": 194,
+  "bytes[2]": 133,
+  "bytes[3]": 215,
+  "bytes[4]": 229,
+  "bytes[5]": 185,
+  "bytes[6]": 135,
+  "bytes[7]": 7,
+  "bytes[8]": 6,
+  "bytes[9]": 154,
+  "bytes[10]": 112,
+  "bytes[11]": 116,
+  "bytes[12]": 112,
+  "bytes[13]": 119,
+  "bytes[14]": 5,
+  "bytes[15]": 73
+ },
+ "m_ClassName": "SpinDatePickerDemoScript",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

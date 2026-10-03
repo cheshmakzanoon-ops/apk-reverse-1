@@ -1,0 +1,7 @@
+local UIPersonalArmsCalendarExchangeConfirmCtrl = BaseClass("UIPersonalArmsCalendarExchangeConfirmCtrl", UIBaseCtrl)
+
+function UIPersonalArmsCalendarExchangeConfirmCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIPersonalArmsCalendarExchangeConfirmView)
+end
+
+return UIPersonalArmsCalendarExchangeConfirmCtrl

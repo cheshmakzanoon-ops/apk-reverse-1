@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIEventListener",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 166,
+  "bytes[1]": 63,
+  "bytes[2]": 193,
+  "bytes[3]": 163,
+  "bytes[4]": 176,
+  "bytes[5]": 53,
+  "bytes[6]": 229,
+  "bytes[7]": 160,
+  "bytes[8]": 181,
+  "bytes[9]": 131,
+  "bytes[10]": 156,
+  "bytes[11]": 215,
+  "bytes[12]": 247,
+  "bytes[13]": 179,
+  "bytes[14]": 8,
+  "bytes[15]": 110
+ },
+ "m_ClassName": "UIEventListener",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

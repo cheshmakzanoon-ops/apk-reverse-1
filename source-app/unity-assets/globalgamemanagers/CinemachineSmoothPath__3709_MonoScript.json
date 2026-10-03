@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineSmoothPath",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 111,
+  "bytes[1]": 241,
+  "bytes[2]": 197,
+  "bytes[3]": 33,
+  "bytes[4]": 35,
+  "bytes[5]": 197,
+  "bytes[6]": 11,
+  "bytes[7]": 61,
+  "bytes[8]": 115,
+  "bytes[9]": 243,
+  "bytes[10]": 92,
+  "bytes[11]": 208,
+  "bytes[12]": 226,
+  "bytes[13]": 230,
+  "bytes[14]": 93,
+  "bytes[15]": 253
+ },
+ "m_ClassName": "CinemachineSmoothPath",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

@@ -1,0 +1,7 @@
+local LWUIZoneMobilizationSuppliesRecordCtrl = BaseClass("LWUIZoneMobilizationSuppliesRecordCtrl", UIBaseCtrl)
+
+function LWUIZoneMobilizationSuppliesRecordCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.LWUIZoneMobilizationSuppliesRecord)
+end
+
+return LWUIZoneMobilizationSuppliesRecordCtrl

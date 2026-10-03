@@ -1,0 +1,41 @@
+local UIBookMarkAddCtrl = BaseClass("UIBookMarkAddCtrl", UIBaseCtrl)
+local Localization = CS.GameEntry.Localization
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIBookMarkAdd, {
+    anim = true,
+    UIMainAnim = UIMainAnimType.LeftRightBottomShow
+  })
+end
+
+local function Close(self)
+  UIManager:GetInstance():DestroyWindowByLayer(UILayer.Normal)
+end
+
+local function GetBookmark(self, point, server)
+  return DataCenter.WorldFavoDataManager:GetBookmark(point, server)
+end
+
+local function AddBookMark(self, point, server, name, type, topFlag)
+  if name ~= nil and name ~= "" then
+    DataCenter.WorldFavoDataManager:AddBookmark(point, server, name, type, topFlag)
+    self:CloseSelf()
+  else
+    UIUtil.ShowTipsId(120177)
+  end
+end
+
+local function DelBookMark(self, point, server)
+  local data = self:GetBookmark(point, server)
+  if data ~= nil then
+    SFSNetwork.SendMessage(MsgDefines.WorldFavoDel, point, data.type, server)
+  end
+  self:CloseSelf()
+end
+
+UIBookMarkAddCtrl.CloseSelf = CloseSelf
+UIBookMarkAddCtrl.Close = Close
+UIBookMarkAddCtrl.GetBookmark = GetBookmark
+UIBookMarkAddCtrl.AddBookMark = AddBookMark
+UIBookMarkAddCtrl.DelBookMark = DelBookMark
+return UIBookMarkAddCtrl

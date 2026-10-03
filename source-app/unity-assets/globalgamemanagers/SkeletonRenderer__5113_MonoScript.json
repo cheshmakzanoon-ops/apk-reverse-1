@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 183,
+  "bytes[1]": 185,
+  "bytes[2]": 103,
+  "bytes[3]": 157,
+  "bytes[4]": 70,
+  "bytes[5]": 93,
+  "bytes[6]": 108,
+  "bytes[7]": 8,
+  "bytes[8]": 93,
+  "bytes[9]": 32,
+  "bytes[10]": 4,
+  "bytes[11]": 223,
+  "bytes[12]": 229,
+  "bytes[13]": 222,
+  "bytes[14]": 203,
+  "bytes[15]": 216
+ },
+ "m_ClassName": "SkeletonRenderer",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

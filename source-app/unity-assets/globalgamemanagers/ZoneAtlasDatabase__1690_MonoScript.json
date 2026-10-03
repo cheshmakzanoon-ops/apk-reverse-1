@@ -1,0 +1,25 @@
+{
+ "m_Name": "ZoneAtlasDatabase",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 78,
+  "bytes[1]": 42,
+  "bytes[2]": 73,
+  "bytes[3]": 121,
+  "bytes[4]": 51,
+  "bytes[5]": 203,
+  "bytes[6]": 146,
+  "bytes[7]": 108,
+  "bytes[8]": 8,
+  "bytes[9]": 77,
+  "bytes[10]": 160,
+  "bytes[11]": 223,
+  "bytes[12]": 250,
+  "bytes[13]": 204,
+  "bytes[14]": 21,
+  "bytes[15]": 147
+ },
+ "m_ClassName": "ZoneAtlasDatabase",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

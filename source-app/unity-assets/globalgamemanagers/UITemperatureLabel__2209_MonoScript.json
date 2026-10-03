@@ -1,0 +1,25 @@
+{
+ "m_Name": "UITemperatureLabel",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 226,
+  "bytes[1]": 246,
+  "bytes[2]": 64,
+  "bytes[3]": 4,
+  "bytes[4]": 199,
+  "bytes[5]": 8,
+  "bytes[6]": 28,
+  "bytes[7]": 119,
+  "bytes[8]": 105,
+  "bytes[9]": 236,
+  "bytes[10]": 236,
+  "bytes[11]": 122,
+  "bytes[12]": 43,
+  "bytes[13]": 144,
+  "bytes[14]": 120,
+  "bytes[15]": 61
+ },
+ "m_ClassName": "UITemperatureLabel",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

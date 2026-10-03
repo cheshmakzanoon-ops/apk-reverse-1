@@ -1,0 +1,70 @@
+local JigsawRankTabItem = BaseClass("JigsawRankTabItem", UIBaseContainer)
+local base = UIBaseContainer
+local Localization = CS.GameEntry.Localization
+local name_path = "jigsawName"
+local selectBtn_path = ""
+local selected_path = "selected"
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:DataDefine()
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  self:DataDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDefine(self)
+  self.nameN = self:AddComponent(UIText, name_path)
+  self.selectBtnN = self:AddComponent(UIButton, selectBtn_path)
+  self.selectBtnN:SetOnClick(function()
+    self:OnClickSelectBtn()
+  end)
+  self.selectedImgN = self:AddComponent(UIBaseContainer, selected_path)
+end
+
+local function ComponentDestroy(self)
+  self.nameN = nil
+  self.selectBtnN = nil
+  self.selectedImgN = nil
+end
+
+local function DataDefine(self)
+  self.jigsawTemplate = nil
+  self.isSelected = nil
+end
+
+local function DataDestroy(self)
+  self.jigsawTemplate = nil
+  self.isSelected = nil
+end
+
+local function SetItem(self, jigsawTemplate, isSelected)
+  self.jigsawTemplate = jigsawTemplate
+  self.isSelected = isSelected
+  self.nameN:SetLocalText(self.jigsawTemplate.name)
+  self.selectedImgN:SetActive(self.isSelected)
+end
+
+local function SetSelectedByExternal(self, isSelected)
+  self.isSelected = isSelected
+  self.selectedImgN:SetActive(self.isSelected)
+end
+
+local function OnClickSelectBtn(self)
+  self.view:OnSelectJigsaw(self.jigsawTemplate.id)
+end
+
+JigsawRankTabItem.OnCreate = OnCreate
+JigsawRankTabItem.OnDestroy = OnDestroy
+JigsawRankTabItem.ComponentDefine = ComponentDefine
+JigsawRankTabItem.ComponentDestroy = ComponentDestroy
+JigsawRankTabItem.DataDefine = DataDefine
+JigsawRankTabItem.DataDestroy = DataDestroy
+JigsawRankTabItem.SetItem = SetItem
+JigsawRankTabItem.SetSelectedByExternal = SetSelectedByExternal
+JigsawRankTabItem.OnClickSelectBtn = OnClickSelectBtn
+return JigsawRankTabItem

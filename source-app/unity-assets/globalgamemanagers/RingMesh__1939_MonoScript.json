@@ -1,0 +1,25 @@
+{
+ "m_Name": "RingMesh",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 134,
+  "bytes[1]": 220,
+  "bytes[2]": 95,
+  "bytes[3]": 207,
+  "bytes[4]": 92,
+  "bytes[5]": 206,
+  "bytes[6]": 255,
+  "bytes[7]": 140,
+  "bytes[8]": 140,
+  "bytes[9]": 44,
+  "bytes[10]": 104,
+  "bytes[11]": 148,
+  "bytes[12]": 151,
+  "bytes[13]": 228,
+  "bytes[14]": 210,
+  "bytes[15]": 32
+ },
+ "m_ClassName": "RingMesh",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

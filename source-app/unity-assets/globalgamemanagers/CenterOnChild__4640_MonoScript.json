@@ -1,0 +1,25 @@
+{
+ "m_Name": "CenterOnChild",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 197,
+  "bytes[1]": 208,
+  "bytes[2]": 63,
+  "bytes[3]": 234,
+  "bytes[4]": 179,
+  "bytes[5]": 133,
+  "bytes[6]": 149,
+  "bytes[7]": 32,
+  "bytes[8]": 131,
+  "bytes[9]": 0,
+  "bytes[10]": 47,
+  "bytes[11]": 181,
+  "bytes[12]": 240,
+  "bytes[13]": 1,
+  "bytes[14]": 64,
+  "bytes[15]": 124
+ },
+ "m_ClassName": "CenterOnChild",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

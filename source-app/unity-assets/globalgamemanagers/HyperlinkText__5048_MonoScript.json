@@ -1,0 +1,25 @@
+{
+ "m_Name": "HyperlinkText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 33,
+  "bytes[1]": 107,
+  "bytes[2]": 253,
+  "bytes[3]": 227,
+  "bytes[4]": 153,
+  "bytes[5]": 217,
+  "bytes[6]": 212,
+  "bytes[7]": 247,
+  "bytes[8]": 94,
+  "bytes[9]": 83,
+  "bytes[10]": 179,
+  "bytes[11]": 189,
+  "bytes[12]": 190,
+  "bytes[13]": 121,
+  "bytes[14]": 75,
+  "bytes[15]": 42
+ },
+ "m_ClassName": "HyperlinkText",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

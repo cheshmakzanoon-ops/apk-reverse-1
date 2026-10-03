@@ -1,0 +1,25 @@
+{
+ "m_Name": "OverlayBackgroundRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 129,
+  "bytes[1]": 240,
+  "bytes[2]": 199,
+  "bytes[3]": 200,
+  "bytes[4]": 145,
+  "bytes[5]": 28,
+  "bytes[6]": 205,
+  "bytes[7]": 241,
+  "bytes[8]": 187,
+  "bytes[9]": 22,
+  "bytes[10]": 38,
+  "bytes[11]": 201,
+  "bytes[12]": 178,
+  "bytes[13]": 252,
+  "bytes[14]": 196,
+  "bytes[15]": 94
+ },
+ "m_ClassName": "OverlayBackgroundRendererFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

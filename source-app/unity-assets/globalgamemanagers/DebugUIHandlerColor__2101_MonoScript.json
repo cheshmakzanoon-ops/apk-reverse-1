@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerColor",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 247,
+  "bytes[1]": 158,
+  "bytes[2]": 152,
+  "bytes[3]": 54,
+  "bytes[4]": 114,
+  "bytes[5]": 208,
+  "bytes[6]": 121,
+  "bytes[7]": 255,
+  "bytes[8]": 36,
+  "bytes[9]": 238,
+  "bytes[10]": 225,
+  "bytes[11]": 84,
+  "bytes[12]": 132,
+  "bytes[13]": 251,
+  "bytes[14]": 116,
+  "bytes[15]": 184
+ },
+ "m_ClassName": "DebugUIHandlerColor",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

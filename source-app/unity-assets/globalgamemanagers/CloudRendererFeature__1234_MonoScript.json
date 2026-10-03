@@ -1,0 +1,25 @@
+{
+ "m_Name": "CloudRendererFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 100,
+  "bytes[1]": 205,
+  "bytes[2]": 116,
+  "bytes[3]": 19,
+  "bytes[4]": 112,
+  "bytes[5]": 166,
+  "bytes[6]": 21,
+  "bytes[7]": 175,
+  "bytes[8]": 241,
+  "bytes[9]": 63,
+  "bytes[10]": 108,
+  "bytes[11]": 86,
+  "bytes[12]": 5,
+  "bytes[13]": 148,
+  "bytes[14]": 170,
+  "bytes[15]": 46
+ },
+ "m_ClassName": "CloudRendererFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "ProfilerService",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 83,
+  "bytes[1]": 18,
+  "bytes[2]": 26,
+  "bytes[3]": 165,
+  "bytes[4]": 201,
+  "bytes[5]": 48,
+  "bytes[6]": 78,
+  "bytes[7]": 197,
+  "bytes[8]": 133,
+  "bytes[9]": 235,
+  "bytes[10]": 5,
+  "bytes[11]": 201,
+  "bytes[12]": 190,
+  "bytes[13]": 45,
+  "bytes[14]": 187,
+  "bytes[15]": 222
+ },
+ "m_ClassName": "ProfilerService",
+ "m_Namespace": "GameKit.Base",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SkeletonAnimation",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 23,
+  "bytes[1]": 93,
+  "bytes[2]": 100,
+  "bytes[3]": 198,
+  "bytes[4]": 234,
+  "bytes[5]": 12,
+  "bytes[6]": 69,
+  "bytes[7]": 10,
+  "bytes[8]": 113,
+  "bytes[9]": 220,
+  "bytes[10]": 208,
+  "bytes[11]": 129,
+  "bytes[12]": 159,
+  "bytes[13]": 30,
+  "bytes[14]": 182,
+  "bytes[15]": 242
+ },
+ "m_ClassName": "SkeletonAnimation",
+ "m_Namespace": "Spine.Unity",
+ "m_AssemblyName": "spine-unity.dll"
+}

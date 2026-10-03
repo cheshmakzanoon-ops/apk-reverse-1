@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerFloatField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 141,
+  "bytes[1]": 53,
+  "bytes[2]": 241,
+  "bytes[3]": 108,
+  "bytes[4]": 80,
+  "bytes[5]": 34,
+  "bytes[6]": 49,
+  "bytes[7]": 28,
+  "bytes[8]": 111,
+  "bytes[9]": 77,
+  "bytes[10]": 148,
+  "bytes[11]": 50,
+  "bytes[12]": 190,
+  "bytes[13]": 115,
+  "bytes[14]": 191,
+  "bytes[15]": 207
+ },
+ "m_ClassName": "DebugUIHandlerFloatField",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

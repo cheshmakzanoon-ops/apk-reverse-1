@@ -1,0 +1,25 @@
+{
+ "m_Name": "ObjectField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 50,
+  "bytes[1]": 163,
+  "bytes[2]": 104,
+  "bytes[3]": 133,
+  "bytes[4]": 120,
+  "bytes[5]": 142,
+  "bytes[6]": 137,
+  "bytes[7]": 230,
+  "bytes[8]": 82,
+  "bytes[9]": 139,
+  "bytes[10]": 27,
+  "bytes[11]": 129,
+  "bytes[12]": 213,
+  "bytes[13]": 175,
+  "bytes[14]": 134,
+  "bytes[15]": 126
+ },
+ "m_ClassName": "ObjectField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

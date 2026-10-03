@@ -1,0 +1,25 @@
+{
+ "m_Name": "T11IdleGameBossBattleAnimationController",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 220,
+  "bytes[1]": 249,
+  "bytes[2]": 108,
+  "bytes[3]": 60,
+  "bytes[4]": 4,
+  "bytes[5]": 18,
+  "bytes[6]": 34,
+  "bytes[7]": 252,
+  "bytes[8]": 62,
+  "bytes[9]": 53,
+  "bytes[10]": 217,
+  "bytes[11]": 49,
+  "bytes[12]": 155,
+  "bytes[13]": 49,
+  "bytes[14]": 24,
+  "bytes[15]": 192
+ },
+ "m_ClassName": "T11IdleGameBossBattleAnimationController",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

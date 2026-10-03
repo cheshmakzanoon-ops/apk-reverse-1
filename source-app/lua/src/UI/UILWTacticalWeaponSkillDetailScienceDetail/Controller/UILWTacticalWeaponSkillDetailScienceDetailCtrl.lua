@@ -1,0 +1,8 @@
+local UILWTacticalWeaponSkillDetailDetailScienceDetailCtrl = BaseClass("UILWTacticalWeaponSkillDetailDetailScienceDetailCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWTacticalWeaponSkillDetailScienceDetail)
+end
+
+UILWTacticalWeaponSkillDetailDetailScienceDetailCtrl.CloseSelf = CloseSelf
+return UILWTacticalWeaponSkillDetailDetailScienceDetailCtrl

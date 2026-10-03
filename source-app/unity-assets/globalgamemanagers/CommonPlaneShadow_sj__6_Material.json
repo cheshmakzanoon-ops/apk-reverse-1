@@ -1,0 +1,51 @@
+{
+ "m_Name": "CommonPlaneShadow_sj",
+ "m_Shader": {
+  "m_FileID": 0,
+  "m_PathID": 54
+ },
+ "m_ShaderKeywords": "_USECUSTOMLIGHTDIR_ON",
+ "m_LightmapFlags": 4,
+ "m_EnableInstancingVariants": false,
+ "m_DoubleSidedGI": false,
+ "m_CustomRenderQueue": 3000,
+ "stringTagMap": [],
+ "disabledShaderPasses": [],
+ "m_SavedProperties": {
+  "m_TexEnvs": [],
+  "m_Floats": [
+   [
+    "_GroundHeight",
+    0.0
+   ],
+   [
+    "_ShadowFalloff",
+    0.05000000074505806
+   ],
+   [
+    "_UseCustomLightDir",
+    1.0
+   ]
+  ],
+  "m_Colors": [
+   [
+    "_CustomLightDir",
+    {
+     "r": -0.5400000214576721,
+     "g": 0.75,
+     "b": -0.3799999952316284,
+     "a": 1.0399999618530273
+    }
+   ],
+   [
+    "_ShadowColor",
+    {
+     "r": 0.014526348561048508,
+     "g": 0.0,
+     "b": 0.18400000035762787,
+     "a": 1.0
+    }
+   ]
+  ]
+ }
+}

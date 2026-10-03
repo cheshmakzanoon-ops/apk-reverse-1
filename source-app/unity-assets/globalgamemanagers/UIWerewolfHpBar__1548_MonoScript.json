@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIWerewolfHpBar",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 251,
+  "bytes[1]": 37,
+  "bytes[2]": 7,
+  "bytes[3]": 201,
+  "bytes[4]": 161,
+  "bytes[5]": 171,
+  "bytes[6]": 16,
+  "bytes[7]": 83,
+  "bytes[8]": 135,
+  "bytes[9]": 53,
+  "bytes[10]": 227,
+  "bytes[11]": 239,
+  "bytes[12]": 16,
+  "bytes[13]": 180,
+  "bytes[14]": 24,
+  "bytes[15]": 148
+ },
+ "m_ClassName": "UIWerewolfHpBar",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

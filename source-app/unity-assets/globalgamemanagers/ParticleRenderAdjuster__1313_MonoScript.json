@@ -1,0 +1,25 @@
+{
+ "m_Name": "ParticleRenderAdjuster",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 4,
+  "bytes[1]": 225,
+  "bytes[2]": 237,
+  "bytes[3]": 161,
+  "bytes[4]": 35,
+  "bytes[5]": 200,
+  "bytes[6]": 28,
+  "bytes[7]": 12,
+  "bytes[8]": 56,
+  "bytes[9]": 1,
+  "bytes[10]": 26,
+  "bytes[11]": 6,
+  "bytes[12]": 129,
+  "bytes[13]": 230,
+  "bytes[14]": 173,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "ParticleRenderAdjuster",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DamageNumRes",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 146,
+  "bytes[1]": 102,
+  "bytes[2]": 102,
+  "bytes[3]": 196,
+  "bytes[4]": 169,
+  "bytes[5]": 94,
+  "bytes[6]": 2,
+  "bytes[7]": 116,
+  "bytes[8]": 31,
+  "bytes[9]": 245,
+  "bytes[10]": 77,
+  "bytes[11]": 243,
+  "bytes[12]": 48,
+  "bytes[13]": 194,
+  "bytes[14]": 171,
+  "bytes[15]": 246
+ },
+ "m_ClassName": "DamageNumRes",
+ "m_Namespace": "GPUDamageText",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

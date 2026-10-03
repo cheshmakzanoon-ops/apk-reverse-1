@@ -1,0 +1,25 @@
+{
+ "m_Name": "RTLTextMeshPro3D",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 220,
+  "bytes[1]": 205,
+  "bytes[2]": 14,
+  "bytes[3]": 220,
+  "bytes[4]": 17,
+  "bytes[5]": 90,
+  "bytes[6]": 118,
+  "bytes[7]": 28,
+  "bytes[8]": 80,
+  "bytes[9]": 142,
+  "bytes[10]": 125,
+  "bytes[11]": 47,
+  "bytes[12]": 241,
+  "bytes[13]": 47,
+  "bytes[14]": 0,
+  "bytes[15]": 177
+ },
+ "m_ClassName": "RTLTextMeshPro3D",
+ "m_Namespace": "RTLTMPro",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_FpsManager",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 225,
+  "bytes[1]": 238,
+  "bytes[2]": 45,
+  "bytes[3]": 110,
+  "bytes[4]": 220,
+  "bytes[5]": 92,
+  "bytes[6]": 84,
+  "bytes[7]": 69,
+  "bytes[8]": 85,
+  "bytes[9]": 211,
+  "bytes[10]": 55,
+  "bytes[11]": 211,
+  "bytes[12]": 0,
+  "bytes[13]": 197,
+  "bytes[14]": 106,
+  "bytes[15]": 198
+ },
+ "m_ClassName": "G_FpsManager",
+ "m_Namespace": "Tayx.Graphy.Fps",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

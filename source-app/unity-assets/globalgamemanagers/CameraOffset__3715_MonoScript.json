@@ -1,0 +1,25 @@
+{
+ "m_Name": "CameraOffset",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 36,
+  "bytes[1]": 199,
+  "bytes[2]": 76,
+  "bytes[3]": 192,
+  "bytes[4]": 213,
+  "bytes[5]": 39,
+  "bytes[6]": 160,
+  "bytes[7]": 97,
+  "bytes[8]": 19,
+  "bytes[9]": 242,
+  "bytes[10]": 185,
+  "bytes[11]": 103,
+  "bytes[12]": 4,
+  "bytes[13]": 39,
+  "bytes[14]": 105,
+  "bytes[15]": 240
+ },
+ "m_ClassName": "CameraOffset",
+ "m_Namespace": "UnityEditor.XR.LegacyInputHelpers",
+ "m_AssemblyName": "UnityEngine.XR.LegacyInputHelpers.dll"
+}

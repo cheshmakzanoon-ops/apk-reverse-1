@@ -1,0 +1,25 @@
+{
+ "m_Name": "AutoSyncActive",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 231,
+  "bytes[1]": 253,
+  "bytes[2]": 33,
+  "bytes[3]": 46,
+  "bytes[4]": 253,
+  "bytes[5]": 127,
+  "bytes[6]": 156,
+  "bytes[7]": 26,
+  "bytes[8]": 217,
+  "bytes[9]": 100,
+  "bytes[10]": 154,
+  "bytes[11]": 126,
+  "bytes[12]": 208,
+  "bytes[13]": 248,
+  "bytes[14]": 122,
+  "bytes[15]": 54
+ },
+ "m_ClassName": "AutoSyncActive",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

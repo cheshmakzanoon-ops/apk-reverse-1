@@ -1,0 +1,25 @@
+{
+ "m_Name": "LanguageLogoSelector",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 100,
+  "bytes[1]": 21,
+  "bytes[2]": 233,
+  "bytes[3]": 34,
+  "bytes[4]": 224,
+  "bytes[5]": 159,
+  "bytes[6]": 53,
+  "bytes[7]": 51,
+  "bytes[8]": 176,
+  "bytes[9]": 140,
+  "bytes[10]": 119,
+  "bytes[11]": 168,
+  "bytes[12]": 106,
+  "bytes[13]": 208,
+  "bytes[14]": 53,
+  "bytes[15]": 82
+ },
+ "m_ClassName": "LanguageLogoSelector",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

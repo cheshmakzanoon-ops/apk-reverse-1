@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 45
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 66
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 64
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 71
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 57
+   }
+  }
+ ],
+ "m_Layer": 0,
+ "m_Name": "DebugUI Color",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

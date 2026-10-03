@@ -1,0 +1,17 @@
+local UIResourceExchangeCtrl = BaseClass("UIResourceExchangeCtrl", UIBaseCtrl)
+
+local function CloseSelf(self, noPlayCloseEffect)
+  if noPlayCloseEffect then
+    UIManager:GetInstance():DestroyWindow(UIWindowNames.UIResourceExchange, {anim = true, playEffect = false})
+  else
+    UIManager:GetInstance():DestroyWindow(UIWindowNames.UIResourceExchange)
+  end
+end
+
+local function Close(self)
+  UIManager:GetInstance():DestroyWindowByLayer(UILayer.Normal)
+end
+
+UIResourceExchangeCtrl.CloseSelf = CloseSelf
+UIResourceExchangeCtrl.Close = Close
+return UIResourceExchangeCtrl

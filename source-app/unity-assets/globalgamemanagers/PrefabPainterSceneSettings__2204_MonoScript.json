@@ -1,0 +1,25 @@
+{
+ "m_Name": "PrefabPainterSceneSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 23,
+  "bytes[1]": 250,
+  "bytes[2]": 249,
+  "bytes[3]": 222,
+  "bytes[4]": 174,
+  "bytes[5]": 116,
+  "bytes[6]": 13,
+  "bytes[7]": 30,
+  "bytes[8]": 231,
+  "bytes[9]": 29,
+  "bytes[10]": 92,
+  "bytes[11]": 169,
+  "bytes[12]": 82,
+  "bytes[13]": 249,
+  "bytes[14]": 92,
+  "bytes[15]": 244
+ },
+ "m_ClassName": "PrefabPainterSceneSettings",
+ "m_Namespace": "nTools.PrefabPainter",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "SoftMaskScript",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 37,
+  "bytes[1]": 5,
+  "bytes[2]": 65,
+  "bytes[3]": 242,
+  "bytes[4]": 238,
+  "bytes[5]": 36,
+  "bytes[6]": 188,
+  "bytes[7]": 59,
+  "bytes[8]": 129,
+  "bytes[9]": 161,
+  "bytes[10]": 118,
+  "bytes[11]": 2,
+  "bytes[12]": 18,
+  "bytes[13]": 199,
+  "bytes[14]": 150,
+  "bytes[15]": 125
+ },
+ "m_ClassName": "SoftMaskScript",
+ "m_Namespace": "UnityEngine.UI.Extensions",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "TouchPinchView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 17,
+  "bytes[1]": 253,
+  "bytes[2]": 221,
+  "bytes[3]": 112,
+  "bytes[4]": 93,
+  "bytes[5]": 106,
+  "bytes[6]": 96,
+  "bytes[7]": 246,
+  "bytes[8]": 160,
+  "bytes[9]": 172,
+  "bytes[10]": 245,
+  "bytes[11]": 97,
+  "bytes[12]": 70,
+  "bytes[13]": 234,
+  "bytes[14]": 155,
+  "bytes[15]": 63
+ },
+ "m_ClassName": "TouchPinchView",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "FocusCurve",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 104,
+  "bytes[1]": 100,
+  "bytes[2]": 211,
+  "bytes[3]": 166,
+  "bytes[4]": 204,
+  "bytes[5]": 74,
+  "bytes[6]": 239,
+  "bytes[7]": 163,
+  "bytes[8]": 155,
+  "bytes[9]": 203,
+  "bytes[10]": 200,
+  "bytes[11]": 133,
+  "bytes[12]": 164,
+  "bytes[13]": 156,
+  "bytes[14]": 69,
+  "bytes[15]": 94
+ },
+ "m_ClassName": "FocusCurve",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

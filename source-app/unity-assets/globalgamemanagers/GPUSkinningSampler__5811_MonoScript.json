@@ -1,0 +1,25 @@
+{
+ "m_Name": "GPUSkinningSampler",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 155,
+  "bytes[1]": 12,
+  "bytes[2]": 213,
+  "bytes[3]": 108,
+  "bytes[4]": 136,
+  "bytes[5]": 181,
+  "bytes[6]": 148,
+  "bytes[7]": 20,
+  "bytes[8]": 105,
+  "bytes[9]": 151,
+  "bytes[10]": 73,
+  "bytes[11]": 52,
+  "bytes[12]": 136,
+  "bytes[13]": 16,
+  "bytes[14]": 46,
+  "bytes[15]": 133
+ },
+ "m_ClassName": "GPUSkinningSampler",
+ "m_Namespace": "",
+ "m_AssemblyName": "GPUSkinning.dll"
+}

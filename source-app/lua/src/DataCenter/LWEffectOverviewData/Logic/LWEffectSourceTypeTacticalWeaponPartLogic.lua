@@ -1,0 +1,17 @@
+local LWEffectSourceTypeTacticalWeaponPartLogic = require("DataCenter.LWEffectOverviewData.Logic.LWEffectSourceTypeTacticalWeaponPartLogic")
+local LWEffectSourceTypeTacticalWeaponLevelLogic = BaseClass("LWEffectSourceTypeTacticalWeaponLevelLogic", LWEffectSourceTypeTacticalWeaponPartLogic)
+local base = LWEffectSourceTypeTacticalWeaponPartLogic
+
+function LWEffectSourceTypeTacticalWeaponLevelLogic:__init()
+  base.__init(self)
+end
+
+function LWEffectSourceTypeTacticalWeaponLevelLogic:__delete()
+  base.__delete(self)
+end
+
+function LWEffectSourceTypeTacticalWeaponLevelLogic:RecalculateData()
+  DataCenter.LWEffectOverviewManager:ResetEffectSourceTotalValue(EffectOverviewSourcePoint.TacticalWeaponPart)
+end
+
+return LWEffectSourceTypeTacticalWeaponPartLogic

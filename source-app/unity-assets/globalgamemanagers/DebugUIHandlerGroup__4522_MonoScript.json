@@ -1,0 +1,25 @@
+{
+ "m_Name": "DebugUIHandlerGroup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 81,
+  "bytes[1]": 176,
+  "bytes[2]": 94,
+  "bytes[3]": 64,
+  "bytes[4]": 60,
+  "bytes[5]": 225,
+  "bytes[6]": 218,
+  "bytes[7]": 24,
+  "bytes[8]": 5,
+  "bytes[9]": 133,
+  "bytes[10]": 31,
+  "bytes[11]": 66,
+  "bytes[12]": 175,
+  "bytes[13]": 2,
+  "bytes[14]": 244,
+  "bytes[15]": 187
+ },
+ "m_ClassName": "DebugUIHandlerGroup",
+ "m_Namespace": "UnityEngine.Rendering.UI",
+ "m_AssemblyName": "Unity.RenderPipelines.Core.Runtime.dll"
+}

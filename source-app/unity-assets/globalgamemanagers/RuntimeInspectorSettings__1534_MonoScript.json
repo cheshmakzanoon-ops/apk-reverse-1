@@ -1,0 +1,25 @@
+{
+ "m_Name": "RuntimeInspectorSettings",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 98,
+  "bytes[1]": 64,
+  "bytes[2]": 203,
+  "bytes[3]": 122,
+  "bytes[4]": 66,
+  "bytes[5]": 177,
+  "bytes[6]": 169,
+  "bytes[7]": 176,
+  "bytes[8]": 255,
+  "bytes[9]": 71,
+  "bytes[10]": 49,
+  "bytes[11]": 154,
+  "bytes[12]": 122,
+  "bytes[13]": 235,
+  "bytes[14]": 184,
+  "bytes[15]": 243
+ },
+ "m_ClassName": "RuntimeInspectorSettings",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

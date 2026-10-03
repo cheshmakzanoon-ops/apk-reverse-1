@@ -1,0 +1,25 @@
+{
+ "m_Name": "FogControll",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 70,
+  "bytes[1]": 95,
+  "bytes[2]": 82,
+  "bytes[3]": 46,
+  "bytes[4]": 193,
+  "bytes[5]": 45,
+  "bytes[6]": 119,
+  "bytes[7]": 6,
+  "bytes[8]": 179,
+  "bytes[9]": 122,
+  "bytes[10]": 226,
+  "bytes[11]": 232,
+  "bytes[12]": 138,
+  "bytes[13]": 40,
+  "bytes[14]": 178,
+  "bytes[15]": 228
+ },
+ "m_ClassName": "FogControll",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

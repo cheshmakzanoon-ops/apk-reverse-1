@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldTouchEffect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 115,
+  "bytes[1]": 177,
+  "bytes[2]": 104,
+  "bytes[3]": 2,
+  "bytes[4]": 173,
+  "bytes[5]": 6,
+  "bytes[6]": 137,
+  "bytes[7]": 76,
+  "bytes[8]": 181,
+  "bytes[9]": 38,
+  "bytes[10]": 78,
+  "bytes[11]": 229,
+  "bytes[12]": 103,
+  "bytes[13]": 89,
+  "bytes[14]": 34,
+  "bytes[15]": 32
+ },
+ "m_ClassName": "WorldTouchEffect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

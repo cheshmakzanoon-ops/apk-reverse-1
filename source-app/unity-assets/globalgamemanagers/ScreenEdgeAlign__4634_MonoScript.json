@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScreenEdgeAlign",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 105,
+  "bytes[1]": 171,
+  "bytes[2]": 55,
+  "bytes[3]": 158,
+  "bytes[4]": 243,
+  "bytes[5]": 159,
+  "bytes[6]": 197,
+  "bytes[7]": 176,
+  "bytes[8]": 79,
+  "bytes[9]": 133,
+  "bytes[10]": 10,
+  "bytes[11]": 210,
+  "bytes[12]": 30,
+  "bytes[13]": 26,
+  "bytes[14]": 89,
+  "bytes[15]": 52
+ },
+ "m_ClassName": "ScreenEdgeAlign",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

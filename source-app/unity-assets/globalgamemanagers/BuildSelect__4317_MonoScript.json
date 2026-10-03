@@ -1,0 +1,25 @@
+{
+ "m_Name": "BuildSelect",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 43,
+  "bytes[1]": 70,
+  "bytes[2]": 161,
+  "bytes[3]": 153,
+  "bytes[4]": 155,
+  "bytes[5]": 107,
+  "bytes[6]": 161,
+  "bytes[7]": 153,
+  "bytes[8]": 94,
+  "bytes[9]": 160,
+  "bytes[10]": 9,
+  "bytes[11]": 55,
+  "bytes[12]": 57,
+  "bytes[13]": 57,
+  "bytes[14]": 166,
+  "bytes[15]": 255
+ },
+ "m_ClassName": "BuildSelect",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

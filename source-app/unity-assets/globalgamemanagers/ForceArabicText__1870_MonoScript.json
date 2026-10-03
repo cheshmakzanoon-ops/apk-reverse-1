@@ -1,0 +1,25 @@
+{
+ "m_Name": "ForceArabicText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 176,
+  "bytes[1]": 57,
+  "bytes[2]": 251,
+  "bytes[3]": 197,
+  "bytes[4]": 38,
+  "bytes[5]": 249,
+  "bytes[6]": 246,
+  "bytes[7]": 96,
+  "bytes[8]": 175,
+  "bytes[9]": 177,
+  "bytes[10]": 141,
+  "bytes[11]": 113,
+  "bytes[12]": 212,
+  "bytes[13]": 19,
+  "bytes[14]": 151,
+  "bytes[15]": 39
+ },
+ "m_ClassName": "ForceArabicText",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

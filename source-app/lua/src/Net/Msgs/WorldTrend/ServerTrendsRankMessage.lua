@@ -1,0 +1,21 @@
+local ServerTrendsRankMessage = BaseClass("ServerTrendsRankMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self, id)
+  base.OnCreate(self)
+  self.sfsObj:PutUtfString("id", id)
+end
+
+local function HandleMessage(self, message)
+  base.HandleMessage(self, message)
+  local errCode = message.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.WorldTrendManager:ReceiveRankData(message)
+  end
+end
+
+ServerTrendsRankMessage.OnCreate = OnCreate
+ServerTrendsRankMessage.HandleMessage = HandleMessage
+return ServerTrendsRankMessage

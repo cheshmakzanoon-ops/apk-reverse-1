@@ -1,0 +1,25 @@
+{
+ "m_Name": "EditorDecorationRenderer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 207,
+  "bytes[1]": 5,
+  "bytes[2]": 50,
+  "bytes[3]": 229,
+  "bytes[4]": 199,
+  "bytes[5]": 27,
+  "bytes[6]": 238,
+  "bytes[7]": 24,
+  "bytes[8]": 60,
+  "bytes[9]": 5,
+  "bytes[10]": 154,
+  "bytes[11]": 101,
+  "bytes[12]": 100,
+  "bytes[13]": 70,
+  "bytes[14]": 126,
+  "bytes[15]": 119
+ },
+ "m_ClassName": "EditorDecorationRenderer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

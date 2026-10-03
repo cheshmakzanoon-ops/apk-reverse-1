@@ -1,0 +1,25 @@
+{
+ "m_Name": "SceneSpriteSlider",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 210,
+  "bytes[1]": 160,
+  "bytes[2]": 42,
+  "bytes[3]": 2,
+  "bytes[4]": 104,
+  "bytes[5]": 101,
+  "bytes[6]": 18,
+  "bytes[7]": 18,
+  "bytes[8]": 235,
+  "bytes[9]": 185,
+  "bytes[10]": 95,
+  "bytes[11]": 246,
+  "bytes[12]": 138,
+  "bytes[13]": 86,
+  "bytes[14]": 14,
+  "bytes[15]": 16
+ },
+ "m_ClassName": "SceneSpriteSlider",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

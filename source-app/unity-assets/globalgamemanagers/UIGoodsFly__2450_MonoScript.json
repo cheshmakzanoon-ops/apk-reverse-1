@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIGoodsFly",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 183,
+  "bytes[1]": 79,
+  "bytes[2]": 137,
+  "bytes[3]": 178,
+  "bytes[4]": 13,
+  "bytes[5]": 26,
+  "bytes[6]": 137,
+  "bytes[7]": 161,
+  "bytes[8]": 203,
+  "bytes[9]": 228,
+  "bytes[10]": 158,
+  "bytes[11]": 249,
+  "bytes[12]": 54,
+  "bytes[13]": 189,
+  "bytes[14]": 78,
+  "bytes[15]": 47
+ },
+ "m_ClassName": "UIGoodsFly",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

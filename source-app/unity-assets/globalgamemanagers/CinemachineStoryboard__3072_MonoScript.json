@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineStoryboard",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 181,
+  "bytes[1]": 235,
+  "bytes[2]": 8,
+  "bytes[3]": 181,
+  "bytes[4]": 120,
+  "bytes[5]": 162,
+  "bytes[6]": 242,
+  "bytes[7]": 216,
+  "bytes[8]": 11,
+  "bytes[9]": 177,
+  "bytes[10]": 6,
+  "bytes[11]": 203,
+  "bytes[12]": 230,
+  "bytes[13]": 90,
+  "bytes[14]": 181,
+  "bytes[15]": 1
+ },
+ "m_ClassName": "CinemachineStoryboard",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

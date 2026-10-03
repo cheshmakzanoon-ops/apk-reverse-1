@@ -1,0 +1,25 @@
+{
+ "m_Name": "PageView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 18,
+  "bytes[1]": 90,
+  "bytes[2]": 59,
+  "bytes[3]": 113,
+  "bytes[4]": 111,
+  "bytes[5]": 75,
+  "bytes[6]": 56,
+  "bytes[7]": 1,
+  "bytes[8]": 211,
+  "bytes[9]": 41,
+  "bytes[10]": 238,
+  "bytes[11]": 41,
+  "bytes[12]": 20,
+  "bytes[13]": 143,
+  "bytes[14]": 213,
+  "bytes[15]": 209
+ },
+ "m_ClassName": "PageView",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

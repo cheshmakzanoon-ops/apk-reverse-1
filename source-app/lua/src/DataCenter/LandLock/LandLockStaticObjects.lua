@@ -1,0 +1,2 @@
+local LandLockStaticObjects = {}
+return LandLockStaticObjects

@@ -1,0 +1,25 @@
+{
+ "m_Name": "XYLayoutGroup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 168,
+  "bytes[1]": 117,
+  "bytes[2]": 245,
+  "bytes[3]": 152,
+  "bytes[4]": 245,
+  "bytes[5]": 129,
+  "bytes[6]": 46,
+  "bytes[7]": 218,
+  "bytes[8]": 132,
+  "bytes[9]": 125,
+  "bytes[10]": 235,
+  "bytes[11]": 91,
+  "bytes[12]": 10,
+  "bytes[13]": 158,
+  "bytes[14]": 175,
+  "bytes[15]": 239
+ },
+ "m_ClassName": "XYLayoutGroup",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "HitColorOrEmission",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 213,
+  "bytes[1]": 8,
+  "bytes[2]": 114,
+  "bytes[3]": 193,
+  "bytes[4]": 155,
+  "bytes[5]": 112,
+  "bytes[6]": 16,
+  "bytes[7]": 10,
+  "bytes[8]": 242,
+  "bytes[9]": 220,
+  "bytes[10]": 24,
+  "bytes[11]": 152,
+  "bytes[12]": 100,
+  "bytes[13]": 218,
+  "bytes[14]": 141,
+  "bytes[15]": 166
+ },
+ "m_ClassName": "HitColorOrEmission",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,16 @@
+local UIWorldDeclareWarInfoCtrl = BaseClass("UIWorldDeclareWarInfoCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager.Instance:DestroyWindow(UIWindowNames.UIWorldDeclareWarInfo)
+end
+
+local function JumpToTargetPoint(self, pointId)
+  if pointId ~= 0 then
+    self:CloseSelf()
+    GoToUtil.GotoWorldPos(SceneUtils.TileIndexToWorld(pointId, ForceChangeScene.World), CS.SceneManager.World.InitZoom)
+  end
+end
+
+UIWorldDeclareWarInfoCtrl.CloseSelf = CloseSelf
+UIWorldDeclareWarInfoCtrl.JumpToTargetPoint = JumpToTargetPoint
+return UIWorldDeclareWarInfoCtrl

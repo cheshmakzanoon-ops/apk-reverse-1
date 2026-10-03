@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineExternalCamera",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 109,
+  "bytes[1]": 211,
+  "bytes[2]": 220,
+  "bytes[3]": 17,
+  "bytes[4]": 148,
+  "bytes[5]": 46,
+  "bytes[6]": 152,
+  "bytes[7]": 192,
+  "bytes[8]": 168,
+  "bytes[9]": 9,
+  "bytes[10]": 200,
+  "bytes[11]": 31,
+  "bytes[12]": 149,
+  "bytes[13]": 252,
+  "bytes[14]": 150,
+  "bytes[15]": 12
+ },
+ "m_ClassName": "CinemachineExternalCamera",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

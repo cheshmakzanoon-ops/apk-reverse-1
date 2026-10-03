@@ -1,0 +1,26 @@
+using System;
+using System.Runtime.CompilerServices;
+using UnityEngine;
+
+[Serializable]
+public struct DecorationTransformInfo
+{
+	public Vector3 pos;
+
+	public Vector3 rotation;
+
+	public Vector3 scale;
+
+	[NonSerialized]
+	public Quaternion rot_quat;
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static DecorationTransformInfo Create(Vector3 pos, Vector3 rotation, Vector3 scale)
+	{
+		DecorationTransformInfo result = default(DecorationTransformInfo);
+		result.pos = pos;
+		result.rotation = rotation;
+		result.scale = scale;
+		return result;
+	}
+}

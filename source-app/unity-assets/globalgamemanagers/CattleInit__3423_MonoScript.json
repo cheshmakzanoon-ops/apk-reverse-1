@@ -1,0 +1,25 @@
+{
+ "m_Name": "CattleInit",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 139,
+  "bytes[1]": 22,
+  "bytes[2]": 30,
+  "bytes[3]": 126,
+  "bytes[4]": 82,
+  "bytes[5]": 222,
+  "bytes[6]": 83,
+  "bytes[7]": 173,
+  "bytes[8]": 230,
+  "bytes[9]": 173,
+  "bytes[10]": 153,
+  "bytes[11]": 223,
+  "bytes[12]": 229,
+  "bytes[13]": 110,
+  "bytes[14]": 85,
+  "bytes[15]": 251
+ },
+ "m_ClassName": "CattleInit",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

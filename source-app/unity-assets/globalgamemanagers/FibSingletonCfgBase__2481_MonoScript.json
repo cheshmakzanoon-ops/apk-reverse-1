@@ -1,0 +1,25 @@
+{
+ "m_Name": "FibSingletonCfgBase",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 39,
+  "bytes[1]": 97,
+  "bytes[2]": 124,
+  "bytes[3]": 85,
+  "bytes[4]": 76,
+  "bytes[5]": 196,
+  "bytes[6]": 194,
+  "bytes[7]": 220,
+  "bytes[8]": 29,
+  "bytes[9]": 225,
+  "bytes[10]": 231,
+  "bytes[11]": 241,
+  "bytes[12]": 97,
+  "bytes[13]": 121,
+  "bytes[14]": 96,
+  "bytes[15]": 3
+ },
+ "m_ClassName": "FibSingletonCfgBase",
+ "m_Namespace": "FibMatrix.BaseUtils",
+ "m_AssemblyName": "FibMatrix.BaseUtils.dll"
+}

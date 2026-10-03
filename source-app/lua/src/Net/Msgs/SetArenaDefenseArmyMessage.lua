@@ -1,0 +1,34 @@
+local SetArenaDefenseArmyMessage = BaseClass("SetArenaDefenseArmyMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, heroes, power)
+  base.OnCreate(self)
+  if heroes then
+    local heroesArray = SFSArray.New()
+    for i, hero in pairs(heroes) do
+      local obj = SFSObject.New()
+      obj:PutInt("index", hero.index)
+      obj:PutLong("uuid", hero.uuid)
+      heroesArray:AddSFSObject(obj)
+    end
+    self.sfsObj:PutSFSArray("heroes", heroesArray)
+  end
+  if power then
+    self.sfsObj:PutLong("power", math.modf(power))
+  end
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.ArenaManager:UpdateBaseInfo(t)
+  end
+end
+
+SetArenaDefenseArmyMessage.OnCreate = OnCreate
+SetArenaDefenseArmyMessage.HandleMessage = HandleMessage
+return SetArenaDefenseArmyMessage

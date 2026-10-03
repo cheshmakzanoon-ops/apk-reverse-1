@@ -1,0 +1,25 @@
+{
+ "m_Name": "RecycledListView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 217,
+  "bytes[1]": 247,
+  "bytes[2]": 36,
+  "bytes[3]": 104,
+  "bytes[4]": 168,
+  "bytes[5]": 51,
+  "bytes[6]": 97,
+  "bytes[7]": 194,
+  "bytes[8]": 225,
+  "bytes[9]": 94,
+  "bytes[10]": 214,
+  "bytes[11]": 138,
+  "bytes[12]": 198,
+  "bytes[13]": 252,
+  "bytes[14]": 195,
+  "bytes[15]": 107
+ },
+ "m_ClassName": "RecycledListView",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

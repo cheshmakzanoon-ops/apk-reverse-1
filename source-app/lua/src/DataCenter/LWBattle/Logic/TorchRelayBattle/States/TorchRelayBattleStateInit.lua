@@ -1,0 +1,78 @@
+local FSMachine = require("Common.FSMachine")
+local State = {}
+State.__index = State
+setmetatable(State, FSMachine.State)
+local TorchConstant = require("DataCenter/LWBattle/Logic/TorchRelayBattle/TorchRelayBattleConstant")
+
+function State.Create()
+  local copy = {}
+  setmetatable(copy, State)
+  copy:Init()
+  return copy
+end
+
+function State:Init()
+  self.syncCamera = false
+  self.canInput = false
+end
+
+function State:OnEnter()
+  self:InitCamera()
+  self:InitInput()
+end
+
+function State:InitCamera()
+  local height = 20
+  local fov = 60
+  local rotation = TorchConstant.CAMERA_X_ANGLE
+  if not self.owner or not self.owner.battleMgr then
+    return
+  end
+  local camera = self.owner.battleMgr.camera
+  camera.fieldOfView = fov
+  camera.transform:Set_eulerAngles(rotation, 0, 0)
+  self.owner.camera = camera
+  local hudCamera = self.owner.battleMgr.hudCamera
+  hudCamera.fieldOfView = fov
+  local touchCamera = self.owner.battleMgr.touchCamera
+  touchCamera.CanMoveing = false
+  touchCamera.CamZoom = height
+  touchCamera.LodLevel = 1
+  self.owner.touchCamera = touchCamera
+  local offsetZ = height / math.tan(rotation * math.pi / 180)
+  touchCamera:SetZoomParams(1, height, offsetZ, 25)
+  touchCamera.CamZoomMin = 20
+end
+
+function State:InitInput()
+  local touchInput = self.owner.battleMgr.touchCamera.touchInput
+  
+  function self.onFingerDown(pos)
+    self.owner:OnFingerDown(pos)
+  end
+  
+  function self.onFingerUp()
+    self.owner:OnFingerUp()
+  end
+  
+  touchInput:OnFingerDown("+", self.onFingerDown)
+  touchInput:OnFingerUp("+", self.onFingerUp)
+end
+
+function State:Dispose()
+  local touchCamera = self.owner.battleMgr.touchCamera
+  if touchCamera then
+    touchCamera.CanMoveing = true
+    local touchInput = touchCamera.touchInput
+    if touchInput then
+      if self.onFingerDown then
+        touchInput:OnFingerDown("-", self.onFingerDown)
+      end
+      if self.onFingerUp then
+        touchInput:OnFingerUp("-", self.onFingerUp)
+      end
+    end
+  end
+end
+
+return State

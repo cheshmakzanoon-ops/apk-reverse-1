@@ -1,0 +1,25 @@
+{
+ "m_Name": "SuperTextMesh",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 71,
+  "bytes[1]": 195,
+  "bytes[2]": 153,
+  "bytes[3]": 44,
+  "bytes[4]": 50,
+  "bytes[5]": 50,
+  "bytes[6]": 140,
+  "bytes[7]": 98,
+  "bytes[8]": 41,
+  "bytes[9]": 123,
+  "bytes[10]": 4,
+  "bytes[11]": 197,
+  "bytes[12]": 201,
+  "bytes[13]": 189,
+  "bytes[14]": 230,
+  "bytes[15]": 255
+ },
+ "m_ClassName": "SuperTextMesh",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

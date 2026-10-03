@@ -1,0 +1,25 @@
+{
+ "m_Name": "BasementGetResourceWater",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 15,
+  "bytes[1]": 3,
+  "bytes[2]": 66,
+  "bytes[3]": 181,
+  "bytes[4]": 78,
+  "bytes[5]": 93,
+  "bytes[6]": 161,
+  "bytes[7]": 240,
+  "bytes[8]": 178,
+  "bytes[9]": 45,
+  "bytes[10]": 207,
+  "bytes[11]": 128,
+  "bytes[12]": 197,
+  "bytes[13]": 127,
+  "bytes[14]": 122,
+  "bytes[15]": 201
+ },
+ "m_ClassName": "BasementGetResourceWater",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

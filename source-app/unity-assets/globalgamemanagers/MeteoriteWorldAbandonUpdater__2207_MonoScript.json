@@ -1,0 +1,25 @@
+{
+ "m_Name": "MeteoriteWorldAbandonUpdater",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 85,
+  "bytes[1]": 8,
+  "bytes[2]": 18,
+  "bytes[3]": 94,
+  "bytes[4]": 211,
+  "bytes[5]": 24,
+  "bytes[6]": 161,
+  "bytes[7]": 214,
+  "bytes[8]": 91,
+  "bytes[9]": 51,
+  "bytes[10]": 11,
+  "bytes[11]": 173,
+  "bytes[12]": 17,
+  "bytes[13]": 244,
+  "bytes[14]": 62,
+  "bytes[15]": 219
+ },
+ "m_ClassName": "MeteoriteWorldAbandonUpdater",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

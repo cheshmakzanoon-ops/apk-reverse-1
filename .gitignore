@@ -1,24 +1,47 @@
-# Recovered payloads are generated, not authored.
+# Recovered SOURCE is tracked (source-app/{lua,data-tables-lua,src,csharp,
+# unity-assets}). Everything below is either an input the pipeline consumes, an
+# intermediate it passes through, or a container too large for GitHub.
 #
-# The working tree is ~4.2 GB, and three files (the 775 MB APK and two 498 MB
-# copies of BundleFragment0.bytes) exceed GitHub's 100 MB per-file hard limit,
-# so they cannot be pushed at all. Every one of these paths is reproduced
-# deterministically by the committed pipeline from input/app.apk - see the
+# The working tree is ~4.2 GB; the APK and two copies of BundleFragment0.bytes
+# exceed GitHub's 100 MB per-file hard limit and cannot be pushed at all. The
+# rules here exclude only regenerable bytes - every path below is reproduced
+# deterministically by the committed pipeline from input/app.apk, so see the
 # "Reproducing" section of README.md.
 #
 # Verify that claim rather than trusting it: the pipeline is idempotent and its
 # step guards fail loudly, so a rerun either reproduces the same file counts or
 # exits non-zero.
 
-# the APK under analysis, plus any other input
-input/
+# --- inputs ---------------------------------------------------------------
+# The APK under analysis, plus any other input; and the raw extraction of DEX,
+# native .so, decoded resources and the Unity asset payload.
+#
+# Both rules are ANCHORED to the repository root on purpose. A bare `input/`
+# also matches any directory named "input" at any depth, which silently
+# excluded 269 recovered files under
+# source-app/src/sources/androidx/compose/**/input/ (the AndroidX Compose UI
+# input-handling package) - check 22 in tools/ci-checks.sh guards against a
+# tracked file ever matching an ignore rule again.
+/input/
 
-# raw extraction: DEX, native .so, decoded resources, Unity asset payload
-decompiled/
+/decompiled/
 
-# decompiler output: Java, C#, Lua, config tables, extracted assets
-source-app/
+# --- intermediates of a decompile run (not source) --------------------------
+# Original bytecode the decompiler consumes. The recovered .lua sitting next to
+# it is the deliverable; keeping both would double the Lua tree for nothing.
+source-app/**/*.luac
 
+# Raw config-table bytecode extracted from assets/table/*.data. The decompiled
+# .lua lives in source-app/data-tables-lua/.
+source-app/data-tables/
+
+# Extracted art binaries. 142 MB of PNG so far, and the bundle sweep is only
+# 19% complete, so committing it would freeze an unfinished snapshot in
+# immutable history and add ~140 MB to every resume. Reproduce with
+# STEPS=bundles bash tools/decompile.sh.
+source-app/game-assets/
+
+# --- build output ---------------------------------------------------------
 # build output of the Lua decompiler driver (rebuilt by tools/decompile.sh)
 tools/unluac-batch/classes/
 
@@ -26,7 +49,7 @@ tools/unluac-batch/classes/
 tools/peprobe/bin/
 tools/peprobe/obj/
 
-# per-run diagnostics; regenerated on each decompile run
+# --- per-run diagnostics; regenerated on each decompile run ----------------
 unluac-failures.tsv
 unluac-failures-tables.tsv
 

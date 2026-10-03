@@ -1,0 +1,2 @@
+local WebUtil = {}
+return WebUtil

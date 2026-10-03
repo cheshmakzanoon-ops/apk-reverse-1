@@ -1,0 +1,201 @@
+package com.google.zxing.common.detector;
+
+import com.google.zxing.NotFoundException;
+import com.google.zxing.ResultPoint;
+import com.google.zxing.common.BitMatrix;
+import com.ishumei.smantifraud.l1l11lI1l;
+
+@Deprecated
+public final class MonochromeRectangleDetector {
+    private static final int MAX_MODULES = 32;
+    private final BitMatrix image;
+
+    public MonochromeRectangleDetector(BitMatrix bitMatrix) {
+        this.image = bitMatrix;
+    }
+
+    public ResultPoint[] detect() throws NotFoundException {
+        int height = this.image.getHeight();
+        int width = this.image.getWidth();
+        int i = height / 2;
+        int i2 = width / 2;
+        int iMax = Math.max(1, height / l1l11lI1l.l111l11111lIl);
+        int iMax2 = Math.max(1, width / l1l11lI1l.l111l11111lIl);
+        int i3 = -iMax;
+        int i4 = i2 / 2;
+        int y = ((int) findCornerFromCenter(i2, 0, 0, width, i, i3, 0, height, i4).getY()) - 1;
+        int i5 = i / 2;
+        ResultPoint resultPointFindCornerFromCenter = findCornerFromCenter(i2, -iMax2, 0, width, i, 0, y, height, i5);
+        int x = ((int) resultPointFindCornerFromCenter.getX()) - 1;
+        ResultPoint resultPointFindCornerFromCenter2 = findCornerFromCenter(i2, iMax2, x, width, i, 0, y, height, i5);
+        int x2 = ((int) resultPointFindCornerFromCenter2.getX()) + 1;
+        ResultPoint resultPointFindCornerFromCenter3 = findCornerFromCenter(i2, 0, x, x2, i, iMax, y, height, i4);
+        return new ResultPoint[]{findCornerFromCenter(i2, 0, x, x2, i, i3, y, ((int) resultPointFindCornerFromCenter3.getY()) + 1, i2 / 4), resultPointFindCornerFromCenter, resultPointFindCornerFromCenter2, resultPointFindCornerFromCenter3};
+    }
+
+    private ResultPoint findCornerFromCenter(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) throws NotFoundException {
+        int[] iArrBlackWhiteRange;
+        int[] iArr = null;
+        int i10 = i;
+        int i11 = i5;
+        while (i11 < i8 && i11 >= i7 && i10 < i4 && i10 >= i3) {
+            if (i2 == 0) {
+                iArrBlackWhiteRange = blackWhiteRange(i11, i9, i3, i4, true);
+            } else {
+                iArrBlackWhiteRange = blackWhiteRange(i10, i9, i7, i8, false);
+            }
+            if (iArrBlackWhiteRange == null) {
+                if (iArr == null) {
+                    throw NotFoundException.getNotFoundInstance();
+                }
+                if (i2 == 0) {
+                    int i12 = i11 - i6;
+                    if (iArr[0] < i) {
+                        if (iArr[1] > i) {
+                            return new ResultPoint(iArr[i6 > 0 ? (char) 0 : (char) 1], i12);
+                        }
+                        return new ResultPoint(iArr[0], i12);
+                    }
+                    return new ResultPoint(iArr[1], i12);
+                }
+                int i13 = i10 - i2;
+                if (iArr[0] < i5) {
+                    if (iArr[1] > i5) {
+                        return new ResultPoint(i13, iArr[i2 < 0 ? (char) 0 : (char) 1]);
+                    }
+                    return new ResultPoint(i13, iArr[0]);
+                }
+                return new ResultPoint(i13, iArr[1]);
+            }
+            i11 += i6;
+            i10 += i2;
+            iArr = iArrBlackWhiteRange;
+        }
+        throw NotFoundException.getNotFoundInstance();
+    }
+
+    private int[] blackWhiteRange(int i, int i2, int i3, int i4, boolean z) {
+        int i5;
+        BitMatrix bitMatrix;
+        int i6;
+        BitMatrix bitMatrix2;
+        int i7 = (i3 + i4) / 2;
+        int i8 = i7;
+        while (i8 >= i3) {
+            BitMatrix bitMatrix3 = this.image;
+            if (!z) {
+                if (!bitMatrix3.get(i, i8)) {
+                    i6 = i8;
+                    while (true) {
+                        i6--;
+                        if (i6 >= i3) {
+                            break;
+                            break;
+                        }
+                        bitMatrix2 = this.image;
+                        if (z) {
+                            if (bitMatrix2.get(i6, i)) {
+                                break;
+                                break;
+                            }
+                        } else if (bitMatrix2.get(i, i6)) {
+                            break;
+                            break;
+                        }
+                    }
+                    int i9 = i8 - i6;
+                    if (i6 < i3) {
+                        break;
+                    }
+                    break;
+                    break;
+                }
+                i8--;
+            } else if (bitMatrix3.get(i8, i)) {
+                i8--;
+            } else {
+                i6 = i8;
+                while (true) {
+                    i6--;
+                    if (i6 >= i3) {
+                        break;
+                    }
+                    bitMatrix2 = this.image;
+                    if (z) {
+                        if (bitMatrix2.get(i6, i)) {
+                            break;
+                        }
+                    } else if (bitMatrix2.get(i, i6)) {
+                        break;
+                    }
+                }
+                int i10 = i8 - i6;
+                if (i6 < i3 || i10 > i2) {
+                    break;
+                }
+                i8 = i6;
+            }
+        }
+        int i11 = i8 + 1;
+        while (i7 < i4) {
+            BitMatrix bitMatrix4 = this.image;
+            if (!z) {
+                if (!bitMatrix4.get(i, i7)) {
+                    i5 = i7;
+                    while (true) {
+                        i5++;
+                        if (i5 < i4) {
+                            break;
+                            break;
+                        }
+                        bitMatrix = this.image;
+                        if (z) {
+                            if (bitMatrix.get(i5, i)) {
+                                break;
+                                break;
+                            }
+                        } else if (bitMatrix.get(i, i5)) {
+                            break;
+                            break;
+                        }
+                    }
+                    int i12 = i5 - i7;
+                    if (i5 >= i4) {
+                        break;
+                    }
+                    break;
+                    break;
+                }
+                i7++;
+            } else if (bitMatrix4.get(i7, i)) {
+                i7++;
+            } else {
+                i5 = i7;
+                while (true) {
+                    i5++;
+                    if (i5 < i4) {
+                        break;
+                    }
+                    bitMatrix = this.image;
+                    if (z) {
+                        if (bitMatrix.get(i5, i)) {
+                            break;
+                        }
+                    } else if (bitMatrix.get(i, i5)) {
+                        break;
+                    }
+                }
+                int i13 = i5 - i7;
+                if (i5 >= i4 || i13 > i2) {
+                    break;
+                }
+                i7 = i5;
+            }
+        }
+        int i14 = i7 - 1;
+        if (i14 > i11) {
+            return new int[]{i11, i14};
+        }
+        return null;
+    }
+}

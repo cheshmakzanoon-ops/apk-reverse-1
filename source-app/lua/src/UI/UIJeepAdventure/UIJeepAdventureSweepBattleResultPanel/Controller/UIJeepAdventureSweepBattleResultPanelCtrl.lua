@@ -1,0 +1,8 @@
+local UIJeepAdventureSweepBattleResultPanelCtrl = BaseClass("UIJeepAdventureSweepBattleResultPanelCtrl", UIBaseCtrl)
+
+local function CloseSelf(self)
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIJeepAdventureSweepBattleResultPanel)
+end
+
+UIJeepAdventureSweepBattleResultPanelCtrl.CloseSelf = CloseSelf
+return UIJeepAdventureSweepBattleResultPanelCtrl

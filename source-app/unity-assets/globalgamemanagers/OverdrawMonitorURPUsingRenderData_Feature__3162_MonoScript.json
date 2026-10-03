@@ -1,0 +1,25 @@
+{
+ "m_Name": "OverdrawMonitorURPUsingRenderData_Feature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 232,
+  "bytes[1]": 87,
+  "bytes[2]": 228,
+  "bytes[3]": 130,
+  "bytes[4]": 147,
+  "bytes[5]": 250,
+  "bytes[6]": 179,
+  "bytes[7]": 12,
+  "bytes[8]": 29,
+  "bytes[9]": 238,
+  "bytes[10]": 141,
+  "bytes[11]": 32,
+  "bytes[12]": 106,
+  "bytes[13]": 127,
+  "bytes[14]": 212,
+  "bytes[15]": 223
+ },
+ "m_ClassName": "OverdrawMonitorURPUsingRenderData_Feature",
+ "m_Namespace": "FibMatrix.PerfTools.RenderDataForURP",
+ "m_AssemblyName": "FibMatrix.PerfTools.dll"
+}

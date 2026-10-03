@@ -1,0 +1,25 @@
+{
+ "m_Name": "WaterHelper",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 245,
+  "bytes[1]": 11,
+  "bytes[2]": 110,
+  "bytes[3]": 202,
+  "bytes[4]": 96,
+  "bytes[5]": 205,
+  "bytes[6]": 186,
+  "bytes[7]": 90,
+  "bytes[8]": 155,
+  "bytes[9]": 244,
+  "bytes[10]": 8,
+  "bytes[11]": 5,
+  "bytes[12]": 76,
+  "bytes[13]": 84,
+  "bytes[14]": 111,
+  "bytes[15]": 7
+ },
+ "m_ClassName": "WaterHelper",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

@@ -1,0 +1,17 @@
+local LWUICommonExchangeShopPanelHorizontalComponent_Base = require("UI.ActivityCommon.LWUICommonExchangeShop.LWUICommonExchangeShopPanelHorizontalComponent_Base")
+local LWUICommonExchangeShopPanelHorizontalComponent_Recycle = BaseClass("LWUICommonExchangeShopPanelHorizontalComponent_Recycle", LWUICommonExchangeShopPanelHorizontalComponent_Base)
+
+function LWUICommonExchangeShopPanelHorizontalComponent_Recycle:RefreshCostInfo()
+end
+
+function LWUICommonExchangeShopPanelHorizontalComponent_Recycle:OnAddListener()
+  LWUICommonExchangeShopPanelHorizontalComponent_Base.OnAddListener(self)
+  self:AddUIListener(EventId.RefreshResourceItem, self.OnRefreshPanel)
+end
+
+function LWUICommonExchangeShopPanelHorizontalComponent_Recycle:OnRemoveListener()
+  self:RemoveUIListener(EventId.RefreshResourceItem, self.OnRefreshPanel)
+  LWUICommonExchangeShopPanelHorizontalComponent_Base.OnRemoveListener(self)
+end
+
+return LWUICommonExchangeShopPanelHorizontalComponent_Recycle

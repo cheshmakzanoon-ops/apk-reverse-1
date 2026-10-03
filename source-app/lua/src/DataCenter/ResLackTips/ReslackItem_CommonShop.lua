@@ -1,0 +1,25 @@
+local ResLackItemBase = require("DataCenter.ResLackTips.ResLackItemBase")
+local ReslackItem_CommonShop = BaseClass("ReslackItem_CommonShop", ResLackItemBase)
+
+function ReslackItem_CommonShop:CheckIsOk(_itemId, _needCnt)
+  if LuaEntry.DataConfig:CheckSwitch("APS_shop_limit") then
+    local limitShopNeedBaseLv = LuaEntry.DataConfig:TryGetNum("shop_random", "k4")
+    if limitShopNeedBaseLv <= DataCenter.BuildManager.MainLv then
+      self.goodsList = DataCenter.CommonShopManager:GetGoodsListByShopType(CommonShopType.LimitTime)
+      if next(self.goodsList) then
+        for i = 1, #self.goodsList do
+          if tonumber(self.goodsList[i].itemId) == _itemId then
+            return true
+          end
+        end
+      end
+    end
+  end
+  return false
+end
+
+function ReslackItem_CommonShop:TodoAction()
+  UIManager:GetInstance():OpenWindow(UIWindowNames.UICommonShop, {anim = true}, CommonShopType.Goods)
+end
+
+return ReslackItem_CommonShop

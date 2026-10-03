@@ -1,0 +1,38 @@
+local TeamStateDefense = BaseClass("TeamStateDefense")
+
+function TeamStateDefense:__init(team)
+  self.team = team
+end
+
+function TeamStateDefense:__delete()
+  self.team = nil
+end
+
+function TeamStateDefense:OnEnter(destination)
+end
+
+function TeamStateDefense:OnExit()
+end
+
+function TeamStateDefense:OnUpdate(deltaTime)
+end
+
+function TeamStateDefense:HandleInput(input, param)
+end
+
+function TeamStateDefense:OnTransToSelf(x)
+  local position = self.team:GetPosition()
+  local nowX = position.x
+  local offset = x - nowX
+  local dir = 1
+  if offset < 0 then
+    dir = -1
+  end
+  local move = self.team.speedX * Time.deltaTime * dir
+  if math.abs(move) > math.abs(offset) then
+    move = offset
+  end
+  self.team:SetPosition(nowX + move, position.z)
+end
+
+return TeamStateDefense

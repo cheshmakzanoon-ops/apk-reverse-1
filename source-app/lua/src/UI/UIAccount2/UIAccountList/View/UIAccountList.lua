@@ -1,0 +1,110 @@
+local UIAccountListCell = require("UI.UIAccount2.UIAccountList.Component.UIAccountListCell")
+local UIAccountList = BaseClass("UIAccountList", UIBaseView)
+local base = UIBaseView
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:DataDefine()
+  self:OnOpen()
+end
+
+local function OnDestroy(self)
+  self:ClearScroll()
+  self:ComponentDestroy()
+  self:DataDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDefine(self)
+  self.textTitle = self:AddComponent(UIText, "Root/title_main")
+  self.textBtnAdd = self:AddComponent(UIText, "Root/BtnAddAccount/TextAddAcount")
+  self.textBottomTip = self:AddComponent(UIText, "Root/TextBottomTip")
+  self.btnClose = self:AddComponent(UIButton, "Root/BtnClose")
+  self.btnAddAccount = self:AddComponent(UIButton, "Root/BtnAddAccount")
+  self.scrollView = self:AddComponent(UIScrollView, "Root/Common_bg1/ScrollView")
+  self.scrollView:SetOnItemMoveIn(function(itemObj, index)
+    self:OnCellMoveIn(itemObj, index)
+  end)
+  self.scrollView:SetOnItemMoveOut(function(itemObj, index)
+    self:OnCellMoveOut(itemObj, index)
+  end)
+  self.textTitle:SetLocalText(280145)
+  self.textBtnAdd:SetLocalText(280143)
+  self.textBottomTip:SetLocalText(280149)
+  self.btnClose:SetOnClick(BindCallback(self.ctrl, self.ctrl.CloseSelf))
+  self.btnAddAccount:SetOnClick(BindCallback(self, self.OnAddBtnClick))
+end
+
+local function ComponentDestroy(self)
+  self.textTitle = nil
+  self.textBtnAdd = nil
+  self.textBottomTip = nil
+  self.btnClose = nil
+  self.btnAddAccount = nil
+  self.scrollView = nil
+end
+
+local function DataDefine(self)
+  self.list = {}
+end
+
+local function DataDestroy(self)
+  self.list = nil
+end
+
+local function OnOpen(self)
+  self:ShowCells()
+end
+
+local function ShowCells(self)
+  self:ClearScroll()
+  local curAccount = DataCenter.AccountManager.MailAccount.gameAccount
+  local temp = DataCenter.AccountManager:GetAllAccount()
+  self.list = {}
+  if temp ~= nil then
+    for _, v in pairs(temp) do
+      local pos = v.account == curAccount and 1 or #self.list + 1
+      table.insert(self.list, pos, v)
+    end
+  end
+  local tempCount = table.count(self.list)
+  if 0 < tempCount then
+    self.scrollView:SetTotalCount(tempCount)
+    self.scrollView:RefillCells()
+  end
+end
+
+local function OnCellMoveIn(self, itemObj, index)
+  itemObj.name = tostring(index)
+  local cellItem = self.scrollView:AddComponent(UIAccountListCell, itemObj)
+  cellItem:SetData(self.list[index], BindCallback(self, self.ShowCells))
+end
+
+local function OnCellMoveOut(self, itemObj, index)
+  self.scrollView:RemoveComponent(itemObj.name, UIAccountListCell)
+end
+
+local function ClearScroll(self)
+  self.scrollView:ClearCells()
+  self.scrollView:RemoveComponents(UIAccountListCell)
+end
+
+local function OnAddBtnClick(self)
+  UIManager:GetInstance():OpenWindow(UIWindowNames.UIAddAccount, 110008)
+end
+
+UIAccountList.OnCreate = OnCreate
+UIAccountList.OnDestroy = OnDestroy
+UIAccountList.ComponentDefine = ComponentDefine
+UIAccountList.ComponentDestroy = ComponentDestroy
+UIAccountList.DataDefine = DataDefine
+UIAccountList.DataDestroy = DataDestroy
+UIAccountList.OnOpen = OnOpen
+UIAccountList.ShowCells = ShowCells
+UIAccountList.OnCellMoveIn = OnCellMoveIn
+UIAccountList.OnCellMoveOut = OnCellMoveOut
+UIAccountList.ClearScroll = ClearScroll
+UIAccountList.OnAddBtnClick = OnAddBtnClick
+return UIAccountList

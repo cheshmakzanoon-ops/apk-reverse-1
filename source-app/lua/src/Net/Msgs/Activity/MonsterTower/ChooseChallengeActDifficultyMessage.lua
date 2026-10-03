@@ -1,0 +1,23 @@
+local ChooseChallengeActDifficultyMessage = BaseClass("ChooseChallengeActDifficultyMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+local Localization = CS.GameEntry.Localization
+
+local function OnCreate(self, activityId, difficulty)
+  base.OnCreate(self)
+  self.sfsObj:PutInt("activityId", activityId)
+  self.sfsObj:PutInt("difficulty", difficulty)
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  local errCode = t.errorCode
+  if errCode ~= nil then
+    UIUtil.ShowTipsId(errCode)
+  else
+    DataCenter.ActMonsterTowerData:ChooseDiffHandle(t)
+  end
+end
+
+ChooseChallengeActDifficultyMessage.OnCreate = OnCreate
+ChooseChallengeActDifficultyMessage.HandleMessage = HandleMessage
+return ChooseChallengeActDifficultyMessage

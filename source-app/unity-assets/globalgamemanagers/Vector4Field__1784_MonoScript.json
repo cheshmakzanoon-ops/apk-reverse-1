@@ -1,0 +1,25 @@
+{
+ "m_Name": "Vector4Field",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 131,
+  "bytes[1]": 131,
+  "bytes[2]": 156,
+  "bytes[3]": 213,
+  "bytes[4]": 182,
+  "bytes[5]": 150,
+  "bytes[6]": 23,
+  "bytes[7]": 54,
+  "bytes[8]": 69,
+  "bytes[9]": 164,
+  "bytes[10]": 36,
+  "bytes[11]": 16,
+  "bytes[12]": 34,
+  "bytes[13]": 220,
+  "bytes[14]": 116,
+  "bytes[15]": 99
+ },
+ "m_ClassName": "Vector4Field",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

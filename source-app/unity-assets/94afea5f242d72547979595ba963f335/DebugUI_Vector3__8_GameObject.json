@@ -1,0 +1,38 @@
+{
+ "m_Component": [
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 26
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 47
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 48
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 44
+   }
+  },
+  {
+   "component": {
+    "m_FileID": 0,
+    "m_PathID": 60
+   }
+  }
+ ],
+ "m_Layer": 0,
+ "m_Name": "DebugUI Vector3",
+ "m_Tag": 0,
+ "m_IsActive": true
+}

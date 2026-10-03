@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIParticle",
+ "m_ExecutionOrder": -100,
+ "m_PropertiesHash": {
+  "bytes[0]": 104,
+  "bytes[1]": 210,
+  "bytes[2]": 70,
+  "bytes[3]": 9,
+  "bytes[4]": 102,
+  "bytes[5]": 64,
+  "bytes[6]": 168,
+  "bytes[7]": 242,
+  "bytes[8]": 78,
+  "bytes[9]": 127,
+  "bytes[10]": 151,
+  "bytes[11]": 8,
+  "bytes[12]": 147,
+  "bytes[13]": 212,
+  "bytes[14]": 90,
+  "bytes[15]": 218
+ },
+ "m_ClassName": "UIParticle",
+ "m_Namespace": "Coffee.UIExtensions",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

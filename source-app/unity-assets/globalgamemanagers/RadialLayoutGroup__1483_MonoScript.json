@@ -1,0 +1,25 @@
+{
+ "m_Name": "RadialLayoutGroup",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 31,
+  "bytes[1]": 109,
+  "bytes[2]": 228,
+  "bytes[3]": 106,
+  "bytes[4]": 98,
+  "bytes[5]": 37,
+  "bytes[6]": 183,
+  "bytes[7]": 5,
+  "bytes[8]": 63,
+  "bytes[9]": 120,
+  "bytes[10]": 108,
+  "bytes[11]": 213,
+  "bytes[12]": 182,
+  "bytes[13]": 10,
+  "bytes[14]": 141,
+  "bytes[15]": 193
+ },
+ "m_ClassName": "RadialLayoutGroup",
+ "m_Namespace": "SuperScrollView",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

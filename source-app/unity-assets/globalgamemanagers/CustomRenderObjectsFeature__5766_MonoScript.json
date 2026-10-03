@@ -1,0 +1,25 @@
+{
+ "m_Name": "CustomRenderObjectsFeature",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 146,
+  "bytes[1]": 80,
+  "bytes[2]": 100,
+  "bytes[3]": 129,
+  "bytes[4]": 30,
+  "bytes[5]": 163,
+  "bytes[6]": 42,
+  "bytes[7]": 111,
+  "bytes[8]": 82,
+  "bytes[9]": 72,
+  "bytes[10]": 201,
+  "bytes[11]": 88,
+  "bytes[12]": 166,
+  "bytes[13]": 168,
+  "bytes[14]": 222,
+  "bytes[15]": 21
+ },
+ "m_ClassName": "CustomRenderObjectsFeature",
+ "m_Namespace": "FibMatrix.Rendering",
+ "m_AssemblyName": "FibMatrix.Rendering.dll"
+}

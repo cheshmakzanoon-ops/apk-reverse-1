@@ -1,0 +1,25 @@
+{
+ "m_Name": "TouchInputModule",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 171,
+  "bytes[1]": 241,
+  "bytes[2]": 147,
+  "bytes[3]": 13,
+  "bytes[4]": 129,
+  "bytes[5]": 38,
+  "bytes[6]": 208,
+  "bytes[7]": 178,
+  "bytes[8]": 224,
+  "bytes[9]": 14,
+  "bytes[10]": 148,
+  "bytes[11]": 73,
+  "bytes[12]": 18,
+  "bytes[13]": 154,
+  "bytes[14]": 1,
+  "bytes[15]": 144
+ },
+ "m_ClassName": "TouchInputModule",
+ "m_Namespace": "UnityEngine.EventSystems",
+ "m_AssemblyName": "UnityEngine.UI.dll"
+}

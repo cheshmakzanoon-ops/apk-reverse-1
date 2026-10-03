@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScrollLoopText",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 214,
+  "bytes[1]": 221,
+  "bytes[2]": 179,
+  "bytes[3]": 212,
+  "bytes[4]": 94,
+  "bytes[5]": 107,
+  "bytes[6]": 53,
+  "bytes[7]": 113,
+  "bytes[8]": 185,
+  "bytes[9]": 214,
+  "bytes[10]": 232,
+  "bytes[11]": 96,
+  "bytes[12]": 174,
+  "bytes[13]": 212,
+  "bytes[14]": 49,
+  "bytes[15]": 70
+ },
+ "m_ClassName": "ScrollLoopText",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

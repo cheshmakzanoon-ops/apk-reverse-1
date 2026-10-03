@@ -1,0 +1,25 @@
+{
+ "m_Name": "GGGoRuntimeEdit",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 3,
+  "bytes[1]": 238,
+  "bytes[2]": 80,
+  "bytes[3]": 139,
+  "bytes[4]": 160,
+  "bytes[5]": 141,
+  "bytes[6]": 253,
+  "bytes[7]": 75,
+  "bytes[8]": 76,
+  "bytes[9]": 18,
+  "bytes[10]": 182,
+  "bytes[11]": 162,
+  "bytes[12]": 212,
+  "bytes[13]": 197,
+  "bytes[14]": 152,
+  "bytes[15]": 48
+ },
+ "m_ClassName": "GGGoRuntimeEdit",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

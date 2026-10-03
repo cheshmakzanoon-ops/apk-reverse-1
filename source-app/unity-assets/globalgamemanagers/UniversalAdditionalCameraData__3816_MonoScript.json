@@ -1,0 +1,25 @@
+{
+ "m_Name": "UniversalAdditionalCameraData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 233,
+  "bytes[1]": 112,
+  "bytes[2]": 98,
+  "bytes[3]": 136,
+  "bytes[4]": 88,
+  "bytes[5]": 113,
+  "bytes[6]": 194,
+  "bytes[7]": 84,
+  "bytes[8]": 131,
+  "bytes[9]": 225,
+  "bytes[10]": 235,
+  "bytes[11]": 126,
+  "bytes[12]": 85,
+  "bytes[13]": 200,
+  "bytes[14]": 132,
+  "bytes[15]": 115
+ },
+ "m_ClassName": "UniversalAdditionalCameraData",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

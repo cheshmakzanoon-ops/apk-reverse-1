@@ -1,0 +1,7 @@
+local UILWDominatorTrainMainUpgradeSuccessCtrl = BaseClass("UILWDominatorTrainMainUpgradeSuccessCtrl", UIBaseCtrl)
+
+function UILWDominatorTrainMainUpgradeSuccessCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWDominatorTrainUpgradeMainSuccess)
+end
+
+return UILWDominatorTrainMainUpgradeSuccessCtrl

@@ -1,0 +1,25 @@
+{
+ "m_Name": "iTweenValueTo",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 214,
+  "bytes[1]": 188,
+  "bytes[2]": 22,
+  "bytes[3]": 217,
+  "bytes[4]": 84,
+  "bytes[5]": 15,
+  "bytes[6]": 135,
+  "bytes[7]": 250,
+  "bytes[8]": 87,
+  "bytes[9]": 246,
+  "bytes[10]": 160,
+  "bytes[11]": 208,
+  "bytes[12]": 87,
+  "bytes[13]": 56,
+  "bytes[14]": 235,
+  "bytes[15]": 233
+ },
+ "m_ClassName": "iTweenValueTo",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

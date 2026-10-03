@@ -1,0 +1,82 @@
+local UIHeroJigsawReward = BaseClass("UIHeroJigsawReward", UIBaseView)
+local base = UIBaseView
+local Localization = CS.GameEntry.Localization
+local UIRewardItem = require("UI.UIHero2.UIHeroJigsawReward.Component.UIRewardItem")
+
+local function OnCreate(self)
+  base.OnCreate(self)
+  self:ComponentDefine()
+  self:OnOpen()
+end
+
+local function OnDestroy(self)
+  self:ComponentDestroy()
+  base.OnDestroy(self)
+end
+
+local function ComponentDefine(self)
+  local btnClose = self:AddComponent(UIButton, "UICommonRewardPopUp/Panel")
+  btnClose:SetOnClick(BindCallback(self.ctrl, self.ctrl.CloseSelf))
+  self.textTitle = self:AddComponent(UIText, "UICommonRewardPopUp/Panel/ImgTitleBg/TextTitle")
+  self.textTitle:SetLocalText(130065)
+  self.scroll_view = self:AddComponent(UIScrollView, "Root/CellList")
+  self.scroll_view:SetOnItemMoveIn(function(itemObj, index)
+    self:OnCreateCell(itemObj, index)
+  end)
+  self.scroll_view:SetOnItemMoveOut(function(itemObj, index)
+    self:OnDeleteCell(itemObj, index)
+  end)
+end
+
+local function ComponentDestroy(self)
+  self.scroll_view = nil
+end
+
+local function OnCreateCell(self, itemObj, index)
+  itemObj.name = tostring(index)
+  local cellItem = self.scroll_view:AddComponent(UIRewardItem, itemObj)
+  local data = self.dataList[index]
+  cellItem:SetData(data)
+  cellItem:SetActive(true)
+  self.cells[index] = cellItem
+end
+
+local function OnDeleteCell(self, itemObj, index)
+  self.scroll_view:RemoveComponent(itemObj.name, UIRewardItem)
+  self.cells[index] = nil
+end
+
+local function ShowCells(self)
+  self:ClearScroll()
+  self.dataList = self.lotteryHeroData
+  local dataCount = table.count(self.dataList)
+  if dataCount <= 0 then
+    return
+  end
+  self.scroll_view:SetTotalCount(dataCount)
+  self.scroll_view:RefillCells(1)
+end
+
+local function ClearScroll(self)
+  self.scroll_view:ClearCells()
+  self.scroll_view:RemoveComponents(UIRewardItem)
+  self.cells = {}
+end
+
+local function OnOpen(self)
+  local message = self:GetUserData()
+  local lotteryHeroData = message.lotteryHero
+  self.lotteryHeroData = lotteryHeroData
+  self:ShowCells()
+end
+
+UIHeroJigsawReward.OnCreate = OnCreate
+UIHeroJigsawReward.OnDestroy = OnDestroy
+UIHeroJigsawReward.ComponentDefine = ComponentDefine
+UIHeroJigsawReward.ComponentDestroy = ComponentDestroy
+UIHeroJigsawReward.OnCreateCell = OnCreateCell
+UIHeroJigsawReward.OnDeleteCell = OnDeleteCell
+UIHeroJigsawReward.ShowCells = ShowCells
+UIHeroJigsawReward.ClearScroll = ClearScroll
+UIHeroJigsawReward.OnOpen = OnOpen
+return UIHeroJigsawReward

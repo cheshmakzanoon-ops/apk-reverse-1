@@ -1,0 +1,25 @@
+{
+ "m_Name": "DraggedReferenceItem",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 3,
+  "bytes[1]": 108,
+  "bytes[2]": 23,
+  "bytes[3]": 241,
+  "bytes[4]": 99,
+  "bytes[5]": 208,
+  "bytes[6]": 120,
+  "bytes[7]": 95,
+  "bytes[8]": 222,
+  "bytes[9]": 205,
+  "bytes[10]": 56,
+  "bytes[11]": 70,
+  "bytes[12]": 49,
+  "bytes[13]": 188,
+  "bytes[14]": 237,
+  "bytes[15]": 252
+ },
+ "m_ClassName": "DraggedReferenceItem",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

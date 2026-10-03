@@ -1,0 +1,25 @@
+{
+ "m_Name": "CountryFlag",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 133,
+  "bytes[1]": 136,
+  "bytes[2]": 68,
+  "bytes[3]": 2,
+  "bytes[4]": 217,
+  "bytes[5]": 204,
+  "bytes[6]": 142,
+  "bytes[7]": 54,
+  "bytes[8]": 109,
+  "bytes[9]": 44,
+  "bytes[10]": 209,
+  "bytes[11]": 65,
+  "bytes[12]": 100,
+  "bytes[13]": 134,
+  "bytes[14]": 158,
+  "bytes[15]": 23
+ },
+ "m_ClassName": "CountryFlag",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

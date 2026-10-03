@@ -1,0 +1,25 @@
+{
+ "m_Name": "RawImageVideoPlayer",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 163,
+  "bytes[1]": 254,
+  "bytes[2]": 8,
+  "bytes[3]": 181,
+  "bytes[4]": 197,
+  "bytes[5]": 252,
+  "bytes[6]": 31,
+  "bytes[7]": 63,
+  "bytes[8]": 249,
+  "bytes[9]": 108,
+  "bytes[10]": 122,
+  "bytes[11]": 44,
+  "bytes[12]": 52,
+  "bytes[13]": 83,
+  "bytes[14]": 42,
+  "bytes[15]": 22
+ },
+ "m_ClassName": "RawImageVideoPlayer",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

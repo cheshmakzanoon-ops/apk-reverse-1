@@ -1,0 +1,25 @@
+{
+ "m_Name": "CityResConfig",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 192,
+  "bytes[1]": 67,
+  "bytes[2]": 104,
+  "bytes[3]": 70,
+  "bytes[4]": 25,
+  "bytes[5]": 104,
+  "bytes[6]": 233,
+  "bytes[7]": 226,
+  "bytes[8]": 102,
+  "bytes[9]": 17,
+  "bytes[10]": 129,
+  "bytes[11]": 32,
+  "bytes[12]": 73,
+  "bytes[13]": 18,
+  "bytes[14]": 106,
+  "bytes[15]": 36
+ },
+ "m_ClassName": "CityResConfig",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "DecorationTag_NotUseAtlas",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 73,
+  "bytes[1]": 57,
+  "bytes[2]": 205,
+  "bytes[3]": 188,
+  "bytes[4]": 230,
+  "bytes[5]": 79,
+  "bytes[6]": 251,
+  "bytes[7]": 200,
+  "bytes[8]": 34,
+  "bytes[9]": 90,
+  "bytes[10]": 218,
+  "bytes[11]": 74,
+  "bytes[12]": 71,
+  "bytes[13]": 92,
+  "bytes[14]": 1,
+  "bytes[15]": 105
+ },
+ "m_ClassName": "DecorationTag_NotUseAtlas",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

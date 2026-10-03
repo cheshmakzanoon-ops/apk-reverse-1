@@ -1,0 +1,7 @@
+local UILWTruckSuperDepartureRefreshSecondConfirmPanelCtrl = BaseClass("UILWTruckSuperDepartureRefreshSecondConfirmPanelCtrl", UIBaseCtrl)
+
+function UILWTruckSuperDepartureRefreshSecondConfirmPanelCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWTruckSuperDepartureRefreshSecondConfirm)
+end
+
+return UILWTruckSuperDepartureRefreshSecondConfirmPanelCtrl

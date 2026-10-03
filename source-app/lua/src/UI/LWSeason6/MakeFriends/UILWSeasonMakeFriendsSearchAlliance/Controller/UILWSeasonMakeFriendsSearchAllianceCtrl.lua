@@ -1,0 +1,7 @@
+local UILWSeasonMakeFriendsSearchAllianceCtrl = BaseClass("UILWSeasonMakeFriendsSearchAllianceCtrl", UIBaseCtrl)
+
+function UILWSeasonMakeFriendsSearchAllianceCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UILWSeasonMakeFriendsSearchAlliance)
+end
+
+return UILWSeasonMakeFriendsSearchAllianceCtrl

@@ -1,0 +1,7 @@
+local UIChampionDuelStageChangeNotificationCtrl = BaseClass("UIChampionDuelStageChangeNotificationCtrl", UIBaseCtrl)
+
+function UIChampionDuelStageChangeNotificationCtrl:CloseSelf()
+  UIManager:GetInstance():DestroyWindow(UIWindowNames.UIChampionDuelStageChangeNotification)
+end
+
+return UIChampionDuelStageChangeNotificationCtrl

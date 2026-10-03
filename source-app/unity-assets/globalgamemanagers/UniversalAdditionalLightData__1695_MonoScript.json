@@ -1,0 +1,25 @@
+{
+ "m_Name": "UniversalAdditionalLightData",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 240,
+  "bytes[1]": 80,
+  "bytes[2]": 228,
+  "bytes[3]": 235,
+  "bytes[4]": 211,
+  "bytes[5]": 17,
+  "bytes[6]": 56,
+  "bytes[7]": 99,
+  "bytes[8]": 103,
+  "bytes[9]": 187,
+  "bytes[10]": 25,
+  "bytes[11]": 6,
+  "bytes[12]": 249,
+  "bytes[13]": 33,
+  "bytes[14]": 139,
+  "bytes[15]": 1
+ },
+ "m_ClassName": "UniversalAdditionalLightData",
+ "m_Namespace": "UnityEngine.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIS5GameMain",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 114,
+  "bytes[1]": 179,
+  "bytes[2]": 62,
+  "bytes[3]": 240,
+  "bytes[4]": 81,
+  "bytes[5]": 52,
+  "bytes[6]": 193,
+  "bytes[7]": 37,
+  "bytes[8]": 53,
+  "bytes[9]": 146,
+  "bytes[10]": 197,
+  "bytes[11]": 214,
+  "bytes[12]": 208,
+  "bytes[13]": 153,
+  "bytes[14]": 171,
+  "bytes[15]": 23
+ },
+ "m_ClassName": "UIS5GameMain",
+ "m_Namespace": "MiniGame.Biubiu.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

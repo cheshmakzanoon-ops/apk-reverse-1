@@ -1,0 +1,25 @@
+{
+ "m_Name": "ShadowCaster2D",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 44,
+  "bytes[1]": 250,
+  "bytes[2]": 3,
+  "bytes[3]": 147,
+  "bytes[4]": 181,
+  "bytes[5]": 18,
+  "bytes[6]": 59,
+  "bytes[7]": 209,
+  "bytes[8]": 74,
+  "bytes[9]": 167,
+  "bytes[10]": 181,
+  "bytes[11]": 80,
+  "bytes[12]": 253,
+  "bytes[13]": 137,
+  "bytes[14]": 18,
+  "bytes[15]": 228
+ },
+ "m_ClassName": "ShadowCaster2D",
+ "m_Namespace": "UnityEngine.Experimental.Rendering.Universal",
+ "m_AssemblyName": "Unity.RenderPipelines.Universal.Runtime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "PseudoSceneSourceTransform",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 219,
+  "bytes[1]": 16,
+  "bytes[2]": 197,
+  "bytes[3]": 167,
+  "bytes[4]": 49,
+  "bytes[5]": 4,
+  "bytes[6]": 96,
+  "bytes[7]": 179,
+  "bytes[8]": 70,
+  "bytes[9]": 2,
+  "bytes[10]": 202,
+  "bytes[11]": 88,
+  "bytes[12]": 0,
+  "bytes[13]": 157,
+  "bytes[14]": 219,
+  "bytes[15]": 153
+ },
+ "m_ClassName": "PseudoSceneSourceTransform",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

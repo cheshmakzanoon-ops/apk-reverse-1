@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIAnimationHelper",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 217,
+  "bytes[1]": 45,
+  "bytes[2]": 133,
+  "bytes[3]": 31,
+  "bytes[4]": 19,
+  "bytes[5]": 170,
+  "bytes[6]": 60,
+  "bytes[7]": 132,
+  "bytes[8]": 242,
+  "bytes[9]": 144,
+  "bytes[10]": 104,
+  "bytes[11]": 51,
+  "bytes[12]": 142,
+  "bytes[13]": 182,
+  "bytes[14]": 87,
+  "bytes[15]": 55
+ },
+ "m_ClassName": "UIAnimationHelper",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "UIGGGoInputMove",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 198,
+  "bytes[1]": 205,
+  "bytes[2]": 173,
+  "bytes[3]": 74,
+  "bytes[4]": 15,
+  "bytes[5]": 163,
+  "bytes[6]": 5,
+  "bytes[7]": 23,
+  "bytes[8]": 77,
+  "bytes[9]": 83,
+  "bytes[10]": 94,
+  "bytes[11]": 54,
+  "bytes[12]": 248,
+  "bytes[13]": 196,
+  "bytes[14]": 196,
+  "bytes[15]": 38
+ },
+ "m_ClassName": "UIGGGoInputMove",
+ "m_Namespace": "MiniGame.GGGo.Client",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

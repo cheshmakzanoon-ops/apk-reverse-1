@@ -1,0 +1,25 @@
+{
+ "m_Name": "CinemachineStateDrivenCamera",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 35,
+  "bytes[1]": 214,
+  "bytes[2]": 105,
+  "bytes[3]": 200,
+  "bytes[4]": 191,
+  "bytes[5]": 41,
+  "bytes[6]": 131,
+  "bytes[7]": 202,
+  "bytes[8]": 74,
+  "bytes[9]": 61,
+  "bytes[10]": 241,
+  "bytes[11]": 96,
+  "bytes[12]": 101,
+  "bytes[13]": 131,
+  "bytes[14]": 24,
+  "bytes[15]": 166
+ },
+ "m_ClassName": "CinemachineStateDrivenCamera",
+ "m_Namespace": "Cinemachine",
+ "m_AssemblyName": "Cinemachine.dll"
+}

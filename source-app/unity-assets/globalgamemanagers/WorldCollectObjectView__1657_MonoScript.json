@@ -1,0 +1,25 @@
+{
+ "m_Name": "WorldCollectObjectView",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 80,
+  "bytes[1]": 45,
+  "bytes[2]": 34,
+  "bytes[3]": 186,
+  "bytes[4]": 170,
+  "bytes[5]": 105,
+  "bytes[6]": 243,
+  "bytes[7]": 135,
+  "bytes[8]": 163,
+  "bytes[9]": 156,
+  "bytes[10]": 68,
+  "bytes[11]": 167,
+  "bytes[12]": 126,
+  "bytes[13]": 172,
+  "bytes[14]": 130,
+  "bytes[15]": 102
+ },
+ "m_ClassName": "WorldCollectObjectView",
+ "m_Namespace": "",
+ "m_AssemblyName": "Assembly-CSharp.dll"
+}

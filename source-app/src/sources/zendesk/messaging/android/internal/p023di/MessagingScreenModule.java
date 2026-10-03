@@ -1,0 +1,21 @@
+package zendesk.messaging.android.internal.p023di;
+
+import android.os.Bundle;
+import androidx.savedstate.SavedStateRegistryOwner;
+import dagger.Module;
+import dagger.Provides;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+import zendesk.messaging.android.internal.MessagingEntryPointHandler;
+import zendesk.messaging.android.internal.messagingscreen.MessagingScreenViewModelFactory;
+
+@Metadata(m17d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0001\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\"\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\nH\u0007¨\u0006\u000b"}, m18d2 = {"Lzendesk/messaging/android/internal/di/MessagingScreenModule;", "", "()V", "providesMessagingScreenViewModelFactory", "Lzendesk/messaging/android/internal/messagingscreen/MessagingScreenViewModelFactory;", "messagingEntryPointHandler", "Lzendesk/messaging/android/internal/MessagingEntryPointHandler;", "savedStateRegistryOwner", "Landroidx/savedstate/SavedStateRegistryOwner;", "defaultArgs", "Landroid/os/Bundle;", "zendesk.messaging_messaging-android"}, m19k = 1, m20mv = {1, 9, 0}, m22xi = 48)
+@Module
+public final class MessagingScreenModule {
+    @Provides
+    public final MessagingScreenViewModelFactory providesMessagingScreenViewModelFactory(MessagingEntryPointHandler messagingEntryPointHandler, SavedStateRegistryOwner savedStateRegistryOwner, Bundle defaultArgs) {
+        Intrinsics.checkNotNullParameter(messagingEntryPointHandler, "messagingEntryPointHandler");
+        Intrinsics.checkNotNullParameter(savedStateRegistryOwner, "savedStateRegistryOwner");
+        return new MessagingScreenViewModelFactory(messagingEntryPointHandler, savedStateRegistryOwner, defaultArgs);
+    }
+}

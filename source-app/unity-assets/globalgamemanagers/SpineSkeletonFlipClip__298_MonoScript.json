@@ -1,0 +1,25 @@
+{
+ "m_Name": "SpineSkeletonFlipClip",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 63,
+  "bytes[1]": 234,
+  "bytes[2]": 146,
+  "bytes[3]": 137,
+  "bytes[4]": 99,
+  "bytes[5]": 13,
+  "bytes[6]": 104,
+  "bytes[7]": 134,
+  "bytes[8]": 187,
+  "bytes[9]": 236,
+  "bytes[10]": 213,
+  "bytes[11]": 205,
+  "bytes[12]": 211,
+  "bytes[13]": 142,
+  "bytes[14]": 158,
+  "bytes[15]": 202
+ },
+ "m_ClassName": "SpineSkeletonFlipClip",
+ "m_Namespace": "",
+ "m_AssemblyName": "spine-timeline.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "GameObjectField",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 139,
+  "bytes[1]": 146,
+  "bytes[2]": 197,
+  "bytes[3]": 238,
+  "bytes[4]": 109,
+  "bytes[5]": 36,
+  "bytes[6]": 20,
+  "bytes[7]": 214,
+  "bytes[8]": 254,
+  "bytes[9]": 134,
+  "bytes[10]": 94,
+  "bytes[11]": 118,
+  "bytes[12]": 121,
+  "bytes[13]": 50,
+  "bytes[14]": 90,
+  "bytes[15]": 212
+ },
+ "m_ClassName": "GameObjectField",
+ "m_Namespace": "RuntimeInspectorNamespace",
+ "m_AssemblyName": "RuntimeInspector.Runtime.dll"
+}

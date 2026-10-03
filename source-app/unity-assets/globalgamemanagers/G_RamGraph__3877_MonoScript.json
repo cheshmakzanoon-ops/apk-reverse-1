@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_RamGraph",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 94,
+  "bytes[1]": 61,
+  "bytes[2]": 32,
+  "bytes[3]": 128,
+  "bytes[4]": 37,
+  "bytes[5]": 103,
+  "bytes[6]": 45,
+  "bytes[7]": 205,
+  "bytes[8]": 10,
+  "bytes[9]": 147,
+  "bytes[10]": 53,
+  "bytes[11]": 212,
+  "bytes[12]": 237,
+  "bytes[13]": 80,
+  "bytes[14]": 57,
+  "bytes[15]": 214
+ },
+ "m_ClassName": "G_RamGraph",
+ "m_Namespace": "Tayx.Graphy.Ram",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}

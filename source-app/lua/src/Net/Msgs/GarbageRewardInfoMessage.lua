@@ -1,0 +1,18 @@
+local GarbageRewardInfoMessage = BaseClass("GarbageRewardInfoMessage", SFSBaseMessage)
+local base = SFSBaseMessage
+
+local function OnCreate(self, param)
+  base.OnCreate(self)
+  if param ~= nil then
+    self.sfsObj:PutUtfString("uuid", tostring(param))
+  end
+end
+
+local function HandleMessage(self, t)
+  base.HandleMessage(self, t)
+  EventManager:GetInstance():Broadcast(EventId.GetSingleGarbageInfoSuccess, t)
+end
+
+GarbageRewardInfoMessage.OnCreate = OnCreate
+GarbageRewardInfoMessage.HandleMessage = HandleMessage
+return GarbageRewardInfoMessage

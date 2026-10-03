@@ -1,0 +1,44 @@
+local rapidjson = require("rapidjson")
+local Localization = CS.GameEntry.Localization
+local MailBossReward = BaseClass("MailBossReward")
+
+function MailBossReward:__init()
+  self._bossLevel = 0
+  self._bossLevel = 0
+  self._battlePointId = 0
+  self._rewardLv = 0
+end
+
+function MailBossReward:ParseContent(mailContent)
+  self._jsonContent = mailContent
+  if table.IsNullOrEmpty(self._jsonContent) then
+    return
+  end
+  local paramContent = self._jsonContent.p
+  if #paramContent < 4 then
+    return ""
+  end
+  self._bossId = paramContent[1]
+  self._battlePointId = paramContent[2]
+  self._damageRatio = paramContent[3] .. "%"
+  self._rewardLv = paramContent[4]
+end
+
+function MailBossReward:GetBossName()
+  local bossName = GetTableData(LuaEntry.Player:GetABTestTableName(TableName.Monster), self._bossId, "name")
+  return Localization:GetString(bossName)
+end
+
+function MailBossReward:GetBossLevel()
+  local bossLevel = GetTableData(LuaEntry.Player:GetABTestTableName(TableName.Monster), self._bossId, "level")
+  return bossLevel
+end
+
+function MailBossReward:GetDesc()
+  local vecPos = SceneUtils.IndexToTilePos(self._battlePointId, ForceChangeScene.World)
+  local bossName = self:GetBossName()
+  local bossLevel = self:GetBossLevel()
+  return Localization:GetString("310120", vecPos.x, vecPos.y, bossLevel, bossName, bossLevel, bossName, self._damageRatio, self._rewardLv)
+end
+
+return MailBossReward

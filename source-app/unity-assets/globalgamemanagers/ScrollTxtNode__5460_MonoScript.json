@@ -1,0 +1,25 @@
+{
+ "m_Name": "ScrollTxtNode",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 85,
+  "bytes[1]": 186,
+  "bytes[2]": 127,
+  "bytes[3]": 170,
+  "bytes[4]": 187,
+  "bytes[5]": 80,
+  "bytes[6]": 175,
+  "bytes[7]": 178,
+  "bytes[8]": 173,
+  "bytes[9]": 247,
+  "bytes[10]": 139,
+  "bytes[11]": 147,
+  "bytes[12]": 175,
+  "bytes[13]": 93,
+  "bytes[14]": 208,
+  "bytes[15]": 31
+ },
+ "m_ClassName": "ScrollTxtNode",
+ "m_Namespace": "",
+ "m_AssemblyName": "UIExtensionRuntime.dll"
+}

@@ -1,0 +1,25 @@
+{
+ "m_Name": "G_FpsMonitor",
+ "m_ExecutionOrder": 0,
+ "m_PropertiesHash": {
+  "bytes[0]": 31,
+  "bytes[1]": 231,
+  "bytes[2]": 52,
+  "bytes[3]": 126,
+  "bytes[4]": 142,
+  "bytes[5]": 207,
+  "bytes[6]": 79,
+  "bytes[7]": 82,
+  "bytes[8]": 138,
+  "bytes[9]": 167,
+  "bytes[10]": 214,
+  "bytes[11]": 136,
+  "bytes[12]": 100,
+  "bytes[13]": 253,
+  "bytes[14]": 84,
+  "bytes[15]": 25
+ },
+ "m_ClassName": "G_FpsMonitor",
+ "m_Namespace": "Tayx.Graphy.Fps",
+ "m_AssemblyName": "Tayx.Graphy.dll"
+}
