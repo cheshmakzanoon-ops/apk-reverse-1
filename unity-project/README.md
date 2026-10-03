@@ -12,14 +12,18 @@ reconstruction guess.
 
 | Project path | Recovered from | Contents |
 | --- | --- | --- |
-| `Assets/Main/LuaScripts/` | `assets/lwScripts/LWScripts.data` | 18,240 decompiled Lua modules of game logic |
+| `Assets/Main/LuaScripts/` | `assets/lwScripts/LWScripts.data` | 18,297 decompiled Lua modules of game logic |
 | `Assets/Main/HotUpdateDll/` | `assets/Assemblies/*.mdl` | the 117 recovered managed assemblies |
 | `Assets/DataTable/` | `assets/table/*.data` | 1,275 decompiled game config tables |
 | `Assets/Main/Art/` | `assets/AssetBundles/` | extracted sprites, textures, audio and text |
 | `Assets/CSharp/` | decompiled IL of the 117 assemblies | 3,624 `.cs` files (decompiled, not original sources) |
 
 The five entries are symlinks into the trees produced by the pipeline, so the
-~750 MB of recovered content is stored once. Nothing is duplicated.
+~750 MB of recovered content is stored once. Nothing is duplicated. Three of
+the five targets (`LuaScripts`, `DataTable`, `CSharp`) are tracked in Git and
+resolve in a fresh clone; `HotUpdateDll` and `Art` are not tracked, so
+`bash unity-project/sync-links.sh` reports them missing until the pipeline has
+run.
 
 `ProjectSettings/ProjectVersion.txt` records **2019.4.41f1**, the engine version
 read out of the APK's own build settings. `Packages/manifest.json` lists the
@@ -45,7 +49,8 @@ Unity packages the recovered code depends on.
 
 What *is* recovered is the source: the Lua logic, the C# systems, the config
 tables and the asset pipeline. That is the part a decompile can actually give
-you, and it is all here.
+you, and the Lua, C#, Java and config-table trees are committed to this
+repository.
 
 ## Continuing the asset extraction
 

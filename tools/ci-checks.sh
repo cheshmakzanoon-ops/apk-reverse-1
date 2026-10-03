@@ -6,10 +6,10 @@
 # Run by CI (.github/workflows/ci.yml) and usable locally. Everything here is
 # fast and needs no APK, so it is safe to run on every push.
 #
-# The generated payloads (input/, decompiled/, source-app/) are gitignored, so
-# these checks deliberately cover the committed pipeline itself: does it parse,
-# does it compile, do its argument guards fire, and do the docs point at files
-# that actually exist.
+# The recovered source under source-app/ IS committed, so these checks cover
+# both halves: the pipeline itself (does it parse, compile, refuse bad input)
+# and the committed payload (is anything oversized, and does any ignore rule
+# accidentally swallow a tracked file).
 #
 # Exit status is 0 only if every check passes; `set -euo pipefail` is kept so no
 # failure is masked by a pipeline filter.
@@ -78,8 +78,9 @@ expect_exit 2 "decompile-csharp.sh without extracted output refuses" \
 
 echo "== docs reference real files"
 
-# Only tools/ paths are checked: everything else the READMEs mention is
-# generated output that is gitignored and absent from a fresh checkout.
+# Only tools/ paths are checked: everything else the READMEs mention is either
+# the recovered payload (absent from a pipeline-only checkout) or gitignored
+# output, so a missing path here is only meaningful for the toolchain itself.
 docs="$(grep -oh 'tools/[A-Za-z0-9_./-]*' README.md unity-project/README.md \
         | sed 's/[.,:)`]*$//' | sort -u || true)"
 if [ -z "$docs" ]; then
@@ -89,6 +90,85 @@ else
     case "$p" in *'*'*) continue ;; esac
     if [ -e "$p" ]; then ok "$p"; else bad "$p named in docs but missing"; fi
   done
+fi
+
+echo "== committed payload is pushable and unswallowed"
+
+# GitHub hard-rejects any blob over 100 MB, so one oversized file makes the
+# whole push fail. Check the tracked tree, not the working tree: the point is
+# what a clone would actually have to download.
+limit=$((100 * 1024 * 1024))
+tracked="$(git ls-files -z | tr -cd '\0' | wc -c)"
+if [ "$tracked" -eq 0 ]; then
+  bad "git ls-files returned nothing (is this a git checkout?)"
+else
+  biggest="$(git ls-files -z \
+             | xargs -0 -r stat -c '%s %n' 2>/dev/null \
+             | sort -rn | head -1 || true)"
+  biggest_bytes="${biggest%% *}"
+  biggest_bytes="${biggest_bytes:-0}"
+  if [ "$biggest_bytes" -gt "$limit" ]; then
+    bad "tracked file over 100 MB: $biggest"
+  else
+    ok "no tracked file over 100 MB (largest ${biggest_bytes} B of $tracked files)"
+  fi
+fi
+
+# A tracked file that also matches an ignore rule is always a mistake: git stops
+# tracking it on the next `git add`, so it silently vanishes from the repository.
+# This is not hypothetical - an unanchored `input/` rule hid 269 recovered files
+# under androidx/compose/**/input/. --no-index is what makes check-ignore look at
+# tracked paths at all; without it, tracked files are skipped by design.
+swallowed="$(git ls-files -z | git check-ignore --stdin -z --no-index 2>/dev/null \
+             | tr -cd '\0' | wc -c || true)"
+swallowed="${swallowed:-0}"
+if [ "$swallowed" -eq 0 ]; then
+  ok "no tracked file matches an ignore rule"
+else
+  bad "$swallowed tracked file(s) are also ignored - anchor the rule or untrack the path"
+  git ls-files -z | git check-ignore --stdin -z --no-index 2>/dev/null \
+    | tr '\0' '\n' | head -5 | sed 's/^/        /' >&2
+fi
+
+# The recovered payload is only useful if it is what the README claims. Counts
+# tracked files, i.e. what a clone really receives - the working tree still holds
+# the gitignored .luac and art files, which are not part of the promise. Runs
+# whenever the payload is checked out (CI clones it in full); a pipeline-only
+# clone has nothing to compare and says so instead of pretending to pass.
+if [ -d source-app/lua ]; then
+  # Reads the count out of the "What is and is not in version control" table by
+  # matching the path in the row, so re-running the pipeline and updating the
+  # docs is a deliberate edit rather than something the check silently accepts.
+  doc_count() {
+    awk -v p="$1" '
+      $0 ~ "`" p "`" {
+        n = split($0, a, "|"); last = ""
+        for (i = 1; i <= n; i++) {
+          v = a[i]; gsub(/[ \t,]/, "", v)
+          if (v ~ /^[0-9]+$/) last = v
+        }
+        if (last != "") { print last; exit }
+      }' README.md
+  }
+  agree() { # agree <label> <path-in-readme> <dir> - both sides count TRACKED files
+    local want have
+    want="$(doc_count "$2")"
+    have="$(git ls-files -- "$3" | wc -l | tr -d ' ')"
+    if [ -z "$want" ]; then
+      bad "README has no count row for $2"
+    elif [ "$want" = "$have" ]; then
+      ok "$1 matches README ($have files)"
+    else
+      bad "$1: README says $want, tree tracks $have"
+    fi
+  }
+  agree "Lua tree"    'source-app/lua/'             source-app/lua
+  agree "table Lua"   'source-app/data-tables-lua/' source-app/data-tables-lua
+  agree "C# tree"     'source-app/csharp/'          source-app/csharp
+  agree "Java tree"   'source-app/src/'             source-app/src
+  agree "Unity tree"  'source-app/unity-assets/'    source-app/unity-assets
+else
+  echo "  n/a   payload not checked out - tree/count check skipped"
 fi
 
 echo

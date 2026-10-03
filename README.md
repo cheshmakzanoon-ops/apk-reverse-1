@@ -11,10 +11,11 @@ and assets.
 
 ## Read this first
 
-The game's **source code and assets are recovered and are in this repo**:
-18,240 decompiled Lua modules of game logic (2,336,221 lines), 1,275 game
-config tables, 3,624 C# files, 17,325 Java files, the 117 original managed
-assemblies, and the extracted art/audio.
+The game's **source code is recovered and is in this repo**: 18,297 Lua modules
+of game logic (2,336,221 lines; 18,240 of them non-empty), 1,275 game config
+tables, 3,624 C# files, 17,325 Java files and 7,564 extracted Unity data files.
+The 117 original managed assemblies and the art/audio are recovered in the
+working tree but not tracked — see *What is and is not in version control*.
 
 A **runnable game** is a different thing, and it is not what an APK decompile
 yields. Building it back would require reimplementing the Unity engine
@@ -43,17 +44,18 @@ tools/extract-unity-assets.py     bin/Data Unity files -> textures/scenes/shader
 tools/extract-game-assets.py      packed AssetBundle fragment -> art and audio
 tools/peprobe/                    .NET helper that validates recovered PE images
 
-source-app/src/                   17,325 decompiled Java files (jadx)
-source-app/csharp/                3,624 decompiled C# files (ILSpy)
-source-app/lua/luac/              18,300 Lua bytecode chunks, as shipped
-source-app/lua/src/               18,240 decompiled Lua modules + 3 disassembly
-                                  fallbacks  (2,336,221 lines)
-source-app/data-tables/           1,275 config tables, bytecode, as shipped
-source-app/data-tables-lua/       1,275 config tables decompiled to Lua
-source-app/unity-assets/          7,564 files: boot scene, shaders, textures,
-                                  MonoScript table, player settings
-source-app/game-assets/           extracted game art/audio from the bundle
-                                  fragment, plus inventory.jsonl
+source-app/src/                   17,325 decompiled Java files (jadx)      [tracked]
+source-app/csharp/                3,624 decompiled C# files (ILSpy)       [tracked]
+source-app/lua/src/               18,297 decompiled Lua modules + 3        [tracked]
+                                  disassembly fallbacks (2,336,221 lines)
+source-app/data-tables-lua/       1,275 config tables decompiled to Lua  [tracked]
+source-app/unity-assets/          7,564 files: boot scene, shaders,        [tracked]
+                                  textures, MonoScript table, settings
+
+source-app/lua/luac/              18,300 Lua bytecode chunks, as shipped   [local]
+source-app/data-tables/           1,275 config tables, bytecode, shipped    [local]
+source-app/game-assets/           art/audio pulled from the bundle         [local]
+                                  fragment + inventory.jsonl
 
 decompiled/apktool/               decoded AndroidManifest.xml + res/ (no smali)
 decompiled/raw/classes*.dex       the 9 DEX files, unmodified
@@ -69,25 +71,47 @@ tools/ci-checks.sh                the checks CI runs (also runnable locally)
 
 ### What is and is not in version control
 
-The pipeline and its documentation are committed. The **recovered payloads are
-not** — `input/`, `decompiled/` and `source-app/` are gitignored, because:
+**The recovered source is committed.** A clone of this repository contains the
+game's Java, C#, Lua, config tables and Unity assets — 48,092 files — without
+needing the APK or running anything.
 
-- the working tree is **~4.2 GB**, and three files (the 775 MB APK and two
-  498 MB copies of `BundleFragment0.bytes`) exceed GitHub's 100 MB per-file hard
-  limit, so they cannot be pushed at all;
-- every one of them is **regenerated deterministically** by the pipeline below,
-  and the step guards fail loudly rather than silently producing nothing.
+| Tracked | Files |
+|---|---|
+| `source-app/src/` — decompiled Java (jadx) | 17,325 |
+| `source-app/lua/` — decompiled Lua + 3 disassembly fallbacks | 18,300 |
+| `source-app/data-tables-lua/` — config tables decompiled to Lua | 1,277 |
+| `source-app/csharp/` — decompiled C# (ILSpy) | 3,626 |
+| `source-app/unity-assets/` — boot scene, shaders, MonoScript table | 7,564 |
 
-That is a real trade-off, stated plainly: the recovered game source is not in the
-Git repository, it is in the working tree and reproducible with one command. If
-you would rather have, say, `source-app/lua/src` in the repo despite the 130 MB,
-drop the relevant line from `.gitignore` — but note that recovering everything
-rather than nothing is worth more than a lean tree for most uses.
+What stays out is the pipeline's input, its pass-through intermediates, and one
+container that cannot be pushed at all:
 
-`unity-project/Assets/*` are symlinks into those ignored directories, so a fresh
-clone has dangling links until the pipeline has run. `bash
-unity-project/sync-links.sh` recreates them and reports any target still
-missing.
+| Not tracked | Why |
+|---|---|
+| `input/app.apk` (775 MB) and two 498 MB copies of `BundleFragment0.bytes` | exceed GitHub's 100 MB per-file hard limit |
+| `source-app/**/*.luac`, `source-app/data-tables/` | bytecode the decompiler consumes; the recovered `.lua` beside it is the deliverable |
+| `source-app/game-assets/` | 142 MB of PNG — already-compressed binaries, and the sweep is only 19% done, so committing it would freeze an unfinished snapshot in immutable history |
+| `decompiled/` | DEX, `.so` and Unity payloads exactly as shipped; the decoded forms are tracked |
+| per-run diagnostics, build output, `__pycache__` | regenerated on every run |
+
+Everything in that second table is **regenerated deterministically** by the
+pipeline below, and the step guards fail loudly rather than silently producing
+nothing. Two details make the tracked payload trustworthy:
+
+- `.gitattributes` marks generated content `-text`, so no checkout or clone can
+  rewrite line endings or re-encode a file the pipeline produced. The
+  hand-written toolchain is explicitly LF (`/tools/**`, `*.sh`, `/*.md`).
+- Ignore rules that exclude a path are anchored (`/input/`, `/decompiled/`). An
+  unanchored `input/` silently swallowed 269 recovered files under
+  `androidx/compose/**/input/` before this was caught; checks in
+  `tools/ci-checks.sh` now fail the build if any tracked file matches an ignore
+  rule, or if any tracked file exceeds GitHub's 100 MB limit.
+
+`unity-project/Assets/*` are symlinks into the payload. Three of the five
+(`LuaScripts`, `DataTable`, `CSharp`) now resolve straight from a fresh clone;
+`HotUpdateDll` points at `decompiled/unity/assemblies` and `Art` at
+`source-app/game-assets`, both untracked, so `bash unity-project/sync-links.sh`
+reports those two as missing until the pipeline has produced them.
 
 ---
 
@@ -307,6 +331,7 @@ which dash does not support.
 - Native libraries are extracted, not analyzed. `libunity.so`, `libil2cpp.so`
   (unused), `libxlua.so`, `libgmesdk.so` and `libanogs.so` are the ones that
   would matter for deeper work.
-- `source-app/game-assets/` is partial: bundle extraction runs at ~1.4
-  bundles/second and was run in bounded slices. Rerun the `bundles` step to
-  continue; it resumes from `.state.tsv`.
+- `source-app/game-assets/` is partial and, being an unfinished sweep of binaries,
+  is not tracked: bundle extraction runs at ~1.4 bundles/second and was run in
+  bounded slices. Rerun the `bundles` step to continue; it resumes from
+  `.state.tsv`.
