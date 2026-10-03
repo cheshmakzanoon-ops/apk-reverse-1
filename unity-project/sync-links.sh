@@ -4,9 +4,9 @@
 #   bash unity-project/sync-links.sh
 #
 # Assets/, DataTable/ and CSharp/ are symlinks rather than copies so the ~4 GB
-# of recovered content is stored once. The targets are gitignored generated
-# output, so after a fresh clone these links are dangling until the pipeline has
-# been run:
+# of recovered content is stored once. Three of the five targets are committed,
+# so a fresh clone resolves them; the other two point at gitignored generated
+# output and stay dangling until the pipeline has been run:
 #
 #   bash tools/decompile.sh          # produces decompiled/ and source-app/
 #   bash tools/decompile-csharp.sh   # produces source-app/csharp/
@@ -36,7 +36,10 @@ for entry in "${links[@]}"; do
   src="$root/$target"
 
   mkdir -p "$(dirname "$dest")"
-  ln -sfn "$(realpath --relative-to="$(dirname "$dest")" "$src")" "$dest"
+  # -m resolves the relative path without requiring the target to exist: a fresh
+  # clone legitimately lacks two of these targets, and plain realpath failing
+  # there aborted the script on the first one instead of reporting every link.
+  ln -sfn "$(realpath -m --relative-to="$(dirname "$dest")" "$src")" "$dest"
 
   # Search the whole tree: several targets (e.g. source-app/csharp) contain only
   # subdirectories at depth 1, so a shallow probe would call them empty.
