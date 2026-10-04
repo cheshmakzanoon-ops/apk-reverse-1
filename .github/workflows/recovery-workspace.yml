@@ -1,0 +1,35 @@
+name: Offline recovery workspace
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/recovery-workspace.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  portable-tools:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Prepare pinned tools for offline analysis of the captured input
+        run: |
+          mkdir -p portable/wheels
+          python -m pip download --only-binary=:all: -r requirements-recovery.txt --dest portable/wheels
+          git archive --format=zip HEAD tools tests docs godot requirements-recovery.txt README.md .github > portable/recovery-tools.zip
+          python --version > portable/python-version.txt
+          cd portable && sha256sum wheels/* recovery-tools.zip > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: offline-recovery-workspace-python313
+          path: portable/
+          if-no-files-found: error
+          retention-days: 7
