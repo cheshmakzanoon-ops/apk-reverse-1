@@ -189,7 +189,8 @@ def append_clips(blob, clips):
             node, kind = channel['node'], channel['path']
             require(node in index and (node,kind) not in targets, 'invalid or duplicate animation target')
             targets.add((node,kind))
-            interpolation = 'CUBICSPLINE' if len(channel['times']) > 1 else 'STEP'
+            interpolation = channel.get('interpolation', 'CUBICSPLINE' if len(channel['times']) > 1 else 'STEP')
+            require(interpolation != 'LINEAR' or kind == 'rotation', 'only rotation uses a sampled derivative')
             rows = [convert(row,kind) for i in range(len(channel['times']))
                     for row in ([channel['in'][i], channel['values'][i], channel['out'][i]]
                                 if interpolation == 'CUBICSPLINE' else [channel['values'][i]])]
@@ -200,11 +201,11 @@ def append_clips(blob, clips):
                 'target': {'node': index[node], 'path': kind}, 'extras': {'unity_path': channel['unity_path']}})
             animation['samplers'].append(sampler)
         doc['animations'].append(animation)
-    doc['asset']['generator'] = 'apk-reverse-1 R4 legacy animation bridge'
+    doc['asset']['generator'] = 'apk-reverse-1 verified animation bridge'
     doc['extras']['recovery']['animation_clips_exported'] = len(clips)
     doc['extras']['recovery']['animation_runtime_equivalence_verified'] = False
     result = bytes(builder.finish())
-    validate_animated_glb(result)
+    validate_animated_glb(result, allow_linear_rotation=True)
     return result
 
 

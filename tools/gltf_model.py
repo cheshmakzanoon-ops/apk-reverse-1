@@ -167,6 +167,8 @@ class Builder:
         item = {'name': material['name'], 'pbrMetallicRoughness': {
             'baseColorFactor': color, 'metallicFactor': 0., 'roughnessFactor': 1.},
             'extras': {'unity_object_id': material['id'], 'fidelity': 'base-color preview, not original shader'}}
+        item['extras'].update({k: material[k] for k in ('source_color', 'preview_rgb_divisor',
+            'source_texture_property', 'source_color_property') if k in material})
         if material.get('png') is not None:
             png = material['png']
             from PIL import Image
@@ -272,6 +274,10 @@ def make_glb(model):
                         ancestor = parents[ancestor]
                     require(ancestor == skin['root'], 'skeleton root is not an ancestor of every joint')
                 entry['skeleton'] = index[skin['root']]
+            if 'source_root' in skin:
+                entry['extras'] = {'source_root_bone': skin['source_root']}
+            elif 'root_conversion' in skin:
+                entry['extras'] = {k: skin[k] for k in ('source_root_bone', 'root_conversion')}
             skins = b.doc.setdefault('skins', []); skins.append(entry)
             b.doc['nodes'][nid]['skin'] = len(skins)-1
     b.doc['extras'] = {'recovery': {'input_sha256': model['input_sha256'], 'root_object_id': model['root'],

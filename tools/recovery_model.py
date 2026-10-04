@@ -206,10 +206,11 @@ def common_skin_root(nodes, joints):
     raise RecoveryError('skin joints have no common ancestor')
 
 
-def collect(cat, root_object, reader=None, max_nodes=50000):
+def collect(cat, root_object, reader=None, max_nodes=50000, material_preview=None):
     hierarchy = graph.scene(cat, root_object, max_nodes)
     require(hierarchy['hierarchy_complete'], 'hierarchy blocked: ' + json.dumps(hierarchy['blockers'][:3]))
     reader = reader or Reader(cat)
+    material_preview = material_preview or preview_material
     model = {'input_sha256': hierarchy['input_sha256'], 'root': hierarchy['root'],
              'nodes': [], 'renderers': [], 'omitted_components': []}
     for n in hierarchy['nodes']:
@@ -242,7 +243,7 @@ def collect(cat, root_object, reader=None, max_nodes=50000):
             require(isinstance(material_refs, list), 'renderer materials unavailable')
             for i in range(len(material_refs)):
                 mid = reader.ref(rid, f'/m_Materials/{i}', {'Material'})
-                renderer['materials'].append(preview_material(reader, mid))
+                renderer['materials'].append(material_preview(reader, mid))
             if c['type'] == 'SkinnedMeshRenderer':
                 require(not any(rt.get('m_BlendShapeWeights', [])), 'nonzero blend-shape weights need morph conversion')
                 bone_refs = rt.get('m_Bones')
@@ -261,12 +262,15 @@ def collect(cat, root_object, reader=None, max_nodes=50000):
     return model
 
 
-def export_snapshot(root, root_object, out, *, max_nodes=50000, clip_ids=(), animation_root=None):
+def export_snapshot(root, root_object, out, *, max_nodes=50000, clip_ids=(), animation_root=None, packed_mecanim=False):
     out = Path(out)
     require(not out.exists() and not out.is_symlink(), 'output already exists; snapshots are never overwritten')
     cat = Catalog(root)
     try:
-        model = collect(cat, root_object, max_nodes=max_nodes)
+        preview = None
+        if packed_mecanim:
+            from packed_material import preview_material as preview
+        model = collect(cat, root_object, max_nodes=max_nodes, material_preview=preview)
         blob = make_glb(model)
         clips = []
         require(not animation_root or clip_ids, '--animation-root requires an explicit --clip')
@@ -281,18 +285,23 @@ def export_snapshot(root, root_object, out, *, max_nodes=50000, clip_ids=(), ani
                 reader.parsed(oid)
                 tree = reader.tree(oid)
                 if tree.get('m_Legacy') is False:
-                    from mecanim_dense import decode_dense
-                    clips.append(decode_dense(tree, oid, row['sha'], model, animation_root))
+                    # Keep the existing dense/spline path stable unless opted in.
+                    if packed_mecanim:
+                        from recovery_mecanim import decode_mecanim
+                        clips.append(decode_mecanim(tree, oid, row['sha'], model, animation_root))
+                    else:
+                        from mecanim_dense import decode_dense
+                        clips.append(decode_dense(tree, oid, row['sha'], model, animation_root))
                 else:
                     clips.append(decode_clip(tree, oid, row['sha'], model, animation_root))
             blob = append_clips(blob, clips)
-            counts = validate_animated_glb(blob)
+            counts = validate_animated_glb(blob, allow_linear_rotation=packed_mecanim)
         else:
             counts = validate_glb(blob)
         report = {'schema': 1, 'input_sha256': model['input_sha256'], 'root_object_id': model['root'],
             'model_sha256': digest(blob), 'model_bytes': len(blob), 'counts': counts,
             'status': 'model_exported', 'material_mode': 'base-color preview',
-            'animations_exported': len(clips), 'shader_equivalence_verified': False,
+            'animations_exported': len(clips), 'packed_mecanim': packed_mecanim, 'shader_equivalence_verified': False,
             'animation_runtime_equivalence_verified': False,
             'animation_clips': [{k:v for k,v in c.items() if k != 'channels'} for c in clips],
             'gameplay_port_complete': False, 'omitted_components': model['omitted_components']}
@@ -315,9 +324,10 @@ def main(argv=None):
     parser.add_argument('--max-nodes', type=int, default=50000)
     parser.add_argument('--clip', action='append', default=[], help='Captured AnimationClip object ID; repeat for multiple clips')
     parser.add_argument('--animation-root', help='Transform ID used as the clip path root (default: selected model root)')
+    parser.add_argument('--packed-mecanim', action='store_true', help='Opt in to bounded generic streamed/dense/constant TRS and source-color previews')
     args = parser.parse_args(argv)
     try:
-        print(json.dumps(export_snapshot(args.snapshot, args.root_object, args.out, max_nodes=args.max_nodes, clip_ids=args.clip, animation_root=args.animation_root), indent=2))
+        print(json.dumps(export_snapshot(args.snapshot, args.root_object, args.out, max_nodes=args.max_nodes, clip_ids=args.clip, animation_root=args.animation_root, packed_mecanim=args.packed_mecanim), indent=2))
         return 0
     except (RecoveryError, OSError, KeyError, TypeError, ImportError, ValueError) as exc:
         print('model conversion blocked: ' + str(exc), file=sys.stderr)

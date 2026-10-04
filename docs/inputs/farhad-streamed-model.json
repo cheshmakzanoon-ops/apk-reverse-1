@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "apk_size": 813035279,
+  "apk_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+  "provenance": "SHA-256 observed on requester-supplied APK, not authenticated publisher checksum",
+  "fragment_entry": "assets/AssetBundles/BundleFragment0.bytes",
+  "fragment_size": 522139911,
+  "bundles": [
+    {
+      "index": 1,
+      "offset": 7829,
+      "size": 202560,
+      "sha256": "c1d6a78d9600f07248516e8831d7b0604b16c704a644699339d29f7c2953dcf5"
+    },
+    {
+      "index": 2,
+      "offset": 210389,
+      "size": 9172,
+      "sha256": "0d17fd0a62b41040a274a1f040e6faba6faef2f2a406627847bf9ed6caa605df"
+    },
+    {
+      "index": 3,
+      "offset": 219561,
+      "size": 4091,
+      "sha256": "d5ccd9ce391cbbad3ebdf2d1315e41156f92de26e9ad65aba428a808bedb56b1"
+    },
+    {
+      "index": 4,
+      "offset": 223652,
+      "size": 3439,
+      "sha256": "59151bef40785e5b1b22e4aa75b1278fd66eefd6bfb4f24dee777cd3d35e2296"
+    },
+    {
+      "index": 5,
+      "offset": 227091,
+      "size": 3567,
+      "sha256": "1a65e4744f7e7110333c36e96b2ff88d08118c047c9338940691b470fe07f912"
+    },
+    {
+      "index": 6,
+      "offset": 230658,
+      "size": 186480,
+      "sha256": "d936f41da68a71483b43063feb04dbfb40a2cbef07391fb600ba84be255b4daf"
+    },
+    {
+      "index": 7,
+      "offset": 417138,
+      "size": 83180,
+      "sha256": "98fb266142650d427ce814b465d2db93fdcb76ef07b8b4775f94f25f653fe611"
+    },
+    {
+      "index": 8,
+      "offset": 500318,
+      "size": 18073,
+      "sha256": "ae3b24038adbcb7959c348537b9ae89ee6db5cd1554f2e5f9604b29a205550ee"
+    },
+    {
+      "index": 9,
+      "offset": 518391,
+      "size": 17835,
+      "sha256": "5ecf4afd2ac460e2db193214b29d15cbe693fdcbc4418315076003df512fa68d"
+    },
+    {
+      "index": 10,
+      "offset": 536226,
+      "size": 224420,
+      "sha256": "e0508e93fa5da35e1dfdd7a18eaa2a9bfda24f42ab5f7c34db55ccc184b9afb6"
+    },
+    {
+      "index": 11,
+      "offset": 760646,
+      "size": 224468,
+      "sha256": "bed9c468079ede55deeba9791aec7c34f55fb38b0acefa2b384651c843b1a6d8"
+    }
+  ],
+  "root": {
+    "member": "CAB-a400e6e9016593e38acb1ae9e0be5f9b",
+    "path_id": "-7791818070079136519",
+    "sha256": "a510e0db0992b6781602950bf06d81d6c23b2454d0ffe898975126fc0d54eaca"
+  },
+  "animation_root": {
+    "member": "CAB-a400e6e9016593e38acb1ae9e0be5f9b",
+    "path_id": "5040236352472669624",
+    "sha256": "35126778081863d41c5449867659d0af3185364b949dd5c017bf25757c1e166d"
+  },
+  "clips": [
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-9043251307612821801",
+      "sha256": "7ef71e596fa97c318f07ccd769c77841d8df741ed7cde9545559ee9e76decf8d",
+      "name": "Farhad_01_hit"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-5088433306682007690",
+      "sha256": "9be944e7d0aca27cde6ae198df1402780849654d4140475fd4b0e64d2247d72d",
+      "name": "Farhad_01_idle"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-4837941774007675872",
+      "sha256": "7321da954dd47e263c9e7d0344dac822a6221449c63f5d0fb696100af8f1e0ca",
+      "name": "Farhad_01_attack_move"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-4495840069166305387",
+      "sha256": "3af5d6c500c066de1595b536934c9488d3fcf50f2cfafb5f2cac21f3efb1b988",
+      "name": "Farhad_01_walk"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-1851800959831965881",
+      "sha256": "9b89c225bad9b9b8e1ee22d8b69393612f2cdc531b8753e9a8f12cc4a5003b15",
+      "name": "Farhad_01_attack_skll"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-255807960272832692",
+      "sha256": "3d5005bfa7eb23e2d5711835de0999cd3d19b7a9852d1f011c53f5e8fae79542",
+      "name": "Farhad_01_show_idle"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "-225478549765400646",
+      "sha256": "4112fee18383af89f53dd3c669c7f697c5cfea7664d96c3e28f56f18fe00fae9",
+      "name": "Farhad_01_attack"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "8220409546954815683",
+      "sha256": "5043b1cddd11676c69afbf20a63a9de6009a03f9abe87551056ab3da43dcc1ae",
+      "name": "Farhad_01_dead"
+    }
+  ],
+  "excluded_clips": [
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "3222661951791699978",
+      "sha256": "766f0ed2f2d77799ec7a48c6bf3041bdd310903563b4bbd3257c4f53eedba258",
+      "name": "Farhad_01_show",
+      "reason": "missing/ambiguous exact animation path hash 4090356852"
+    },
+    {
+      "member": "CAB-2110fcb3ce7bcdf79819f5f2306f069c",
+      "path_id": "6033655386450743053",
+      "sha256": "977fa025f13374ad0452afe76debc8079f96b5beb17924fe70d6e067db32ec45",
+      "name": "Farhad_01_camera",
+      "reason": "root-motion/motion curves require separate recovery"
+    }
+  ]
+}

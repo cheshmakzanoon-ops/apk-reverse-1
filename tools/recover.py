@@ -36,29 +36,37 @@ def environment(catalog: Catalog | None = None, owner: str | None = None):
     from fsspec.implementations.memory import MemoryFileSystem
 
     class ScopedEnvironment(UnityPy.Environment):
-        def load_file(self, file, parent=None, name=None, is_dependency=False):
-            # UnityPy's Texture2D resource loader calls load_file(path, True),
-            # not find_file(). Route those strings through the same catalog.
-            if isinstance(file, str):
-                if catalog is None:
-                    raise FileNotFoundError('uncaptured dependency: ' + file)
-                return self.find_file(file, is_dependency=True)
-            return super().load_file(file, parent=parent, name=name, is_dependency=is_dependency)
-
-        def find_file(self, name, is_dependency=True):
-            # No global monkeypatch and no fallback to a whole-disk search.
-            if catalog is None:
-                return self.get_cab(name)
+        def _captured(self, name):
             state, member = catalog.resolve(name, owner)
             if member is None:
                 raise FileNotFoundError(f"{state}: {name}")
-            cached = self.get_cab(name)
+            cached = super().get_cab(name)
             if cached is not None:
                 return cached
             data = catalog.store.path(member["sha"]).read_bytes()
-            if len(data) != member['size'] or digest(data) != member['sha']:
-                raise RecoveryError('dependency bytes differ from capture: ' + name)
-            return self.load_file(io.BytesIO(data), name=name, is_dependency=is_dependency)
+            if digest(data) != member["sha"] or len(data) != member["size"]:
+                raise RecoveryError("dependency bytes differ from capture: " + name)
+            return super().load_file(io.BytesIO(data), name=name, is_dependency=True)
+
+        def get_cab(self, name):
+            # Texture/mesh ResourceReader calls get_cab directly, not find_file.
+            # Resolve before trusting a cached basename and never search the host.
+            if catalog is None:
+                return super().get_cab(name)
+            try:
+                return self._captured(name)
+            except FileNotFoundError:
+                return None
+
+        def load_file(self, file, parent=None, name=None, is_dependency=False):
+            if catalog is not None and isinstance(file, str):
+                return self._captured(file)
+            return super().load_file(file, parent=parent, name=name, is_dependency=is_dependency)
+
+        def find_file(self, name, is_dependency=True):
+            if catalog is None:
+                return super().get_cab(name)
+            return self._captured(name)
 
     return ScopedEnvironment(fs=MemoryFileSystem(), path="")
 
