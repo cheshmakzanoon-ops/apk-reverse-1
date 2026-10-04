@@ -24,6 +24,18 @@ simulation inputs, not real account state or authorization.
 The original `source-app/` and `unity-project/` payloads are preserved unchanged.
 Their file counts do not establish behavioral equivalence or completeness.
 
+The retained tracked-file totals include metadata as well as source. The existing
+CI checks these rows against the unchanged payload; these are not new recovery
+or gameplay-equivalence measurements.
+
+| Tracked path | Files |
+|---|---:|
+| `source-app/src/` | 17,325 |
+| `source-app/lua/` | 18,300 |
+| `source-app/data-tables-lua/` | 1,277 |
+| `source-app/csharp/` | 3,626 |
+| `source-app/unity-assets/` | 7,564 |
+
 ## Supplied input identity
 
 - APK bytes: `813035279`
