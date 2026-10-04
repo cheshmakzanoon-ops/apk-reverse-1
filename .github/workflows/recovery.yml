@@ -16,6 +16,11 @@ on:
         default: '100'
         required: true
         type: string
+      graph_limit:
+        description: 'Object graph decode limit (0 = all; nonzero deliberately reports partial coverage)'
+        default: '5000'
+        required: true
+        type: string
       retain_snapshot:
         description: 'Upload complete raw snapshot as a temporary Actions artifact (may be large)'
         default: false
@@ -45,8 +50,11 @@ jobs:
           mkdir -p reports
           python -m pip freeze > reports/dependencies.txt
           python -c 'import UnityPy; assert UnityPy.__version__ == "1.25.4"'
+          python -c 'from lupa.lua53 import LuaRuntime; assert LuaRuntime().eval("_VERSION") == "Lua 5.3"'
       - name: Run recovery regressions and actual Unity fixture
         run: python -m unittest discover -s tests -v 2>&1 | tee reports/tests.log
+      - name: Inventory tracked client sources and compile Lua 5.3 without execution
+        run: python tools/source_inventory.py --repo . --out reports/source --lua53 | tee reports/source-inventory.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -62,6 +70,7 @@ jobs:
     env:
       MAX_UNITS: ${{ inputs.max_units }}
       EXPORT_LIMIT: ${{ inputs.export_limit }}
+      GRAPH_LIMIT: ${{ inputs.graph_limit }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -75,7 +84,7 @@ jobs:
           python -m pip freeze > reports/dependencies.txt
           python - <<'PY'
           import os
-          for key in ('MAX_UNITS', 'EXPORT_LIMIT'):
+          for key in ('MAX_UNITS', 'EXPORT_LIMIT', 'GRAPH_LIMIT'):
               value = os.environ[key]
               if not value.isdigit():
                   raise SystemExit(f'{key} must be a nonnegative integer')
@@ -95,6 +104,9 @@ jobs:
         run: python tools/recover.py capture --apk input/app.apk --out recovery/snapshot --max-units "$MAX_UNITS" --max-gib 12 2>&1 | tee reports/capture.log
       - name: Verify capture independently of export success
         run: python tools/recover.py verify recovery/snapshot | tee reports/verification.json
+      - name: Reconstruct object relationships and original container paths
+        continue-on-error: true
+        run: python tools/recovery_graph.py build recovery/snapshot --max-objects "$GRAPH_LIMIT" 2>&1 | tee reports/graph.log
       - name: Attempt bounded neutral exports
         id: exports
         continue-on-error: true
@@ -105,6 +117,7 @@ jobs:
       - name: Collect final statuses
         if: always()
         run: |
+          if [ -f recovery/snapshot/graph-summary.json ]; then cp recovery/snapshot/graph-summary.json reports/graph-summary.json; fi
           if [ -f recovery/snapshot/summary.json ]; then cp recovery/snapshot/summary.json reports/summary.json; fi
           if [ -f recovery/snapshot/catalog.sqlite ]; then
             python - <<'PY'

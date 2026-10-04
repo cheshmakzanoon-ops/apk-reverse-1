@@ -235,21 +235,25 @@ class Catalog:
         """
         norm = key(name)
         base = norm.rsplit("/", 1)[-1]
-        queries = [("normalized_name=?", (norm,))]
+        queries = []
+        # A bare name is scoped to its requesting bundle before global aliases.
+        # Qualified exact names take priority. Never weaken an ambiguous match.
+        if "/" in norm:
+            queries.append(("normalized_name=?", (norm,)))
         if owner:
             queries.append(("unit_id=(SELECT unit_id FROM members WHERE id=?) AND basename=?",
                             (owner, base)))
+        if "/" not in norm:
+            queries.append(("normalized_name=?", (norm,)))
         queries.append(("basename=?", (base,)))
-        ambiguous = False
         for clause, args in queries:
             rows = self.db.execute("SELECT * FROM members WHERE " + clause + " ORDER BY id", args).fetchall()
             if not rows:
                 continue
             if len({r["sha"] for r in rows}) != 1:
-                ambiguous = True
-                continue
+                return "ambiguous", None
             return "resolved", rows[0]
-        return ("ambiguous" if ambiguous else "unresolved_in_capture"), None
+        return "unresolved_in_capture", None
 
     def resolve_dependencies(self):
         for dep in self.db.execute("SELECT * FROM dependencies ORDER BY id").fetchall():

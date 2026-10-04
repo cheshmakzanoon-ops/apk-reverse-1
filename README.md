@@ -7,7 +7,28 @@ Decompiled source is not necessarily the exact developer-written source, and
 server implementation/source files not shipped in the client are not recovered
 by unpacking an APK.
 
-## Current milestone: lossless capture and validated neutral exports
+## R2: transfer integrity, object relationships, and client-source evidence
+
+R2 adds `tools/input_transfer.py`, `tools/recovery_graph.py`, and
+`tools/source_inventory.py`. See [R2 commands and acceptance gates](docs/RECOVERY_R2.md).
+
+- APKs can be split into at most 200 MiB parts and reassembled only after every
+  part and the complete file pass size/hash checks. Existing files are never overwritten.
+- The additive object graph decodes captured trees, preserves one-based external
+  file slots, and resolves PPtrs by serialized member and signed path ID. Missing,
+  ambiguous, invalid, and null references are distinct. Limits report partial coverage.
+- Hierarchy reports join GameObject, Transform, component, mesh, material, bone,
+  and controller references. Parent/child and component/owner bindings are checked
+  reciprocally. Reports retain Unity local coordinates; they are not GLB or Godot scenes.
+- CI hashes the actual tracked client payload and syntax-checks Lua with an
+  explicitly selected Lua 5.3 runtime. It does not execute recovered game scripts.
+
+**The supplied full APK has not yet been processed by R1/R2 in this implementation
+session.** Synthetic/parser fixtures are not counts of newly recovered game assets.
+Full-APK acquisition remains a manual, authorized workflow; its trigger is unchanged.
+A green unit-test job is not proof of complete source, model, or Godot recovery.
+
+## R1: lossless capture and validated neutral exports
 
 The older extractors skipped model objects, used a placeholder mesh writer,
 checked only inline texture bytes, and validated their own output inventory
