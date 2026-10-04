@@ -63,10 +63,16 @@ jobs:
           unzip -j -q Godot_v4.4.1-stable_export_templates.tpz templates/android_debug.apk templates/android_release.apk templates/version.txt -d "$HOME/.local/share/godot/export_templates/4.4.1.stable"
       - name: Validate GLB and native playback before allowing Android export
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y mesa-vulkan-drivers vulkan-tools
+          lvp=$(find /usr/share/vulkan/icd.d -name '*lvp*.json' -print -quit)
+          test -n "$lvp" && test -f "$lvp"
+          export VK_DRIVER_FILES="$lvp" VK_ICD_FILENAMES="$lvp"
+          xvfb-run -a vulkaninfo --summary > reports/real-model/vulkan-summary.txt 2>&1
           export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
           node tools/validate_glb.cjs build/real-model/export/model.glb reports/real-model/khronos.json
           godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          timeout 180s "$godot" --headless --path build/model-preview --editor --import 2>&1 | tee reports/real-model/import.log
+          timeout 180s xvfb-run -a "$godot" --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 --path build/model-preview --editor --import 2>&1 | tee reports/real-model/import.log
           timeout 180 "$godot" --headless --path build/model-preview --script scripts/verify_animation.gd -- \
             "$GITHUB_WORKSPACE/build/real-model/export/model.glb" "$GITHUB_WORKSPACE/build/real-model/godot.expected.json" \
             "$GITHUB_WORKSPACE/reports/real-model/native-animation.json" 2>&1 | tee reports/real-model/native.log
