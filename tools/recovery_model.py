@@ -2,7 +2,8 @@
 """Export a verified R1/R2 model subtree as GLB, without executing game code.
 
 Materials are deliberately base-color previews. Explicit --clip selections support
-the R4 legacy TRS subset; other animations, custom shaders and gameplay remain
+the R4 legacy and selected generic dense/constant TRS subsets; other animations,
+custom shaders and gameplay remain
 unimplemented. No runtime controller or missing curve is fabricated.
 """
 from __future__ import annotations
@@ -72,6 +73,30 @@ def variable_skin_present(value):
     return len(data) != 0
 
 
+
+def expand_skin(geometry):
+    """Expand Unity OneBone/TwoBones layouts into four glTF influence slots.
+
+    A single index with no weight channel has implicit weight 1 (SkinWeights.OneBone).
+    Missing multi-index weights are not inferred; original sums remain validated.
+    """
+    joints = geometry.get('joints')
+    weights = geometry.get('weights')
+    if not joints:
+        require(not weights, 'weights without bone indices')
+        return
+    require(len(joints) == len(geometry['positions']), 'bone-index vertex count mismatch')
+    width = len(joints[0])
+    require(width in (1, 2, 4) and all(len(j) == width for j in joints), 'unsupported skin influence layout')
+    if not weights:
+        require(width == 1, 'missing weights for multi-bone skin')
+        weights = [[1.0] for _ in joints]
+    require(len(weights) == len(joints) and all(len(w) == width for w in weights), 'skin channel dimensions differ')
+    geometry['weights'] = [list(w) + [0.0] * (4-width) for w in weights]
+    geometry['joints'] = [list(j) + [0] * (4-width) for j in joints]
+    geometry['source_skin_influences'] = width
+
+
 def read_geometry(mesh):
     """Decode raw vertex channels; never use OBJ as the skin recovery source."""
     from UnityPy.helpers.MeshHelper import MeshHandler
@@ -105,6 +130,7 @@ def read_geometry(mesh):
             result[key] = [list(row[:3] if key == 'normals' else row) for row in rows]
     require(result['positions'] is not None, 'mesh positions unavailable')
     result['positions'] = [list(v) for v in result['positions']]
+    expand_skin(result)
     return result
 
 
@@ -127,25 +153,57 @@ def preview_material(reader, oid):
     textures = named_values(saved.get('m_TexEnvs', []), '/m_SavedProperties/m_TexEnvs')
     color = colors.get('_Color', ({'r': 1, 'g': 1, 'b': 1, 'a': 1}, ''))[0]
     result = {'id': oid, 'name': tree.get('m_Name', oid), 'color': [color[k] for k in 'rgba']}
-    if '_MainTex' in textures:
-        env, trail = textures['_MainTex']
+    # Preview only: prefer an explicitly bound SRP base map over a legacy main map.
+    # Null properties are not textures. Retain the selected property as provenance.
+    for prop in ('_BaseMap', '_MainTex'):
+        if prop in textures:
+            env = textures[prop][0]
+            require(env.get('m_Scale', {'x':1,'y':1}) == {'x':1,'y':1} and
+                    env.get('m_Offset', {'x':0,'y':0}) == {'x':0,'y':0},
+                    'nonidentity texture transform needs KHR_texture_transform conversion')
+    candidates = [k for k in ('_BaseMap', '_MainTex') if k in textures
+                  and textures[k][0].get('m_Texture', {}).get('m_PathID', 0)]
+    if candidates:
+        prop = candidates[0]
+        env, trail = textures[prop]
         require(env.get('m_Scale', {'x':1,'y':1}) == {'x':1,'y':1} and
                 env.get('m_Offset', {'x':0,'y':0}) == {'x':0,'y':0},
                 'nonidentity texture transform needs KHR_texture_transform conversion')
-        texture_id = reader.ref(oid, trail + '/m_Texture', {'Texture2D'}, nullable=True)
-        if texture_id:
-            tex = reader.parsed(texture_id)
-            recover.texture_data(tex)
-            image = tex.image
-            require(image is not None, 'base texture decoder returned no image')
-            stream = io.BytesIO(); image.save(stream, format='PNG')
-            result['png'] = stream.getvalue()
+        texture_id = reader.ref(oid, trail + '/m_Texture', {'Texture2D'})
+        tex = reader.parsed(texture_id)
+        recover.texture_data(tex)
+        image = tex.image
+        require(image is not None, 'base texture decoder returned no image')
+        stream = io.BytesIO(); image.save(stream, format='PNG')
+        result['png'] = stream.getvalue()
+        result['source_texture_property'] = prop
+        result['source_texture_id'] = texture_id
     return result
 
 
 def bind_matrix(value):
     # Unity Matrix4x4f fields are row/column names e00..e33, not flat storage order.
     return [getattr(value, 'e'+str(r)+str(c)) for r in range(4) for c in range(4)]
+
+
+
+def common_skin_root(nodes, joints):
+    """glTF skeleton must be a common ancestor; Unity rootBone need not be."""
+    parents = {child: n['id'] for n in nodes for child in n['children']}
+    ids = {n['id'] for n in nodes}
+    chains = []
+    for joint in joints:
+        require(joint in ids, 'skin joint outside model')
+        chain = []
+        while joint is not None:
+            require(joint not in chain, 'cyclic skin hierarchy')
+            chain.append(joint); joint = parents.get(joint)
+        chains.append(chain)
+    require(chains, 'empty skin')
+    for candidate in chains[0]:
+        if all(candidate in chain for chain in chains[1:]):
+            return candidate
+    raise RecoveryError('skin joints have no common ancestor')
 
 
 def collect(cat, root_object, reader=None, max_nodes=50000):
@@ -193,8 +251,12 @@ def collect(cat, root_object, reader=None, max_nodes=50000):
                 binds = getattr(mesh, 'm_BindPose', None)
                 require(binds is not None and len(binds) == len(bones), 'mesh bind-pose count does not match renderer bones')
                 renderer['skin'] = {'joints': bones, 'inverse_bind_matrices': [bind_matrix(m) for m in binds],
-                                     'root': reader.ref(rid, '/m_RootBone', {'Transform'}, nullable=True)}
+                                     'root': None,
+                                     'source_root': reader.ref(rid, '/m_RootBone', {'Transform'}, nullable=True)}
             model['renderers'].append(renderer)
+    for renderer in model['renderers']:
+        if 'skin' in renderer:
+            renderer['skin']['root'] = common_skin_root(model['nodes'], renderer['skin']['joints'])
     require(model['renderers'], 'selected subtree contains no supported mesh renderer')
     return model
 
@@ -217,7 +279,12 @@ def export_snapshot(root, root_object, out, *, max_nodes=50000, clip_ids=(), ani
                 require(row['type'] == 'AnimationClip', 'selected clip is not an AnimationClip')
                 # Verify the original clip bytes even when a decoded tree is cached.
                 reader.parsed(oid)
-                clips.append(decode_clip(reader.tree(oid), oid, row['sha'], model, animation_root))
+                tree = reader.tree(oid)
+                if tree.get('m_Legacy') is False:
+                    from mecanim_dense import decode_dense
+                    clips.append(decode_dense(tree, oid, row['sha'], model, animation_root))
+                else:
+                    clips.append(decode_clip(tree, oid, row['sha'], model, animation_root))
             blob = append_clips(blob, clips)
             counts = validate_animated_glb(blob)
         else:

@@ -1,5 +1,5 @@
 extends SceneTree
-## Generated-fixture playback verification, never game scripts or event execution.
+## Native pose verification; input manifest distinguishes real assets from fixtures.
 
 var errors: Array[String] = []
 
@@ -189,7 +189,7 @@ func _run() -> void:
 		"input_sha256": FileAccess.get_sha256(args[0]), "native_scene": native_path,
 		"source_spline_sha256": expected.get("source_spline_sha256", ""),
 		"target_mapping": mapping, "samples": records, "reloaded_samples": reloaded,
-		"errors": errors, "passed": errors.is_empty(), "fixture_only": true,
+		"errors": errors, "passed": errors.is_empty(), "fixture_only": expected.get("fixture_only", true),
 		"gameplay_port_complete": false, "android_device_tested": false}
 	var output := FileAccess.open(args[2], FileAccess.WRITE)
 	if output == null:

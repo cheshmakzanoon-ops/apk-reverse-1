@@ -1,0 +1,139 @@
+name: Real Farhad asset and Android viewer
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/real-model.yml'
+      - 'docs/inputs/farhad-model.json'
+      - 'tools/real_asset_sample.py'
+      - 'tools/mecanim_dense.py'
+      - 'tools/recovery_model.py'
+      - 'godot/model_inspector/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: real-farhad-asset
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  real-model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Test conversion and acquire only the supplied APK
+        timeout-minutes: 8
+        run: |
+          mkdir -p reports/real build
+          python -m pip install -r requirements-recovery.txt gdown==5.2.0
+          python -m pip freeze > reports/real/dependencies.txt
+          python -m unittest discover -s tests -v 2>&1 | tee reports/real/tests.log
+          python tools/apk_intake.py --request docs/inputs/last-war.json --out input/verified 2>&1 | tee reports/real/intake.log
+          cp input/verified/intake.json reports/real/intake.json
+      - name: Convert the hash-pinned prefab and two real dense clips
+        run: |
+          python tools/real_asset_sample.py --apk input/verified/app.apk --out real-model 2>&1 | tee reports/real/conversion.log
+          cp real-model/real-model-report.json reports/real/
+      - name: Install native validators and checked Godot export templates
+        run: |
+          npm install --prefix "$RUNNER_TEMP/validator" gltf-validator@2.0.0-dev.3.10
+          echo "GLTF_VALIDATOR_MODULE=$RUNNER_TEMP/validator/node_modules/gltf-validator" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/godot"
+          cd "$RUNNER_TEMP/godot"
+          base=https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable
+          for file in Godot_v4.4.1-stable_linux.x86_64.zip Godot_v4.4.1-stable_export_templates.tpz SHA512-SUMS.txt; do
+            curl --fail --location --retry 2 "$base/$file" -o "$file"
+          done
+          sha512sum --check --ignore-missing SHA512-SUMS.txt
+          unzip -q Godot_v4.4.1-stable_linux.x86_64.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          mkdir -p "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+          unzip -j -q Godot_v4.4.1-stable_export_templates.tpz templates/android_debug.apk templates/android_release.apk templates/version.txt -d "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+      - name: Verify geometry and source-pose samples through native Godot
+        run: |
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          node tools/validate_glb.cjs real-model/export/model.glb reports/real/khronos-original.json
+          node tools/validate_glb.cjs real-model/export/model.native.glb reports/real/khronos-native.json
+          timeout 120s "$godot" --headless --path godot --script scripts/verify_model.gd -- "$GITHUB_WORKSPACE/real-model/export/model.native.glb" "$GITHUB_WORKSPACE/real-model/export/model.expected.json" "$GITHUB_WORKSPACE/reports/real/native-model.json" 2>&1 | tee reports/real/native-model.log
+          timeout 120s "$godot" --headless --path godot --script scripts/verify_animation.gd -- "$GITHUB_WORKSPACE/real-model/export/model.native.glb" "$GITHUB_WORKSPACE/real-model/export/animation.expected.json" "$GITHUB_WORKSPACE/reports/real/native-animation.json" 2>&1 | tee reports/real/native-animation.log
+          mkdir -p godot/recovered_models/farhad
+          cp reports/real/native-animation.tscn godot/recovered_models/farhad/model.tscn
+          cp real-model/display-clips.json godot/recovered_models/farhad/
+          cp real-model/real-model-report.json godot/recovered_models/farhad/provenance.json
+      - name: Render the real model inspection screen
+        run: |
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          timeout 120s "$godot" --headless --path godot --editor --import 2>&1 | tee reports/real/editor-import.log
+          timeout 120s xvfb-run -a "$godot" --path godot res://model_inspector/main.tscn -- --capture="$GITHUB_WORKSPACE/reports/real/viewer.png" 2>&1 | tee reports/real/viewer.log
+          test -s reports/real/viewer.png
+          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/real/editor-import.log reports/real/viewer.log; then exit 1; fi
+      - name: Configure separate offline Android model viewer
+        run: |
+          "${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;34.0.0" "platforms;android-34" > reports/real/sdk.log
+          mkdir -p "$HOME/.config/godot"
+          python - <<'PY'
+          import json, os, pathlib
+          p=pathlib.Path('godot/project.godot')
+          s=p.read_text().replace('res://data_inspector/main.tscn','res://model_inspector/main.tscn').replace('Recovered Client Data Inspector','Recovered Farhad Model Inspector')
+          p.write_text(s)
+          p=pathlib.Path('godot/export_presets.cfg')
+          p.write_text(p.read_text().replace('Android Data Inspector','Android Model Inspector').replace('org.apk_recovery.data_inspector','org.apk_recovery.model_inspector').replace('Recovered Data Inspector','Recovered Model Inspector').replace('0.1-r5','0.2-real-model'))
+          settings=pathlib.Path.home()/'.config/godot/editor_settings-4.4.tres'
+          settings.write_text('[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/android_sdk_path='+json.dumps(os.environ['ANDROID_HOME'])+'\nexport/android/java_sdk_path='+json.dumps(os.environ['JAVA_HOME'])+'\n')
+          PY
+          keytool -genkeypair -keystore "$RUNNER_TEMP/model-debug.keystore" -storepass android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 3650
+      - name: Build and inspect Android viewer without claiming device execution
+        env:
+          GODOT_ANDROID_KEYSTORE_DEBUG_USER: androiddebugkey
+          GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD: android
+        run: |
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PATH="$RUNNER_TEMP/model-debug.keystore"
+          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path godot --export-debug "Android Model Inspector" "$GITHUB_WORKSPACE/build/farhad-model-inspector.apk" 2>&1 | tee reports/real/android-export.log
+          "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --verbose build/farhad-model-inspector.apk > reports/real/signature.txt
+          "$ANDROID_HOME/build-tools/34.0.0/aapt" dump badging build/farhad-model-inspector.apk > reports/real/apk-badging.txt
+          sha256sum build/farhad-model-inspector.apk > reports/real/apk-sha256.txt
+          python - <<'PY'
+          import pathlib,zipfile,json
+          with zipfile.ZipFile('build/farhad-model-inspector.apk') as z:
+              assert 'lib/arm64-v8a/libgodot_android.so' in z.namelist()
+              for p in pathlib.Path('godot/recovered_models/farhad').glob('*.json'):
+                  assert z.read('assets/recovered_models/farhad/'+p.name)==p.read_bytes()
+          badging=pathlib.Path('reports/real/apk-badging.txt').read_text()
+          assert "org.apk_recovery.model_inspector" in badging
+          assert 'android.permission.INTERNET' not in badging
+          pathlib.Path('reports/real/android.json').write_text(json.dumps({'apk_built':True,'packaged_provenance_matches':True,'android_device_tested':False,'gameplay_port_complete':False},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-farhad-evidence
+          path: reports/real/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: real-farhad-model-and-android
+          path: |
+            real-model/
+            godot/recovered_models/
+            build/farhad-model-inspector.apk
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-model-native-debug-tool
+          path: ${{ runner.temp }}/godot/Godot_v4.4.1-stable_linux.x86_64.zip
+          if-no-files-found: ignore
+          retention-days: 3

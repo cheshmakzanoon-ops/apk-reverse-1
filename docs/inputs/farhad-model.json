@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "apk_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+  "apk_bytes": 813035279,
+  "fragment": "assets/AssetBundles/BundleFragment0.bytes",
+  "bundle_indices": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  "prefab_path": "assets/_art_lastwar/models/cars/a_hero_farhad_01/prefab/a_hero_farhad_01_pbr.prefab",
+  "binding_root_path": "A_Hero@Farhad_01_skin_high",
+  "clips": ["Farhad_01_hit", "Farhad_01_attack_move"]
+}

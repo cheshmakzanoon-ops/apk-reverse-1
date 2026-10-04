@@ -36,6 +36,15 @@ def environment(catalog: Catalog | None = None, owner: str | None = None):
     from fsspec.implementations.memory import MemoryFileSystem
 
     class ScopedEnvironment(UnityPy.Environment):
+        def load_file(self, file, parent=None, name=None, is_dependency=False):
+            # UnityPy's Texture2D resource loader calls load_file(path, True),
+            # not find_file(). Route those strings through the same catalog.
+            if isinstance(file, str):
+                if catalog is None:
+                    raise FileNotFoundError('uncaptured dependency: ' + file)
+                return self.find_file(file, is_dependency=True)
+            return super().load_file(file, parent=parent, name=name, is_dependency=is_dependency)
+
         def find_file(self, name, is_dependency=True):
             # No global monkeypatch and no fallback to a whole-disk search.
             if catalog is None:
@@ -47,6 +56,8 @@ def environment(catalog: Catalog | None = None, owner: str | None = None):
             if cached is not None:
                 return cached
             data = catalog.store.path(member["sha"]).read_bytes()
+            if len(data) != member['size'] or digest(data) != member['sha']:
+                raise RecoveryError('dependency bytes differ from capture: ' + name)
             return self.load_file(io.BytesIO(data), name=name, is_dependency=is_dependency)
 
     return ScopedEnvironment(fs=MemoryFileSystem(), path="")
