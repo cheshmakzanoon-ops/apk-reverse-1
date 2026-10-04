@@ -33,9 +33,12 @@ func target_map(model: Node, state: GLTFState, expected: Dictionary) -> Dictiona
 				check(false, "Expected glTF node index out of range")
 				continue
 			var source: GLTFNode = state.get_nodes()[idx]
+			# ImporterMesh conversion replaces nodes after GLTFState recorded them.
+			# Resolve the exact generated path instead of retaining a freed pointer.
+			var path: NodePath = source.get_scene_node_path(state, true)
+			var target: Node = model.get_node_or_null(NodePath(path.get_concatenated_names()))
 			if source.skeleton >= 0:
-				var skeleton: Skeleton3D = state.get_skeletons()[source.skeleton].get_godot_skeleton()
-				var path: NodePath = source.get_scene_node_path(state, true)
+				var skeleton := target as Skeleton3D
 				check(skeleton != null and path.get_subname_count() == 1, "Skeleton target mapping unavailable")
 				if skeleton == null or path.get_subname_count() != 1:
 					continue
@@ -43,7 +46,7 @@ func target_map(model: Node, state: GLTFState, expected: Dictionary) -> Dictiona
 				check(skeleton.find_bone(bone) >= 0, "Mapped bone is absent")
 				mapped[str(idx)] = {"path": str(model.get_path_to(skeleton)), "bone": bone}
 			else:
-				var node: Node = state.get_scene_node(idx)
+				var node: Node = target
 				check(node is Node3D, "Mapped glTF target is not a Node3D")
 				if node is Node3D:
 					mapped[str(idx)] = {"path": str(model.get_path_to(node)), "bone": ""}
