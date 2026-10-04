@@ -448,7 +448,8 @@ def real_serialized_scene():
         return struct.pack("<iq", 0, pid)
     def go(name, tid):
         raw = struct.pack("<i", 1) + pointer(tid) + struct.pack("<i", 0) + string(name) + struct.pack("<H?", 0, True)
-        return raw + bytes(-len(raw) % 4)
+        # Padding belongs BETWEEN objects, not in GameObject byte_size.
+        return raw
     def tr(goid, parent, children):
         return (pointer(goid) + struct.pack("<4f", 0, 0, 0, 1) + struct.pack("<3f", 1, 2, 3)
                 + struct.pack("<3f", 1, 1, 1) + struct.pack("<i", len(children))
@@ -462,11 +463,13 @@ def real_serialized_scene():
     meta += bytes(-(20 + len(meta)) % 4)
     raw = b""
     for pid, type_id, payload in items:
+        raw += bytes(-len(raw) % 8)
         meta += struct.pack("<qIIi", pid, len(raw), len(payload), type_id)
         raw += payload
     meta += struct.pack("<ii", 0, 0) + b"\0"
-    offset = 20 + len(meta)
-    return struct.pack(">IIII", len(meta), offset + len(raw), 17, offset) + bytes(4) + meta + raw
+    offset = (20 + len(meta) + 15) // 16 * 16
+    padding = bytes(offset - 20 - len(meta))
+    return struct.pack(">IIII", len(meta), offset + len(raw), 17, offset) + bytes(4) + meta + padding + raw
 
 
 @unittest.skipUnless(importlib.util.find_spec("UnityPy"), "UnityPy required in CI")
@@ -476,7 +479,9 @@ class ActualGraphIntegration(Fixture):
         root = self.root / "actual-scene"
         recover.capture(apk, root)
         report = graph.build(root)
-        self.assertTrue(report["graph_complete"], report)
+        with sqlite3.connect(root / "catalog.sqlite") as db:
+            diagnostics = db.execute("SELECT object_id,status,detail FROM graph_objects").fetchall()
+        self.assertTrue(report["graph_complete"], (report, diagnostics))
         cat = Catalog(root)
         try:
             oid = cat.db.execute("SELECT id FROM objects WHERE path_id=1").fetchone()[0]
