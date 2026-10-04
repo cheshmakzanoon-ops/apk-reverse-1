@@ -1,5 +1,6 @@
 extends Control
-## Development tool displaying recovered client values, not game simulation.
+## Development tool displaying source-compatible values alongside untouched storage.
+const RankRules = preload("res://gameplay/hero_rank_rules.gd")
 const Data = preload("res://data_inspector/recovered_data.gd")
 var database = Data.new()
 var table_picker := OptionButton.new()
@@ -71,5 +72,20 @@ func select_record(index: int) -> void:
 	var text := "Record " + str(key) + "\n\n"
 	for col in database.module.columns:
 		var field: String = String(col.name_hex).hex_decode().get_string_from_utf8()
-		text += field + "\n" + database.describe(database.record_token(key, field)) + "\n\n"
+		var raw: Variant = database.raw_record_token(key, field)
+		var resolved: Variant = database.record_token(key, field)
+		text += field + "\n" + database.describe(resolved)
+		if raw != resolved:
+			text += "\nStored: " + database.describe(raw) + " [resolved by LocalController rules]"
+		text += "\n\n"
+	if database.module.name == "lw_hero_rank":
+		var rules = RankRules.new()
+		if rules.configure(database, key):
+			text += "SOURCE-DERIVED RANK RULES\n"
+			text += "Stars: %s | effect ratio: %s\n" % [str(rules.get_star_count()), str(rules.get_effect_ratio())]
+			for effect in rules.effects:
+				text += "Effect %s: %s (formatted: %s)\n" % [str(effect), str(rules.get_effect_add(effect)), rules.get_effect_add(effect, true)]
+			text += "Numeric client rules only; no upgrade or server action is performed.\n"
+		else:
+			text += "Rank rule evaluation blocked: " + rules.error
 	details.text = text

@@ -5,6 +5,8 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from lua_table_data import compact, interpret
 from godot_data import cell_digest, columns_and_rows, verify
+from client_semantics import Accessors, CONTRACT
+
 
 def make(out):
     source=br'''local r,c,d,a,shared
@@ -16,8 +18,8 @@ d[9007199254740993]=a;r.index=c;r.data=d;return r'''
     out=Path(out);(out/'modules').mkdir(parents=True,exist_ok=False)
     (out/'modules'/(sha+'.json')).write_bytes(encoded)
     item={'name':'generated_boundary_fixture','sha256':sha,'bytes':len(encoded),'row_count':count,'table_count':len(doc['tables']),
-          'entry_count':sum(map(len,doc['tables'])),'columns':columns,'cell_sha256':cell_digest(doc,columns)}
-    catalog={'format':'recovered-client-data-v1','state':'ready','source_commit':'0'*40,'source_tree':'0'*40,'selected_modules':1,'rows':count,'modules':[item]}
+          'entry_count':sum(map(len,doc['tables'])),'columns':columns,'cell_sha256':cell_digest(doc,columns),'runtime_access':Accessors(doc).report(columns)}
+    catalog={'format':'recovered-client-data-v2','accessor_contract':CONTRACT,'state':'ready','source_commit':'0'*40,'source_tree':'0'*40,'selected_modules':1,'rows':count,'modules':[item]}
     (out/'catalog.json').write_bytes(compact(catalog));verify(out)
 
 if __name__=='__main__':make(sys.argv[1])

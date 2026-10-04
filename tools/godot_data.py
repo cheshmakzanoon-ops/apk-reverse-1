@@ -6,6 +6,7 @@ Only statically accepted data statements can reach the optional Lua 5.3 oracle.
 """
 from __future__ import annotations
 import argparse
+from client_semantics import Accessors, CONTRACT
 import hashlib
 import json
 from pathlib import Path
@@ -163,9 +164,9 @@ def build(repo, out, names=None, lua53=False):
                 'bytes': len(encoded), 'table_count': len(graph['tables']), 'row_count': count,
                 'entry_count': sum(len(t) for t in graph['tables']), 'columns': columns,
                 'cell_sha256': cell_digest(graph, columns),
-                'lua53_equal': oracle is not None})
+                'lua53_equal': oracle is not None, 'runtime_access': Accessors(graph).report(columns)})
             print(name+': '+str(count)+' records; '+str(len(encoded))+' bytes', flush=True)
-        catalog = {'format': 'recovered-client-data-v1', 'state': 'ready', 'source_commit': commit,
+        catalog = {'format': 'recovered-client-data-v2', 'accessor_contract': CONTRACT, 'state': 'ready', 'source_commit': commit,
             'source_tree': tree, 'tracked_lua_tables': len(inventory), 'selected_modules': len(records),
             'unselected_modules': len(inventory)-len(records), 'rows': sum(r['row_count'] for r in records),
             'modules': records, 'apk_verified': False, 'gameplay_port_complete': False,
@@ -181,7 +182,7 @@ def build(repo, out, names=None, lua53=False):
 def verify(root):
     root = Path(root)
     catalog = json.loads((root/'catalog.json').read_bytes())
-    need(catalog.get('format') == 'recovered-client-data-v1' and catalog.get('state') == 'ready', 'package not ready')
+    need(catalog.get('format') == 'recovered-client-data-v2' and catalog.get('accessor_contract') == CONTRACT and catalog.get('state') == 'ready', 'package not ready')
     modules = catalog.get('modules')
     need(type(modules) is list and modules and len(modules) == catalog['selected_modules'], 'module coverage mismatch')
     names = set(); files = {'catalog.json'}; rows = 0
@@ -195,7 +196,8 @@ def verify(root):
         need(len(raw) == module['bytes'] and sha256(raw) == sha, 'module hash/size mismatch')
         doc = json.loads(raw); columns, count = columns_and_rows(doc)
         need(compact(doc) == raw and columns == module['columns'] and count == module['row_count'], 'module metadata mismatch')
-        need(cell_digest(doc, columns) == module['cell_sha256'], 'cell digest mismatch')
+        need(cell_digest(doc, columns) == module['cell_sha256'], 'raw cell digest mismatch')
+        need(Accessors(doc).report(columns) == module.get('runtime_access'), 'runtime accessor metadata mismatch')
         need(len(doc['tables']) == module['table_count'] and sum(map(len, doc['tables'])) == module['entry_count'], 'graph counts mismatch')
         rows += count
     need(rows == catalog['rows'], 'row coverage mismatch')

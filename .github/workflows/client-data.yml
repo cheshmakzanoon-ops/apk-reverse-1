@@ -27,13 +27,14 @@ jobs:
           mkdir -p reports/r5 build
           python -m pip install --disable-pip-version-check lupa==2.6
           python -c 'from lupa.lua53 import LuaRuntime; assert LuaRuntime().eval("_VERSION") == "Lua 5.3"'
-          python -m unittest discover -s tests -p test_client_data.py -v 2>&1 | tee reports/r5/data-tests.log
+          python -m unittest discover -s tests -p "test_client*.py" -v 2>&1 | tee reports/r5/data-tests.log
       - name: Convert the real committed client profile and compare every table with Lua
         run: |
           python tools/godot_data.py build --repo . --out godot/recovered_data --lua53 2>&1 | tee reports/r5/conversion.log
           python tools/godot_data.py verify --out godot/recovered_data | tee reports/r5/package-verification.json
           cp godot/recovered_data/catalog.json reports/r5/client-catalog.json
           python tests/data_native_fixtures.py reports/r5/boundary-fixture
+          python tools/verify_client_semantics.py --repo . --package godot/recovered_data --out reports/r6
       - name: Fetch pinned Godot and Android export templates with release hashes
         run: |
           mkdir -p "$RUNNER_TEMP/godot"
@@ -54,6 +55,7 @@ jobs:
           "$godot" --headless --path godot --editor --import 2>&1 | tee reports/r5/import.log
           "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r5/native-data.json" 2>&1 | tee reports/r5/native-data.log
           "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/reports/r5/boundary-fixture" "$GITHUB_WORKSPACE/reports/r5/native-boundaries.json" 2>&1 | tee reports/r5/native-boundaries.log
+          "$godot" --headless --path godot --script gameplay/verify_runtime_semantics.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r6/semantic-oracle.json" "$GITHUB_WORKSPACE/reports/r6/boundary" "$GITHUB_WORKSPACE/reports/r6/native-semantics.json" 2>&1 | tee reports/r6/native-semantics.log
           "$godot" --headless --path godot --quit-after 10 2>&1 | tee reports/r5/inspector-startup.log
           if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log; then exit 1; fi
       - name: Configure Android SDK and isolated debug signing
@@ -95,7 +97,9 @@ jobs:
         if: always()
         with:
           name: actual-client-data-evidence
-          path: reports/r5/
+          path: |
+            reports/r5/
+            reports/r6/
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: success()

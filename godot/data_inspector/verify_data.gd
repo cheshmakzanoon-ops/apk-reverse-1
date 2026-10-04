@@ -26,6 +26,7 @@ func run() -> void:
 			check(data.open_module(item.name), item.name + ": " + data.error)
 			if not failures.is_empty(): break
 			var hash := HashingContext.new(); hash.start(HashingContext.HASH_SHA256)
+			var raw_hash := HashingContext.new(); raw_hash.start(HashingContext.HASH_SHA256)
 			var data_id: int = data.table_ref(data.lookup_token(0, "data"))
 			var module_cells := 0
 			for encoded_key in data.tables[data_id]:
@@ -34,6 +35,8 @@ func run() -> void:
 					var field_bytes: PackedByteArray = String(col.name_hex).hex_decode()
 					var field_name := field_bytes.get_string_from_utf8()
 					check(field_name.to_utf8_buffer() == field_bytes, "Non-UTF8 column identifier unsupported by record API")
+					var raw_token: Variant = data.raw_record_token(actual_key, field_name)
+					raw_hash.update((encoded_key + "\n" + String(col.name_hex) + "\n" + canonical(raw_token) + "\n").to_utf8_buffer())
 					var token: Variant = data.record_token(actual_key, field_name)
 					var cell: Variant = data.record_value(actual_key, field_name)
 					if token != null:
@@ -46,9 +49,10 @@ func run() -> void:
 					hash.update((encoded_key + "\n" + String(col.name_hex) + "\n" + canonical(token) + "\n").to_utf8_buffer())
 					module_cells += 1
 			var digest := hash.finish().hex_encode()
-			check(digest == item.cell_sha256, "Record accessor digest mismatch: " + item.name)
+			check(raw_hash.finish().hex_encode() == item.cell_sha256, "Raw storage digest mismatch: " + item.name)
+			check(digest == item.runtime_access.resolved_cell_sha256, "Runtime accessor digest mismatch: " + item.name)
 			cells += module_cells
-			results.append({"name": item.name, "rows": item.row_count, "cells": module_cells, "cell_sha256": digest})
+			results.append({"name": item.name, "rows": item.row_count, "cells": module_cells, "resolved_cell_sha256": digest})
 	# Reject malformed scalar/ref encodings without silently clamping/coercing.
 	for invalid in [["i", "9223372036854775808"], ["i", "-0"], ["f", "000000000000f07f"], ["s", "zz"], ["t", -1], ["t", 0.5], ["b", 1]]:
 		check(not data.valid_token(invalid, false, 2), "Malformed token accepted")

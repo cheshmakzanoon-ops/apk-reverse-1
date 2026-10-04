@@ -7,6 +7,27 @@ Decompiled source is not necessarily the exact developer-written source, and
 server implementation/source files not shipped in the client are not recovered
 by unpacking an APK.
 
+## R6: runtime data semantics and source-checked hero-rank rules
+
+R6 fixes a real R5 data-access defect: linked columns stored pool indices, but
+Godot returned those indices instead of the values in `vExt`. The native loader
+now separates raw storage from the recovered LocalController getter, preserves
+Lua truth/default behavior, and checks both digests. Packages use format v2;
+rebuild old v1 packages without overwriting the original recovery artifacts.
+
+The inspector shows stored and resolved values separately. Numeric hero-rank
+rules are ported to GDScript and checked against the actual recovered Lua class,
+not a rewritten reference formula. The existing Android inspector build includes
+these changes. This is still not the playable game; real APK/asset capture remains
+unfinished. See [R6 contract, source oracles and limits](docs/RECOVERY_R6.md).
+
+## R5: real client tables and Android development inspector
+
+The selected 16-module committed client-data profile can be converted to a typed,
+hash-linked Godot package and built into a debug ARM64 inspector. R6 supersedes
+R5's raw-only record access with runtime-compatible semantics. See the retained
+[R5 implementation scope](docs/RECOVERY_R5.md) for the original milestone.
+
 ## R4: explicit legacy clip export and native playback checks
 
 R4 adds selected AnimationClip export through `--clip OBJECT_ID` on

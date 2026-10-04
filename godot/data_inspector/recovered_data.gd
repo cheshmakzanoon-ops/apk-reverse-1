@@ -39,8 +39,10 @@ func open_package(path: String) -> bool:
 	tables = []
 	module = {}
 	var parsed: Variant = read_json(path.path_join("catalog.json"), 1048576)
-	if not parsed is Dictionary or parsed.get("format") != "recovered-client-data-v1" or parsed.get("state") != "ready":
+	if not parsed is Dictionary or parsed.get("format") != "recovered-client-data-v2" or parsed.get("state") != "ready":
 		return fail("Data package is not ready")
+	if parsed.get("accessor_contract") != "local-controller-line-v1":
+		return fail("Unsupported runtime accessor contract; rebuild the package")
 	var modules: Variant = parsed.get("modules")
 	if not modules is Array or modules.is_empty() or modules.size() != parsed.get("selected_modules"):
 		return fail("Invalid module coverage")
@@ -154,6 +156,23 @@ func open_module(name: String) -> bool:
 	var index_id := table_ref(lookup_token(0, "index"))
 	if data_id < 0 or index_id < 0 or tables[data_id].size() != int(module.row_count):
 		return fail("Invalid index/data record schema")
+	if lookup_token(0, "link") != null: return fail("Split-table routing is not implemented")
+	var pool: Variant = lookup_token(0, "vExt")
+	if lua_truth(pool) and table_ref(pool) < 0: return fail("Invalid vExt table")
+	var columns: Variant = module.get("columns")
+	if not columns is Array or columns.size() != tables[index_id].size(): return fail("Column coverage mismatch")
+	var slots := {}; var fields := {}
+	for col in columns:
+		if not col is Dictionary or not hex_string(col.get("name_hex")) or not hex_string(col.get("declared_type_hex")):
+			return fail("Invalid column metadata")
+		if not whole(col.get("slot"), 2000000) or col.slot == 0 or slots.has(int(col.slot)) or fields.has(col.name_hex):
+			return fail("Invalid or duplicate column slot/name")
+		var desc := table_ref(lookup_token(index_id, String(col.name_hex).hex_decode()))
+		if desc < 0 or scalar_value(lookup_token(desc, 1)) != int(col.slot) or lookup_token(desc, 2) != ["s", col.declared_type_hex]:
+			return fail("Column metadata differs from source graph")
+		slots[int(col.slot)] = true; fields[col.name_hex] = true
+	if not module.get("runtime_access") is Dictionary or not hex_string(module.runtime_access.get("resolved_cell_sha256"), 64):
+		return fail("Missing runtime accessor evidence")
 	for row in tables[data_id].values():
 		if table_ref(row) < 0: return fail("Record is not a table")
 	return true
@@ -166,7 +185,7 @@ func record_keys() -> Array:
 		result.append(scalar_value(JSON.parse_string(encoded_key)))
 	return result
 
-func record_token(record_key: Variant, field: String) -> Variant:
+func raw_record_token(record_key: Variant, field: String) -> Variant:
 	var index_id := table_ref(lookup_token(0, "index"))
 	var data_id := table_ref(lookup_token(0, "data"))
 	var descriptor := table_ref(lookup_token(index_id, field))
@@ -174,6 +193,37 @@ func record_token(record_key: Variant, field: String) -> Variant:
 	if descriptor < 0 or row < 0: return null
 	var slot: Variant = scalar_value(lookup_token(descriptor, 1))
 	return lookup_token(row, slot)
+
+func lua_truth(token: Variant) -> bool:
+	return token != null and not (token[0] == "b" and token[1] == false)
+
+func record_token(record_key: Variant, field: String, default_token: Variant = null) -> Variant:
+	# Source: LocalController.createLineData's getValue closure (not controller getValue).
+	var index_id := table_ref(lookup_token(0, "index"))
+	var data_id := table_ref(lookup_token(0, "data"))
+	var descriptor := table_ref(lookup_token(index_id, field))
+	var row := table_ref(lookup_token(data_id, record_key))
+	if descriptor < 0 or row < 0: return default_token
+	var value: Variant = resolved_record_token(record_key, field)
+	if lua_truth(value): return value
+	var declared: Variant = lookup_token(descriptor, 2)
+	if declared == ["s", "string".to_utf8_buffer().hex_encode()]:
+		return default_token if lua_truth(default_token) else ["s", ""]
+	return default_token
+
+func resolved_record_token(record_key: Variant, field: String) -> Variant:
+	var descriptor := table_ref(lookup_token(table_ref(lookup_token(0, "index")), field))
+	var value: Variant = raw_record_token(record_key, field)
+	var pool := table_ref(lookup_token(0, "vExt"))
+	if lua_truth(lookup_token(descriptor, 3)) and lua_truth(value) and pool >= 0:
+		# Preserve exact tokens/alias IDs. A dangling reference returns nil as in Lua.
+		if value[0] == "t": return null
+		return lookup_token(pool, scalar_value(value))
+	return value
+
+func controller_token(record_key: Variant, field: String, default_token: Variant = null) -> Variant:
+	var value: Variant = resolved_record_token(record_key, field)
+	return value if lua_truth(value) else (default_token if lua_truth(default_token) else ["s", ""])
 
 func record_value(record_key: Variant, field: String) -> Variant:
 	return scalar_value(record_token(record_key, field))
