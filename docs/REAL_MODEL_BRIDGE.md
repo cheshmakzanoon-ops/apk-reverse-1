@@ -5,7 +5,7 @@ fixture. The reviewed profile in `docs/inputs/farhad-model.json` pins its observ
 SHA-256 and size, selects eleven original contiguous UnityFS bundles, and names
 one exact prefab, animation binding root and two clips. The APK's observed digest
 is input identity, not publisher authentication. Existing source-app bytes remain
-unchanged. The pending hero-level-rule patch is included separately in this change.
+unchanged. The previously unpublished hero-level-rule implementation is restored alongside this change.
 
 ## Reproduce
 
@@ -70,6 +70,8 @@ not the decoder's output or compatibility bake. There are 77 TRS channels per
 clip. This is stored-pose fidelity, not proof of behavior between sampled times.
 The existing legacy fixture checks remain active and are labelled separately.
 
+The headless renderer selects dummy audio explicitly; other script/render errors
+remain fatal. Portrait framing uses the narrower camera field of view.
 A Godot viewer loads the verified PackedScene and offers clip selection, pause,
 scrubbing, orbit and zoom. Its repeat behavior is an inspection convenience, not
 recovered controller logic. The separate debug ARM64 Android package is

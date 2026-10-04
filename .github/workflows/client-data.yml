@@ -35,6 +35,8 @@ jobs:
           cp godot/recovered_data/catalog.json reports/r5/client-catalog.json
           python tests/data_native_fixtures.py reports/r5/boundary-fixture
           python tools/verify_client_semantics.py --repo . --package godot/recovered_data --out reports/r6
+          python -m unittest discover -s tests -p test_hero_levels.py -v 2>&1 | tee reports/r5/hero-level-tests.log
+          python tools/hero_level_oracle.py --repo . --package godot/recovered_data --out reports/hero-levels
       - name: Fetch pinned Godot and Android export templates with release hashes
         run: |
           mkdir -p "$RUNNER_TEMP/godot"
@@ -56,8 +58,10 @@ jobs:
           "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r5/native-data.json" 2>&1 | tee reports/r5/native-data.log
           "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/reports/r5/boundary-fixture" "$GITHUB_WORKSPACE/reports/r5/native-boundaries.json" 2>&1 | tee reports/r5/native-boundaries.log
           "$godot" --headless --path godot --script gameplay/verify_runtime_semantics.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r6/semantic-oracle.json" "$GITHUB_WORKSPACE/reports/r6/boundary" "$GITHUB_WORKSPACE/reports/r6/native-semantics.json" 2>&1 | tee reports/r6/native-semantics.log
+          timeout 120s "$godot" --headless --path godot --script gameplay/verify_hero_levels.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/hero-levels/hero-level-oracle.json" "$GITHUB_WORKSPACE/reports/hero-levels/native-hero-levels.json" 2>&1 | tee reports/hero-levels/native-hero-levels.log
+          timeout 120s "$godot" --headless --path godot res://level_inspector/main.tscn --quit-after 10 2>&1 | tee reports/hero-levels/level-inspector-startup.log
           "$godot" --headless --path godot --quit-after 10 2>&1 | tee reports/r5/inspector-startup.log
-          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log; then exit 1; fi
+          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log reports/hero-levels/level-inspector-startup.log reports/hero-levels/native-hero-levels.log; then exit 1; fi
       - name: Configure Android SDK and isolated debug signing
         run: |
           sdkmanager="${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager"
@@ -100,6 +104,7 @@ jobs:
           path: |
             reports/r5/
             reports/r6/
+            reports/hero-levels/
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: success()

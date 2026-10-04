@@ -76,7 +76,7 @@ jobs:
         run: |
           godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
           timeout 120s "$godot" --headless --path godot --editor --import 2>&1 | tee reports/real/editor-import.log
-          timeout 120s xvfb-run -a "$godot" --path godot res://model_inspector/main.tscn -- --capture="$GITHUB_WORKSPACE/reports/real/viewer.png" 2>&1 | tee reports/real/viewer.log
+          timeout 120s xvfb-run -a "$godot" --audio-driver Dummy --path godot res://model_inspector/main.tscn -- --capture="$GITHUB_WORKSPACE/reports/real/viewer.png" 2>&1 | tee reports/real/viewer.log
           test -s reports/real/viewer.png
           if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/real/editor-import.log reports/real/viewer.log; then exit 1; fi
       - name: Configure separate offline Android model viewer

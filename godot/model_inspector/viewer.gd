@@ -55,6 +55,7 @@ func _ready() -> void:
 		if player != null and not player.current_animation.is_empty():
 			player.seek(value, true))
 	status = Label.new()
+	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	status.text = "Drag to orbit · mouse wheel / +/- to zoom"
 	column.add_child(status)
 	var zoom := HBoxContainer.new()
@@ -98,7 +99,11 @@ func _ready() -> void:
 	for mesh: MeshInstance3D in meshes:
 		bounds = bounds.merge(mesh.global_transform * mesh.get_aabb())
 	center = bounds.get_center()
-	distance = maxf(bounds.size.length() * 1.2, 0.1)
+	# Fit the bounding sphere to the narrower field of view, including portrait.
+	var size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect: float = size.x / maxf(size.y, 1.0)
+	var half_angle: float = minf(deg_to_rad(45.0) * 0.5, atan(tan(deg_to_rad(45.0) * 0.5) * aspect))
+	distance = maxf(bounds.size.length() * 0.55 / sin(half_angle), 0.1)
 	pivot = Node3D.new()
 	pivot.position = center
 	add_child(pivot)
@@ -139,6 +144,7 @@ func find_meshes(node: Node, result: Array[MeshInstance3D]) -> void:
 
 func select_clip(index: int) -> void:
 	if player == null or index < 0 or index >= clip_names.size(): return
+	choices.select(index)
 	player.play(clip_names[index])
 	player.seek(0.0, true)
 	scrub.max_value = player.get_animation(clip_names[index]).length

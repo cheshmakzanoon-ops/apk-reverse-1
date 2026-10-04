@@ -25,6 +25,8 @@ func _ready() -> void:
 	var title := Label.new(); title.text = "RECOVERED CLIENT DATA"; title.add_theme_font_size_override("font_size", 26); column.add_child(title)
 	var warning := Label.new(); warning.text = "Development inspector - not a playable game.\nValues are from committed decompilation; APK equivalence is unverified."
 	warning.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; column.add_child(warning)
+	var levels := Button.new(); levels.text = "Inspect hero level and research rules"
+	levels.pressed.connect(func(): get_tree().change_scene_to_file("res://level_inspector/main.tscn")); column.add_child(levels)
 	column.add_child(table_picker)
 	search.placeholder_text = "Filter record IDs or original name values"; column.add_child(search)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; column.add_child(status)
