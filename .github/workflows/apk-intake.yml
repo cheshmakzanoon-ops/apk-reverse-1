@@ -1,0 +1,117 @@
+name: Supplied APK intake and capture
+on:
+  push:
+    branches: [main]
+    paths: ['docs/inputs/last-war.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: supplied-apk-intake
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned tools and test intake
+        run: |
+          mkdir -p reports/intake
+          python -m pip install --disable-pip-version-check -r requirements-recovery.txt gdown==5.2.0
+          python -m pip freeze > reports/intake/dependencies.txt
+          python -m unittest discover -s tests -p test_apk_intake.py -v 2>&1 | tee reports/intake/tests.log
+      - name: Acquire the requester-supplied APK without credentials
+        id: intake
+        timeout-minutes: 8
+        run: |
+          python tools/apk_intake.py --request docs/inputs/last-war.json --out input/verified 2>&1 | tee reports/intake/download.log
+          cp input/verified/intake.json reports/intake/intake.json
+          python tools/input_transfer.py split input/verified/app.apk input/parts | tee reports/intake/transfer.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supplied-apk-part-00000
+          path: |
+            input/parts/apk.part00000
+            input/parts/transfer.json
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supplied-apk-part-00001
+          path: input/parts/apk.part00001
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supplied-apk-part-00002
+          path: input/parts/apk.part00002
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supplied-apk-part-00003
+          path: input/parts/apk.part00003
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 3
+      - name: Capture all original entries and Unity units
+        id: capture
+        run: python tools/recover.py capture --apk input/verified/app.apk --out recovery/supplied-apk --max-units 0 --max-gib 12 2>&1 | tee reports/intake/capture.log
+      - name: Verify original-byte and object coverage
+        run: python tools/recover.py verify recovery/supplied-apk 2>&1 | tee reports/intake/verification.json
+      - name: Decode the complete object graph
+        run: python tools/recovery_graph.py build recovery/supplied-apk --max-objects 0 2>&1 | tee reports/intake/graph.log
+      - name: Attempt real neutral preview exports
+        id: exports
+        continue-on-error: true
+        run: python tools/recover.py export recovery/supplied-apk --types Mesh Texture2D Sprite AudioClip --limit 200 2>&1 | tee reports/intake/exports.log
+      - name: Materialize successful previews
+        if: always() && steps.capture.outcome == 'success'
+        run: python tools/recover.py materialize recovery/supplied-apk recovered-assets/supplied-apk | tee reports/intake/materialize.json
+      - name: Preserve diagnostics independently of success
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib, shutil, sqlite3
+          root=pathlib.Path('recovery/supplied-apk'); out=pathlib.Path('reports/intake')
+          out.mkdir(parents=True, exist_ok=True)
+          for name in ('summary.json','graph-summary.json'):
+              if (root/name).is_file(): shutil.copy2(root/name, out/name)
+          if (root/'catalog.sqlite').is_file():
+              with sqlite3.connect(root/'catalog.sqlite') as source, sqlite3.connect(out/'catalog.sqlite') as target:
+                  source.backup(target)
+                  source.row_factory=sqlite3.Row
+                  report={}
+                  for table in ('issues','units','members','objects','dependencies','exports'):
+                      report[table+'_count']=source.execute('SELECT COUNT(*) FROM '+table).fetchone()[0]
+                  report['object_types']=[dict(r) for r in source.execute('SELECT type,COUNT(*) count FROM objects GROUP BY type ORDER BY count DESC')]
+                  report['issues']=[dict(r) for r in source.execute('SELECT * FROM issues LIMIT 100')]
+                  report['failed_units']=[dict(r) for r in source.execute("SELECT id,name,status,error FROM units WHERE status!='indexed' LIMIT 100")]
+                  (out/'diagnostics.json').write_text(json.dumps(report,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: supplied-apk-intake-evidence
+          path: reports/intake/
+          if-no-files-found: error
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.exports.outcome != 'skipped' && steps.intake.outcome == 'success'
+        with:
+          name: supplied-apk-neutral-previews
+          path: recovered-assets/supplied-apk/
+          if-no-files-found: warn
+          retention-days: 7
