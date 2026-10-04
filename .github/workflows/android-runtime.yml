@@ -66,7 +66,7 @@ jobs:
           export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
           node tools/validate_glb.cjs build/real-model/export/model.glb reports/real-model/khronos.json
           godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
-          timeout 180s xvfb-run -a "$godot" --audio-driver Dummy --path build/model-preview --editor --import 2>&1 | tee reports/real-model/import.log
+          timeout 180s "$godot" --headless --path build/model-preview --editor --import 2>&1 | tee reports/real-model/import.log
           timeout 180 "$godot" --headless --path build/model-preview --script scripts/verify_animation.gd -- \
             "$GITHUB_WORKSPACE/build/real-model/export/model.glb" "$GITHUB_WORKSPACE/build/real-model/godot.expected.json" \
             "$GITHUB_WORKSPACE/reports/real-model/native-animation.json" 2>&1 | tee reports/real-model/native.log
