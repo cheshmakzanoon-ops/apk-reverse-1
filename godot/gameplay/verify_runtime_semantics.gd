@@ -9,6 +9,12 @@ var module_results: Array = []
 func check(ok: bool, message: String) -> void:
 	if not ok and failures.size() < 30: failures.append(message)
 
+func canonical(value: Variant) -> String:
+	if value == null: return "null"
+	# JSON parses structural table IDs as floats; identity uses canonical integers.
+	if value[0] == "t": return '["t",%d]' % int(value[1])
+	return JSON.stringify(value)
+
 func token(value: Variant) -> Variant:
 	if value == null: return null
 	if value is int: return ["i", str(value)]
@@ -30,8 +36,9 @@ func verify_module(data, expected: Dictionary) -> void:
 		for col in data.module.columns:
 			var field: String = String(col.name_hex).hex_decode().get_string_from_utf8()
 			var value: Variant = data.controller_token(key, field)
-			controller_hash.update((encoded_key + "\n" + String(col.name_hex) + "\n" + JSON.stringify(value) + "\n").to_utf8_buffer())
-	check(controller_hash.finish().hex_encode() == expected.controller_cell_sha256, "Controller source digest mismatch: " + expected.name)
+			controller_hash.update((encoded_key + "\n" + String(col.name_hex) + "\n" + canonical(value) + "\n").to_utf8_buffer())
+	var controller_digest := controller_hash.finish().hex_encode()
+	check(controller_digest == expected.controller_cell_sha256, "Controller source digest mismatch: " + expected.name + ": " + controller_digest)
 	for query in expected.queries:
 		var key: Variant = data.scalar_value(query.key)
 		var field: String = String(query.field_hex).hex_decode().get_string_from_utf8()
@@ -47,12 +54,14 @@ func verify_module(data, expected: Dictionary) -> void:
 		var got: Array = [token(stars[0]), token(stars[1]), token(rank.get_effect_add(effect)), token(rank.get_effect_add(effect, true)), token(rank.get_add_effect(effect)), token(rank.get_effect_ratio())]
 		check(JSON.stringify(got) == JSON.stringify(test.expected), "Source rank-rule mismatch: " + expected.name + ":" + str(test.key))
 		rank_cases += 1
-	module_results.append({"name":expected.name,"source_cells":expected.cells,"default_queries":expected.queries.size(),"rank_cases":expected.rank_cases.size()})
+	module_results.append({"name":expected.name,"source_cells":expected.cells,"default_queries":expected.queries.size(),"rank_cases":expected.rank_cases.size(),"controller_cell_sha256":controller_digest})
 
 func _initialize() -> void:
 	call_deferred("run")
 
 func run() -> void:
+	check(canonical(["t", 3.0]) == canonical(["t", 3]), "Structural table-ID normalization failed")
+	check(canonical(["f", "000000000000f03f"]) == '["f","000000000000f03f"]', "Float payload changed during normalization")
 	var args := OS.get_cmdline_user_args()
 	if args.size() != 4: push_error("Usage: -- PACKAGE ORACLE_JSON FIXTURE_PACKAGE REPORT"); quit(2); return
 	var data = Data.new()
