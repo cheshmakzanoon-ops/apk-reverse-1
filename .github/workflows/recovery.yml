@@ -24,6 +24,11 @@ on:
 permissions:
   contents: read
 
+# Explicit bash enables -o pipefail; tee must not hide a failed test/capture.
+defaults:
+  run:
+    shell: bash
+
 jobs:
   tests:
     runs-on: ubuntu-latest
