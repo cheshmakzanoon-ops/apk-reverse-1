@@ -62,12 +62,21 @@ class Reader:
         return row['id']
 
 
+def variable_skin_present(value):
+    """Unity 2019 wraps the optional weight stream in a structure, even if empty."""
+    if value is None:
+        return False
+    data = value if isinstance(value, (list, tuple, bytes, bytearray)) else getattr(value, 'm_Data', None)
+    require(isinstance(data, (list, tuple, bytes, bytearray)), 'unknown variable-weight container')
+    return len(data) != 0
+
+
 def read_geometry(mesh):
     """Decode raw vertex channels; never use OBJ as the skin recovery source."""
     from UnityPy.helpers.MeshHelper import MeshHandler
     shapes = getattr(mesh, 'm_Shapes', None)
     require(not shapes or not getattr(shapes, 'channels', None), 'blend shapes need a separate morph exporter')
-    require(not getattr(mesh, 'm_VariableBoneCountWeights', None), 'variable-weight skin unsupported')
+    require(not variable_skin_present(getattr(mesh, 'm_VariableBoneCountWeights', None)), 'variable-weight skin unsupported')
     handler = MeshHandler(mesh)
     handler.process()
     # MeshHelper's triangles do not apply baseVertex. Do it explicitly from the
