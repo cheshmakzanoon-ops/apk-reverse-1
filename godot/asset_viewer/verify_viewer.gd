@@ -66,7 +66,8 @@ func run() -> void:
 			check(player.is_playing() and absf(player.current_animation_position) < 0.002, "Restart button failed")
 			player.pause()
 	var report := {"passed": failures.is_empty(), "errors": failures,
-		"clips": records, "desktop_control_checks": true, "android_device_tested": false,
+		"clips": records, "desktop_control_checks": not OS.has_feature("android"), "android_device_tested": false,
+		"runtime_os": OS.get_name(), "android_runtime_executed": OS.has_feature("android"),
 		"gameplay_port_complete": false, "godot_version": Engine.get_version_info().string}
 	var file := FileAccess.open(out.path_join("viewer.json"), FileAccess.WRITE)
 	if file != null: file.store_string(JSON.stringify(report, "\t"))

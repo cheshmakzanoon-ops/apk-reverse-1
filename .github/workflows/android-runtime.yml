@@ -1,0 +1,155 @@
+name: Android runtime acceptance for recovered model
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/android-runtime.yml'
+      - 'tools/android_runtime_check.py'
+      - 'tools/make_model_viewer.py'
+      - 'godot/asset_viewer/**'
+      - 'godot/scripts/verify_animation.gd'
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  android-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Check regressions and acquire only the supplied hash-pinned APK
+        run: |
+          mkdir -p reports/real-model build
+          python -m pip install -r requirements-recovery.txt gdown==5.2.0
+          python -m unittest discover -s tests -v 2>&1 | tee reports/real-model/tests.log
+          python - <<'PY'
+          import json,pathlib
+          request=json.loads(pathlib.Path('docs/inputs/last-war.json').read_text())
+          profile=json.loads(pathlib.Path('docs/inputs/farhad-streamed-model.json').read_text())
+          request['expected_sha256']=profile['apk_sha256']
+          pathlib.Path('build/real-model-request.json').write_text(json.dumps(request))
+          PY
+          python tools/apk_intake.py --request build/real-model-request.json --out input/real-model
+      - name: Convert and independently verify actual model and clips
+        run: |
+          python tools/real_model_sample.py --apk input/real-model/app.apk --out build/real-model 2>&1 | tee reports/real-model/conversion.log
+          cp build/real-model/{receipt.json,numerical.json,godot.expected.json} reports/real-model/
+          python tools/make_model_viewer.py build/real-model build/model-preview --runtime-checks
+      - name: Install pinned validator and release-checked Godot templates
+        run: |
+          npm install --prefix "$RUNNER_TEMP/validator" --ignore-scripts --no-audit --no-fund gltf-validator@2.0.0-dev.3.10
+          mkdir -p "$RUNNER_TEMP/godot"
+          cd "$RUNNER_TEMP/godot"
+          base=https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable
+          for file in Godot_v4.4.1-stable_linux.x86_64.zip Godot_v4.4.1-stable_export_templates.tpz SHA512-SUMS.txt; do
+            curl --fail --location --retry 2 "$base/$file" -o "$file"
+          done
+          sha512sum --check --ignore-missing SHA512-SUMS.txt
+          unzip -q Godot_v4.4.1-stable_linux.x86_64.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          mkdir -p "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+          unzip -j -q Godot_v4.4.1-stable_export_templates.tpz templates/android_debug.apk templates/android_release.apk templates/version.txt -d "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+      - name: Validate GLB and native playback before allowing Android export
+        run: |
+          export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
+          node tools/validate_glb.cjs build/real-model/export/model.glb reports/real-model/khronos.json
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          timeout 180s xvfb-run -a "$godot" --audio-driver Dummy --path build/model-preview --editor --import 2>&1 | tee reports/real-model/import.log
+          timeout 180 "$godot" --headless --path build/model-preview --script scripts/verify_animation.gd -- \
+            "$GITHUB_WORKSPACE/build/real-model/export/model.glb" "$GITHUB_WORKSPACE/build/real-model/godot.expected.json" \
+            "$GITHUB_WORKSPACE/reports/real-model/native-animation.json" 2>&1 | tee reports/real-model/native.log
+          timeout 180s "$godot" --headless --audio-driver Dummy --path build/model-preview --script scripts/verify_model.gd -- \
+            "$GITHUB_WORKSPACE/build/real-model/export/model.glb" "$GITHUB_WORKSPACE/build/real-model/model.expected.json" \
+            "$GITHUB_WORKSPACE/reports/real-model/native-model.json" 2>&1 | tee reports/real-model/native-model.log
+          timeout 180s xvfb-run -a "$godot" --audio-driver Dummy --path build/model-preview --script asset_viewer/verify_viewer.gd -- \
+            "$GITHUB_WORKSPACE/reports/real-model/viewer" 8 2>&1 | tee reports/real-model/viewer.log
+          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/real-model/import.log reports/real-model/viewer.log; then exit 1; fi
+          python - <<'PY'
+          import json
+          result=json.load(open('reports/real-model/native-animation.json'))
+          assert result['passed'] and not result['errors'] and not result['fixture_only'], result
+          assert result['samples'] and len(result['samples'])==len(result['reloaded_samples']), result
+          for name in ('native-model.json','viewer/viewer.json'):
+              check=json.load(open('reports/real-model/'+name))
+              assert check['passed'] and not check['errors'], check
+          PY
+      - name: Configure Android SDK and isolated debug key
+        run: |
+          "${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "build-tools;34.0.0" "platforms;android-34"
+          mkdir -p "$HOME/.config/godot"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path.home()/'.config/godot/editor_settings-4.4.tres'
+          p.write_text('[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/android_sdk_path='+json.dumps(os.environ['ANDROID_HOME'])+'\nexport/android/java_sdk_path='+json.dumps(os.environ['JAVA_HOME'])+'\n')
+          PY
+          keytool -genkeypair -keystore "$RUNNER_TEMP/asset-preview.keystore" -storepass android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 3650
+      - name: Build dual-ABI preview and verify signature and metadata
+        id: android_build
+        env:
+          GODOT_ANDROID_KEYSTORE_DEBUG_USER: androiddebugkey
+          GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD: android
+        run: |
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PATH="$RUNNER_TEMP/asset-preview.keystore"
+          "$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64" --headless --path build/model-preview --export-debug "Android Asset Preview" "$GITHUB_WORKSPACE/build/farhad-asset-preview.apk" 2>&1 | tee reports/real-model/android-export.log
+          "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --verbose build/farhad-asset-preview.apk | tee reports/real-model/signature.txt
+          "$ANDROID_HOME/build-tools/34.0.0/aapt" dump badging build/farhad-asset-preview.apk > reports/real-model/badging.txt
+          sha256sum build/farhad-asset-preview.apk > reports/real-model/apk-sha256.txt
+          python - <<'PY'
+          import json,pathlib,zipfile
+          with zipfile.ZipFile('build/farhad-asset-preview.apk') as z:
+              assert 'lib/arm64-v8a/libgodot_android.so' in z.namelist()
+              assert 'lib/x86_64/libgodot_android.so' in z.namelist()
+              for filename in ('model.bin', 'expected.json'):
+                  assert z.read('assets/runtime_probe/'+filename)==pathlib.Path('build/model-preview/runtime_probe/'+filename).read_bytes()
+              assert z.read('assets/recovered_models/farhad/receipt.json')==pathlib.Path('build/real-model/receipt.json').read_bytes()
+              assert any('model.glb' in n for n in z.namelist()), 'missing imported model payload/remap'
+          badging=pathlib.Path('reports/real-model/badging.txt').read_text()
+          assert 'org.apk_recovery.asset_preview' in badging and 'android.permission.INTERNET' not in badging
+          pathlib.Path('reports/real-model/android.json').write_text(json.dumps({'apk_built':True,'metadata_matches':True,'device_tested':False,'gameplay_port_complete':False}))
+          PY
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-recovery-kvm.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Test the delivered APK in Android 34
+        uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 2
+          ram-size: 2048M
+          disable-animations: true
+          emulator-boot-timeout: 300
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none
+          script: python tools/android_runtime_check.py --apk build/farhad-asset-preview.apk --expected build/real-model/godot.expected.json --out reports/real-model/android-runtime
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-runtime-validation
+          path: reports/real-model/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.android_build.outcome == 'success'
+        with:
+          name: farhad-android-runtime-build
+          path: |
+            build/real-model/export/
+            build/real-model/receipt.json
+            build/real-model/godot.expected.json
+            build/farhad-asset-preview.apk
+          retention-days: 7

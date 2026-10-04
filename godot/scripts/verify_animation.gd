@@ -155,7 +155,9 @@ func _run() -> void:
 	check(expected.input_sha256 == FileAccess.get_sha256(args[0]), "Expectation/model hash mismatch")
 	var document := GLTFDocument.new()
 	var state := GLTFState.new()
-	check(document.append_from_file(args[0], state) == OK, "Native GLB parse failed")
+	# A raw .bin copy survives Android resource import/remapping byte-for-byte.
+	var parsed := document.append_from_buffer(FileAccess.get_file_as_bytes(args[0]), "", state) if args[0].ends_with(".bin") else document.append_from_file(args[0], state)
+	check(parsed == OK, "Native GLB parse failed")
 	var records: Array = []
 	var reloaded: Array = []
 	var mapping: Dictionary = {}
@@ -191,6 +193,8 @@ func _run() -> void:
 		"target_mapping": mapping, "samples": records, "reloaded_samples": reloaded,
 		"errors": errors, "passed": errors.is_empty(), "fixture_only": bool(expected.get("fixture_only", true)),
 		"source_kind": str(expected.get("source_kind", "generated fixture")),
+		"runtime_os": OS.get_name(), "runtime_architecture": Engine.get_architecture_name(),
+		"android_runtime_executed": OS.has_feature("android"),
 		"gameplay_port_complete": false, "android_device_tested": false}
 	var output := FileAccess.open(args[2], FileAccess.WRITE)
 	if output == null:

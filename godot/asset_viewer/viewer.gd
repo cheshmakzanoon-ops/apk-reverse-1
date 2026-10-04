@@ -13,6 +13,27 @@ var radius := 5.0
 var yaw := 0.65
 var pitch := 0.3
 var updating_slider := false
+var pause_button: Button
+var restart_button: Button
+var zoom_in_button: Button
+var zoom_out_button: Button
+var lifecycle := {"paused": 0, "resumed": 0, "suspend_time": 0.0, "resume_time": 0.0, "was_playing": false}
+var _suspended := false
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED and not _suspended and player != null:
+		_suspended = true
+		lifecycle.paused += 1
+		lifecycle.was_playing = player.is_playing()
+		lifecycle.suspend_time = player.current_animation_position
+		player.pause()
+	elif what == NOTIFICATION_APPLICATION_RESUMED and _suspended and player != null:
+		_suspended = false
+		lifecycle.resumed += 1
+		if lifecycle.was_playing:
+			player.play()
+		player.seek(float(lifecycle.suspend_time), true)
+		lifecycle.resume_time = player.current_animation_position
 
 func _ready() -> void:
 	var environment := Environment.new()
@@ -99,6 +120,7 @@ func _make_controls() -> void:
 	var row := HBoxContainer.new()
 	panel.add_child(row)
 	var pause := Button.new()
+	pause_button = pause
 	pause.text = "Play / pause"
 	pause.custom_minimum_size = Vector2(170, 48)
 	pause.pressed.connect(func() -> void:
@@ -107,6 +129,7 @@ func _make_controls() -> void:
 			else: player.play())
 	row.add_child(pause)
 	var restart := Button.new()
+	restart_button = restart
 	restart.text = "Restart clip"
 	restart.custom_minimum_size = Vector2(170, 48)
 	restart.pressed.connect(func() -> void: _play(choices.selected))
@@ -119,8 +142,20 @@ func _make_controls() -> void:
 			player.pause()
 			player.seek(value, true))
 	panel.add_child(timeline)
+	var zoom_row := HBoxContainer.new()
+	panel.add_child(zoom_row)
+	zoom_in_button = Button.new()
+	zoom_in_button.text = "Zoom in"
+	zoom_in_button.custom_minimum_size = Vector2(170, 48)
+	zoom_in_button.pressed.connect(func() -> void: _zoom(1.0 / 1.2))
+	zoom_row.add_child(zoom_in_button)
+	zoom_out_button = Button.new()
+	zoom_out_button.text = "Zoom out"
+	zoom_out_button.custom_minimum_size = Vector2(170, 48)
+	zoom_out_button.pressed.connect(func() -> void: _zoom(1.2))
+	zoom_row.add_child(zoom_out_button)
 	var help := Label.new()
-	help.text = "Drag the scene to orbit; mouse wheel to zoom. Clips play one cycle."
+	help.text = "Drag below the controls to orbit; use Zoom buttons or the mouse wheel. Clips play one cycle."
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	panel.add_child(help)
 
@@ -147,15 +182,22 @@ func _update_camera() -> void:
 	camera.position = focus + Vector3(sin(yaw)*cos(pitch), sin(pitch), cos(yaw)*cos(pitch))*radius
 	camera.look_at(focus)
 
+func _zoom(factor: float) -> void:
+	radius = clampf(radius * factor, 0.2, 10000.0)
+	_update_camera()
+
 func _unhandled_input(event: InputEvent) -> void:
+	# Android emits emulated mouse events as well as touch drags. Do not orbit twice.
+	if OS.has_feature("android") and event is InputEventMouse and event.device == -1:
+		return
 	var movement := Vector2.ZERO
 	if event is InputEventScreenDrag:
 		movement = event.relative
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		movement = event.relative
 	elif event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP: radius = maxf(0.2, radius/1.1)
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN: radius *= 1.1
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP: _zoom(1.0 / 1.1)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _zoom(1.1)
 	yaw -= movement.x * 0.008
 	pitch = clampf(pitch + movement.y * 0.008, -1.4, 1.4)
 	_update_camera()

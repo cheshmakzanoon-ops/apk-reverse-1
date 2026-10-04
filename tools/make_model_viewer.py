@@ -13,7 +13,7 @@ from recovery_core import file_digest
 from gltf_model import require
 
 
-def prepare(model_dir, out):
+def prepare(model_dir, out, *, runtime_checks=False):
     model_dir,out=Path(model_dir),Path(out)
     require(not out.exists() and not out.is_symlink(),'viewer destination exists')
     receipt=json.loads((model_dir/'receipt.json').read_text())
@@ -39,6 +39,13 @@ def prepare(model_dir, out):
     shutil.copy2(model_dir/'export/model.glb',assets/'model.glb')
     shutil.copy2(model_dir/'export/report.json',assets/'report.json')
     shutil.copy2(model_dir/'receipt.json',assets/'receipt.json')
+    if runtime_checks:
+        # Keep test oracles and exact GLB bytes separate from the imported scene.
+        probe = out/'runtime_probe'; probe.mkdir()
+        shutil.copy2(model_dir/'export/model.glb', probe/'model.bin')
+        shutil.copy2(model_dir/'godot.expected.json', probe/'expected.json')
+        (out/'export_presets.cfg').write_text(preset.replace('include_filter="*.json"', 'include_filter="*.json,*.bin"')
+            .replace('architectures/x86_64=false', 'architectures/x86_64=true'))
     (out/'README.txt').write_text('Development asset preview, NOT the reconstructed game.\n'
         'Open project.godot in Godot 4.4.1, let it import, then run.\n'
         'Eight recovered clips, base-color material previews, no source controller or game logic.\n'
@@ -47,4 +54,5 @@ def prepare(model_dir, out):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('model_dir',type=Path);p.add_argument('out',type=Path)
-    a=p.parse_args();print(json.dumps(prepare(a.model_dir,a.out),indent=2))
+    p.add_argument('--runtime-checks', action='store_true', help='Include exact model/oracle and x86_64 alongside ARM64 for Android runtime tests')
+    a=p.parse_args();print(json.dumps(prepare(a.model_dir,a.out,runtime_checks=a.runtime_checks),indent=2))
