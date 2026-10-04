@@ -35,10 +35,10 @@ source-app/**/*.luac
 # .lua lives in source-app/data-tables-lua/.
 source-app/data-tables/
 
-# Extracted art binaries. 142 MB of PNG so far, and the bundle sweep is only
-# 19% complete, so committing it would freeze an unfinished snapshot in
-# immutable history and add ~140 MB to every resume. Reproduce with
-# STEPS=bundles bash tools/decompile.sh.
+# Extracted art and audio binaries. The sweep is complete - all 7,868 bundles in
+# the APK - but the result is 307 MB of already-compressed PNG and WAV, which is
+# too heavy to add to every clone and every resume. Reproduce with
+# STEPS=bundles bash tools/decompile.sh (~148 s).
 source-app/game-assets/
 
 # --- build output ---------------------------------------------------------

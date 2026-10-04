@@ -214,24 +214,16 @@ function LWResourceLackUtil:FilterResourceTemplates(templates, need, param, good
             end
           end
           if t.tips == LWResourceLackGetWay.TrailTowerShop then
-            do
-              local shopId = tonumber(t.para1)
-              local goodsConf = DataCenter.CommonShopManager:GetGoodsConfByShopId(CommonShopType.TrailTowerShop, shopId)
-              if goodsConf then
-                do
-                  local goodsInfo = DataCenter.CommonShopManager:GetGoodsInfoById(CommonShopType.TrailTowerShop, shopId)
-                  local boughtTimes = goodsInfo and goodsInfo.boughtTimes or 0
-                  if 0 < goodsConf.maxTimes and boughtTimes >= goodsConf.maxTimes then
-                    goto lbl_429
-                  end
-                end
-                goto lbl_430
+            local shopId = tonumber(t.para1)
+            local goodsConf = DataCenter.CommonShopManager:GetGoodsConfByShopId(CommonShopType.TrailTowerShop, shopId)
+            if goodsConf then
+              local goodsInfo = DataCenter.CommonShopManager:GetGoodsInfoById(CommonShopType.TrailTowerShop, shopId)
+              local boughtTimes = goodsInfo and goodsInfo.boughtTimes or 0
+              if 0 < goodsConf.maxTimes and boughtTimes >= goodsConf.maxTimes then
+                goto lbl_1547
               end
-              ::lbl_429::
             end
-          else
-            ::lbl_430::
-            if t.tips == LWResourceLackGetWay.GoCommonShop then
+          elseif t.tips == LWResourceLackGetWay.GoCommonShop then
               if param and not table.IsNullOrEmpty(param.skipFilterTypeList) and self:IsTypeSkipFilter(t.tips, param.skipFilterTypeList) then
                 if not self:ExistAnyShopGoods_GoCommonShop(t) then
                   goto lbl_1547
@@ -242,7 +234,6 @@ function LWResourceLackUtil:FilterResourceTemplates(templates, need, param, good
                   goto lbl_1547
                 end
               end
-            end
             if t.tips == LWResourceLackGetWay.Activity and t.para1 and t.para1 ~= "cross_king" then
               local idList = string.split(tostring(t.para1), "|")
               local isOneActivityOpen = false

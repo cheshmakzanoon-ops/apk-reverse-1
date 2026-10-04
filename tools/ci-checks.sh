@@ -36,11 +36,31 @@ done
 rm -rf tools/__pycache__ 2>/dev/null || true
 
 echo "== lua decompiler driver compiles"
+scratchcls="$(mktemp -d)"
 if javac -cp tools/unluac-batch/unluac.jar \
-     -d "$(mktemp -d)" tools/unluac-batch/UnluacBatch.java 2>/dev/null; then
-  ok "UnluacBatch.java"
+     -d "$scratchcls" \
+     tools/unluac-batch/UnluacBatch.java tools/unluac-batch/DisasmOne.java 2>/dev/null; then
+  ok "UnluacBatch.java + DisasmOne.java"
 else
-  bad "UnluacBatch.java (javac)"
+  bad "UnluacBatch.java + DisasmOne.java (javac)"
+fi
+rm -rf "$scratchcls"
+
+# The patch is what makes the three hard chunks decompile at all, so it has to
+# keep building from the vendored source rather than only the prebuilt classes.
+if sh tools/unluac-batch/build-patch.sh >/dev/null 2>&1; then
+  ok "unluac patch builds"
+else
+  bad "unluac patch failed to build (javac against unluac.jar)"
+fi
+
+# It also has to actually be on the classpath ahead of the jar, or it is inert.
+# A reverted order compiles fine and silently decompiles nothing extra, so the
+# only way to see it is to check the script text.
+if grep -q 'classes:.*unluac.jar' tools/decompile.sh; then
+  ok "patch classes precede unluac.jar on the classpath"
+else
+  bad "decompile.sh puts unluac.jar before the patch classes - the fix is inert"
 fi
 
 # The argument guards run before any real work, so they are safe to exercise in
@@ -104,7 +124,7 @@ if [ "$tracked" -eq 0 ]; then
 else
   biggest="$(git ls-files -z \
              | xargs -0 -r stat -c '%s %n' 2>/dev/null \
-             | sort -rn | head -1 || true)"
+             | sort -rn | sed -n '1p' || true)"
   biggest_bytes="${biggest%% *}"
   biggest_bytes="${biggest_bytes:-0}"
   if [ "$biggest_bytes" -gt "$limit" ]; then
@@ -170,6 +190,48 @@ if [ -d source-app ]; then
     bad "$leaked_n payload file(s) marked text - they would be normalised on add"
     printf '%s\n' "$leaks" | sed 's/^/        /' >&2
   fi
+fi
+
+# The recovered Lua must load. unluac exits 0 on chunks whose output is not
+# valid Lua (a goto whose label sits inside a block), so "decompiled" and
+# "usable" are different claims and only compiling the tree tells them apart.
+if [ -d source-app/lua/src ]; then
+  if out="$(python3 tools/check-lua-syntax.py source-app/lua/src 2>&1)"; then
+    ok "every recovered Lua module compiles ($(printf '%s' "$out" | tail -1))"
+  else
+    bad "recovered Lua does not compile"
+    # Show the FAIL lines when there are any, but fall back to the tail: the
+    # gate also exits non-zero when it cannot run at all (no lupa), and
+    # reporting only "does not compile" for that sends whoever is reading the
+    # log looking at 18,300 files that are in fact fine.
+    if printf '%s\n' "$out" | grep -q '^FAIL'; then
+      printf '%s\n' "$out" | grep '^FAIL' | head -5 | sed 's/^/        /' >&2
+    fi
+    printf '%s\n' "$out" | tail -5 | sed 's/^/        /' >&2
+  fi
+fi
+
+# The bundle sweep is resumable and can be cut short by its time budget, so the
+# extracted assets and the inventory describing them can drift apart in ways no
+# file browser shows. Like the syntax gate below, this only runs when the
+# payload is present; a pipeline-only clone has nothing to compare.
+if [ -d source-app/game-assets/assets ]; then
+  if out="$(python3 tools/check-asset-inventory.py source-app/game-assets 2>&1)"; then
+    ok "extracted assets match their inventory ($(printf '%s' "$out" | grep -c '^  ok') checks)"
+  else
+    bad "extracted assets do not match their inventory"
+    printf '%s\n' "$out" | grep '^  FAIL' | head -5 | sed 's/^/        /' >&2
+  fi
+fi
+
+# The recovered overlay is applied on top of unluac output, so it has to be
+# idempotent: the pipeline runs it after every Lua stage, and a second run that
+# failed would break every subsequent decompile.
+if out="$(sh tools/unluac-batch/apply-recovered.sh 2>&1)"; then
+  ok "recovered Lua overlay is idempotent ($(printf '%s' "$out" | tail -1))"
+else
+  bad "recovered Lua overlay does not apply cleanly"
+  printf '%s\n' "$out" | tail -3 | sed 's/^/        /' >&2
 fi
 
 # The recovered payload is only useful if it is what the README claims. Counts

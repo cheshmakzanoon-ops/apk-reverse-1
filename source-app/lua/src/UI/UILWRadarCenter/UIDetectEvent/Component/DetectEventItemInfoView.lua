@@ -178,63 +178,56 @@ local function SetCurrentSelectUuid(self, uuid)
     for k, v in ipairs(data.rewardList) do
       table.insert(self.rewardList, v)
     end
-    if true then
-      do
-        local config = DataCenter.DetectEventTemplateManager:GetDetectEventTemplate(data.eventId)
-        if config ~= nil and config.type == 2 then
-          local monster = DataCenter.MonsterTemplateManager:GetMonsterTemplate(config.para)
-          if monster ~= nil and monster:ExistAssociateActivity() then
-            local rewardListNew = {}
-            for _, item in ipairs(data.rewardList) do
-              table.insert(rewardListNew, item)
-            end
-            local mgr = DataCenter.RewardManager
-            local extra_reward_show = monster.with_extra_reward_show
-            for _, v in ipairs(extra_reward_show) do
-              if v ~= nil and v ~= "" then
-                local show_info, itemId, rewardType, itemNum = string.match(v, "(%d+)[,;](%d+)[,;](%d+)[,;](%d+)")
-                if show_info ~= nil then
-                  local existIt = false
-                  for _, item in ipairs(rewardListNew) do
-                    if item ~= nil and tonumber(item.itemId) == tonumber(itemId) then
-                      item.count = item.count + tonumber(itemNum)
-                      existIt = true
-                      break
-                    end
-                  end
-                  if not existIt then
-                    local item = mgr:ParseOneRewardStr(v)
-                    if item ~= nil then
-                      table.insert(rewardListNew, 1, item)
-                    end
-                  end
+    local config = DataCenter.DetectEventTemplateManager:GetDetectEventTemplate(data.eventId)
+    if config ~= nil and config.type == 2 then
+      local monster = DataCenter.MonsterTemplateManager:GetMonsterTemplate(config.para)
+      if monster ~= nil and monster:ExistAssociateActivity() then
+        local rewardListNew = {}
+        for _, item in ipairs(data.rewardList) do
+          table.insert(rewardListNew, item)
+        end
+        local mgr = DataCenter.RewardManager
+        local extra_reward_show = monster.with_extra_reward_show
+        for _, v in ipairs(extra_reward_show) do
+          if v ~= nil and v ~= "" then
+            local show_info, itemId, rewardType, itemNum = string.match(v, "(%d+)[,;](%d+)[,;](%d+)[,;](%d+)")
+            if show_info ~= nil then
+              local existIt = false
+              for _, item in ipairs(rewardListNew) do
+                if item ~= nil and tonumber(item.itemId) == tonumber(itemId) then
+                  item.count = item.count + tonumber(itemNum)
+                  existIt = true
+                  break
+                end
+              end
+              if not existIt then
+                local item = mgr:ParseOneRewardStr(v)
+                if item ~= nil then
+                  table.insert(rewardListNew, 1, item)
                 end
               end
             end
-            self.rewardList = rewardListNew
           end
         end
+        self.rewardList = rewardListNew
       end
-    else
     end
-    else
-    end
-    local vipWorkerEffectVal1 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_LIMIT))
-    local vipWorkerEffectVal2 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_ADD_COUNT))
-    local vipWorkerEffectVal3 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_CHANGE_ITEM))
-    local accumulateCount = DataCenter.WorkerDataManager:GetVipWorkerAccumulateCount() or 0
-    local vipWorkerGetNumToday = DataCenter.WorkerDataManager:GetVipWorkerRewardTimes()
-    if 0 < vipWorkerEffectVal1 and 0 < vipWorkerEffectVal2 and 0 < vipWorkerEffectVal3 and accumulateCount > vipWorkerGetNumToday then
-      local curCanGetNum = vipWorkerEffectVal2
-      local maxGetNum = accumulateCount - vipWorkerGetNumToday
-      curCanGetNum = math.min(curCanGetNum, maxGetNum)
-      local vipWorkerRewardData = {
-        rewardType = RewardType.GOODS,
-        itemId = vipWorkerEffectVal3,
-        count = curCanGetNum
-      }
-      table.insert(self.rewardList, 1, vipWorkerRewardData)
-    end
+  end
+  local vipWorkerEffectVal1 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_LIMIT))
+  local vipWorkerEffectVal2 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_ADD_COUNT))
+  local vipWorkerEffectVal3 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_CHANGE_ITEM))
+  local accumulateCount = DataCenter.WorkerDataManager:GetVipWorkerAccumulateCount() or 0
+  local vipWorkerGetNumToday = DataCenter.WorkerDataManager:GetVipWorkerRewardTimes()
+  if 0 < vipWorkerEffectVal1 and 0 < vipWorkerEffectVal2 and 0 < vipWorkerEffectVal3 and vipWorkerGetNumToday < accumulateCount then
+    local curCanGetNum = vipWorkerEffectVal2
+    local maxGetNum = accumulateCount - vipWorkerGetNumToday
+    curCanGetNum = math.min(curCanGetNum, maxGetNum)
+    local vipWorkerRewardData = {
+      rewardType = RewardType.GOODS,
+      itemId = vipWorkerEffectVal3,
+      count = curCanGetNum
+    }
+    table.insert(self.rewardList, 1, vipWorkerRewardData)
   end
   self:RefreshView()
 end
