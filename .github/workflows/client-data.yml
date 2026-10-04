@@ -58,7 +58,10 @@ jobs:
           if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log; then exit 1; fi
       - name: Configure Android SDK and isolated debug signing
         run: |
-          sdkmanager "platform-tools" "build-tools;34.0.0" "platforms;android-34" > reports/r5/sdk-install.log
+          sdkmanager="${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager"
+          test -x "$sdkmanager"
+          "$sdkmanager" --version > reports/r5/sdkmanager-version.txt
+          "$sdkmanager" "platform-tools" "build-tools;34.0.0" "platforms;android-34" 2>&1 | tee reports/r5/sdk-install.log
           mkdir -p "$HOME/.config/godot"
           python - <<'PY'
           import json, os, pathlib
