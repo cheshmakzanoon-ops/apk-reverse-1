@@ -67,6 +67,25 @@ jobs:
           assert report['passed'] and not report['errors'], report
           PY
           done
+      - name: Generate and verify actual legacy animation playback
+        env:
+          GODOT_SILENCE_ROOT_WARNING: '1'
+        run: |
+          python tests/animation_fixtures.py reports/r3/animation --unity 2>&1 | tee reports/r3/animation-fixtures.log
+          export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for relative in static skinned actual-static/export/model actual-skinned/export/model; do
+            prefix="$GITHUB_WORKSPACE/reports/r3/animation/$relative"
+            node tools/validate_glb.cjs "$prefix.glb" "$prefix.khronos.json"
+            "$godot" --headless --path godot --script scripts/verify_animation.gd -- \
+              "$prefix.glb" "$prefix.animation.expected.json" "$prefix.animation.godot.json" 2>&1 | tee "$prefix.animation.godot.log"
+            python - "$prefix.animation.godot.json" <<'PY'
+          import json, sys
+          report = json.load(open(sys.argv[1]))
+          assert report['passed'] and not report['errors'], report
+          assert report['samples'] and len(report['samples']) == len(report['reloaded_samples']), report
+          PY
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

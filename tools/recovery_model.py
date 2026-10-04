@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Export a verified R1/R2 model subtree as GLB, without executing game code.
 
-Materials are deliberately base-color previews. Animations, custom shader/GPU
-skinning behavior and gameplay stay explicit omissions, never fabricated output.
+Materials are deliberately base-color previews. Explicit --clip selections support
+the R4 legacy TRS subset; other animations, custom shaders and gameplay remain
+unimplemented. No runtime controller or missing curve is fabricated.
 """
 from __future__ import annotations
 
@@ -198,18 +199,35 @@ def collect(cat, root_object, reader=None, max_nodes=50000):
     return model
 
 
-def export_snapshot(root, root_object, out, *, max_nodes=50000):
+def export_snapshot(root, root_object, out, *, max_nodes=50000, clip_ids=(), animation_root=None):
     out = Path(out)
     require(not out.exists() and not out.is_symlink(), 'output already exists; snapshots are never overwritten')
     cat = Catalog(root)
     try:
         model = collect(cat, root_object, max_nodes=max_nodes)
         blob = make_glb(model)
-        counts = validate_glb(blob)
+        clips = []
+        require(not animation_root or clip_ids, '--animation-root requires an explicit --clip')
+        if clip_ids:
+            from recovery_animation import MAX_CLIPS, decode_clip, append_clips, validate_animated_glb
+            require(len(clip_ids) <= MAX_CLIPS and len(set(clip_ids)) == len(clip_ids), 'invalid or duplicate clip selection')
+            reader = Reader(cat)
+            for oid in clip_ids:
+                row = reader.object(oid)
+                require(row['type'] == 'AnimationClip', 'selected clip is not an AnimationClip')
+                # Verify the original clip bytes even when a decoded tree is cached.
+                reader.parsed(oid)
+                clips.append(decode_clip(reader.tree(oid), oid, row['sha'], model, animation_root))
+            blob = append_clips(blob, clips)
+            counts = validate_animated_glb(blob)
+        else:
+            counts = validate_glb(blob)
         report = {'schema': 1, 'input_sha256': model['input_sha256'], 'root_object_id': model['root'],
             'model_sha256': digest(blob), 'model_bytes': len(blob), 'counts': counts,
             'status': 'model_exported', 'material_mode': 'base-color preview',
-            'animations_exported': 0, 'shader_equivalence_verified': False,
+            'animations_exported': len(clips), 'shader_equivalence_verified': False,
+            'animation_runtime_equivalence_verified': False,
+            'animation_clips': [{k:v for k,v in c.items() if k != 'channels'} for c in clips],
             'gameplay_port_complete': False, 'omitted_components': model['omitted_components']}
         # Complete conversion/validation precedes output creation. Files are exclusive.
         out.mkdir(parents=True, exist_ok=False)
@@ -228,9 +246,11 @@ def main(argv=None):
     parser.add_argument('--root-object', required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--max-nodes', type=int, default=50000)
+    parser.add_argument('--clip', action='append', default=[], help='Captured AnimationClip object ID; repeat for multiple clips')
+    parser.add_argument('--animation-root', help='Transform ID used as the clip path root (default: selected model root)')
     args = parser.parse_args(argv)
     try:
-        print(json.dumps(export_snapshot(args.snapshot, args.root_object, args.out, max_nodes=args.max_nodes), indent=2))
+        print(json.dumps(export_snapshot(args.snapshot, args.root_object, args.out, max_nodes=args.max_nodes, clip_ids=args.clip, animation_root=args.animation_root), indent=2))
         return 0
     except (RecoveryError, OSError, KeyError, TypeError, ImportError, ValueError) as exc:
         print('model conversion blocked: ' + str(exc), file=sys.stderr)

@@ -7,6 +7,21 @@ Decompiled source is not necessarily the exact developer-written source, and
 server implementation/source files not shipped in the client are not recovered
 by unpacking an APK.
 
+## R4: explicit legacy clip export and native playback checks
+
+R4 adds selected AnimationClip export through `--clip OBJECT_ID` on
+`tools/recovery_model.py`. Supported uncompressed legacy position, quaternion and
+scale curves retain key times and Hermite tangents in self-contained GLBs. Exact
+relative paths bind tracks to the selected hierarchy; missing/ambiguous paths and
+unsupported formats fail instead of generating partial animation. The optional
+`--animation-root TRANSFORM_ID` makes the clip's path root explicit.
+
+The Model bridge workflow tests generated animated static/skinned Unity fixtures,
+Khronos validation, numerical AnimationPlayer playback in Godot, and native scene
+save/reload. These fixtures are not assets recovered from the game. The full APK
+acceptance gate and Android/gameplay work remain unfinished.
+See [R4 commands, supported subset and fidelity limits](docs/RECOVERY_R4.md).
+
 ## R3: model-to-GLB and native Godot scene bridge
 
 `tools/recovery_model.py` converts a verified captured hierarchy into a self-contained

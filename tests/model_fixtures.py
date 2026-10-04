@@ -37,7 +37,7 @@ def model(skinned=False, textured=False):
             'omitted_components':[]}
 
 
-def unity_scene(skinned=False):
+def unity_scene(skinned=False, clip_tree=None):
     """Build real Unity 2019 serialized objects using UnityPy's release type writer.
 
     This fixture exercises actual vertex channels, MeshHandler, PPtrs, and GLB
@@ -100,6 +100,12 @@ def unity_scene(skinned=False):
         mf=blank(33); mf.update(m_GameObject=p(1),m_Mesh=p(4))
         go['m_Component'].append({'component':p(6)})
         items=[(1,1,go),(2,4,tr),(3,23,renderer),(4,43,mesh),(5,21,mat),(6,33,mf)]
+    if clip_tree is not None:
+        clip = blank(74); clip.update(clip_tree)
+        animation = blank(111)
+        animation.update(m_GameObject=p(1), m_Enabled=True, m_Animation=p(8), m_Animations=[p(8)])
+        go['m_Component'].append({'component': p(9)})
+        items += [(8, 74, clip), (9, 111, animation)]
     classes=list(dict.fromkeys(cid for _,cid,_ in items))
     meta=b'2019.4.41f1\0'+struct.pack('<i?i',13,False,len(classes))
     for cid in classes: meta+=struct.pack('<i?h',cid,False,-1)+bytes(16)
