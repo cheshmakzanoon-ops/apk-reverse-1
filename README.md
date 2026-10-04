@@ -15,6 +15,9 @@ scale curves retain key times and Hermite tangents in self-contained GLBs. Exact
 relative paths bind tracks to the selected hierarchy; missing/ambiguous paths and
 unsupported formats fail instead of generating partial animation. The optional
 `--animation-root TRANSFORM_ID` makes the clip's path root explicit.
+`tools/godot_animation.py` creates a separately hashed compatibility GLB for
+Godot 4.4.1's quaternion-spline import discrepancy; original spline bytes remain
+unchanged. Resampling limits and measured approximation errors are explicit.
 
 The Model bridge workflow tests generated animated static/skinned Unity fixtures,
 Khronos validation, numerical AnimationPlayer playback in Godot, and native scene

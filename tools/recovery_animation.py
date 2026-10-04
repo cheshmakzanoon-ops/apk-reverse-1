@@ -208,7 +208,7 @@ def append_clips(blob, clips):
     return result
 
 
-def validate_animated_glb(blob):
+def validate_animated_glb(blob, *, allow_linear_rotation=False):
     """Validate the emitted animation subset independently of the source collector."""
     counts = validate_glb(blob)
     doc, binary = unpack_glb(blob)
@@ -240,10 +240,14 @@ def validate_animated_glb(blob):
             times = [v[0] for v in times]
             require(ai.get('min') == [min(times)] and ai.get('max') == [max(times)], 'animation time bounds mismatch')
             interpolation = sampler['interpolation']
-            require(interpolation in ('CUBICSPLINE','STEP'), 'unsupported emitted interpolation')
+            require(interpolation in ('CUBICSPLINE','STEP') or
+                    (allow_linear_rotation and kind == 'rotation' and interpolation == 'LINEAR'), 'unsupported emitted interpolation')
             if interpolation == 'CUBICSPLINE':
                 require(len(times) >= 2 and len(output) == 3*len(times), 'invalid cubic output count')
                 incoming, values, outgoing = output[::3], output[1::3], output[2::3]
+            elif interpolation == 'LINEAR':
+                require(len(times) == len(output) and len(times) >= 2, 'invalid baked rotation key count')
+                values = output; incoming = outgoing = [[0]*4 for _ in times]
             else:
                 require(len(times) == len(output) == 1, 'STEP is reserved for single-key constant channels')
                 values = output; incoming = outgoing = [[0]*len(output[0])]

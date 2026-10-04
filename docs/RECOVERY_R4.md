@@ -68,6 +68,33 @@ postprocessing and controller blending remains unverified without original-input
 and runtime comparisons. Reports retain `animation_runtime_equivalence_verified:
 false`, `shader_equivalence_verified: false` and `gameplay_port_complete: false`.
 
+## Godot 4.4.1 compatibility derivative
+
+The first numerical playback run caught a native quaternion CUBICSPLINE mismatch:
+the generated static fixture differed by about 0.103 radians at an off-key time.
+Translation/scale samples were within tolerance. The exact source-curve GLB is
+retained unchanged, not rewritten to match the importer error.
+
+Create a separate compatibility file before native import:
+
+```bash
+python tools/godot_animation.py recovered-assets/animated-model/model.glb \
+  recovered-assets/animated-model/model.native.glb
+```
+
+Only cubic quaternion tracks are resampled into LINEAR (spherical interpolation)
+keys, initially at 120 samples/second and subdivided further when quarter/midpoint
+probe errors exceed 0.0001 radians. Original key times are included. Source and
+output hashes, per-track key counts and maximum accepted probe errors are recorded
+in `model.native.compatibility.json`. Float32 timestamp precision failures,
+subdivision limits and key budgets fail explicitly. This is an approximation with
+measured interior probes, **not a proof of a continuous-time maximum error bound**.
+Keep `model.glb` as the authoritative spline representation.
+
+The native verification workflow checks both files with Khronos, imports the
+compatibility derivative, and compares poses to the independent expectations from
+the original Unity curves. Expected pose values are not regenerated from the bake.
+
 ## Explicit blockers
 
 Mecanim/humanoid/hashed bindings, compressed rotation, muscle/streamed payloads,
@@ -88,7 +115,7 @@ float32 collisions, corrupt accessors, unsupported formats, and unchanged geomet
 The Model bridge workflow additionally generates static/skinned animated fixtures
 and actual Unity 2019 serialized AnimationClip fixtures using the real type writer.
 The latter go through APK capture, graph reconstruction and the real model/clip
-adapter. The pinned Khronos validator checks all generated GLBs.
+adapter. The pinned Khronos validator checks all generated original and compatibility GLBs.
 
 `godot/scripts/verify_animation.gd` imports at 120 bake frames per second without
 trimming or removing immutable tracks, maps glTF node identities to native scene
@@ -98,6 +125,10 @@ saves and reloads a PackedScene and repeats the checks. Vector tolerance is 0.00
 angular tolerance is 0.002 radians. Both actual errors and tolerances are recorded.
 This is a headless numerical playback check, not rendered visual parity or an
 Android device test. The original R3 native geometry/skin checks remain active.
+
+Godot 4.4.1 replaces ImporterMesh nodes during post-import. Target lookup therefore
+uses the exact GLTFNode-generated scene path (including bone subnames), not stale
+GLTFState scene-node pointers. Missing paths remain a verification failure.
 
 ## Primary references
 

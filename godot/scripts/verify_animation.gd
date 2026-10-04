@@ -187,6 +187,7 @@ func _run() -> void:
 	check(not records.is_empty() and not reloaded.is_empty(), "Playback verification produced no samples")
 	var report := {"godot_version": Engine.get_version_info().string,
 		"input_sha256": FileAccess.get_sha256(args[0]), "native_scene": native_path,
+		"source_spline_sha256": expected.get("source_spline_sha256", ""),
 		"target_mapping": mapping, "samples": records, "reloaded_samples": reloaded,
 		"errors": errors, "passed": errors.is_empty(), "fixture_only": true,
 		"gameplay_port_complete": false, "android_device_tested": false}

@@ -74,11 +74,25 @@ jobs:
           python tests/animation_fixtures.py reports/r3/animation --unity 2>&1 | tee reports/r3/animation-fixtures.log
           export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
           godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          failed=0
           for relative in static skinned actual-static/export/model actual-skinned/export/model; do
             prefix="$GITHUB_WORKSPACE/reports/r3/animation/$relative"
             node tools/validate_glb.cjs "$prefix.glb" "$prefix.khronos.json"
-            "$godot" --headless --path godot --script scripts/verify_animation.gd -- \
-              "$prefix.glb" "$prefix.animation.expected.json" "$prefix.animation.godot.json" 2>&1 | tee "$prefix.animation.godot.log"
+            python tools/godot_animation.py "$prefix.glb" "$prefix.native.glb" | tee "$prefix.compatibility.log"
+            node tools/validate_glb.cjs "$prefix.native.glb" "$prefix.native.khronos.json"
+            python - "$prefix" <<'PY'
+          import hashlib, json, pathlib, sys
+          p=sys.argv[1]
+          expected=json.loads(pathlib.Path(p+'.animation.expected.json').read_text())
+          expected['source_spline_sha256']=expected['input_sha256']
+          expected['input_sha256']=hashlib.sha256(pathlib.Path(p+'.native.glb').read_bytes()).hexdigest()
+          pathlib.Path(p+'.native.expected.json').write_text(json.dumps(expected))
+          PY
+            if ! timeout 90 "$godot" --headless --path godot --script scripts/verify_animation.gd -- \
+              "$prefix.native.glb" "$prefix.native.expected.json" "$prefix.animation.godot.json" 2>&1 | tee "$prefix.animation.godot.log"; then
+              failed=1
+              continue
+            fi
             python - "$prefix.animation.godot.json" <<'PY'
           import json, sys
           report = json.load(open(sys.argv[1]))
@@ -86,6 +100,7 @@ jobs:
           assert report['samples'] and len(report['samples']) == len(report['reloaded_samples']), report
           PY
           done
+          test "$failed" -eq 0
       - uses: actions/upload-artifact@v4
         if: always()
         with:
