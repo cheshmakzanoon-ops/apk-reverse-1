@@ -124,7 +124,7 @@ if [ "$tracked" -eq 0 ]; then
 else
   biggest="$(git ls-files -z \
              | xargs -0 -r stat -c '%s %n' 2>/dev/null \
-             | sort -rn | head -1 || true)"
+             | sort -rn | sed -n '1p' || true)"
   biggest_bytes="${biggest%% *}"
   biggest_bytes="${biggest_bytes:-0}"
   if [ "$biggest_bytes" -gt "$limit" ]; then
@@ -200,7 +200,14 @@ if [ -d source-app/lua/src ]; then
     ok "every recovered Lua module compiles ($(printf '%s' "$out" | tail -1))"
   else
     bad "recovered Lua does not compile"
-    printf '%s\n' "$out" | grep '^FAIL' | head -5 | sed 's/^/        /' >&2
+    # Show the FAIL lines when there are any, but fall back to the tail: the
+    # gate also exits non-zero when it cannot run at all (no lupa), and
+    # reporting only "does not compile" for that sends whoever is reading the
+    # log looking at 18,300 files that are in fact fine.
+    if printf '%s\n' "$out" | grep -q '^FAIL'; then
+      printf '%s\n' "$out" | grep '^FAIL' | head -5 | sed 's/^/        /' >&2
+    fi
+    printf '%s\n' "$out" | tail -5 | sed 's/^/        /' >&2
   fi
 fi
 
