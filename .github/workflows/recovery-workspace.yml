@@ -23,7 +23,7 @@ jobs:
       - name: Prepare pinned tools for offline analysis of the captured input
         run: |
           mkdir -p portable/wheels
-          python -m pip download --only-binary=:all: -r requirements-recovery.txt --dest portable/wheels
+          python -m pip wheel -r requirements-recovery.txt --wheel-dir portable/wheels
           git archive --format=zip HEAD tools tests docs godot requirements-recovery.txt README.md .github > portable/recovery-tools.zip
           python --version > portable/python-version.txt
           cd portable && sha256sum wheels/* recovery-tools.zip > SHA256SUMS.txt
