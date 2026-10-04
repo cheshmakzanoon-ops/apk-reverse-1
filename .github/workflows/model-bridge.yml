@@ -1,0 +1,76 @@
+name: Model bridge
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generated-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install and require actual parsers
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements-recovery.txt
+          python -c 'import UnityPy; assert UnityPy.__version__ == "1.25.4"'
+          python -c 'from lupa.lua53 import LuaRuntime; assert LuaRuntime().eval("_VERSION") == "Lua 5.3"'
+          mkdir -p reports/r3
+          python -m pip freeze > reports/r3/dependencies.txt
+      - name: Run all recovery regressions including actual Unity model decoding
+        run: python -m unittest discover -s tests -v 2>&1 | tee reports/r3/tests.log
+      - name: Generate explicit test fixtures through both conversion paths
+        run: python tests/model_fixtures.py reports/r3 --unity 2>&1 | tee reports/r3/fixtures.log
+      - name: Install pinned Khronos validator
+        run: |
+          npm install --prefix "$RUNNER_TEMP/validator" --ignore-scripts --no-audit --no-fund gltf-validator@2.0.0-dev.3.10
+          npm list --prefix "$RUNNER_TEMP/validator" > reports/r3/validator-version.txt
+      - name: Download and check pinned Godot 4.4.1
+        run: |
+          mkdir -p "$RUNNER_TEMP/godot"
+          cd "$RUNNER_TEMP/godot"
+          base=https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable
+          curl --fail --location --retry 2 "$base/Godot_v4.4.1-stable_linux.x86_64.zip" -o Godot_v4.4.1-stable_linux.x86_64.zip
+          curl --fail --location --retry 2 "$base/SHA512-SUMS.txt" -o SHA512-SUMS.txt
+          sha512sum --check --ignore-missing SHA512-SUMS.txt
+          unzip -q Godot_v4.4.1-stable_linux.x86_64.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          ./Godot_v4.4.1-stable_linux.x86_64 --version | tee "$GITHUB_WORKSPACE/reports/r3/godot-version.txt"
+          grep -q '^4\.4\.1\.' "$GITHUB_WORKSPACE/reports/r3/godot-version.txt"
+          cp SHA512-SUMS.txt "$GITHUB_WORKSPACE/reports/r3/godot-release-checksums.txt"
+      - name: Validate GLB and verify native Godot scene roundtrip
+        env:
+          GODOT_SILENCE_ROOT_WARNING: '1'
+        run: |
+          export GLTF_VALIDATOR_MODULE="$RUNNER_TEMP/validator/node_modules/gltf-validator"
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          for relative in static skinned actual-static/export/model actual-skinned/export/model; do
+            prefix="$GITHUB_WORKSPACE/reports/r3/$relative"
+            node tools/validate_glb.cjs "$prefix.glb" "$prefix.khronos.json"
+            "$godot" --headless --path godot --script scripts/verify_model.gd -- \
+              "$prefix.glb" "$prefix.expected.json" "$prefix.godot.json" 2>&1 | tee "$prefix.godot.log"
+            python - "$prefix.godot.json" <<'PY'
+          import json, sys
+          report = json.load(open(sys.argv[1]))
+          assert report['passed'] and not report['errors'], report
+          PY
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generated-fixture-model-evidence
+          path: reports/r3/
+          if-no-files-found: error
+          retention-days: 7

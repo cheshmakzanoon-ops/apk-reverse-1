@@ -7,6 +7,21 @@ Decompiled source is not necessarily the exact developer-written source, and
 server implementation/source files not shipped in the client are not recovered
 by unpacking an APK.
 
+## R3: model-to-GLB and native Godot scene bridge
+
+`tools/recovery_model.py` converts a verified captured hierarchy into a self-contained
+GLB, retaining triangle geometry, UV0, normals, material slots and supported four-weight
+skeletal bindings. Missing references and unsupported skin formats fail explicitly.
+Materials are base-color previews; animation/gameplay behavior is not reconstructed.
+
+`godot/scripts/verify_model.gd` imports GLB through Godot's native parser, validates
+geometry and skin bindings, saves a PackedScene and validates its reload. The new
+Model bridge workflow checks generated static/skinned fixtures through actual UnityPy,
+Khronos glTF-Validator and Godot. **These are fixture tests, not newly recovered game
+assets, and the Godot harness is not a playable game or Android APK.**
+
+See [R3 commands, coordinate contract and limitations](docs/RECOVERY_R3.md).
+
 ## R2: transfer integrity, object relationships, and client-source evidence
 
 R2 adds `tools/input_transfer.py`, `tools/recovery_graph.py`, and

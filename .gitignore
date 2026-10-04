@@ -17,3 +17,6 @@ unluac-failures-tables.tsv
 __pycache__/
 *.pyc
 .DS_Store
+
+# Godot importer cache; source harness and scripts remain tracked.
+/godot/.godot/
