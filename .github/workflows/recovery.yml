@@ -1,0 +1,143 @@
+name: Recovery
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      max_units:
+        description: 'Unity unit indexing limit (0 = full; nonzero may deliberately fail coverage)'
+        default: '0'
+        required: true
+        type: string
+      export_limit:
+        description: 'Maximum neutral exports to attempt (0 = all matching objects)'
+        default: '100'
+        required: true
+        type: string
+      retain_snapshot:
+        description: 'Upload complete raw snapshot as a temporary Actions artifact (may be large)'
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned recovery tools
+        run: python -m pip install --disable-pip-version-check -r requirements-recovery.txt
+      - name: Record dependency versions and require the real parser
+        run: |
+          mkdir -p reports
+          python -m pip freeze > reports/dependencies.txt
+          python -c 'import UnityPy; assert UnityPy.__version__ == "1.25.4"'
+      - name: Run recovery regressions and actual Unity fixture
+        run: python -m unittest discover -s tests -v 2>&1 | tee reports/tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovery-test-evidence
+          path: reports/
+          retention-days: 7
+
+  authorized-apk:
+    if: github.event_name == 'workflow_dispatch'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      MAX_UNITS: ${{ inputs.max_units }}
+      EXPORT_LIMIT: ${{ inputs.export_limit }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install recovery tools and the Drive downloader
+        run: python -m pip install --disable-pip-version-check -r requirements-recovery.txt gdown==5.2.0
+      - name: Validate limits and record environment
+        run: |
+          mkdir -p reports input
+          python -m pip freeze > reports/dependencies.txt
+          python - <<'PY'
+          import os
+          for key in ('MAX_UNITS', 'EXPORT_LIMIT'):
+              value = os.environ[key]
+              if not value.isdigit():
+                  raise SystemExit(f'{key} must be a nonnegative integer')
+          PY
+      - name: Download only the APK supplied by the requester
+        run: |
+          python - <<'PY'
+          import gdown
+          from pathlib import Path
+          result = gdown.download(id='1npnFmNOxN6IpafOJl1DjsI7L_LAvQCFZ', output='input/app.apk', quiet=False)
+          if not result or Path(result).stat().st_size != 813035279:
+              raise SystemExit('Download absent or does not match the supplied APK size; do not analyze HTML/error content')
+          PY
+          sha256sum input/app.apk | tee reports/input-sha256.txt
+      - name: Capture every original byte and index Unity data
+        id: capture
+        run: python tools/recover.py capture --apk input/app.apk --out recovery/snapshot --max-units "$MAX_UNITS" --max-gib 12 2>&1 | tee reports/capture.log
+      - name: Verify capture independently of export success
+        run: python tools/recover.py verify recovery/snapshot | tee reports/verification.json
+      - name: Attempt bounded neutral exports
+        id: exports
+        continue-on-error: true
+        run: python tools/recover.py export recovery/snapshot --types Mesh Texture2D Sprite TextAsset --limit "$EXPORT_LIMIT" 2>&1 | tee reports/exports.log
+      - name: Materialize successful neutral exports
+        if: always() && steps.capture.outcome == 'success'
+        run: python tools/recover.py materialize recovery/snapshot recovered-assets/snapshot | tee reports/materialize.json
+      - name: Collect final statuses
+        if: always()
+        run: |
+          if [ -f recovery/snapshot/summary.json ]; then cp recovery/snapshot/summary.json reports/summary.json; fi
+          if [ -f recovery/snapshot/catalog.sqlite ]; then
+            python - <<'PY'
+          import json, sqlite3
+          db = sqlite3.connect('recovery/snapshot/catalog.sqlite')
+          db.row_factory = sqlite3.Row
+          report = {}
+          for name, query in {
+              'capture_issues': 'SELECT * FROM issues LIMIT 100',
+              'decode_errors': 'SELECT id,type,decode_error FROM objects WHERE decode_error IS NOT NULL LIMIT 100',
+              'unresolved_dependencies': "SELECT * FROM dependencies WHERE status!='resolved' LIMIT 100",
+              'failed_exports': "SELECT * FROM exports WHERE status!='exported' LIMIT 100",
+              'object_type_counts': 'SELECT type,COUNT(*) AS count FROM objects GROUP BY type',
+          }.items():
+              report[name] = [dict(r) for r in db.execute(query)]
+          with open('reports/diagnostics.json', 'w') as f:
+              json.dump(report, f, indent=2)
+          db.close()
+          PY
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: authorized-apk-recovery-reports
+          path: reports/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.capture.outcome == 'success'
+        with:
+          name: recovered-neutral-assets
+          path: recovered-assets/
+          if-no-files-found: warn
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always() && inputs.retain_snapshot
+        with:
+          name: raw-recovery-snapshot
+          path: recovery/snapshot/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 3

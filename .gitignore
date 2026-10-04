@@ -1,61 +1,19 @@
-# Recovered SOURCE is tracked (source-app/{lua,data-tables-lua,src,csharp,
-# unity-assets}). Everything below is either an input the pipeline consumes, an
-# intermediate it passes through, or a container too large for GitHub.
-#
-# The working tree is ~4.2 GB; the APK and two copies of BundleFragment0.bytes
-# exceed GitHub's 100 MB per-file hard limit and cannot be pushed at all. The
-# rules here exclude only regenerable bytes - every path below is reproduced
-# deterministically by the committed pipeline from input/app.apk, so see the
-# "Reproducing" section of README.md.
-#
-# Verify that claim rather than trusting it: the pipeline is idempotent and its
-# step guards fail loudly, so a rerun either reproduces the same file counts or
-# exits non-zero.
-
-# --- inputs ---------------------------------------------------------------
-# The APK under analysis, plus any other input; and the raw extraction of DEX,
-# native .so, decoded resources and the Unity asset payload.
-#
-# Both rules are ANCHORED to the repository root on purpose. A bare `input/`
-# also matches any directory named "input" at any depth, which silently
-# excluded 269 recovered files under
-# source-app/src/sources/androidx/compose/**/input/ (the AndroidX Compose UI
-# input-handling package). tools/ci-checks.sh now fails the build if any
-# tracked file ever matches an ignore rule again.
+# Inputs and generated captures are artifacts, not ordinary Git payload.
 /input/
-
 /decompiled/
+/recovery/
+/recovered-assets/
+/reports/
 
-# --- intermediates of a decompile run (not source) --------------------------
-# Original bytecode the decompiler consumes. The recovered .lua sitting next to
-# it is the deliverable; keeping both would double the Lua tree for nothing.
-source-app/**/*.luac
-
-# Raw config-table bytecode extracted from assets/table/*.data. The decompiled
-# .lua lives in source-app/data-tables-lua/.
-source-app/data-tables/
-
-# Extracted art and audio binaries. The sweep is complete - all 7,868 bundles in
-# the APK - but the result is 307 MB of already-compressed PNG and WAV, which is
-# too heavy to add to every clone and every resume. Reproduce with
-# STEPS=bundles bash tools/decompile.sh (~148 s).
-source-app/game-assets/
-
-# --- build output ---------------------------------------------------------
-# build output of the Lua decompiler driver (rebuilt by tools/decompile.sh)
-tools/unluac-batch/classes/
-
-# .NET build output for the PE probe helper (rebuilt by `dotnet run`)
-tools/peprobe/bin/
-tools/peprobe/obj/
-
-# --- per-run diagnostics; regenerated on each decompile run ----------------
+# Existing generated intermediates. The decompiled source trees remain tracked.
+/source-app/**/*.luac
+/source-app/data-tables/
+/source-app/game-assets/
+/tools/unluac-batch/classes/
+/tools/peprobe/bin/
+/tools/peprobe/obj/
 unluac-failures.tsv
 unluac-failures-tables.tsv
-
-# Python bytecode from the CI syntax check
 __pycache__/
 *.pyc
-
-# OS noise
 .DS_Store
