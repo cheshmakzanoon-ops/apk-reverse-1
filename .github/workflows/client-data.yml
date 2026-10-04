@@ -1,0 +1,104 @@
+name: Client data and Android inspector
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  actual-client-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Test the data parser and independent Lua 5.3 oracle
+        run: |
+          mkdir -p reports/r5 build
+          python -m pip install --disable-pip-version-check lupa==2.6
+          python -c 'from lupa.lua53 import LuaRuntime; assert LuaRuntime().eval("_VERSION") == "Lua 5.3"'
+          python -m unittest discover -s tests -p test_client_data.py -v 2>&1 | tee reports/r5/data-tests.log
+      - name: Convert the real committed client profile and compare every table with Lua
+        run: |
+          python tools/godot_data.py build --repo . --out godot/recovered_data --lua53 2>&1 | tee reports/r5/conversion.log
+          python tools/godot_data.py verify --out godot/recovered_data | tee reports/r5/package-verification.json
+          cp godot/recovered_data/catalog.json reports/r5/client-catalog.json
+          python tests/data_native_fixtures.py reports/r5/boundary-fixture
+      - name: Fetch pinned Godot and Android export templates with release hashes
+        run: |
+          mkdir -p "$RUNNER_TEMP/godot"
+          cd "$RUNNER_TEMP/godot"
+          base=https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable
+          for file in Godot_v4.4.1-stable_linux.x86_64.zip Godot_v4.4.1-stable_export_templates.tpz SHA512-SUMS.txt; do
+            curl --fail --location --retry 2 "$base/$file" -o "$file"
+          done
+          sha512sum --check --ignore-missing SHA512-SUMS.txt
+          unzip -q Godot_v4.4.1-stable_linux.x86_64.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          mkdir -p "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+          unzip -j -q Godot_v4.4.1-stable_export_templates.tpz templates/android_debug.apk templates/android_release.apk templates/version.txt -d "$HOME/.local/share/godot/export_templates/4.4.1.stable"
+          cp SHA512-SUMS.txt "$GITHUB_WORKSPACE/reports/r5/godot-release-checksums.txt"
+      - name: Verify all record-field lookups in native Godot
+        run: |
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$godot" --headless --path godot --editor --import 2>&1 | tee reports/r5/import.log
+          "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r5/native-data.json" 2>&1 | tee reports/r5/native-data.log
+          "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/reports/r5/boundary-fixture" "$GITHUB_WORKSPACE/reports/r5/native-boundaries.json" 2>&1 | tee reports/r5/native-boundaries.log
+          "$godot" --headless --path godot --quit-after 10 2>&1 | tee reports/r5/inspector-startup.log
+          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log; then exit 1; fi
+      - name: Configure Android SDK and isolated debug signing
+        run: |
+          sdkmanager "platform-tools" "build-tools;34.0.0" "platforms;android-34" > reports/r5/sdk-install.log
+          mkdir -p "$HOME/.config/godot"
+          python - <<'PY'
+          import json, os, pathlib
+          settings=pathlib.Path.home()/'.config/godot/editor_settings-4.4.tres'
+          settings.write_text('[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/android_sdk_path='+json.dumps(os.environ['ANDROID_HOME'])+'\nexport/android/java_sdk_path='+json.dumps(os.environ['JAVA_HOME'])+'\n')
+          PY
+          keytool -genkeypair -keystore "$RUNNER_TEMP/inspector-debug.keystore" -storepass android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US" -keyalg RSA -keysize 2048 -validity 3650
+      - name: Build and inspect the ARM64 development APK
+        env:
+          GODOT_ANDROID_KEYSTORE_DEBUG_USER: androiddebugkey
+          GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD: android
+        run: |
+          export GODOT_ANDROID_KEYSTORE_DEBUG_PATH="$RUNNER_TEMP/inspector-debug.keystore"
+          godot="$RUNNER_TEMP/godot/Godot_v4.4.1-stable_linux.x86_64"
+          "$godot" --headless --path godot --export-debug "Android Data Inspector" "$GITHUB_WORKSPACE/build/client-data-inspector.apk" 2>&1 | tee reports/r5/android-export.log
+          "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --verbose build/client-data-inspector.apk | tee reports/r5/apk-signature.txt
+          "$ANDROID_HOME/build-tools/34.0.0/aapt" dump badging build/client-data-inspector.apk > reports/r5/apk-badging.txt
+          sha256sum build/client-data-inspector.apk | tee reports/r5/apk-sha256.txt
+          python - <<'PY'
+          import hashlib, json, pathlib, zipfile
+          root=pathlib.Path('godot/recovered_data')
+          with zipfile.ZipFile('build/client-data-inspector.apk') as apk:
+              for p in root.rglob('*.json'):
+                  name='assets/recovered_data/'+p.relative_to(root).as_posix()
+                  assert apk.read(name)==p.read_bytes(), name
+              assert 'lib/arm64-v8a/libgodot_android.so' in apk.namelist()
+          report={'apk_built':True,'packaged_data_matches':True,'device_tested':False,'gameplay_port_complete':False}
+          pathlib.Path('reports/r5/android-package.json').write_text(json.dumps(report,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-client-data-evidence
+          path: reports/r5/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: recovered-client-data-and-android-inspector
+          path: |
+            build/client-data-inspector.apk
+            godot/recovered_data/
+          retention-days: 7

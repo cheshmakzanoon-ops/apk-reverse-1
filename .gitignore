@@ -20,3 +20,5 @@ __pycache__/
 
 # Godot importer cache; source harness and scripts remain tracked.
 /godot/.godot/
+/godot/recovered_data/
+/build/
