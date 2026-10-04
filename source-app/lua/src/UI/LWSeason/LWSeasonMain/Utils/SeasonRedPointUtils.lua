@@ -44,27 +44,20 @@ local function SeasonHeroPromotionRedPoint(activityId, only)
     local heroConfigData = DataCenter.SeasonDataManager:GetHeroCanPromoteDataByIndex(opIndex)
     local canPromote = false
     if heroConfigData then
-      do
-        local heroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.oldId)
-        local newHeroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.newId)
-        if not newHeroData and heroData then
-          do
-            local curRankId = heroData:GetRank()
-            local maxRankId = heroData:GetMaxRank()
-            if curRankId >= maxRankId then
-              canPromote = true
-              goto lbl_47
-            end
-          end
+      local heroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.oldId)
+      local newHeroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.newId)
+      if not newHeroData and heroData then
+        local curRankId = heroData:GetRank()
+        local maxRankId = heroData:GetMaxRank()
+        if curRankId >= maxRankId then
+          canPromote = true
         end
       end
-    else
-      ::lbl_47::
-      if canPromote and heroConfigData then
-        local item = DataCenter.ItemData:GetItemById(heroConfigData.costItemId)
-        if item and heroConfigData.costCount <= item.count then
-          return true
-        end
+    end
+    if canPromote and heroConfigData then
+      local item = DataCenter.ItemData:GetItemById(heroConfigData.costItemId)
+      if item and heroConfigData.costCount <= item.count then
+        return true
       end
     end
   end

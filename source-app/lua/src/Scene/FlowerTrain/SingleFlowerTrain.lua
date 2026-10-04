@@ -426,10 +426,8 @@ function SingleFlowerTrain:UpdateAllCheerActor()
         if self:IsSlotMax() then
           if isSelf then
             self:RandomDestroyOneCheerActor()
-            goto lbl_82
           end
         else
-          ::lbl_82::
           local data = {}
           data.uid = uid
           data.cheerTime = cheerTime

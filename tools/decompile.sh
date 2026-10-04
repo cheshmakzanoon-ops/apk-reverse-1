@@ -28,6 +28,10 @@
 #                      data table needs ~3g
 #   BUNDLE_BUDGET=150  seconds of AssetBundle extraction per invocation; the
 #                      step is resumable, so rerun to continue where it stopped
+#
+# The lua step also verifies its own output: unluac can exit 0 on a chunk whose
+# decompiled form is not valid Lua, so the step repairs the known cases and then
+# compiles every module to prove the tree loads.
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
@@ -51,6 +55,19 @@ APK="$(cd "$(dirname "$APK")" && pwd)/$(basename "$APK")"
 slug="$(printf '%s' "$(basename "${APK%.apk}")" | tr -c 'A-Za-z0-9._-' '_')"
 SRC_DIR="$root/source-$slug"
 mkdir -p "$SRC_DIR" "$OUT"
+
+# Compiles the batch driver plus the patched unluac classes into one output dir.
+# The patch is vendored source rather than a rebuilt upstream: compiling it
+# against the shipped unluac.jar keeps this hermetic (a JDK is all it needs)
+# and keeps only the delta, not a fork of the whole decompiler.
+unluac_build_classes() {
+  local out="$root/tools/unluac-batch/classes"
+  mkdir -p "$out"
+  sh "$root/tools/unluac-batch/build-patch.sh" >/dev/null
+  javac -nowarn -cp "$root/tools/unluac-batch/unluac.jar" -d "$out" \
+    "$root/tools/unluac-batch/UnluacBatch.java" \
+    "$root/tools/unluac-batch/DisasmOne.java"
+}
 
 step_jadx() {
   echo "== jadx: decompiling DEX to Java (one DEX per pass, low-memory safe)"
@@ -145,13 +162,18 @@ step_lua() {
     exit 1
   fi
   python3 "$root/tools/extract-lua.py" "$data" "$SRC_DIR/lua/luac"
-  mkdir -p "$root/tools/unluac-batch/classes"
-  javac -cp "$root/tools/unluac-batch/unluac.jar" \
-    -d "$root/tools/unluac-batch/classes" \
-    "$root/tools/unluac-batch/UnluacBatch.java"
+  unluac_build_classes
+  # classes FIRST: it holds the patched ControlFlowHandler, and a classpath
+  # entry earlier in the list wins. Reversed, the patch is silently ignored.
   java "-Xmx${LUA_MEM:-1500m}" -Dunluac.failures="$root/unluac-failures.tsv" \
-    -cp "$root/tools/unluac-batch/unluac.jar:$root/tools/unluac-batch/classes" \
+    -cp "$root/tools/unluac-batch/classes:$root/tools/unluac-batch/unluac.jar" \
     UnluacBatch "$SRC_DIR/lua/luac" "$SRC_DIR/lua/src"
+  # unluac exits 0 on chunks whose output is not valid Lua (a goto that lands
+  # inside a block). Repair those, then prove the whole tree loads.
+  sh "$root/tools/unluac-batch/apply-recovered.sh"
+  if [ -d "$SRC_DIR/lua/src" ]; then
+    python3 "$root/tools/check-lua-syntax.py" "$SRC_DIR/lua/src"
+  fi
 }
 
 step_tables() {
@@ -162,6 +184,7 @@ step_tables() {
     exit 1
   fi
   mkdir -p "$root/tools/unluac-batch/classes"
+  unluac_build_classes
   # the archive is a plain zip of studio Lua bytecode, one module per table
   rm -rf "$SRC_DIR/data-tables"
   mkdir -p "$SRC_DIR/data-tables"
@@ -176,7 +199,7 @@ step_tables() {
   # -Xmx must be generous: the monster tables are the largest chunks in the
   # game and need ~3g to decompile.
   java "-Xmx${LUA_MEM:-3000m}" -Dunluac.failures="$root/unluac-failures-tables.tsv" \
-    -cp "$root/tools/unluac-batch/unluac.jar:$root/tools/unluac-batch/classes" \
+    -cp "$root/tools/unluac-batch/classes:$root/tools/unluac-batch/unluac.jar" \
     UnluacBatch "$SRC_DIR/data-tables" "$SRC_DIR/data-tables-lua"
 }
 

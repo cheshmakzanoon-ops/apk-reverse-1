@@ -1,0 +1,286 @@
+--- a/source-app/lua/src/Scene/FlowerTrain/SingleFlowerTrain.lua
++++ b/source-app/lua/src/Scene/FlowerTrain/SingleFlowerTrain.lua
+@@ -426,10 +426,8 @@
+         if self:IsSlotMax() then
+           if isSelf then
+             self:RandomDestroyOneCheerActor()
+-            goto lbl_82
+           end
+         else
+-          ::lbl_82::
+           local data = {}
+           data.uid = uid
+           data.cheerTime = cheerTime
+--- a/source-app/lua/src/DataCenter/SeasonManager/SeasonUpgradeLogManager.lua
++++ b/source-app/lua/src/DataCenter/SeasonManager/SeasonUpgradeLogManager.lua
+@@ -46,39 +46,33 @@
+     local curSeason = tonumber(lineData.season_group) or 0
+     if targetSeason == curSeason then
+       local update_time = lineData.update_time
+-      if not string.IsNullOrEmpty(update_time) then
+-        do
+-          local year_show, month_show, day_show = string.match(update_time, "(%d+)|(%d+)|(%d+)")
+-          local _sec = UITimeManager:GetInstance():ServerYMD2Sec(toInt(year_show), toInt(month_show), toInt(day_show))
+-          if not (_sec <= timeNow) then
+-            goto lbl_40
+-          end
+-          goto lbl_41
+-          ::lbl_40::
++      if string.IsNullOrEmpty(update_time) then
++        local year_show, month_show, day_show = string.match(update_time, "(%d+)|(%d+)|(%d+)")
++        local _sec = UITimeManager:GetInstance():ServerYMD2Sec(toInt(year_show), toInt(month_show), toInt(day_show))
++        if _sec <= timeNow then
++          return
+         end
+-      else
+-        ::lbl_41::
+-        local paramServer = tostring(lineData.sever)
+-        local args_0 = string.split(paramServer, ";")
+-        if args_0 and 0 < #args_0 then
+-          for k, v in ipairs(args_0) do
+-            local curServer = toInt(v) or 0
+-            if 0 < curServer then
+-              if curServer == targetServer then
+-                local template = SeasonUpgradeLogTemplate.New(curSeason, lineData)
+-                table.insert(_table, template)
+-              end
+-            else
+-              local serverGroup = tostring(v) or ""
+-              if 3 <= #serverGroup then
+-                local args = string.split(serverGroup, "-")
+-                if #args == 2 then
+-                  local _start = toInt(args[1])
+-                  local _end = toInt(args[2])
+-                  if _start and _end and _start <= targetServer and _end >= targetServer then
+-                    local template = SeasonUpgradeLogTemplate.New(curSeason, lineData)
+-                    table.insert(_table, template)
+-                  end
++      end
++      local paramServer = tostring(lineData.sever)
++      local args_0 = string.split(paramServer, ";")
++      if args_0 and 0 < #args_0 then
++        for k, v in ipairs(args_0) do
++          local curServer = toInt(v) or 0
++          if 0 < curServer then
++            if curServer == targetServer then
++              local template = SeasonUpgradeLogTemplate.New(curSeason, lineData)
++              table.insert(_table, template)
++            end
++          else
++            local serverGroup = tostring(v) or ""
++            if 3 <= #serverGroup then
++              local args = string.split(serverGroup, "-")
++              if #args == 2 then
++                local _start = toInt(args[1])
++                local _end = toInt(args[2])
++                if _start and _end and _start <= targetServer and _end >= targetServer then
++                  local template = SeasonUpgradeLogTemplate.New(curSeason, lineData)
++                  table.insert(_table, template)
+                 end
+               end
+             end
+@@ -87,8 +81,7 @@
+       end
+     end
+   end)
+-  if #_table <= 0 then
+-  else
++  if 0 < #_table then
+     table.sort(_table, SortLogs)
+   end
+ end
+--- a/source-app/lua/src/Util/LWResourceLackUtil.lua
++++ b/source-app/lua/src/Util/LWResourceLackUtil.lua
+@@ -214,24 +214,16 @@
+             end
+           end
+           if t.tips == LWResourceLackGetWay.TrailTowerShop then
+-            do
+-              local shopId = tonumber(t.para1)
+-              local goodsConf = DataCenter.CommonShopManager:GetGoodsConfByShopId(CommonShopType.TrailTowerShop, shopId)
+-              if goodsConf then
+-                do
+-                  local goodsInfo = DataCenter.CommonShopManager:GetGoodsInfoById(CommonShopType.TrailTowerShop, shopId)
+-                  local boughtTimes = goodsInfo and goodsInfo.boughtTimes or 0
+-                  if 0 < goodsConf.maxTimes and boughtTimes >= goodsConf.maxTimes then
+-                    goto lbl_429
+-                  end
+-                end
+-                goto lbl_430
++            local shopId = tonumber(t.para1)
++            local goodsConf = DataCenter.CommonShopManager:GetGoodsConfByShopId(CommonShopType.TrailTowerShop, shopId)
++            if goodsConf then
++              local goodsInfo = DataCenter.CommonShopManager:GetGoodsInfoById(CommonShopType.TrailTowerShop, shopId)
++              local boughtTimes = goodsInfo and goodsInfo.boughtTimes or 0
++              if 0 < goodsConf.maxTimes and boughtTimes >= goodsConf.maxTimes then
++                goto lbl_1547
+               end
+-              ::lbl_429::
+             end
+-          else
+-            ::lbl_430::
+-            if t.tips == LWResourceLackGetWay.GoCommonShop then
++          elseif t.tips == LWResourceLackGetWay.GoCommonShop then
+               if param and not table.IsNullOrEmpty(param.skipFilterTypeList) and self:IsTypeSkipFilter(t.tips, param.skipFilterTypeList) then
+                 if not self:ExistAnyShopGoods_GoCommonShop(t) then
+                   goto lbl_1547
+@@ -242,7 +234,6 @@
+                   goto lbl_1547
+                 end
+               end
+-            end
+             if t.tips == LWResourceLackGetWay.Activity and t.para1 and t.para1 ~= "cross_king" then
+               local idList = string.split(tostring(t.para1), "|")
+               local isOneActivityOpen = false
+--- a/source-app/lua/src/UI/LWSeason/LWSeasonMain/Utils/SeasonRedPointUtils.lua
++++ b/source-app/lua/src/UI/LWSeason/LWSeasonMain/Utils/SeasonRedPointUtils.lua
+@@ -44,27 +44,20 @@
+     local heroConfigData = DataCenter.SeasonDataManager:GetHeroCanPromoteDataByIndex(opIndex)
+     local canPromote = false
+     if heroConfigData then
+-      do
+-        local heroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.oldId)
+-        local newHeroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.newId)
+-        if not newHeroData and heroData then
+-          do
+-            local curRankId = heroData:GetRank()
+-            local maxRankId = heroData:GetMaxRank()
+-            if curRankId >= maxRankId then
+-              canPromote = true
+-              goto lbl_47
+-            end
+-          end
++      local heroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.oldId)
++      local newHeroData = DataCenter.HeroDataManager:GetHeroByHeroId(heroConfigData.newId)
++      if not newHeroData and heroData then
++        local curRankId = heroData:GetRank()
++        local maxRankId = heroData:GetMaxRank()
++        if curRankId >= maxRankId then
++          canPromote = true
+         end
+       end
+-    else
+-      ::lbl_47::
+-      if canPromote and heroConfigData then
+-        local item = DataCenter.ItemData:GetItemById(heroConfigData.costItemId)
+-        if item and heroConfigData.costCount <= item.count then
+-          return true
+-        end
++    end
++    if canPromote and heroConfigData then
++      local item = DataCenter.ItemData:GetItemById(heroConfigData.costItemId)
++      if item and heroConfigData.costCount <= item.count then
++        return true
+       end
+     end
+   end
+--- a/source-app/lua/src/UI/UILWRadarCenter/UIDetectEvent/Component/DetectEventItemInfoView.lua
++++ b/source-app/lua/src/UI/UILWRadarCenter/UIDetectEvent/Component/DetectEventItemInfoView.lua
+@@ -178,64 +178,57 @@
+     for k, v in ipairs(data.rewardList) do
+       table.insert(self.rewardList, v)
+     end
+-    if true then
+-      do
+-        local config = DataCenter.DetectEventTemplateManager:GetDetectEventTemplate(data.eventId)
+-        if config ~= nil and config.type == 2 then
+-          local monster = DataCenter.MonsterTemplateManager:GetMonsterTemplate(config.para)
+-          if monster ~= nil and monster:ExistAssociateActivity() then
+-            local rewardListNew = {}
+-            for _, item in ipairs(data.rewardList) do
+-              table.insert(rewardListNew, item)
+-            end
+-            local mgr = DataCenter.RewardManager
+-            local extra_reward_show = monster.with_extra_reward_show
+-            for _, v in ipairs(extra_reward_show) do
+-              if v ~= nil and v ~= "" then
+-                local show_info, itemId, rewardType, itemNum = string.match(v, "(%d+)[,;](%d+)[,;](%d+)[,;](%d+)")
+-                if show_info ~= nil then
+-                  local existIt = false
+-                  for _, item in ipairs(rewardListNew) do
+-                    if item ~= nil and tonumber(item.itemId) == tonumber(itemId) then
+-                      item.count = item.count + tonumber(itemNum)
+-                      existIt = true
+-                      break
+-                    end
+-                  end
+-                  if not existIt then
+-                    local item = mgr:ParseOneRewardStr(v)
+-                    if item ~= nil then
+-                      table.insert(rewardListNew, 1, item)
+-                    end
+-                  end
++    local config = DataCenter.DetectEventTemplateManager:GetDetectEventTemplate(data.eventId)
++    if config ~= nil and config.type == 2 then
++      local monster = DataCenter.MonsterTemplateManager:GetMonsterTemplate(config.para)
++      if monster ~= nil and monster:ExistAssociateActivity() then
++        local rewardListNew = {}
++        for _, item in ipairs(data.rewardList) do
++          table.insert(rewardListNew, item)
++        end
++        local mgr = DataCenter.RewardManager
++        local extra_reward_show = monster.with_extra_reward_show
++        for _, v in ipairs(extra_reward_show) do
++          if v ~= nil and v ~= "" then
++            local show_info, itemId, rewardType, itemNum = string.match(v, "(%d+)[,;](%d+)[,;](%d+)[,;](%d+)")
++            if show_info ~= nil then
++              local existIt = false
++              for _, item in ipairs(rewardListNew) do
++                if item ~= nil and tonumber(item.itemId) == tonumber(itemId) then
++                  item.count = item.count + tonumber(itemNum)
++                  existIt = true
++                  break
++                end
++              end
++              if not existIt then
++                local item = mgr:ParseOneRewardStr(v)
++                if item ~= nil then
++                  table.insert(rewardListNew, 1, item)
+                 end
+               end
+             end
+-            self.rewardList = rewardListNew
+           end
+         end
++        self.rewardList = rewardListNew
+       end
+-    else
+-    end
+-    else
+-    end
+-    local vipWorkerEffectVal1 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_LIMIT))
+-    local vipWorkerEffectVal2 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_ADD_COUNT))
+-    local vipWorkerEffectVal3 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_CHANGE_ITEM))
+-    local accumulateCount = DataCenter.WorkerDataManager:GetVipWorkerAccumulateCount() or 0
+-    local vipWorkerGetNumToday = DataCenter.WorkerDataManager:GetVipWorkerRewardTimes()
+-    if 0 < vipWorkerEffectVal1 and 0 < vipWorkerEffectVal2 and 0 < vipWorkerEffectVal3 and accumulateCount > vipWorkerGetNumToday then
+-      local curCanGetNum = vipWorkerEffectVal2
+-      local maxGetNum = accumulateCount - vipWorkerGetNumToday
+-      curCanGetNum = math.min(curCanGetNum, maxGetNum)
+-      local vipWorkerRewardData = {
+-        rewardType = RewardType.GOODS,
+-        itemId = vipWorkerEffectVal3,
+-        count = curCanGetNum
+-      }
+-      table.insert(self.rewardList, 1, vipWorkerRewardData)
+     end
+   end
++  local vipWorkerEffectVal1 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_LIMIT))
++  local vipWorkerEffectVal2 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_ADD_COUNT))
++  local vipWorkerEffectVal3 = toInt(LuaEntry.Effect:GetGameEffect(EffectDefine.LW_VIP_WORKER_DETECT_REWARD_CHANGE_ITEM))
++  local accumulateCount = DataCenter.WorkerDataManager:GetVipWorkerAccumulateCount() or 0
++  local vipWorkerGetNumToday = DataCenter.WorkerDataManager:GetVipWorkerRewardTimes()
++  if 0 < vipWorkerEffectVal1 and 0 < vipWorkerEffectVal2 and 0 < vipWorkerEffectVal3 and vipWorkerGetNumToday < accumulateCount then
++    local curCanGetNum = vipWorkerEffectVal2
++    local maxGetNum = accumulateCount - vipWorkerGetNumToday
++    curCanGetNum = math.min(curCanGetNum, maxGetNum)
++    local vipWorkerRewardData = {
++      rewardType = RewardType.GOODS,
++      itemId = vipWorkerEffectVal3,
++      count = curCanGetNum
++    }
++    table.insert(self.rewardList, 1, vipWorkerRewardData)
++  end
+   self:RefreshView()
+ end
+ 
