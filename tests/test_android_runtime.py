@@ -105,3 +105,52 @@ class RuntimePackageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);model=self.fixture(root);prepare(model,root/'viewer')
             with self.assertRaises(RecoveryError):prepare(model,root/'viewer',runtime_checks=True)
+
+class AndroidRenderingTests(unittest.TestCase):
+    def png(self, draw_model=False, draw_ui=False):
+        import io
+        from PIL import Image, ImageDraw
+        img=Image.new('RGB',(320,480),(30,31,34)); draw=ImageDraw.Draw(img)
+        if draw_ui: draw.rectangle((10,10,180,80),fill=(240,240,240))
+        if draw_model:
+            for i in range(100): draw.line((70+i,210,70+i,330),fill=(i*2,i,200-i))
+        data=io.BytesIO();img.save(data,format='PNG');return data.getvalue()
+    def test_blank_frame_is_not_a_render_pass(self):
+        from android_runtime_check import verify_rendered_png
+        with self.assertRaises(RuntimeError):verify_rendered_png(self.png())
+    def test_controls_without_model_are_rejected(self):
+        from android_runtime_check import verify_rendered_png
+        with self.assertRaises(RuntimeError):verify_rendered_png(self.png(draw_ui=True))
+    def test_model_region_is_nonblank(self):
+        from android_runtime_check import verify_rendered_png
+        self.assertGreater(verify_rendered_png(self.png(draw_model=True))['variance'],64)
+    def test_renderer_errors_fail_even_if_other_checks_pass(self):
+        from android_runtime_check import verify_engine_log
+        with self.assertRaises(RuntimeError):verify_engine_log('10-05 00:00:00 123 124 E godot : ERROR: shader link failed')
+    def test_unrelated_system_errors_not_game_errors(self):
+        from android_runtime_check import verify_engine_log
+        verify_engine_log('10-05 00:00:00 123 124 E unrelated : ERROR: bluetooth not connected')
+
+class PhysicalTouchTests(unittest.TestCase):
+    def test_observed_surface_origin_added_once(self):
+        from android_runtime_check import physical_point
+        self.assertEqual(physical_point([154.5,375],{'coordinate_space':'android_surface_pixels',
+                            'surface_size':[1080,2272]},[0,128,1080,2400]),[154.5,503])
+    def test_surface_size_mismatch_refused(self):
+        from android_runtime_check import physical_point
+        with self.assertRaises(RuntimeError):physical_point([1,2],{'coordinate_space':'android_surface_pixels',
+                                               'surface_size':[720,1100]},[0,128,1080,2400])
+    def test_outside_target_refused(self):
+        from android_runtime_check import physical_point
+        with self.assertRaises(RuntimeError):physical_point([2000,2],{'coordinate_space':'android_surface_pixels',
+                                                'surface_size':[1080,2272]},[0,128,1080,2400])
+    def test_surface_bounds_from_android_tree(self):
+        from android_runtime_check import surface_bounds,PACKAGE
+        xml='<hierarchy><node package="'+PACKAGE+'" class="android.view.SurfaceView" bounds="[0,128][1080,2400]"/></hierarchy>'
+        self.assertEqual(surface_bounds(xml),[0,128,1080,2400])
+    def test_other_package_and_ambiguous_surfaces_refused(self):
+        from android_runtime_check import surface_bounds,PACKAGE
+        with self.assertRaises(RuntimeError):surface_bounds('<hierarchy><node package="other" class="SurfaceView" bounds="[0,0][50,50]"/></hierarchy>')
+        a='<node package="'+PACKAGE+'" class="SurfaceView" bounds="[0,0][50,50]"/>'
+        b=a.replace('[50,50]','[60,60]')
+        with self.assertRaises(RuntimeError):surface_bounds('<hierarchy>'+a+b+'</hierarchy>')

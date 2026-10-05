@@ -95,3 +95,28 @@ Remaining game goals: more dependency-complete original assets, controller/event
 shader recovery, source/binary behavioral reconciliation, gameplay and server-side
 replacement where needed, and physical Android device validation. Passing this gate
 is acceptance of one real animated asset on Android, not all game source or assets.
+
+## Emulator rendering and input corrections
+
+The first executed Android run passed every source pose and scene roundtrip, but
+its legacy SwiftShader GLES driver failed both model and canvas shader linking
+(GL_MAX_FRAGMENT_UNIFORM_VECTORS). Its PNGs were uniform backgrounds; those were
+not accepted as rendered success. The workflow now uses Android's supported
+SwANGLE backend, not the deprecated swiftshader_indirect mode. This changes the
+emulator driver, not the APK's renderer, model, materials or pose tolerances.
+Frames must pass a model-region nonblank/color-variance check excluding controls,
+and Godot error lines fail acceptance. This is not full visual similarity testing.
+
+CanvasItem.get_screen_transform() uses popup transforms, which omit stretch when
+subwindows are embedded. The probe now composes the root final transform with
+get_global_transform_with_canvas(), producing actual render-surface pixel targets.
+The host obtains the render surface's absolute bounds from Android UI Automator,
+requires its dimensions to match Godot, and adds only that observed origin. No
+hard-coded notch/letterbox offset, coordinate trial-and-error, or OCR is used.
+The explicit probe runs playback at one-eighth speed to avoid a 2.1-second clip
+ending during adb lifecycle handshakes; the ordinary viewer stays at normal speed.
+Failure evidence retains the last state, requested physical touch and screenshot.
+
+References: Godot 4.4.1 scene/main/canvas_item.cpp and scene/main/window.cpp;
+https://developer.android.com/studio/run/emulator-acceleration;
+https://github.com/godotengine/godot/issues/109550.

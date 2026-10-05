@@ -8,6 +8,7 @@ checks are separate evidence. Never label emulator execution physical-device QA.
 from __future__ import annotations
 import argparse
 import hashlib
+import io
 import json
 import math
 from pathlib import Path
@@ -16,6 +17,7 @@ import shlex
 import subprocess
 import time
 import uuid
+import xml.etree.ElementTree as ET
 
 PACKAGE = 'org.apk_recovery.asset_preview'
 ACTIVITY = PACKAGE + '/com.godot.game.GodotApp'
@@ -61,12 +63,69 @@ def verify_pose_report(report, expected):
     return count
 
 
+def verify_rendered_png(data):
+    """A PNG header alone cannot establish that the model was drawn.
+
+    Test the fixed viewer's central/lower model region, excluding all controls.
+    This is a nonblank geometry-presence check, not original-game image parity.
+    """
+    from PIL import Image
+    with Image.open(io.BytesIO(data)) as image:
+        image.load()
+        width, height = image.size
+        require(width >= 200 and height >= 300, 'rendered frame is too small')
+        crop = image.convert('RGB').crop((int(width*.1), int(height*.4), int(width*.9), int(height*.78)))
+        crop.thumbnail((160,160))
+        colors = list(crop.getdata())
+        quantized = {tuple(c//16 for c in rgb) for rgb in colors}
+        means = [sum(v[c] for v in colors)/len(colors) for c in range(3)]
+        variance = max(sum((v[c]-means[c])**2 for v in colors)/len(colors) for c in range(3))
+        require(len(quantized) >= 16 and variance >= 64, 'blank/unrendered model region')
+        return {'width':width,'height':height,'model_region_colors':len(quantized),'variance':variance}
+
+
+def surface_bounds(xml):
+    """Use Android's own view bounds, not guessed notch or letterbox offsets."""
+    tree = ET.fromstring(xml)
+    found = set()
+    for node in tree.iter('node'):
+        if node.get('package') != PACKAGE:
+            continue
+        name = node.get('class','')
+        if not (name.endswith('SurfaceView') or name.endswith('RenderView')):
+            continue
+        match = re.fullmatch(r'\[(\d+),(\d+)\]\[(\d+),(\d+)\]', node.get('bounds',''))
+        if match:
+            bounds = tuple(map(int,match.groups()))
+            if bounds[2] > bounds[0] and bounds[3] > bounds[1]:
+                found.add(bounds)
+    require(len(found) == 1, 'Android render surface absent or ambiguous in view hierarchy')
+    return list(found.pop())
+
+
+def physical_point(point, state, bounds):
+    require(state.get('coordinate_space') == 'android_surface_pixels', 'unknown touch coordinate space')
+    size = state['surface_size']
+    require(len(point)==2 and all(math.isfinite(x) for x in point), 'invalid touch point')
+    require(abs(size[0]-(bounds[2]-bounds[0])) <= 1 and abs(size[1]-(bounds[3]-bounds[1])) <= 1,
+            'Android view size differs from Godot surface size')
+    require(0 <= point[0] < size[0] and 0 <= point[1] < size[1], 'touch target outside render surface')
+    return [point[0]+bounds[0],point[1]+bounds[1]]
+
+
+def verify_engine_log(text):
+    failures = [line for line in text.splitlines() if re.search(r'\bgodot\s*:',line,re.I)
+                and re.search(r'(SCRIPT ERROR|ERROR:|Program linking failed)',line)]
+    require(not failures, 'Godot runtime error: ' + '\n'.join(failures[:4]))
+
+
 class Device:
     def __init__(self, serial, out):
         require(re.fullmatch(r'emulator-\d+', serial) is not None, 'explicit emulator serial required')
         self.prefix = ['adb', '-s', serial]
         self.out = out
         self.commands = []
+        self.last_states = {}
 
     def adb(self, *args, check=True, timeout=30):
         result = subprocess.run(self.prefix + list(args), capture_output=True, timeout=timeout)
@@ -88,6 +147,9 @@ class Device:
         while time.monotonic() < end:
             try:
                 value = json.loads(self.read(relative))
+                if relative == 'runtime-state.json':
+                    self.last_states[relative] = value
+                    (self.out/'last-runtime-state.json').write_text(json.dumps(value,indent=2))
                 if predicate(value):
                     return value
             except (ValueError, UnicodeDecodeError):
@@ -118,6 +180,7 @@ def run(apk, expected_path, out, serial):
         require(device.shell('getprop', 'ro.kernel.qemu') == '1', 'target is not an emulator')
         report['device'] = {k: device.shell('getprop', k) for k in
                             ('ro.build.version.sdk', 'ro.product.cpu.abi', 'ro.build.fingerprint')}
+        device.adb('logcat', '-c')
         device.adb('install', '-r', str(apk), timeout=90)
         # All removals are limited to this debug inspector's own prior test reports.
         device.shell('run-as', PACKAGE, 'rm', '-rf', 'files/animation.json', 'files/viewer', 'files/runtime-state.json')
@@ -138,22 +201,33 @@ def run(apk, expected_path, out, serial):
             png = device.read(f'viewer/clip-{i:02d}.png')
             require(png.startswith(b'\x89PNG\r\n\x1a\n'), 'missing rendered clip screenshot')
             (out/f'clip-{i:02d}.png').write_bytes(png)
+            report.setdefault('rendered_frames', []).append(verify_rendered_png(png))
         nonce = 'probe_' + uuid.uuid4().hex
         device.launch('asset_viewer/android_probe.gd', [nonce])
         state = device.wait_json('runtime-state.json', lambda s: s.get('nonce') == nonce)
         require(state['runtime_os'] == 'Android' and state['clips'] == 8, 'wrong probe runtime/content')
         require(not state['playing'], 'touch probe did not begin paused')
         records = []
+        device.shell('uiautomator', 'dump', '/data/local/tmp/recovery-ui.xml')
+        xml = device.adb('exec-out', 'cat', '/data/local/tmp/recovery-ui.xml')
+        (out/'android-view-hierarchy.xml').write_bytes(xml)
+        bounds = surface_bounds(xml)
+        report['surface_bounds'] = bounds
+
+        def tap_state(key):
+            point = physical_point(state[key], state, bounds)
+            device.tap(point)
+            (out/'last-touch.json').write_text(json.dumps({'control':key,'physical':point,'state':state},indent=2))
 
         def next_state(old, condition=lambda _: True):
             return device.wait_json('runtime-state.json', lambda s: s.get('nonce') == nonce and
                                     s['ticks'] > old['ticks'] and condition(s), seconds=15)
 
         for key, smaller in [('zoom_in', True), ('zoom_out', False)]:
-            before = state; device.tap(state[key])
+            before = state; tap_state(key)
             state = next_state(before, lambda s: s['radius'] < before['radius'] if smaller else s['radius'] > before['radius'])
             records.append({'action': key, 'before': before, 'after': state})
-        before = state; device.tap(state['scrub'])
+        before = state; tap_state('scrub')
         state = next_state(before, lambda s: abs(s['position'] - before['position']) > 0.05)
         require(not state['playing'] and .5 < state['position']/state['length'] < .8, 'touch scrub failed')
         records.append({'action': 'touch_scrub', 'before': before, 'after': state})
@@ -167,7 +241,7 @@ def run(apk, expected_path, out, serial):
         records.append({'action': 'touch_orbit', 'before': before, 'after': state})
         for playing in (False, True):
             if playing:
-                before = state; device.tap(state['restart_button'])
+                before = state; tap_state('restart_button')
                 state = next_state(before, lambda s: s['playing'])
             before = state
             device.shell('input', 'keyevent', 'KEYCODE_HOME'); time.sleep(1.0)
@@ -183,15 +257,20 @@ def run(apk, expected_path, out, serial):
                 require(abs(state['position']-before['position']) < .002, 'paused clip advanced in background')
             records.append({'action': 'background_resume_playing' if playing else 'background_resume_paused',
                             'before': before, 'after': state})
-        before = state; device.tap(state['paused_button'])
+        before = state; tap_state('paused_button')
         state = next_state(before, lambda s: not s['playing'])
         records.append({'action': 'touch_pause', 'before': before, 'after': state})
         (out/'touch-and-lifecycle.json').write_text(json.dumps(records, indent=2))
         (out/'android-screen.png').write_bytes(device.adb('exec-out', 'screencap', '-p'))
+        verify_engine_log(device.adb('logcat', '-d').decode(errors='replace'))
         report.update(passed=True, clips=8, touch_and_lifecycle_operations=len(records),
                       source_pose_roundtrip=True, android_runtime_executed=True)
     except Exception as exc:
         report['error'] = str(exc)
+        try:
+            (out/'failure-screen.png').write_bytes(device.adb('exec-out','screencap','-p',check=False))
+        except Exception:
+            pass
         raise
     finally:
         (out/'commands.json').write_text(json.dumps(device.commands, indent=2))

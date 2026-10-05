@@ -29,12 +29,13 @@ func start() -> void:
 			longest = i
 	viewer.choices.select(longest)
 	viewer._play(longest)
+	viewer.player.speed_scale = 0.125
 	viewer.player.pause()
 	viewer.timeline.value = viewer.player.current_animation_length * 0.4
 	process_frame.connect(snapshot)
 
 func center(control: Control) -> Array:
-	var pos: Vector2 = control.get_screen_transform() * (control.size * 0.5)
+	var pos: Vector2 = root.get_final_transform() * control.get_global_transform_with_canvas() * (control.size * 0.5)
 	return [pos.x, pos.y]
 
 func snapshot() -> void:
@@ -43,7 +44,7 @@ func snapshot() -> void:
 		return
 	last_write = Time.get_ticks_msec()
 	var timeline := viewer.timeline as HSlider
-	var a: Vector2 = timeline.get_screen_transform() * Vector2(timeline.size.x * 0.65, timeline.size.y * 0.5)
+	var a: Vector2 = root.get_final_transform() * timeline.get_global_transform_with_canvas() * Vector2(timeline.size.x * 0.65, timeline.size.y * 0.5)
 	var area := root.get_visible_rect().size
 	var state := {"nonce": nonce, "runtime_os": OS.get_name(), "ticks": ticks,
 		"pid": OS.get_process_id(), "clips": viewer.names.size(),
@@ -53,7 +54,9 @@ func snapshot() -> void:
 		"lifecycle": viewer.lifecycle, "paused_button": center(viewer.pause_button),
 		"restart_button": center(viewer.restart_button), "zoom_in": center(viewer.zoom_in_button),
 		"zoom_out": center(viewer.zoom_out_button), "scrub": [a.x, a.y],
-		"viewport": [area.x, area.y], "user_dir": OS.get_user_data_dir()}
+		"viewport": [area.x, area.y], "surface_size": [root.size.x, root.size.y],
+		"speed_scale": viewer.player.speed_scale, "coordinate_space": "android_surface_pixels",
+		"user_dir": OS.get_user_data_dir()}
 	var file := FileAccess.open("user://runtime-state.tmp", FileAccess.WRITE)
 	if file == null:
 		quit(2)
