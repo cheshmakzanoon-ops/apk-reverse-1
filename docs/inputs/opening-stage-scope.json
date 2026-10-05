@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "name": "opening-stage-road-player-first-enemy",
+  "name": "opening-stage-six-solo-encounter",
   "input_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
   "roots": [
     {
@@ -16,10 +16,16 @@
       "sha256": "2d110d0c48e462d7ecd1993b93f093cc7dd17d03d3a25c71afdb4490e1d61474"
     },
     {
-      "path": "assets/main/prefabs/lwopeningstage/enemy_2_1.prefab",
+      "path": "assets/main/prefabs/lwopeningstage/zakub.prefab",
       "type": "GameObject",
-      "object_id": "5fefc49c7f20b4d73de0bc9ef254448e3ea96783d50ed72335c8357d04fef45f",
-      "sha256": "f5554e43ee57ef9580a6cd90753d2a28aaf6dfebbbcc28eb7de7bea27d382ae0"
+      "object_id": "2cb48734ca86f6f2aa5422f9a6a296e10b3c0b4d11f8096f2a3312f5cc012453",
+      "sha256": "00501889c8fa7d6393ce0b164e8b005533a79e6b6555257e5905b6b5cf789e39"
+    },
+    {
+      "path": "assets/main/prefabs/lwopeningstage/zakuc.prefab",
+      "type": "GameObject",
+      "object_id": "f6e3abfde9b053783c0f74d706abf0c29bd91a5b18d2d817b5d1cd1ee3711d41",
+      "sha256": "6d31f62865843d1ffd2031f7c120eb4f07aef6ab580ff9dcfdf42ffde3985b14"
     }
   ]
 }

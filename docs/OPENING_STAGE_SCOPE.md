@@ -6,9 +6,16 @@ uses the completed CI catalog rather than restarting a million-object traversal.
 
 ## Selection and scope
 
-`docs/inputs/opening-stage-scope.json` pins three original container paths, object
-IDs and object hashes: opening-stage road, solo-hero prefab and first enemy group.
-These are candidate building blocks, not proof of the stage's runtime assembly.
+`docs/inputs/opening-stage-scope.json` pins four original container paths, object
+IDs and object hashes: the default opening-stage road, SoloHero, ZakuB and ZakuC.
+The actor selection follows `ShowInTroubledFellow` in recovered
+`LWOpeningStageDirtyWorks.lua`: SoloHero is placed at stage ID 6 and the encounter
+spawns five ZakuB/C instances. The initial Enemy_2_1 candidate was replaced after
+source review showed it was not this encounter's opponent set.
+
+This is a dependency-complete actor/environment recovery scope, not proof of a
+fully assembled playable stage. Runtime-selected road variants, stage-position
+configuration, timers, events and gameplay still need separate verification.
 
 `recovery_scope.py plan` follows every recorded non-null serialized reference from
 these roots, including components, meshes, skins, materials, controllers, clips,
@@ -102,3 +109,24 @@ Nine new dependency/stream regressions and fourteen source-trace regressions cov
 these corrections. Local corrected extraction passed for 1,871 original objects
 and 34 resource ranges. Only the subsequent successful CI artifacts establish
 publication acceptance; the earlier failed run is retained as failure evidence.
+
+## Reviewed runtime source leads
+
+`source-app/lua/src/DataCenter/LWOpeningStageManager/LWOpeningStageDirtyWorks.lua`
+(Git blob `29d91dd296a51e96feeaed10be9f5b2c604318d2`, lines 495-555) supplies the
+encounter actor paths, five spawn positions/rotations and 4/5/6-second walk durations.
+SoloHero has scale 1.2; its position comes from the first node of stage ID 6.
+Those are source-code observations, not an execution of the shipped binary.
+
+`LWOpeningStageSoloHero.lua` (blob `b481de95b6eebe2d3a7f506e8119198aa210d3c5`)
+loads SimpleAnimation/SoloHeroTurret/SoloHeroMuzzle and delegates to separate Idle,
+Aim, Fire and Reload states. `LWOpeningStageUtils.lua` (blob
+`1e30b6afe515459e489055625775b79ed8e2e910`) obtains the road path through a
+civilization-extension hook and uses stage configuration for positions and enemy
+variants. Therefore raw prefab closure alone does not identify all runtime content.
+
+The evidence artifact includes an archive of the unchanged recovered stage-manager
+Lua directory, SoloHero muzzle/turret C# files, and three stage configuration
+variants. This is a focused copy of existing decompiled/recovered source for review,
+not a new recovery of the original developer repository and not certified complete
+runtime source. Its archive hash and source commit are retained separately.

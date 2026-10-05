@@ -56,6 +56,14 @@ jobs:
         run: |
           python tools/recovery_scope.py plan --catalog "$RUNNER_TEMP/scope-catalog/catalog.sqlite" --profile docs/inputs/opening-stage-scope.json --out reports/scope.json | tee reports/scope-summary.json
           python tools/recovery_source_links.py --repo . --scope reports/scope.json --out reports/source-links.json
+          git archive --format=zip HEAD \
+            source-app/lua/src/DataCenter/LWOpeningStageManager \
+            source-app/csharp/Assembly-CSharp/SoloHeroMuzzle.cs \
+            source-app/csharp/Assembly-CSharp/SoloHeroTurret.cs \
+            source-app/data-tables-lua/lw_opening_stage.lua \
+            source-app/data-tables-lua/lw_opening_stage_B.lua \
+            source-app/data-tables-lua/lw_opening_stage_JP.lua > reports/opening-stage-recovered-source.zip
+          sha256sum reports/opening-stage-recovered-source.zip > reports/recovered-source-sha256.txt
       - name: Obtain the supplied APK and verify selected original objects and streams
         run: |
           python - <<'PY'
