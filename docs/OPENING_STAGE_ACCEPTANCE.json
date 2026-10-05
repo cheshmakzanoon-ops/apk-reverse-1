@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "scope": "Original stage-six SoloHero/ZakuB/ZakuC encounter actors with explicitly selected default road; raw dependency package, not playable game",
+  "tested_commit": "04aef412acb728e9b6c1453874f2d9435083b261",
+  "implementation_tree": "02275297a613ac355e914cc89c5f8d3036c1ad81",
+  "ci_run_id": 37353357137,
+  "ci_job_id": 111909470361,
+  "ci_conclusion": "success",
+  "original_apk_bytes": 813035279,
+  "original_apk_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+  "upstream_graph": {
+    "tested_commit": "e22cbcac6d3d71c3c4702c759746cde2b8a5ea16",
+    "ci_run_id": 37319598694,
+    "catalog_artifact_id": 11351893109,
+    "catalog_artifact_sha256": "cd75e8185d3f8f08e71e2cfde374fad7843c160d892e7a7e836663f9c67aab45"
+  },
+  "root_paths": [
+    "assets/main/prefabs/lwopeningstage/opening_stage_road.prefab",
+    "assets/main/prefabs/lwopeningstage/solohero.prefab",
+    "assets/main/prefabs/lwopeningstage/zakub.prefab",
+    "assets/main/prefabs/lwopeningstage/zakuc.prefab"
+  ],
+  "objects": 1476,
+  "serialized_references": 6825,
+  "resource_ranges": 27,
+  "source_units": 45,
+  "types": {
+    "AnimationClip": 16,
+    "Animator": 5,
+    "AnimatorController": 1,
+    "Cubemap": 1,
+    "GameObject": 509,
+    "Material": 27,
+    "Mesh": 18,
+    "MeshFilter": 143,
+    "MeshRenderer": 143,
+    "MonoBehaviour": 6,
+    "MonoScript": 4,
+    "ParticleSystem": 20,
+    "ParticleSystemRenderer": 20,
+    "Shader": 12,
+    "SkinnedMeshRenderer": 10,
+    "SphereCollider": 1,
+    "Sprite": 1,
+    "SpriteRenderer": 1,
+    "Texture2D": 27,
+    "TrailRenderer": 2,
+    "Transform": 509
+  },
+  "known_serialized_dependency_blockers": 0,
+  "serialized_closure_complete": true,
+  "raw_object_and_resource_bytes_checked_against_original_apk": true,
+  "blobs": 2997,
+  "stored_blob_bytes": 17315621,
+  "scope_sha256": "9f4a7123e5e9ad802c05ef29b09d0b493c1e9b0df286abadeb5d0bc6c93cea03",
+  "receipt_sha256": "56f51c7f72c43948ec2fdd698cd30d1fb5b44232389286a6119ed12bb33f778b",
+  "raw_dependency_archive": {
+    "filename": "opening-stage-source-package.zip",
+    "bytes": 5375422,
+    "sha256": "1a224a5ac96557d33ec806f67ca78b1c502c7fb9d7ccc35746a7dcf0e2847df3"
+  },
+  "local_reproduction": {
+    "passed": true,
+    "compared_files": 2999,
+    "byte_for_byte_identical_to_ci": true,
+    "scope_and_receipt_included": true
+  },
+  "regression_tests": {
+    "run": 529,
+    "failed": 0,
+    "skipped": 0,
+    "new_scope_tests": 33,
+    "new_source_trace_tests": 14
+  },
+  "focused_recovered_source": {
+    "archive_sha256": "652a8eb680c9c27f9cc3298fcc79e33524c18601129f14928917766f1dae71d3",
+    "archive_bytes": 39415,
+    "lua_files": 23,
+    "csharp_files": 2,
+    "lua53_syntax_checks_passed": 23,
+    "game_code_executed": false,
+    "csharp_compilation_performed": false,
+    "new_original_developer_source_recovered": false
+  },
+  "literal_source_trace": {
+    "files_scanned": 23182,
+    "matched_files": 9,
+    "explicit_skipped_files": 17,
+    "all_inspected_files_match_head": true,
+    "method": "case-insensitive literal stem occurrence",
+    "runtime_dependency_completeness_proven": false
+  },
+  "artifacts": [
+    {
+      "id": 11363328007,
+      "name": "opening-stage-scope-evidence",
+      "sha256": "8760ba4dce9419f58b52484458cc07c188d751cd6781f5e93f55ae2967e23324"
+    },
+    {
+      "id": 11362604753,
+      "name": "opening-stage-original-objects",
+      "sha256": "796f1a0db4368e81f5a4f76ad9c69fbb259b85f74f6120ac8e062d462469a320"
+    }
+  ],
+  "earlier_failed_run": 37350529455,
+  "corrections": [
+    "Normalize native tuple maps before comparing source pointers with graph data",
+    "Discover Cubemap and other decoded resource ranges outside the old three-type raw stream index",
+    "Use source-matched ZakuB/ZakuC encounter actors instead of unrelated Enemy_2_1",
+    "Verify all inspected source files against committed HEAD, including nonmatching files"
+  ],
+  "limitations": {
+    "complete_game_asset_collection": false,
+    "complete_original_developer_source": false,
+    "gameplay_port_complete": false,
+    "new_android_apk_built": false,
+    "new_godot_scene_built": false,
+    "original_game_runtime_parity_verified": false,
+    "shader_behavior_recreated": false,
+    "dynamic_dependencies_audited": false,
+    "road_variant_selected_by_runtime_verified": false,
+    "source_binary_equivalence_proven": false,
+    "font_payloads_included": false,
+    "whole_original_bundles_included": false,
+    "existing_source_and_godot_trees_changed": false
+  }
+}
