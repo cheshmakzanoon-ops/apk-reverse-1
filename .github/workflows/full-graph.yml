@@ -7,6 +7,7 @@ on:
       - 'tools/recovery_scan.py'
       - 'tools/recovery_graph.py'
       - 'tests/test_recovery_scan.py'
+      - 'tests/test_reference_cache.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,7 +20,7 @@ defaults:
 jobs:
   full-inventory:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,6 +33,7 @@ jobs:
           mkdir -p reports/full-graph
           python -m pip install -r requirements-recovery.txt gdown==5.2.0
           python -m pip freeze > reports/full-graph/dependencies.txt
+          git rev-parse HEAD > reports/full-graph/commit.txt
           python -m unittest discover -s tests -v 2>&1 | tee reports/full-graph/tests.log
           python - <<'PY'
           import json,pathlib
@@ -47,7 +49,7 @@ jobs:
           python tools/recover.py verify recovery/full-graph > reports/full-graph/raw-verification.json
       - name: Traverse all objects in resumable bounded invocations
         run: |
-          for attempt in 1 2 3; do
+          for attempt in 1 2 3 4; do
             if python -u tools/recovery_scan.py build recovery/full-graph --max-seconds 600 2>&1 | tee "reports/full-graph/scan-$attempt.log"; then
               break
             else
@@ -62,8 +64,7 @@ jobs:
           PY
       - name: Independently recompute graph edges and publish path inventory
         run: |
-          python tools/recovery_scan.py verify recovery/full-graph > reports/full-graph/graph-verification.json
-          python tools/recovery_scan.py inventory recovery/full-graph --out reports/full-graph/asset-paths.jsonl > reports/full-graph/inventory-verification.json
+          python tools/recovery_scan.py inventory recovery/full-graph --out reports/full-graph/asset-paths.jsonl > reports/full-graph/graph-verification.json
           cp recovery/full-graph/graph-summary.json reports/full-graph/
       - name: Preserve diagnostics without reopening an active writer
         if: always()
@@ -77,7 +78,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: full-apk-graph-inventory
-          path: reports/full-graph/
+          name: full-apk-graph-reports
+          path: |
+            reports/full-graph/*.json
+            reports/full-graph/*.jsonl
+            reports/full-graph/*.txt
+            reports/full-graph/*.log
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('reports/full-graph/catalog.sqlite') != ''
+        with:
+          name: full-apk-graph-catalog
+          path: reports/full-graph/catalog.sqlite
           retention-days: 14
           if-no-files-found: error

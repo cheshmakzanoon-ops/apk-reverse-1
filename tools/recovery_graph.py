@@ -8,6 +8,8 @@ The additive graph schema keeps existing version-1 raw captures readable.
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+from functools import lru_cache
 import io
 import json
 import math
@@ -64,7 +66,7 @@ def pointer_values(pointer):
     return file_id, path_id
 
 
-def resolve(cat, member_id, pointer):
+def _resolve_uncached(cat, member_id, pointer):
     try:
         file_id, path_id = pointer_values(pointer)
     except RecoveryError as exc:
@@ -88,6 +90,47 @@ def resolve(cat, member_id, pointer):
     if obj is None:
         return file_id, path_id, "missing_object", None, target_member
     return file_id, path_id, "resolved", obj[0], None
+
+
+@contextmanager
+def cached_references(cat, max_entries=65536):
+    """Bounded, invocation-local reuse over an immutable capture.
+
+    Only raw object identity and external-slot lookups are cached, never graph
+    outcomes or decoded trees. Callers must hold a stable read snapshot or the
+    capture writer lock. Every verifier gets a fresh cache, so edits between
+    verification calls cannot inherit a previously valid result.
+    """
+    if type(max_entries) is not int or not 1 <= max_entries <= 262144:
+        raise RecoveryError("invalid reference cache capacity")
+    previous = getattr(cat, "_reference_cache", None)
+
+    @lru_cache(maxsize=max_entries)
+    def lookup(member_id, file_id, path_id):
+        return _resolve_uncached(cat, member_id,
+                                 {"m_FileID": file_id, "m_PathID": path_id})
+
+    cat._reference_cache = lookup
+    try:
+        yield lookup
+    finally:
+        lookup.cache_clear()
+        if previous is None:
+            del cat._reference_cache
+        else:
+            cat._reference_cache = previous
+
+
+def resolve(cat, member_id, pointer):
+    lookup = getattr(cat, "_reference_cache", None)
+    if lookup is None:
+        return _resolve_uncached(cat, member_id, pointer)
+    try:
+        file_id, path_id = pointer_values(pointer)
+    except RecoveryError:
+        # Invalid fields may be unhashable; preserve the original error status.
+        return _resolve_uncached(cat, member_id, pointer)
+    return lookup(member_id, file_id, path_id)
 
 
 def container_entries(tree):
@@ -231,6 +274,16 @@ def build(root: Path, *, max_objects=0):
 
 
 def verify_graph(cat):
+    """Fresh reference cache for each independently recomputed graph check."""
+    cat.db.execute("SAVEPOINT graph_verify_snapshot")
+    try:
+        with cached_references(cat):
+            return _verify_graph(cat)
+    finally:
+        cat.db.execute("RELEASE graph_verify_snapshot")
+
+
+def _verify_graph(cat):
     """Check coverage and recompute every edge from its preserved decoded tree."""
     if cat.get_meta("graph_schema") != 1:
         return ["graph has not been built"]
@@ -244,7 +297,7 @@ def verify_graph(cat):
         errors.append("graph build did not finish")
     if cat.db.execute("SELECT COUNT(*) FROM graph_objects").fetchone()[0] != cat.db.execute("SELECT COUNT(*) FROM objects").fetchone()[0]:
         errors.append("graph object coverage mismatch")
-    for obj in cat.db.execute("SELECT o.*,g.status FROM objects o JOIN graph_objects g ON o.id=g.object_id ORDER BY o.id"):
+    for obj in cat.db.execute("SELECT o.*,g.status FROM objects o JOIN graph_objects g ON o.id=g.object_id ORDER BY o.member_id,o.path_id"):
         actual = {r["pointer_path"]: dict(r) for r in cat.db.execute("SELECT * FROM object_refs WHERE source_id=?", (obj["id"],))}
         expected = {}
         expected_paths = set()

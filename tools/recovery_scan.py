@@ -7,7 +7,7 @@ Use a fresh raw capture or resume this scanner's own checkpoints, never two writ
 """
 from __future__ import annotations
 import argparse
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 import hashlib
 import io
 import json
@@ -161,8 +161,9 @@ def run(root, *, max_objects=0, max_seconds=0, batch_size=500, stop=None):
         raise RecoveryError('capture catalog is missing')
     stop = stop or (lambda: False)
     started = time.monotonic(); attempted = 0; since_commit = 0
-    with writer_lock(root):
+    with writer_lock(root), ExitStack() as scope:
         cat = Catalog(root)
+        scope.enter_context(graph.cached_references(cat))
         try:
             errors = cat.verify()
             if errors: raise RecoveryError('invalid capture: ' + '; '.join(errors[:3]))
