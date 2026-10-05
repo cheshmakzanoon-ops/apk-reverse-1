@@ -1,0 +1,83 @@
+name: Full APK graph inventory
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/full-graph.yml'
+      - 'tools/recovery_scan.py'
+      - 'tools/recovery_graph.py'
+      - 'tests/test_recovery_scan.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: full-apk-graph
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  full-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test scanner and acquire the supplied hash-pinned input
+        run: |
+          mkdir -p reports/full-graph
+          python -m pip install -r requirements-recovery.txt gdown==5.2.0
+          python -m pip freeze > reports/full-graph/dependencies.txt
+          python -m unittest discover -s tests -v 2>&1 | tee reports/full-graph/tests.log
+          python - <<'PY'
+          import json,pathlib
+          request=json.loads(pathlib.Path('docs/inputs/last-war.json').read_text())
+          profile=json.loads(pathlib.Path('docs/inputs/farhad-streamed-model.json').read_text())
+          request['expected_sha256']=profile['apk_sha256']
+          pathlib.Path('reports/full-graph/request.json').write_text(json.dumps(request))
+          PY
+          python tools/apk_intake.py --request reports/full-graph/request.json --out input/full-graph
+      - name: Preserve and verify every original input entry and object
+        run: |
+          python tools/recover.py capture --apk input/full-graph/app.apk --out recovery/full-graph --max-units 0 --max-gib 18 2>&1 | tee reports/full-graph/capture.log
+          python tools/recover.py verify recovery/full-graph > reports/full-graph/raw-verification.json
+      - name: Traverse all objects in resumable bounded invocations
+        run: |
+          for attempt in 1 2 3; do
+            if python -u tools/recovery_scan.py build recovery/full-graph --max-seconds 600 2>&1 | tee "reports/full-graph/scan-$attempt.log"; then
+              break
+            else
+              code=$?
+              test "$code" -eq 3 || exit "$code"
+            fi
+          done
+          python - <<'PY'
+          import json
+          result=json.load(open('recovery/full-graph/graph-summary.json'))
+          assert result['scan_finished'], 'Traversal paused; this is not completed inventory'
+          PY
+      - name: Independently recompute graph edges and publish path inventory
+        run: |
+          python tools/recovery_scan.py verify recovery/full-graph > reports/full-graph/graph-verification.json
+          python tools/recovery_scan.py inventory recovery/full-graph --out reports/full-graph/asset-paths.jsonl > reports/full-graph/inventory-verification.json
+          cp recovery/full-graph/graph-summary.json reports/full-graph/
+      - name: Preserve diagnostics without reopening an active writer
+        if: always()
+        run: |
+          if test -f recovery/full-graph/graph-summary.json; then cp recovery/full-graph/graph-summary.json reports/full-graph/; fi
+          if test -f recovery/full-graph/summary.json; then cp recovery/full-graph/summary.json reports/full-graph/raw-summary.json; fi
+          if test -f recovery/full-graph/catalog.sqlite; then
+            python tools/recovery_scan.py backup recovery/full-graph --out reports/full-graph/catalog.sqlite
+          fi
+          printf '%s\n' 'Catalog and decoded graph only. Original content-addressed blobs are not included. A finished traversal does not imply all objects decode, all dependencies resolve, or all assets export.' > reports/full-graph/SCOPE.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-apk-graph-inventory
+          path: reports/full-graph/
+          retention-days: 14
+          if-no-files-found: error

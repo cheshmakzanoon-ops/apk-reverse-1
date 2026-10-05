@@ -13,6 +13,7 @@ import json
 import math
 from pathlib import Path
 import sys
+import zlib
 
 from recovery_core import Catalog, RecoveryError, digest, identity, json_bytes, lossless_tree
 import recover
@@ -108,7 +109,17 @@ def container_entries(tree):
 
 def tree_for(cat, obj):
     if obj["tree_sha"] is None:
-        raise RecoveryError("object has no decoded typetree")
+        if cat.get_meta("graph_scan_schema") != 1:
+            raise RecoveryError("object has no decoded typetree")
+        row = cat.db.execute("SELECT sha,raw_size,data FROM graph_trees WHERE object_id=?", (obj["id"],)).fetchone()
+        if row is None or not 0 <= row["raw_size"] <= 128 * 1024**2:
+            raise RecoveryError("missing or oversized packed typetree")
+        decoder = zlib.decompressobj()
+        raw = decoder.decompress(row["data"], row["raw_size"] + 1)
+        if (not decoder.eof or decoder.unused_data or decoder.unconsumed_tail
+                or len(raw) != row["raw_size"] or digest(raw) != row["sha"]):
+            raise RecoveryError("packed typetree hash/size/framing mismatch")
+        return json.loads(raw)
     raw = cat.store.path(obj["tree_sha"]).read_bytes()
     if digest(raw) != obj["tree_sha"]:
         raise RecoveryError("decoded tree hash mismatch")
@@ -150,6 +161,8 @@ def build(root: Path, *, max_objects=0):
         raise RecoveryError("max-objects must be nonnegative")
     cat = Catalog(root)
     try:
+        if cat.get_meta("graph_scan_schema"):
+            raise RecoveryError("checkpointed graph exists; resume with recovery_scan.py")
         errors = cat.verify()
         if errors:
             raise RecoveryError("invalid capture: " + "; ".join(errors[:3]))
@@ -209,7 +222,7 @@ def build(root: Path, *, max_objects=0):
         (root / "graph-summary.json").write_bytes(json_bytes(report))
         return report
     except BaseException:
-        if cat.get_meta("graph_schema") == 1:
+        if cat.get_meta("graph_schema") == 1 and not cat.get_meta("graph_scan_schema"):
             cat.set_meta("graph_state", "failed")
             cat.db.commit()
         raise
@@ -222,6 +235,11 @@ def verify_graph(cat):
     if cat.get_meta("graph_schema") != 1:
         return ["graph has not been built"]
     errors = []
+    if cat.get_meta("graph_scan_schema") == 1:
+        bad = cat.db.execute("""SELECT COUNT(*) FROM graph_trees t LEFT JOIN graph_objects g
+            ON t.object_id=g.object_id WHERE g.status IS NULL OR g.status!='decoded'""").fetchone()[0]
+        if bad:
+            errors.append("packed typetree/status coverage mismatch")
     if cat.get_meta("graph_state") not in ("complete", "incomplete"):
         errors.append("graph build did not finish")
     if cat.db.execute("SELECT COUNT(*) FROM graph_objects").fetchone()[0] != cat.db.execute("SELECT COUNT(*) FROM objects").fetchone()[0]:
