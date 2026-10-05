@@ -1,7 +1,8 @@
 # Android runtime acceptance: the recovered eight-clip model
 
-This increment closes the gap between a desktop-tested GLB and an Android build
-that has actually executed. It is still an asset preview, not the reconstructed
+This increment adds the acceptance gate between a desktop-tested GLB and an
+Android build that has actually executed. Execution is established only by a
+completed passing runtime report. It is still an asset preview, not the reconstructed
 game. The original source-app tree and recovery inputs are unchanged.
 
 ## Build and runtime contract
@@ -66,7 +67,12 @@ that exact raw model, oracle, and provenance bytes are packaged, and that Intern
 permission is absent, before installing that very APK on Android 34 x86_64.
 
 The emulator action is pinned to commit `a421e43855164a8197daf9d8d40fe71c6996bb0d`.
-Godot stays on 4.4.1 with official release checksums. The Android image/build tools
+Godot stays on 4.4.1 with official release checksums. The opt-in runtime package
+sets `rendering/textures/vram_compression/compress_with_gpu=false`, using Godot's
+supported CPU texture-compression backend to avoid its Betsy shutdown-thread bug.
+The rendered editor importer and all error/pose checks remain enabled. Raw GLB,
+oracle and captured input bytes are unchanged; imported GPU-format textures are
+derivatives, not byte-identical original textures. The Android image/build tools
 and dependency versions remain recorded in workflow output; this does not claim
 reproducible bit-identical SDK images or debug signatures.
 

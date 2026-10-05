@@ -40,6 +40,10 @@ def prepare(model_dir, out, *, runtime_checks=False):
     shutil.copy2(model_dir/'export/report.json',assets/'report.json')
     shutil.copy2(model_dir/'receipt.json',assets/'receipt.json')
     if runtime_checks:
+        # Godot 4.4.1's Betsy GPU compressor finalizes on the wrong thread in
+        # some CI renderers. Use its supported CPU backend, not a log exemption.
+        (out/'project.godot').write_text(project.replace('[rendering]\n',
+            '[rendering]\ntextures/vram_compression/compress_with_gpu=false\n'))
         # Keep test oracles and exact GLB bytes separate from the imported scene.
         probe = out/'runtime_probe'; probe.mkdir()
         shutil.copy2(model_dir/'export/model.glb', probe/'model.bin')

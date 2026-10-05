@@ -90,6 +90,7 @@ class RuntimePackageTests(unittest.TestCase):
             config=(out/'export_presets.cfg').read_text()
             self.assertIn('architectures/x86_64=true',config);self.assertIn('*.bin',config)
             self.assertIn('permissions/internet=false',config)
+            self.assertIn('textures/vram_compression/compress_with_gpu=false', (out/'project.godot').read_text())
     def test_normal_package_stays_arm64_without_probe_payload(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);prepare(self.fixture(root),root/'viewer')
