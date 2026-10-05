@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "scope": "Whole supplied APK inventory and five-type neutral derivatives, not a complete original source project or playable game",
+  "implementation_commit": "e22cbcac6d3d71c3c4702c759746cde2b8a5ea16",
+  "bulk_export_commit": "760fa6e0caae0b44d7b4df2f6c2091d43bc97b16",
+  "original_apk": {
+    "bytes": 813035279,
+    "sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+    "publisher_provenance_verified": false
+  },
+  "raw_capture": {
+    "zip_entries": 1947,
+    "unity_units": 8009,
+    "serialized_members": 7992,
+    "objects": 985534
+  },
+  "bulk": {
+    "ci_run_id": 37314788762,
+    "ci_job_id": 111778676059,
+    "ci_conclusion": "success",
+    "objects_selected": 25235,
+    "exported": 25183,
+    "failed": 52,
+    "unattempted": 0,
+    "type_outcomes": [
+      {
+        "count": 613,
+        "status": "exported",
+        "type": "AudioClip"
+      },
+      {
+        "count": 2665,
+        "status": "exported",
+        "type": "Mesh"
+      },
+      {
+        "count": 11751,
+        "status": "exported",
+        "type": "Sprite"
+      },
+      {
+        "count": 1,
+        "status": "failed",
+        "type": "Sprite"
+      },
+      {
+        "count": 714,
+        "status": "exported",
+        "type": "TextAsset"
+      },
+      {
+        "count": 9440,
+        "status": "exported",
+        "type": "Texture2D"
+      },
+      {
+        "count": 51,
+        "status": "failed",
+        "type": "Texture2D"
+      }
+    ],
+    "texture_derivatives": {
+      "png": 9354,
+      "exact_half_float_numeric_payloads": 86
+    },
+    "downloaded_delivery_verified": true,
+    "delivery_verification_sha256": "6fafa5c8e7b036e1d056017ff9195bd4a3fd30932dbde2fc739914a59d1faea9",
+    "manifest": {
+      "name": "objects.jsonl",
+      "sha256": "21b3b2945fc9bba128eb624f662217381b483662c67d2fd343079718da429469",
+      "size": 15915847
+    },
+    "evidence_artifact": {
+      "id": 11347464204,
+      "sha256": "bbbad451108dd998b5a620da02efaad9fd418ecfb851f3496762bf0c146ce383"
+    },
+    "archives": [
+      {
+        "name": "assets-00000.zip",
+        "sha256": "cb905d30ec8aae23ed058a5e42896ab3c7ce21898bc79f300a51f771abf9a182",
+        "size": 209605577,
+        "github_artifact_id": 11347054773
+      },
+      {
+        "name": "assets-00001.zip",
+        "sha256": "a7d75009ce0d25808aa808b1f0e276f8548adbe469f3416d6bb5dbf9eb055af2",
+        "size": 209699970,
+        "github_artifact_id": 11347409350
+      },
+      {
+        "name": "assets-00002.zip",
+        "sha256": "89d209f01da23d20fe03fff618ffa04a87753f7843683408a448678914c2d95c",
+        "size": 209452417,
+        "github_artifact_id": 11347344388
+      },
+      {
+        "name": "assets-00003.zip",
+        "sha256": "3972762ec6fa711421e99c6bad033a4fe278c9b539cf02e2f03b9a342b0e40cb",
+        "size": 209603741,
+        "github_artifact_id": 11347174499
+      },
+      {
+        "name": "assets-00004.zip",
+        "sha256": "f925304e803ddfd479c38d261396e12cad44b2ad402e55c19f61a2b7b66fef45",
+        "size": 209356318,
+        "github_artifact_id": 11347244466
+      },
+      {
+        "name": "assets-00005.zip",
+        "sha256": "11048d9955e6444e8371520578f20781df6300c226a6f9806598d7652bef34e8",
+        "size": 209695889,
+        "github_artifact_id": 11347244475
+      },
+      {
+        "name": "assets-00006.zip",
+        "sha256": "fa1821e3394206fee66b68a6fc3f6e7c55ae37493d8e263d3cb4d1eb2cbdf6b7",
+        "size": 3709985,
+        "github_artifact_id": 11347199522
+      }
+    ],
+    "github_artifact_expiry_date": "2026-10-19"
+  },
+  "independent_geometry_check": {
+    "passed": true,
+    "meshes_checked": 2665,
+    "triangle_faces": 1776699,
+    "parser": "trimesh 4.7.4",
+    "scope": "Exported geometry import only, not skeletal/material or original-engine equivalence"
+  },
+  "local_graph": {
+    "all_nonnull_references_resolved": false,
+    "all_objects_decoded": false,
+    "apk_scope_only": true,
+    "compressed_trees": 971965,
+    "container_paths": 41755,
+    "godot_port_complete": false,
+    "graph_complete": false,
+    "input_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+    "member_statuses": {
+      "indexed": 7992
+    },
+    "objects": {
+      "decode_failed": 800,
+      "decoded": 984734
+    },
+    "objects_expected": 985534,
+    "pending_objects": 0,
+    "references": {
+      "missing_object": 32,
+      "null": 1424349,
+      "resolved": 4694441
+    },
+    "scan_finished": true,
+    "scan_schema": 1,
+    "schema": 1,
+    "state": "incomplete"
+  },
+  "regressions": {
+    "ci_run_id": 37319598684,
+    "ci_job_id": 111794973254,
+    "tested_commit": "e22cbcac6d3d71c3c4702c759746cde2b8a5ea16",
+    "passed": 482,
+    "failed": 0,
+    "skipped": 0,
+    "new_reference_cache_tests": 15,
+    "artifact_id": 11349358645,
+    "artifact_sha256": "c4172870ccc44f63edf3da83484dc3bc169806ec4794aaa93d147cfde041161f"
+  },
+  "decode_failures": {
+    "count": 800,
+    "type": "MonoBehaviour",
+    "diagnostics_sha256": "60930d78e94c52e390d6beffd1053cfb04a85aed35df2eb83ae29852d055eedd"
+  },
+  "observed_export_blockers": {
+    "texture_objects": 51,
+    "texture_dimensions": [
+      0,
+      0
+    ],
+    "texture_stored_pixel_bytes": 0,
+    "texture_resource_names_empty": true,
+    "texture_report_sha256": "0eb2350a9d9b613c4f959459e349597e3186a73a0d4d55a6ac749622785546f3",
+    "sprite_objects": 1,
+    "sprite_error": "explicit atlas binding required",
+    "missing_remote_content_proven": false
+  },
+  "preserved_git_trees": {
+    "source-app": "544f72879163d1e2dd43fb62dc639f019f664f70",
+    "unity-project": "1c75cd8e841ddd48ef7587b7f7af0922b7c347e0",
+    "godot": "0b14b0ea43d4d9028aa1372ee86f9b9c9ce65bd8"
+  },
+  "limitations": {
+    "complete_original_developer_source": false,
+    "all_asset_types_exported": false,
+    "complete_dependency_graph": false,
+    "bulk_obj_has_skeleton_and_materials": false,
+    "original_shader_equivalence": false,
+    "new_android_gameplay_build": false,
+    "font_files_delivered": false,
+    "original_encoded_bundle_bytes_in_neutral_archives": false,
+    "graph_counts_are_not_original_engine_runtime_validation": true,
+    "raw_capture_and_original_apk_are_required_for_further_reconstruction": true
+  },
+  "local_graph_verification": {
+    "passed": true,
+    "errors": [],
+    "execution": "local Python 3.13.5; separate from the full-graph CI run",
+    "report_sha256": "84754c56e20ae90433a5b109f7d9095780f1fb6e5e74e77c7783f01443e22f74",
+    "asset_path_inventory": {
+      "name": "asset-paths.jsonl",
+      "records": 41755,
+      "bytes": 20984724,
+      "sha256": "02dbdf80015904e8fc0dc0c63a40ee849d34a14c40da47af6cbbd39312fb72bc"
+    },
+    "graph_ci_run_id": 37319598694,
+    "graph_ci_success_not_inferred_from_local_run": true
+  }
+}
