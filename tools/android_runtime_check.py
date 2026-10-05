@@ -19,6 +19,8 @@ import time
 import uuid
 import xml.etree.ElementTree as ET
 
+from android_boot_guard import wait_ready
+
 PACKAGE = 'org.apk_recovery.asset_preview'
 ACTIVITY = PACKAGE + '/com.godot.game.GodotApp'
 
@@ -177,7 +179,11 @@ class Device:
 
     def wait_json(self, relative, predicate=lambda _: True, seconds=180):
         end = time.monotonic() + seconds
+        last_engine_check = 0.0
         while time.monotonic() < end:
+            if time.monotonic() - last_engine_check >= 2.0:
+                verify_engine_log(self.adb('logcat', '-d', '-s', 'godot:E').decode(errors='replace'))
+                last_engine_check = time.monotonic()
             try:
                 value = json.loads(self.read(relative))
                 if relative == 'runtime-state.json':
@@ -214,6 +220,7 @@ def run(apk, expected_path, out, serial):
         require(device.shell('getprop', 'ro.kernel.qemu') == '1', 'target is not an emulator')
         report['device'] = {k: device.shell('getprop', k) for k in
                             ('ro.build.version.sdk', 'ro.product.cpu.abi', 'ro.build.fingerprint')}
+        report['boot_readiness'] = wait_ready(device.shell, out/'boot-readiness.json')
         device.adb('logcat', '-c')
         device.adb('install', '-r', str(apk), timeout=90)
         # All removals are limited to this debug inspector's own prior test reports.
