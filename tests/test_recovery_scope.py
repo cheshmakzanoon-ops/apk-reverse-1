@@ -14,8 +14,9 @@ from test_recovery_r2 import GraphFixture,model_items,member,ptr,real_serialized
 
 
 class ScopeTests(GraphFixture):
-    def prepared(self, extra=()):
+    def prepared(self, extra=(), root_extra=None):
         items=model_items()+[(100,'AssetBundle',{'m_Container':[['Assets/stage.prefab',{'asset':ptr(1)}]]})]+list(extra)
+        if root_extra: items[0][2].update(root_extra)
         self.loaded=member(items)
         self.capture(entries=[('assets/bin/Data/scene.assets',self.loaded.reader.bytes)],loaded=self.loaded,trees=True)
         self.build()
@@ -113,3 +114,83 @@ class ScopeTests(GraphFixture):
         self.prepared();s=self.selection();obj=next(o for o in s['objects'] if o['path_id']==6);obj['type']='Font'
         s['blockers'].append({'object_id':obj['id'],'kind':'font_payload_not_delivered'});s['summary']['serialized_closure_complete']=False
         with self.assertRaisesRegex(RecoveryError,'font'):self.deliver(s)
+
+    def test_native_material_tuple_map_preserves_nested_texture_pointers(self):
+        self.prepared([(200,'Material',{'m_SavedProperties':{'m_TexEnvs':[
+            ('_BaseMap',{'m_Texture':ptr(0)}), ('_Other',{'m_Texture':ptr(6)})]}})],
+            root_extra={'m_Material':ptr(200)})
+        s=self.selection()
+        material=next(o for o in s['objects'] if o['type']=='Material')
+        refs=[r for r in s['references'] if r['source_id']==material['id']]
+        self.assertEqual(len(refs),2)
+        self.assertEqual(self.deliver(s)['objects'],7)
+
+    def test_modified_pointer_inside_native_tuple_map_is_rejected(self):
+        self.prepared([(200,'Material',{'m_SavedProperties':{'m_TexEnvs':[
+            ('_BaseMap',{'m_Texture':ptr(0)})]}})], root_extra={'m_Material':ptr(200)})
+        s=self.selection()
+        self.loaded.objects[200].tree['m_SavedProperties']['m_TexEnvs'][0][1]['m_Texture']=ptr(6)
+        with self.assertRaises(RecoveryError):self.deliver(s)
+
+
+class PackedResourceScopeTests(GraphFixture):
+    def prepared(self, resource_name='pixels.resS', offset=4, size=7):
+        import zlib
+        from recovery_core import json_bytes, digest, lossless_tree
+        items=model_items()+[(100,'AssetBundle',{'m_Container':[['Assets/stage.prefab',{'asset':ptr(1)}]]}),
+                            (200,'Cubemap',{'m_Name':'Generated cubemap',
+                                'm_StreamData':{'path':resource_name,'offset':offset,'size':size}})]
+        items[0][2]['m_Cube']=ptr(200)
+        self.serial=member(items,name='scene.assets')
+        self.loaded=NS(files={'scene.assets':self.serial,'pixels.resS':NS(bytes=b'headPAYLOADtail')})
+        self.capture(entries=[('assets/bin/Data/test.bundle',b'generated bundle bytes')],loaded=self.loaded,trees=False)
+        with patch.object(recover,'environment',return_value=NS(load_file=lambda *a,**k:self.serial)):
+            import recovery_graph
+            recovery_graph.build(self.root/'capture')
+        c=Catalog(self.root/'capture')
+        c.db.execute('CREATE TABLE graph_trees(object_id TEXT PRIMARY KEY,sha TEXT,raw_size INTEGER,data BLOB)')
+        cube=c.db.execute("SELECT * FROM objects WHERE type='Cubemap'").fetchone()
+        raw=json_bytes(lossless_tree(self.serial.objects[200].tree,c))
+        c.db.execute('INSERT INTO graph_trees VALUES (?,?,?,?)',(cube['id'],digest(raw),len(raw),zlib.compress(raw)))
+        c.db.execute('UPDATE objects SET tree_sha=NULL WHERE id=?',(cube['id'],))
+        c.set_meta('graph_scan_schema',1)
+        root=c.db.execute('SELECT * FROM objects WHERE path_id=1').fetchone()
+        self.profile={'schema':1,'input_sha256':c.get_meta('input_sha256'),'roots':[{'path':'Assets/stage.prefab',
+                      'type':'GameObject','object_id':root['id'],'sha256':root['sha']}]}
+        self.assertEqual(c.db.execute("SELECT COUNT(*) FROM dependencies WHERE kind='stream'").fetchone()[0],0)
+        c.close()
+    def selection(self):
+        db=scope.read_db(self.root/'capture/catalog.sqlite')
+        try:return scope.plan(db,self.profile)
+        finally:db.close()
+    def extract(self, selection):
+        with patch.object(recover,'environment',return_value=NS(load_file=lambda *a,**k:self.loaded)):
+            return scope.extract(self.root/'input.apk',selection,self.root/'package')
+    def test_cubemap_stream_discovered_even_without_raw_index_row(self):
+        self.prepared();s=self.selection()
+        self.assertEqual(len(s['streams']),1)
+        self.assertTrue(s['summary']['serialized_closure_complete'])
+        self.assertEqual((s['streams'][0]['offset'],s['streams'][0]['size']),(4,7))
+    def test_original_resource_range_preserved_in_package(self):
+        self.prepared();s=self.selection();r=self.extract(s)
+        self.assertEqual((self.root/'package/blobs'/r['streams'][0]['sha256']).read_bytes(),b'PAYLOAD')
+        self.assertEqual(scope.verify(self.root/'package')['streams'],1)
+    def test_missing_resource_not_downgraded_to_complete(self):
+        self.prepared(resource_name='missing.resS');s=self.selection()
+        self.assertFalse(s['summary']['serialized_closure_complete'])
+        self.assertEqual(s['streams'][0]['status'],'unresolved_in_capture')
+        r=self.extract(s);self.assertEqual(r['streams'],[])
+    def test_bad_resource_range_not_accepted(self):
+        self.prepared(size=100);s=self.selection()
+        self.assertFalse(s['summary']['serialized_closure_complete'])
+        self.assertEqual(s['streams'][0]['status'],'invalid_range')
+    def test_corrupt_packed_tree_rejected_before_planning(self):
+        self.prepared();c=Catalog(self.root/'capture')
+        c.db.execute("UPDATE graph_trees SET data=x'0000'");c.close()
+        with self.assertRaises(Exception):self.selection()
+    def test_removing_stream_from_plan_fails_original_byte_check(self):
+        self.prepared();s=self.selection();s['streams']=[];s['summary']['streams']=0
+        with self.assertRaises(RecoveryError):self.extract(s)
+    def test_resource_stream_not_allowed_to_escape_range_after_planning(self):
+        self.prepared();s=self.selection();s['streams'][0]['offset']=99
+        with self.assertRaises(RecoveryError):scope.validate_plan(s)

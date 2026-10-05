@@ -18,9 +18,10 @@ import sqlite3
 import tempfile
 import os
 import zipfile
+from types import SimpleNamespace
 
-from recovery_core import RecoveryError, digest, file_digest, identity, json_bytes, lossless_tree
-from recovery_graph import pointers, pointer_values
+from recovery_core import Catalog, RecoveryError, digest, file_digest, identity, json_bytes, lossless_tree
+from recovery_graph import pointers, pointer_values, tree_for
 
 HEX = re.compile(r'[0-9a-f]{64}')
 
@@ -104,9 +105,32 @@ def plan(db, profile, *, max_objects=50000):
     stream_index = {}
     for d in db.execute("SELECT * FROM dependencies WHERE kind='stream' ORDER BY id"):
         stream_index.setdefault(d['object_id'], []).append(d)
+    # Raw capture originally indexes streams for Mesh/Texture2D/AudioClip.
+    # Other decoded types (for example Cubemap) may also have resource ranges.
+    # Recover them from the independently hashed packed graph instead of treating
+    # an absent dependency row as evidence that an object has no resource data.
+    accessor = SimpleNamespace(db=db, get_meta=lambda k: meta(db, k))
     for obj in objects:
-        for row in stream_index.get(obj['id'], []):
-            dep = dict(row); dependencies.append(dep)
+        selected = {r['id']: dict(r) for r in stream_index.get(obj['id'], [])}
+        if obj['graph_status'] == 'decoded' and obj['tree_sha'] is None:
+            require(meta(db, 'graph_scan_schema') == 1, 'packed graph trees required for stream discovery')
+            tree = tree_for(accessor, obj)
+            import recover
+            for trail, name, offset, size in recover.stream_refs(tree):
+                did = identity(obj['member_id'], obj['id'], 'stream', trail)
+                resolved, target = Catalog.resolve(accessor, name, obj['member_id'])
+                detail = None
+                if target is not None and (offset < 0 or size <= 0 or offset + size > target['size']):
+                    resolved, detail = 'invalid_range', 'stream range exceeds preserved resource'
+                discovered = {'id': did, 'member_id': obj['member_id'], 'object_id': obj['id'],
+                              'kind': 'stream', 'name': name, 'offset': offset, 'size': size,
+                              'status': resolved, 'target_id': target['id'] if target else None,
+                              'detail': detail}
+                if did in selected:
+                    require(selected[did] == discovered, 'indexed and decoded stream references disagree')
+                selected[did] = discovered
+        for dep in selected.values():
+            dependencies.append(dep)
             if dep['target_id']:
                 member_ids.add(dep['target_id'])
             if dep['status'] != 'resolved':
@@ -254,14 +278,18 @@ def extract(apk, selection, out):
                             row.update(status='decode_failed',error=str(exc))
                         else:
                             require(obj['graph_status']=='decoded','decode outcome changed; scope requires review')
-                            observed={p:pointer_values(v) for p,v in pointers(tree)}
+                            # Native Unity maps contain tuples; the captured graph uses the
+                            # lossless list/pair representation. Compare the same representation
+                            # rather than dropping pointers nested inside material map tuples.
+                            normalized=lossless_tree(tree,sink)
+                            observed={p:pointer_values(v) for p,v in pointers(normalized)}
                             wanted={r['pointer_path']:(r['file_id'],r['path_id']) for r in refs_by_object.get(obj['id'],[])}
                             require(observed==wanted,'source references differ from selected graph')
                             actual_streams={identity(obj['member_id'],obj['id'],'stream',trail):(name,off,size)
                                 for trail,name,off,size in recover.stream_refs(tree)}
                             wanted_streams={d['id']:(d['name'],d['offset'],d['size']) for d in selection['streams'] if d['object_id']==obj['id']}
                             require(actual_streams==wanted_streams, 'source stream references differ from scope')
-                            raw_tree=json_bytes(lossless_tree(tree,sink)); tree_sha,_=sink.blob(raw_tree)
+                            raw_tree=json_bytes(normalized); tree_sha,_=sink.blob(raw_tree)
                             row.update(status='decoded',tree_sha256=tree_sha)
                         records.append(row)
                     for dep in selection['streams']:
@@ -306,6 +334,13 @@ def verify(root):
         if obj['status']=='decoded':
             tree=json.loads(check(obj['tree_sha256']))
             require({p:pointer_values(v) for p,v in pointers(tree)}=={e['pointer_path']:(e['file_id'],e['path_id']) for e in refs_by_object.get(oid,[])},'delivered tree reference mismatch')
+            require(src['graph_status']=='decoded','receipt changed source decode outcome')
+            import recover
+            observed_streams={identity(src['member_id'],oid,'stream',trail):(name,offset,size)
+                              for trail,name,offset,size in recover.stream_refs(tree)}
+            expected_streams={d['id']:(d['name'],d['offset'],d['size'])
+                              for d in s['streams'] if d['object_id']==oid}
+            require(observed_streams==expected_streams,'delivered tree stream references differ from scope')
             stack=[tree]
             while stack:
                 v=stack.pop()

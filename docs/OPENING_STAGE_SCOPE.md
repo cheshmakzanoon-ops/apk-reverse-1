@@ -78,3 +78,27 @@ and report it as recovered gameplay.
 
 Primary references: https://docs.github.com/en/rest/actions/artifacts and
 https://docs.python.org/3/library/sqlite3.html#how-to-work-with-sqlite-uris.
+
+## Actual-source corrections
+
+The first executed run `37350529455` planned a 1,871-object closure but failed
+fresh-byte acceptance. Native material maps expose tuple pairs; comparing those
+before lossless normalization overlooked their nested texture pointers. The
+extractor now compares the same normalized representation as the captured graph,
+without removing or modifying expected references.
+
+That correction exposed an additional Cubemap resource stream absent from the raw
+capture's three-type stream index. Scope planning now examines hashed packed trees
+for all other decoded object types and resolves their stream ranges explicitly.
+The selected cubemap contributes one 63,072-byte resource range. Raw object and
+resource identities are unchanged. Standalone verification also checks delivered
+tree stream declarations against the scope rather than trusting stream counts.
+
+The source tracer now checks every inspected file against its recorded HEAD blob,
+including nonmatching files. A local edit that removes a matching resource name
+cannot silently turn into a claim that no source link exists. Missing, symlinked
+and oversized files are reported separately; matches remain static review leads.
+Nine new dependency/stream regressions and fourteen source-trace regressions cover
+these corrections. Local corrected extraction passed for 1,871 original objects
+and 34 resource ranges. Only the subsequent successful CI artifacts establish
+publication acceptance; the earlier failed run is retained as failure evidence.
