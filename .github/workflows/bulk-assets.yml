@@ -1,0 +1,162 @@
+name: Full APK neutral asset delivery
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-assets.yml'
+      - 'tools/recovery_audio.py'
+      - 'tools/recovery_numeric_texture.py'
+      - 'tools/recovery_mesh.py'
+      - 'tools/recovery_bulk.py'
+      - 'tools/recovery_delivery.py'
+      - 'tests/test_recovery_delivery.py'
+      - 'tests/test_numeric_assets.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: supplied-apk-neutral-assets
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  neutral-delivery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test converters and acquire only the supplied hash-pinned APK
+        run: |
+          mkdir -p reports/bulk
+          python -m pip install -r requirements-recovery.txt gdown==5.2.0
+          python -m pip freeze > reports/bulk/dependencies.txt
+          git rev-parse HEAD > reports/bulk/commit.txt
+          python -m unittest discover -s tests -v 2>&1 | tee reports/bulk/tests.log
+          python - <<'PY'
+          import json,pathlib
+          r=json.loads(pathlib.Path('docs/inputs/last-war.json').read_text())
+          p=json.loads(pathlib.Path('docs/inputs/farhad-streamed-model.json').read_text())
+          r['expected_sha256']=p['apk_sha256']
+          pathlib.Path('reports/bulk/request.json').write_text(json.dumps(r))
+          PY
+          python tools/apk_intake.py --request reports/bulk/request.json --out input/bulk
+          cp input/bulk/intake.json reports/bulk/
+      - name: Preserve and verify all original objects before converting
+        run: |
+          python tools/recover.py capture --apk input/bulk/app.apk --out recovery/bulk --max-units 0 --max-gib 18 2>&1 | tee reports/bulk/capture.log
+          python tools/recover.py verify recovery/bulk > reports/bulk/raw-verification.json
+      - name: Account for every selected object in bounded resumable passes
+        run: |
+          for attempt in 1 2 3; do
+            if python -u tools/recovery_bulk.py recovery/bulk --native-mesh --max-seconds 600 2>&1 | tee "reports/bulk/export-$attempt.log"; then
+              break
+            else
+              code=$?
+              if test "$code" -eq 1; then break; fi
+              test "$code" -eq 3 || exit "$code"
+            fi
+          done
+          python - <<'PY'
+          import json
+          r=json.load(open('recovery/bulk/bulk-summary.json'))
+          assert r['objects_selected']>0 and r['all_selected_objects_attempted'], 'Unattempted objects remain'
+          # Completed accounting can include explicit unsupported objects. Their
+          # recorded failures are not complete asset recovery and stay in delivery.
+          assert sum(x['count'] for x in r['outcomes'])==r['objects_selected']
+          PY
+      - name: Publish only verified identity-addressed archives
+        id: delivery
+        run: |
+          python tools/recovery_delivery.py pack recovery/bulk --out delivery > reports/bulk/delivery-build.json
+          python tools/recovery_delivery.py verify delivery > reports/bulk/delivery-verification.json
+          cp delivery/{delivery.json,objects.jsonl} reports/bulk/
+          python - <<'PY'
+          import json
+          r=json.load(open('delivery/delivery.json'))
+          assert 0<len(r['archives'])<=8, 'Artifact upload coverage must include every archive'
+          assert all(a['size']<=200*1024**2 for a in r['archives'])
+          PY
+      - name: Retain diagnostic summaries independently of export success
+        if: always()
+        run: |
+          for f in bulk-summary.json summary.json; do
+            if test -f "recovery/bulk/$f"; then cp "recovery/bulk/$f" reports/bulk/; fi
+          done
+          git archive --format=zip HEAD tools tests docs requirements-recovery.txt .github > reports/bulk/reproduction-source.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-apk-neutral-evidence
+          path: reports/bulk/
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00000.zip') != ''
+        with:
+          name: full-apk-neutral-part-00000
+          path: delivery/assets-00000.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00001.zip') != ''
+        with:
+          name: full-apk-neutral-part-00001
+          path: delivery/assets-00001.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00002.zip') != ''
+        with:
+          name: full-apk-neutral-part-00002
+          path: delivery/assets-00002.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00003.zip') != ''
+        with:
+          name: full-apk-neutral-part-00003
+          path: delivery/assets-00003.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00004.zip') != ''
+        with:
+          name: full-apk-neutral-part-00004
+          path: delivery/assets-00004.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00005.zip') != ''
+        with:
+          name: full-apk-neutral-part-00005
+          path: delivery/assets-00005.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00006.zip') != ''
+        with:
+          name: full-apk-neutral-part-00006
+          path: delivery/assets-00006.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.delivery.outcome == 'success' && hashFiles('delivery/assets-00007.zip') != ''
+        with:
+          name: full-apk-neutral-part-00007
+          path: delivery/assets-00007.zip
+          compression-level: 0
+          retention-days: 14
+          if-no-files-found: error

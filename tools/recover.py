@@ -287,11 +287,17 @@ def sprite_textures(sprite):
 
 def convert(obj, kind: str) -> tuple[str, bytes, dict]:
     data = obj.parse_as_object()
+    if kind == "AudioClip":
+        from recovery_audio import convert_audio
+        return convert_audio(data)
     if kind == "Mesh":
         text = data.export()
         geometry = validate_obj(text)
         return "obj", text.encode("utf-8"), {"geometry": geometry, "rig_preserved_in_raw_only": True}
     if kind == "Texture2D":
+        from recovery_numeric_texture import FORMATS, convert_numeric_texture
+        if getattr(data, 'm_TextureFormat', None) in FORMATS:
+            return convert_numeric_texture(data)
         texture_data(data)
     elif kind == "Sprite":
         for tex in sprite_textures(data):
@@ -373,13 +379,16 @@ def materialize(root: Path, output: Path):
         for row in cat.db.execute("SELECT e.*,o.type,o.name FROM exports e JOIN objects o ON o.id=e.object_id WHERE status='exported'"):
             detail = json.loads(row["detail"])
             ext = detail["extension"]
-            if ext not in {"obj", "png", "bin"}:
+            if ext not in {"obj", "png", "bin", "wav"}:
                 raise RecoveryError("invalid export extension")
             data = cat.store.path(row["sha"]).read_bytes()
             if digest(data) != row["sha"] or len(data) != row["size"]:
                 raise RecoveryError("corrupted export blob")
             if ext == "obj":
                 validate_obj(data.decode("utf-8"))
+            elif ext == "wav":
+                from recovery_audio import validate_wav
+                validate_wav(data)
             target = output / (row["object_id"] + "." + ext)
             target.write_bytes(data)
             target.with_suffix(target.suffix + ".json").write_bytes(json_bytes(dict(row)))
@@ -402,7 +411,7 @@ def main(argv=None):
     p.add_argument("root", type=Path)
     p = sub.add_parser("export")
     p.add_argument("root", type=Path)
-    p.add_argument("--types", nargs="+", choices=["Mesh", "Texture2D", "Sprite", "TextAsset"])
+    p.add_argument("--types", nargs="+", choices=["Mesh", "Texture2D", "Sprite", "TextAsset", "AudioClip"])
     p.add_argument("--limit", type=int, default=100, help="0 means all matching objects")
     p = sub.add_parser("materialize")
     p.add_argument("root", type=Path)

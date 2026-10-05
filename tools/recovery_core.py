@@ -345,6 +345,12 @@ class Catalog:
                     from PIL import Image
                     with Image.open(io.BytesIO(data)) as image:
                         image.verify()
+                elif detail["extension"] == "wav":
+                    from recovery_audio import validate_wav
+                    validate_wav(data)
+                elif detail["extension"] == "bin" and detail.get("storage") == "unity_float_texture_v1":
+                    from recovery_numeric_texture import validate_numeric_texture
+                    validate_numeric_texture(data, detail)
                 elif detail["extension"] != "bin":
                     raise RecoveryError("unknown export format")
             except Exception as exc:
