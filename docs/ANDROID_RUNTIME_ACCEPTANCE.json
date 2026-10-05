@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "scope": "One recovered Farhad animated asset preview; not the full game",
+  "tested_commit": "37c3f8e8d7a5dc4f38fa2ec0ca45d9d33b28bfce",
+  "tested_tree": "7f97605254acc1842f5876bc4116ae6b1412894d",
+  "ci_run_id": 37250801867,
+  "ci_job_id": 111577823818,
+  "ci_conclusion": "success",
+  "android_api": 34,
+  "executed_abi": "x86_64",
+  "target": "Android emulator, Pixel 6 profile, SwANGLE",
+  "package": "org.apk_recovery.asset_preview",
+  "apk_bytes": 55346772,
+  "apk_sha256": "0a90786d0f5025c30d8a86a17079f8b611105826a6504e07800a9286e7ec1198",
+  "packaged_abis": ["arm64-v8a", "x86_64"],
+  "debug_signed": true,
+  "signature_schemes_verified": ["v1", "v2", "v3"],
+  "internet_permission": false,
+  "model_sha256": "7552de276661ff4bc6d3d058bd9798123083312915799738225a64851c1a197f",
+  "original_apk_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+  "regression_tests": {"run": 379, "failed": 0, "skipped": 0},
+  "android_pose_samples_before_save": 12936,
+  "android_pose_samples_after_reload": 12936,
+  "pose_report_independently_rechecked_after_download": true,
+  "rendered_clips": 8,
+  "nonblank_model_regions_verified": 8,
+  "touch_and_lifecycle_cases": [
+    "zoom_in", "zoom_out", "touch_scrub", "touch_orbit",
+    "background_resume_paused", "background_resume_playing", "touch_pause"
+  ],
+  "godot_error_log_check": "passed",
+  "packaged_model_and_probe_bytes_match": true,
+  "khronos": {"errors": 0, "warnings": 7, "warning_type": "NODE_SKINNED_MESH_NON_ROOT"},
+  "artifacts": [
+    {"id": 11320943154, "name": "android-runtime-validation", "sha256": "d61aae413cfad6271cdad6a4b381c0c1306cd2708d449dffa747b804a6f5e7bc"},
+    {"id": 11320499432, "name": "farhad-android-runtime-build", "sha256": "a330bcdadba385013d0accad6d01e4fc950e592c2102b5f1a74a2a79cd8498f3"},
+    {"id": 11320658449, "name": "recovery-test-evidence", "sha256": "c99700a2e94a51abd93b65878c5c27922c8a2b7caee3fd4bb6594288a8cd6c54"}
+  ],
+  "limitations": {
+    "physical_arm64_device_tested": false,
+    "arbitrary_activity_recreation_verified": false,
+    "startup_precondition": "Completed boot, stopped boot animation and unchanged observed configuration for at least 20 seconds; app crashes are not retried into success",
+    "complete_asset_recovery": false,
+    "complete_original_developer_source": false,
+    "gameplay_port_complete": false,
+    "shader_equivalence_verified": false,
+    "unity_runtime_parity_verified": false
+  }
+}
