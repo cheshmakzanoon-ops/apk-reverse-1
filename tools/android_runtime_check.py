@@ -84,23 +84,56 @@ def verify_rendered_png(data):
         return {'width':width,'height':height,'model_region_colors':len(quantized),'variance':variance}
 
 
-def surface_bounds(xml):
-    """Use Android's own view bounds, not guessed notch or letterbox offsets."""
+def surface_bounds(xml, expected_size=None):
+    """Locate the observed Godot surface, including generic accessibility views.
+
+    Android may expose the render view as android.view.View. Accept that form
+    only inside the identified Godot fragment, with focus, matching container
+    bounds and independently reported Godot surface dimensions. Never guess a
+    status-bar offset or treat the whole content frame as the render surface.
+    """
+    require(isinstance(xml, (str, bytes)) and len(xml) <= 2 * 1024**2,
+            'invalid or oversized Android view hierarchy')
+    if expected_size is not None:
+        require(isinstance(expected_size, (list, tuple)) and len(expected_size) == 2
+                and all(type(x) in (int, float) and math.isfinite(x) and 0 < x <= 32768
+                        for x in expected_size), 'invalid Godot surface dimensions')
+
+    def bounds_of(node):
+        match = re.fullmatch(r'\[(\d+),(\d+)\]\[(\d+),(\d+)\]', node.get('bounds', ''))
+        require(match is not None, 'invalid Android view bounds')
+        bounds = tuple(map(int, match.groups()))
+        require(bounds[2] > bounds[0] and bounds[3] > bounds[1], 'empty Android view bounds')
+        return bounds
+
+    def verify_size(bounds):
+        if expected_size is not None:
+            require(abs(bounds[2] - bounds[0] - expected_size[0]) <= 1
+                    and abs(bounds[3] - bounds[1] - expected_size[1]) <= 1,
+                    'Android view size differs from Godot surface size')
+        return list(bounds)
+
     tree = ET.fromstring(xml)
-    found = set()
-    for node in tree.iter('node'):
-        if node.get('package') != PACKAGE:
-            continue
-        name = node.get('class','')
-        if not (name.endswith('SurfaceView') or name.endswith('RenderView')):
-            continue
-        match = re.fullmatch(r'\[(\d+),(\d+)\]\[(\d+),(\d+)\]', node.get('bounds',''))
-        if match:
-            bounds = tuple(map(int,match.groups()))
-            if bounds[2] > bounds[0] and bounds[3] > bounds[1]:
-                found.add(bounds)
-    require(len(found) == 1, 'Android render surface absent or ambiguous in view hierarchy')
-    return list(found.pop())
+    nodes = [n for n in tree.iter('node') if n.get('package') == PACKAGE]
+    explicit = [n for n in nodes if n.get('class', '').endswith(('SurfaceView', 'RenderView'))]
+    if explicit:
+        require(len(explicit) == 1, 'ambiguous Android render surfaces')
+        return verify_size(bounds_of(explicit[0]))
+
+    require(expected_size is not None, 'generic render view requires Godot surface dimensions')
+    containers = [n for n in nodes if n.get('resource-id') ==
+                  'com.godot.game:id/godot_fragment_container']
+    require(len(containers) == 1, 'Godot fragment container absent or ambiguous')
+    container = containers[0]
+    bounds = bounds_of(container)
+    verify_size(bounds)
+    candidates = [n for n in container.iter('node') if n is not container
+                  and n.get('package') == PACKAGE and n.get('class') == 'android.view.View'
+                  and n.get('enabled') == 'true' and n.get('focusable') == 'true'
+                  and n.get('focused') == 'true' and not n.get('resource-id')]
+    require(len(candidates) == 1, 'focused Godot render view absent or ambiguous')
+    require(bounds_of(candidates[0]) == bounds, 'render view differs from Godot fragment bounds')
+    return verify_size(bounds)
 
 
 def physical_point(point, state, bounds):
@@ -176,6 +209,7 @@ def run(apk, expected_path, out, serial):
     device = Device(serial, out)
     report = {'passed': False, 'target': 'Android emulator', 'physical_device_tested': False,
               'gameplay_port_complete': False, 'apk_sha256': hashlib.sha256(apk.read_bytes()).hexdigest()}
+    records = []
     try:
         require(device.shell('getprop', 'ro.kernel.qemu') == '1', 'target is not an emulator')
         report['device'] = {k: device.shell('getprop', k) for k in
@@ -207,11 +241,10 @@ def run(apk, expected_path, out, serial):
         state = device.wait_json('runtime-state.json', lambda s: s.get('nonce') == nonce)
         require(state['runtime_os'] == 'Android' and state['clips'] == 8, 'wrong probe runtime/content')
         require(not state['playing'], 'touch probe did not begin paused')
-        records = []
         device.shell('uiautomator', 'dump', '/data/local/tmp/recovery-ui.xml')
         xml = device.adb('exec-out', 'cat', '/data/local/tmp/recovery-ui.xml')
         (out/'android-view-hierarchy.xml').write_bytes(xml)
-        bounds = surface_bounds(xml)
+        bounds = surface_bounds(xml, state['surface_size'])
         report['surface_bounds'] = bounds
 
         def tap_state(key):
@@ -260,7 +293,6 @@ def run(apk, expected_path, out, serial):
         before = state; tap_state('paused_button')
         state = next_state(before, lambda s: not s['playing'])
         records.append({'action': 'touch_pause', 'before': before, 'after': state})
-        (out/'touch-and-lifecycle.json').write_text(json.dumps(records, indent=2))
         (out/'android-screen.png').write_bytes(device.adb('exec-out', 'screencap', '-p'))
         verify_engine_log(device.adb('logcat', '-d').decode(errors='replace'))
         report.update(passed=True, clips=8, touch_and_lifecycle_operations=len(records),
@@ -273,6 +305,7 @@ def run(apk, expected_path, out, serial):
             pass
         raise
     finally:
+        (out/'touch-and-lifecycle.json').write_text(json.dumps(records, indent=2))
         (out/'commands.json').write_text(json.dumps(device.commands, indent=2))
         (out/'android-runtime.json').write_text(json.dumps(report, indent=2))
         (out/'logcat.txt').write_bytes(device.adb('logcat', '-d', check=False))
