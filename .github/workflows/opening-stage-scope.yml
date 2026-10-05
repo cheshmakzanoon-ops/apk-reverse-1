@@ -1,0 +1,94 @@
+name: Opening-stage dependency package
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/opening-stage-scope.yml'
+      - 'tools/recovery_scope.py'
+      - 'tools/recovery_source_links.py'
+      - 'tests/test_recovery_scope.py'
+      - 'docs/inputs/opening-stage-scope.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: opening-stage-dependency-package
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  selected-original-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test source and preservation contracts
+        run: |
+          mkdir -p reports build
+          python -m pip install -r requirements-recovery.txt gdown==5.2.0
+          python -m unittest discover -s tests -v 2>&1 | tee reports/tests.log
+          python -m pip freeze > reports/dependencies.txt
+          git rev-parse HEAD > reports/commit.txt
+      - name: Obtain the exact completed catalog, not a fresh million-object scan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/cheshmakzanoon-ops/apk-reverse-1/actions/artifacts/11351893109 > reports/catalog-artifact.json
+          python - <<'PY'
+          import json
+          r=json.load(open('reports/catalog-artifact.json'))
+          assert r['workflow_run']['head_sha']=='e22cbcac6d3d71c3c4702c759746cde2b8a5ea16'
+          assert r['digest']=='sha256:cd75e8185d3f8f08e71e2cfde374fad7843c160d892e7a7e836663f9c67aab45'
+          assert not r['expired']
+          PY
+          gh api repos/cheshmakzanoon-ops/apk-reverse-1/actions/artifacts/11351893109/zip > "$RUNNER_TEMP/scope-catalog.zip"
+          echo 'cd75e8185d3f8f08e71e2cfde374fad7843c160d892e7a7e836663f9c67aab45  '"$RUNNER_TEMP/scope-catalog.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/scope-catalog.zip" -d "$RUNNER_TEMP/scope-catalog"
+          sha256sum "$RUNNER_TEMP/scope-catalog/catalog.sqlite" > reports/catalog-sha256.txt
+      - name: Select exact transitive dependencies and record source references
+        run: |
+          python tools/recovery_scope.py plan --catalog "$RUNNER_TEMP/scope-catalog/catalog.sqlite" --profile docs/inputs/opening-stage-scope.json --out reports/scope.json | tee reports/scope-summary.json
+          python tools/recovery_source_links.py --repo . --scope reports/scope.json --out reports/source-links.json
+      - name: Obtain the supplied APK and verify selected original objects and streams
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          r=json.load(open('docs/inputs/last-war.json'));s=json.load(open('docs/inputs/opening-stage-scope.json'))
+          r['expected_sha256']=s['input_sha256'];pathlib.Path('build/request.json').write_text(json.dumps(r))
+          PY
+          python tools/apk_intake.py --request build/request.json --out input/scope
+          python tools/recovery_scope.py extract --apk input/scope/app.apk --plan reports/scope.json --out build/opening-stage | tee reports/extraction.json
+          python tools/recovery_scope.py verify build/opening-stage > reports/package-verification.json
+          python - <<'PY'
+          import pathlib,zipfile
+          root=pathlib.Path('build/opening-stage')
+          with zipfile.ZipFile('build/opening-stage-source-package.zip','x',compression=zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(root.rglob('*')):
+                  if p.is_file(): z.write(p,p.relative_to(root))
+          assert pathlib.Path('build/opening-stage-source-package.zip').stat().st_size < 500*1024**2
+          PY
+      - name: Preserve reports and implementation separately from outcomes
+        if: always()
+        run: |
+          git archive --format=zip HEAD tools tests docs requirements-recovery.txt .github > reports/reproduction-source.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: opening-stage-scope-evidence
+          path: reports/
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: opening-stage-original-objects
+          path: build/opening-stage-source-package.zip
+          retention-days: 14
+          if-no-files-found: error

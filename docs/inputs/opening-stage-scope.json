@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "name": "opening-stage-road-player-first-enemy",
+  "input_sha256": "ccf34af2f1c1c2b0ca8575de2e86fb21bd9f2b1aef5233d35f15a6f9bece88aa",
+  "roots": [
+    {
+      "path": "assets/main/prefabs/lwopeningstage/opening_stage_road.prefab",
+      "type": "GameObject",
+      "object_id": "0122c1fdd20591e8899ba276b9b57a5998ee2a7dfe5a1f3c12a9bcb4b2dabf6d",
+      "sha256": "92b77fe88ade4b8521bfca158a00d74b1db0f8929aaef14bfc3d877688d513a6"
+    },
+    {
+      "path": "assets/main/prefabs/lwopeningstage/solohero.prefab",
+      "type": "GameObject",
+      "object_id": "0cc2b01313d021cb3c98b9241eecf8b23218ddf7cd580c46e2bec0cdd2e71154",
+      "sha256": "2d110d0c48e462d7ecd1993b93f093cc7dd17d03d3a25c71afdb4490e1d61474"
+    },
+    {
+      "path": "assets/main/prefabs/lwopeningstage/enemy_2_1.prefab",
+      "type": "GameObject",
+      "object_id": "5fefc49c7f20b4d73de0bc9ef254448e3ea96783d50ed72335c8357d04fef45f",
+      "sha256": "f5554e43ee57ef9580a6cd90753d2a28aaf6dfebbbcc28eb7de7bea27d382ae0"
+    }
+  ]
+}
