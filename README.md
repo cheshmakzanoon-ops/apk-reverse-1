@@ -51,6 +51,14 @@ supported limits/cache behavior are ported to GDScript and compared with reviewe
 recovered Lua methods. Research responses are injected simulation inputs, not
 live account state, upgrade authorization or a replacement game backend.
 
+The behaviour of the stage-six opening encounter (a SoloHero turret shooting respawning
+ZakuB/ZakuC zombies) is ported to GDScript and compared event-for-event with the recovered Lua
+running under stubbed engine services: five scenarios, 2,507 events, no differences, no engine
+errors and no unmodelled calls. This is logic only. No scene is assembled, no recovered asset is
+loaded, turret and muzzle placement are test fixtures rather than prefab data, and engine frame
+order and load latency are stated assumptions. See
+[the encounter record](docs/STAGE_SIX_ENCOUNTER.md).
+
 ## Original client source remains preserved
 
 The original `source-app/` and `unity-project/` payloads are unchanged. File counts
@@ -178,5 +186,6 @@ Technical contracts: [raw capture](docs/RECOVERY_PIPELINE.md),
 [full graph](docs/FULL_INPUT_GRAPH.md),
 [graph continuation](docs/FULL_GRAPH_CONTINUATION.md),
 [bulk delivery](docs/BULK_ASSET_DELIVERY.md),
-[hero-level rules](docs/HERO_LEVEL_RULES.md), and
+[hero-level rules](docs/HERO_LEVEL_RULES.md),
+[stage-six encounter](docs/STAGE_SIX_ENCOUNTER.md), and
 [historical recovery notes](docs/legacy-recovery-notes.md).

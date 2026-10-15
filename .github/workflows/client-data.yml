@@ -28,6 +28,7 @@ jobs:
           python -m pip install --disable-pip-version-check lupa==2.6
           python -c 'from lupa.lua53 import LuaRuntime; assert LuaRuntime().eval("_VERSION") == "Lua 5.3"'
           python -m unittest discover -s tests -p "test_client*.py" -v 2>&1 | tee reports/r5/data-tests.log
+          python -m unittest discover -s tests -p test_opening_stage.py -v 2>&1 | tee reports/r5/opening-stage-tests.log
       - name: Convert the real committed client profile and compare every table with Lua
         run: |
           python tools/godot_data.py build --repo . --out godot/recovered_data --lua53 2>&1 | tee reports/r5/conversion.log
@@ -59,9 +60,12 @@ jobs:
           "$godot" --headless --path godot --script data_inspector/verify_data.gd -- "$GITHUB_WORKSPACE/reports/r5/boundary-fixture" "$GITHUB_WORKSPACE/reports/r5/native-boundaries.json" 2>&1 | tee reports/r5/native-boundaries.log
           "$godot" --headless --path godot --script gameplay/verify_runtime_semantics.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/r6/semantic-oracle.json" "$GITHUB_WORKSPACE/reports/r6/boundary" "$GITHUB_WORKSPACE/reports/r6/native-semantics.json" 2>&1 | tee reports/r6/native-semantics.log
           timeout 120s "$godot" --headless --path godot --script gameplay/verify_hero_levels.gd -- "$GITHUB_WORKSPACE/godot/recovered_data" "$GITHUB_WORKSPACE/reports/hero-levels/hero-level-oracle.json" "$GITHUB_WORKSPACE/reports/hero-levels/native-hero-levels.json" 2>&1 | tee reports/hero-levels/native-hero-levels.log
+          mkdir -p reports/opening-stage
+          python tools/opening_stage_oracle.py --repo . --out reports/opening-stage/oracle.json
+          timeout 180s "$godot" --headless --path godot --script gameplay/verify_opening_stage.gd -- "$GITHUB_WORKSPACE/reports/opening-stage/oracle.json" "$GITHUB_WORKSPACE/reports/opening-stage/native-encounter.json" 2>&1 | tee reports/opening-stage/native-encounter.log
           timeout 120s "$godot" --headless --path godot res://level_inspector/main.tscn --quit-after 10 2>&1 | tee reports/hero-levels/level-inspector-startup.log
           "$godot" --headless --path godot --quit-after 10 2>&1 | tee reports/r5/inspector-startup.log
-          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log reports/hero-levels/level-inspector-startup.log reports/hero-levels/native-hero-levels.log; then exit 1; fi
+          if grep -E 'SCRIPT ERROR|Parse Error|ERROR:' reports/r5/import.log reports/r5/inspector-startup.log reports/hero-levels/level-inspector-startup.log reports/hero-levels/native-hero-levels.log reports/opening-stage/native-encounter.log; then exit 1; fi
       - name: Configure Android SDK and isolated debug signing
         run: |
           sdkmanager="${ANDROID_HOME:?}/cmdline-tools/latest/bin/sdkmanager"
@@ -105,6 +109,7 @@ jobs:
             reports/r5/
             reports/r6/
             reports/hero-levels/
+            reports/opening-stage/
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: success()
